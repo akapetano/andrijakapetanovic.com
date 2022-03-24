@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
 const name = 'Andrija Kapetanović';
-export const siteTitle = 'AK | Front-End Developer';
+export const siteTitle = 'Andrija Kapetanović | Front-End Developer';
 
 export default function Layout({ children, home }) {
   return (
@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}></h1>
+            <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
