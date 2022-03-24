@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import NavBar from './NavBar';
 
-const name = 'Andrija Kapetanović';
+export const name = 'Andrija Kapetanović';
 export const siteTitle = 'Andrija Kapetanović | Front-End Developer';
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,7 +25,8 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className="header">
+        <NavBar />
         {home ? (
           <>
             <Image
@@ -36,7 +37,7 @@ export default function Layout({ children, home }) {
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            {/* <h1 className={utilStyles.heading2Xl}>{name}</h1> */}
           </>
         ) : (
           <>
@@ -62,12 +63,31 @@ export default function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className="backToHome">
           <Link href="/">
             <a>← Back to home</a>
           </Link>
         </div>
       )}
+      <style jsx>
+        {`
+          .container {
+            max-width: 36rem;
+            padding: 0 1rem;
+            margin: 8rem auto 6rem;
+          }
+
+          .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .backToHome {
+            margin: 3rem 0 0;
+          }
+        `}
+      </style>
     </div>
   );
 }
