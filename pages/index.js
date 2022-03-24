@@ -22,9 +22,13 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Hi, I'm <strong>Andrija</strong>. I'm a front-end developer. You can
-          contact me on{' '}
-          <a href="https://twitter.com/AndiKapetanovic" target="_blank">
+          Hi, my name is <strong>Andrija</strong>. I&apos;m a front-end
+          developer. You can contact me on{' '}
+          <a
+            href="https://twitter.com/AndiKapetanovic"
+            rel="noreferrer"
+            target="_blank"
+          >
             Twitter
           </a>
           .
