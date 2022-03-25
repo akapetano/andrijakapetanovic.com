@@ -7,7 +7,7 @@ export function HamburgerMenu() {
   return (
     <Flex
       w="100vw"
-      bgColor="brand.200"
+      bgColor="white"
       zIndex={20}
       h="100vh"
       pos="fixed"
@@ -16,7 +16,34 @@ export function HamburgerMenu() {
       overflowY="auto"
       flexDir="column"
     >
-      {/* <Flex justify="flex-end">
+      <IconButton
+        aria-label="Open menu"
+        zIndex={30}
+        pos="fixed"
+        color="black"
+        size="lg"
+        mr={2}
+        icon={<HamburgerIcon />}
+        display={['flex', 'flex', 'none', 'none']}
+      />
+    </Flex>
+  );
+
+  {
+    /* // <Flex 
+  //   w="100vw"
+  //   bgColor="brand.200"
+  //   zIndex={20}
+  //   h="100vh"
+  //   pos="fixed"
+  //   top="0"
+  //   left="0"
+  //   overflowY="auto"
+  //   flexDir="column"
+  // >*/
+  }
+  {
+    /* <Flex justify="flex-end">
           <IconButton
             aria-label="Open menu"
             size="lg"
@@ -45,7 +72,6 @@ export function HamburgerMenu() {
           <NextLink passHref href="/blog">
             <Link>Blog</Link>
           </NextLink>
-        </Flex> */}
-    </Flex>
-  );
+        </Flex> */
+  }
 }

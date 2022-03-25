@@ -6,17 +6,14 @@ import {
   Link,
   Heading,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import { name } from './Layout';
 import { DarkModeSwitch } from './DarkModeSwitch';
-// import HamburgerMenu from './HamburgerMenu';
+import { HamburgerMenu } from './HamburgerMenu';
+
+const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
 export default function NavBar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter();
-  const isActive = router.pathname === '/';
-
   return (
     <Flex
       align="center"
@@ -29,6 +26,8 @@ export default function NavBar() {
       width="100%"
       height="5rem"
       boxShadow={(theme) => theme.boxShadow}
+      backgroundColor="whiteAlpha.100"
+      zIndex={100}
     >
       <Box>
         <Heading as="h2" size="md">
@@ -41,16 +40,13 @@ export default function NavBar() {
           align="center"
           display={['none', 'none', 'flex', 'flex']}
         >
-          <NextLink passHref href="/about">
-            <Link color={isActive ? 'red' : 'blue'}>About</Link>
-          </NextLink>
-          <NextLink passHref href="/portfolio">
-            <Link color={isActive ? 'red' : 'blue'}>Portfolio</Link>
-          </NextLink>
-          <NextLink passHref href="/blog">
-            <Link color={isActive ? 'red' : 'blue'}>Blog</Link>
-          </NextLink>
+          {NAV_ITEMS.map((navItem) => (
+            <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
+              <Link>{navItem}</Link>
+            </NextLink>
+          ))}
         </HStack>
+        {/* <HamburgerMenu /> */}
         <DarkModeSwitch />
       </HStack>
     </Flex>
