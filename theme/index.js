@@ -10,25 +10,6 @@ const breakpoints = {
 
 const boxShadow = '0px 0px 4px rgba(0, 0, 0, 0.24)';
 
-const inputSelectStyles = {
-  variants: {
-    filled: {
-      field: {
-        _focus: {
-          borderColor: 'brand.500',
-        },
-      },
-    },
-  },
-  sizes: {
-    md: {
-      field: {
-        borderRadius: 'none',
-      },
-    },
-  },
-};
-
 const theme = extendTheme({
   colors: {
     white: '#fff',
@@ -44,13 +25,17 @@ const theme = extendTheme({
       800: '#2A4365',
       900: '#1a365d',
     },
+    icons: {
+      sun: '#ffc32b',
+      moon: '#FCE570',
+    },
   },
   fonts: {
     heading: `Montserrat, ${base.fonts?.heading}`,
     body: `Inter, ${base.fonts?.body}`,
   },
   components: {
-    Input: { ...inputSelectStyles },
+    Switch: {},
   },
   breakpoints,
   boxShadow,
