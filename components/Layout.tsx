@@ -10,11 +10,18 @@ import {
   Link,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { ReactNode } from 'react';
+import Footer from './Footer';
+
+interface Props {
+  children: ReactNode;
+  home: string;
+}
 
 export const name = 'Andrija Kapetanović';
 export const siteTitle = 'Andrija Kapetanović | Front-End Developer';
 
-export default function Layout({ children, home }) {
+export default function Layout<Props>({ children, home }) {
   const imageSrc = useColorModeValue(
     '/images/andrija-kapetanovic.jpg',
     '/images/andrija-kapetanovic-dark.jpg'
@@ -84,6 +91,10 @@ export default function Layout({ children, home }) {
           </NextLink>
         </div>
       )}
+
+      <footer>
+        <Footer />
+      </footer>
     </Container>
   );
 }

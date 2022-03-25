@@ -1,5 +1,5 @@
 import { HStack } from '@chakra-ui/react';
-import { NextLink } from 'next/link';
+import NextLink from 'next/link';
 import { Link } from '@chakra-ui/react';
 
 export default function Menu({ NAV_ITEMS }) {

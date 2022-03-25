@@ -14,12 +14,10 @@ export default function NavBar() {
       pos="fixed"
       top="0"
       right="0"
-      bg={(theme) => theme.boxShadow}
       px={4}
       width="100%"
       height="5rem"
-      boxShadow={(theme) => theme.boxShadow}
-      backgroundColor="whiteAlpha.100"
+      boxShadow="base"
       zIndex={100}
     >
       <Box>
