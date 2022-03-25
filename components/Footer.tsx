@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 export default function Footer() {
   return (
     <Flex
-      borderTop="1px solid rgba(0, 0, 0, 0.25)"
+      borderTop="1px solid rgba(0, 0, 0, 0.1)"
       align="center"
       justify="center"
       mt="1rem"
