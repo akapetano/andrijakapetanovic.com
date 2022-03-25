@@ -24,6 +24,7 @@ export function DarkModeSwitch() {
             left="3px"
             zIndex="3"
             color={iconsColor}
+            pointerEvents="none"
           />
         ) : null}
         <Switch
@@ -39,8 +40,9 @@ export function DarkModeSwitch() {
             h="3"
             top="4px"
             left="23px"
-            zIndex="2"
+            zIndex="3"
             color={iconsColor}
+            pointerEvents="none"
           />
         ) : null}
       </Flex>
