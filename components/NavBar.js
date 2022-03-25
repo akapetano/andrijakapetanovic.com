@@ -1,15 +1,8 @@
-import {
-  HStack,
-  Box,
-  useDisclosure,
-  Flex,
-  Link,
-  Heading,
-} from '@chakra-ui/react';
+import { HStack, Box, Flex, Heading } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { name } from './Layout';
 import { DarkModeSwitch } from './DarkModeSwitch';
-import { HamburgerMenu } from './HamburgerMenu';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
@@ -34,19 +27,18 @@ export default function NavBar() {
           {name}
         </Heading>
       </Box>
-      <HStack spacing={'1rem'} align="center">
+      <HStack spacing={'2rem'} align="center">
         <HStack
-          spacing={'1rem'}
+          spacing={'2rem'}
           align="center"
           display={['none', 'none', 'flex', 'flex']}
         >
-          {NAV_ITEMS.map((navItem) => (
+          {NAV_ITEMS?.map((navItem) => (
             <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
               <Link>{navItem}</Link>
             </NextLink>
           ))}
         </HStack>
-        {/* <HamburgerMenu /> */}
         <DarkModeSwitch />
       </HStack>
     </Flex>

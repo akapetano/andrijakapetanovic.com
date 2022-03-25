@@ -54,7 +54,7 @@ export default function Layout({ children, home }) {
           </Flex>
         ) : (
           <Flex justify="center">
-            <Box margin="0 0 1.5rem">
+            <Flex flexDir="column" align="center" margin="0 0 1.5rem">
               <NextLink passHref href="/">
                 <Link>
                   <Image
@@ -69,10 +69,10 @@ export default function Layout({ children, home }) {
               </NextLink>
               <h2 className={utilStyles.headingLg}>
                 <NextLink href="/">
-                  <a className={utilStyles.colorInherit}>{name}</a>
+                  <a>{name}</a>
                 </NextLink>
               </h2>
-            </Box>
+            </Flex>
           </Flex>
         )}
       </header>
