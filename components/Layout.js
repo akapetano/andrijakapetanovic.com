@@ -1,15 +1,27 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import NavBar from './NavBar';
+import {
+  Box,
+  Container,
+  Flex,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 export const name = 'Andrija Kapetanović';
 export const siteTitle = 'Andrija Kapetanović | Front-End Developer';
 
 export default function Layout({ children, home }) {
+  const imageSrc = useColorModeValue(
+    '/images/andrija-kapetanovic.jpg',
+    '/images/andrija-kapetanovic-dark.jpg'
+  );
+
   return (
-    <div className="container">
+    <Container maxWidth="36rem" padding="0 1rem" margin="8rem auto 6rem">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,69 +37,53 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className="header">
+      <header>
         <NavBar />
         {home ? (
-          <>
-            <Image
-              priority
-              src="/images/andrija-kapetanovic.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={name}
-            />
-            {/* <h1 className={utilStyles.heading2Xl}>{name}</h1> */}
-          </>
+          <Flex justify="center">
+            <Box margin="0 0 1.5rem">
+              <Image
+                priority
+                src={imageSrc}
+                className={utilStyles.borderCircle}
+                height={144}
+                width={144}
+                alt={name}
+              />
+            </Box>
+          </Flex>
         ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/andrija-kapetanovic.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
+          <Flex justify="center">
+            <Box margin="0 0 1.5rem">
+              <NextLink passHref href="/">
+                <Link>
+                  <Image
+                    priority
+                    src={imageSrc}
+                    className={utilStyles.borderCircle}
+                    height={108}
+                    width={108}
+                    alt={name}
+                  />
+                </Link>
+              </NextLink>
+              <h2 className={utilStyles.headingLg}>
+                <NextLink href="/">
+                  <a className={utilStyles.colorInherit}>{name}</a>
+                </NextLink>
+              </h2>
+            </Box>
+          </Flex>
         )}
       </header>
       <main>{children}</main>
       {!home && (
         <div className="backToHome">
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
+          <NextLink passHref href="/">
+            <Link margin="3rem 0 0">← Back to home</Link>
+          </NextLink>
         </div>
       )}
-      <style jsx>
-        {`
-          .container {
-            max-width: 36rem;
-            padding: 0 1rem;
-            margin: 8rem auto 6rem;
-          }
-
-          .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .backToHome {
-            margin: 3rem 0 0;
-          }
-        `}
-      </style>
-    </div>
+    </Container>
   );
 }
