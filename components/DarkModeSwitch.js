@@ -13,7 +13,7 @@ export function DarkModeSwitch() {
   const isDark = colorMode === 'dark';
 
   return (
-    <Flex>
+    <Flex p={['0 1rem', '0 1rem', '0', '0']}>
       <Flex>
         {isDark ? (
           <MoonIcon
@@ -38,7 +38,7 @@ export function DarkModeSwitch() {
             w="3"
             h="3"
             top="4px"
-            left="22px"
+            left="23px"
             zIndex="2"
             color={iconsColor}
           />

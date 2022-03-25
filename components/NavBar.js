@@ -9,9 +9,8 @@ import {
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import { name } from './Layout';
-import { IconButton } from '@chakra-ui/react';
-import { HamburgerIcon, closeIcon } from '@chakra-ui/icons';
 import { DarkModeSwitch } from './DarkModeSwitch';
+// import HamburgerMenu from './HamburgerMenu';
 
 export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,20 +35,22 @@ export default function NavBar() {
           {name}
         </Heading>
       </Box>
-      <HStack
-        spacing={'2rem'}
-        align="center"
-        display={['none', 'none', 'flex', 'flex']}
-      >
-        <NextLink passHref href="/about">
-          <Link color={isActive ? 'red' : 'blue'}>About</Link>
-        </NextLink>
-        <NextLink passHref href="/portfolio">
-          <Link color={isActive ? 'red' : 'blue'}>Portfolio</Link>
-        </NextLink>
-        <NextLink passHref href="/blog">
-          <Link color={isActive ? 'red' : 'blue'}>Blog</Link>
-        </NextLink>
+      <HStack spacing={'1rem'} align="center">
+        <HStack
+          spacing={'1rem'}
+          align="center"
+          display={['none', 'none', 'flex', 'flex']}
+        >
+          <NextLink passHref href="/about">
+            <Link color={isActive ? 'red' : 'blue'}>About</Link>
+          </NextLink>
+          <NextLink passHref href="/portfolio">
+            <Link color={isActive ? 'red' : 'blue'}>Portfolio</Link>
+          </NextLink>
+          <NextLink passHref href="/blog">
+            <Link color={isActive ? 'red' : 'blue'}>Blog</Link>
+          </NextLink>
+        </HStack>
         <DarkModeSwitch />
       </HStack>
     </Flex>
