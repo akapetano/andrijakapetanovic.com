@@ -3,10 +3,16 @@ import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { name } from './Layout';
 import { DarkModeSwitch } from './DarkModeSwitch';
+import { useColorModeValue } from '@chakra-ui/react';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
 export default function NavBar() {
+  const navBoxShadow = useColorModeValue(
+    '0 0 4px 0 rgba(0, 0, 0, 0.15)',
+    '0 0 4px 0 rgba(255, 255, 255, 0.1)'
+  );
+
   return (
     <Flex
       align="center"
@@ -17,7 +23,7 @@ export default function NavBar() {
       px={4}
       width="100%"
       height="5rem"
-      boxShadow="base"
+      boxShadow={navBoxShadow}
       zIndex={100}
     >
       <Box>
