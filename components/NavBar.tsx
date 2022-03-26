@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import { name } from './Layout';
 import { DarkModeSwitch } from './DarkModeSwitch';
 import { useColorModeValue } from '@chakra-ui/react';
+import HamMenu from './Menu';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
@@ -48,7 +49,9 @@ export default function NavBar() {
             </NextLink>
           ))}
         </HStack>
+
         <DarkModeSwitch />
+        {/* <HamMenu items={NAV_ITEMS} /> */}
       </HStack>
     </Flex>
   );

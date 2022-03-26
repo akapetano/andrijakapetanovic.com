@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import utilStyles from '../styles/utils.module.css';
 import NextLink from 'next/link';
 import NavBar from './NavBar';
 import {
