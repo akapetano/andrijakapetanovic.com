@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import Footer from './Footer';
+import DynamicShadowImage from './DynamicShadowImage';
 
 interface Props {
   children: ReactNode;
@@ -54,12 +55,10 @@ export default function Layout({ children, home }: Props) {
         {home ? (
           <Flex justify="center">
             <Box margin="0 0 1.5rem">
-              <Image
-                priority
+              <DynamicShadowImage
+                src={imageSrc}
                 height={144}
                 width={144}
-                className={utilStyles.borderCircle}
-                src={imageSrc}
                 alt={name}
               />
             </Box>
@@ -69,12 +68,10 @@ export default function Layout({ children, home }: Props) {
             <Flex flexDir="column" align="center" margin="0 0 1.5rem">
               <NextLink passHref href="/">
                 <Link>
-                  <Image
-                    priority
+                  <DynamicShadowImage
+                    src={imageSrc}
                     height={108}
                     width={108}
-                    className={utilStyles.borderCircle}
-                    src={imageSrc}
                     alt={name}
                   />
                 </Link>
