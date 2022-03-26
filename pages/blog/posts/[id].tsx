@@ -2,7 +2,7 @@ import Layout from '../../../components/Layout';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Head from 'next/head';
 import Date from '../../../components/Date';
-import utilStyles from '../../../styles/utils.module.css';
+import { Box, Heading } from '@chakra-ui/react';
 
 export default function Post({ postData }) {
   return (
@@ -11,11 +11,20 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <Heading
+          as="h2"
+          size="lg"
+          lineHeight="1.3"
+          fontWeight="800"
+          letterSpacing="-0.05rem"
+          margin="1rem 0"
+        >
+          {postData.title}
+        </Heading>
+        <Box color="gray.400">
           <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </Box>
+        <Box dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );

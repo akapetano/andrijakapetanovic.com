@@ -15,13 +15,13 @@ import Footer from './Footer';
 
 interface Props {
   children: ReactNode;
-  home: string;
+  home?: boolean;
 }
 
 export const name = 'Andrija Kapetanović';
 export const siteTitle = 'Andrija Kapetanović | Front-End Developer';
 
-export default function Layout<Props>({ children, home }) {
+export default function Layout({ children, home }: Props) {
   const imageSrc = useColorModeValue(
     '/images/andrija-kapetanovic.jpg',
     '/images/andrija-kapetanovic-dark.jpg'
@@ -51,10 +51,10 @@ export default function Layout<Props>({ children, home }) {
             <Box margin="0 0 1.5rem">
               <Image
                 priority
-                src={imageSrc}
-                className={utilStyles.borderCircle}
                 height={144}
                 width={144}
+                className={utilStyles.borderCircle}
+                src={imageSrc}
                 alt={name}
               />
             </Box>
@@ -66,30 +66,25 @@ export default function Layout<Props>({ children, home }) {
                 <Link>
                   <Image
                     priority
-                    src={imageSrc}
-                    className={utilStyles.borderCircle}
                     height={108}
                     width={108}
+                    className={utilStyles.borderCircle}
+                    src={imageSrc}
                     alt={name}
                   />
                 </Link>
               </NextLink>
-              <h2 className={utilStyles.headingLg}>
-                <NextLink href="/">
-                  <a>{name}</a>
-                </NextLink>
-              </h2>
             </Flex>
           </Flex>
         )}
       </header>
       <main>{children}</main>
       {!home && (
-        <div className="backToHome">
+        <Box margin="3rem 0 0">
           <NextLink passHref href="/">
-            <Link margin="3rem 0 0">← Back to home</Link>
+            <Link fontSize="md">← Back to home</Link>
           </NextLink>
-        </div>
+        </Box>
       )}
 
       <footer>

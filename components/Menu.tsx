@@ -9,7 +9,7 @@ export default function Menu({ NAV_ITEMS }) {
       align="center"
       display={['none', 'none', 'flex', 'flex']}
     >
-      {NAV_ITEMS?.map((navItem) => (
+      {NAV_ITEMS?.map((navItem: string) => (
         <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
           <Link>{navItem}</Link>
         </NextLink>

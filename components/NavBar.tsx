@@ -12,6 +12,7 @@ export default function NavBar() {
     '0 0 4px 0 rgba(0, 0, 0, 0.15)',
     '0 0 4px 0 rgba(255, 255, 255, 0.1)'
   );
+  const nameLogo = useColorModeValue('gray.700', 'gray.200');
 
   return (
     <Flex
@@ -24,12 +25,15 @@ export default function NavBar() {
       width="100%"
       height="5rem"
       boxShadow={navBoxShadow}
-      zIndex={100}
     >
       <Box>
-        <Heading as="h2" size="md">
-          {name}
-        </Heading>
+        <NextLink passHref href="/">
+          <Link _hover={{ textDecoration: 'none' }}>
+            <Heading color={nameLogo} as="h2" size="md">
+              {name}
+            </Heading>
+          </Link>
+        </NextLink>
       </Box>
       <HStack spacing={'2rem'} align="center">
         <HStack
@@ -39,7 +43,7 @@ export default function NavBar() {
         >
           {NAV_ITEMS?.map((navItem) => (
             <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
-              <Link>{navItem}</Link>
+              <Link fontSize="xl">{navItem}</Link>
             </NextLink>
           ))}
         </HStack>

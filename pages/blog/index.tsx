@@ -1,8 +1,15 @@
 import Layout from '../../components/Layout';
-import utilStyles from '../../styles/utils.module.css';
 import { getSortedPostsData } from '../../lib/posts';
 import NextLink from 'next/link';
 import Date from '../../components/Date';
+import {
+  Container,
+  Heading,
+  UnorderedList,
+  ListItem,
+  Link,
+  Text,
+} from '@chakra-ui/react';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -15,22 +22,26 @@ export async function getStaticProps() {
 
 export default function Blog({ allPostsData }) {
   return (
-    <Layout blog>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <NextLink href={`blog/posts/${id}`}>
-                <a>{title}</a>
-              </NextLink>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+    <Layout>
+      <section>
+        <Container fontSize="1.2rem" lineHeight="1.5" pt="1px">
+          <Heading fontSize="1.5rem" lineHeight="1.4" margin="1rem 0">
+            Blog posts
+          </Heading>
+          <UnorderedList listStyleType="none" p={0} m={0}>
+            {allPostsData.map(({ id, date, title }) => (
+              <ListItem margin="0 0 1.25rem" key={id}>
+                <NextLink passHref href={`blog/posts/${id}`}>
+                  <Link>{title}</Link>
+                </NextLink>
+                <br />
+                <Text fontSize="sm" color="gray.400">
+                  <Date dateString={date} />
+                </Text>
+              </ListItem>
+            ))}
+          </UnorderedList>
+        </Container>
       </section>
     </Layout>
   );
