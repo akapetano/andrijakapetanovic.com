@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { name } from './Layout';
 import { DarkModeSwitch } from './DarkModeSwitch';
 import { useColorModeValue } from '@chakra-ui/react';
-import HamMenu from './Menu';
+import HamMenu from './HamMenu';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
@@ -29,13 +29,14 @@ export default function NavBar() {
       height="5rem"
       boxShadow={navBoxShadow}
       zIndex="100"
+      overflow="hidden"
     >
       <Box>
-        <Heading as="h2" size="md">
-          <NextLink passHref href="/">
-            <Link _hover={{ textDecoration: 'none' }}>{name}</Link>
-          </NextLink>
-        </Heading>
+        <NextLink passHref href="/">
+          <Link fontSize="lg" _hover={{ textDecoration: 'none' }}>
+            {name}
+          </Link>
+        </NextLink>
       </Box>
       <HStack spacing={'2rem'} align="center">
         <HStack
@@ -45,7 +46,15 @@ export default function NavBar() {
         >
           {NAV_ITEMS?.map((navItem) => (
             <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
-              <Link fontSize="xl">{navItem}</Link>
+              <Link
+                opacity="0.8"
+                fontSize="sm"
+                textTransform="uppercase"
+                fontWeight={300}
+                _hover={{ opacity: '1' }}
+              >
+                {navItem}
+              </Link>
             </NextLink>
           ))}
         </HStack>

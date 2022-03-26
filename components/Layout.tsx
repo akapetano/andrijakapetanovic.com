@@ -27,12 +27,11 @@ export default function Layout({ children, home }: Props) {
     '/images/andrija-kapetanovic-dark.jpg'
   );
   const colorMode = useColorModeValue('lightMode', 'darkMode');
-  console.log(colorMode);
 
   return (
     <Container
       maxWidth="36rem"
-      height="100vh"
+      height="100%"
       padding="0 1rem"
       margin="8rem auto 6rem"
     >

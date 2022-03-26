@@ -28,17 +28,17 @@ const theme = extendTheme({
       },
       a: {
         _link: {
-          color: mode('brand.500', 'brand.400')(props),
+          color: mode('brand.600', 'brand.400')(props),
         },
         _visited: {
-          color: mode('brand.500', 'brand.400')(props),
+          color: mode('brand.600', 'brand.400')(props),
         },
         _hover: {
-          color: mode('brand.600', 'brand.500')(props),
+          color: mode('brand.700', 'brand.500')(props),
           textDecoration: 'underline',
         },
         _active: {
-          color: mode('brand.600', 'brand.500')(props),
+          color: mode('brand.700', 'brand.500')(props),
           textDecoration: 'underline',
         },
       },
@@ -47,16 +47,10 @@ const theme = extendTheme({
   colors: {
     white: '#fff',
     brand: {
-      50: '#E5F0FD',
-      100: '#CCE2FC',
-      200: '#B2D4FB',
-      300: '#7FB7F8',
-      400: '#4C9AF6',
-      500: '#0070f3',
-      600: '#0064DA',
-      700: '#0059C2',
-      800: '#004EAA',
-      900: '#004391',
+      400: '#74b9ff',
+      500: '#3498db',
+      600: '#2980b9',
+      700: '#0984e3',
     },
     icons: {
       sun: '#ffc32b',
