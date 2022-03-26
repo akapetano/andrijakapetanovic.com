@@ -1,10 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter, { GrayMatterFile } from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+
+interface IPostData {
+  data: { title: string; date: Date };
+}
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -23,14 +27,14 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as IPostData),
     };
   });
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
+  return allPostsData.sort(({ date: dateA }, { date: dateB }) => {
+    if (dateA < dateB) {
       return 1;
-    } else if (a > b) {
+    } else if (dateA > dateB) {
       return -1;
     } else {
       return 0;
@@ -63,7 +67,7 @@ export function getAllPostIds() {
   });
 }
 
-export async function getPostData(id) {
+export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 

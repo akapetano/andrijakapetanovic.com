@@ -7,6 +7,7 @@ import {
   Flex,
   Link,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import Footer from './Footer';
@@ -25,6 +26,8 @@ export default function Layout({ children, home }: Props) {
     '/images/andrija-kapetanovic.jpg',
     '/images/andrija-kapetanovic-dark.jpg'
   );
+  const colorMode = useColorModeValue('lightMode', 'darkMode');
+  console.log(colorMode);
 
   return (
     <Container
@@ -53,12 +56,22 @@ export default function Layout({ children, home }: Props) {
         {home ? (
           <Flex justify="center">
             <Box margin="0 0 1.5rem">
-              <DynamicShadowImage
-                src={imageSrc}
-                height={144}
-                width={144}
-                alt={name}
-              />
+              {colorMode === 'lightMode' ? (
+                <Image
+                  src={imageSrc}
+                  height={144}
+                  width={144}
+                  alt={name}
+                  rounded="full"
+                />
+              ) : (
+                <DynamicShadowImage
+                  src={imageSrc}
+                  height={144}
+                  width={144}
+                  alt={name}
+                />
+              )}
             </Box>
           </Flex>
         ) : (
@@ -66,12 +79,22 @@ export default function Layout({ children, home }: Props) {
             <Flex flexDir="column" align="center" margin="0 0 1.5rem">
               <NextLink passHref href="/">
                 <Link>
-                  <DynamicShadowImage
-                    src={imageSrc}
-                    height={108}
-                    width={108}
-                    alt={name}
-                  />
+                  {colorMode === 'lightMode' ? (
+                    <Image
+                      src={imageSrc}
+                      height={108}
+                      width={108}
+                      alt={name}
+                      rounded="full"
+                    />
+                  ) : (
+                    <DynamicShadowImage
+                      src={imageSrc}
+                      height={108}
+                      width={108}
+                      alt={name}
+                    />
+                  )}
                 </Link>
               </NextLink>
             </Flex>
