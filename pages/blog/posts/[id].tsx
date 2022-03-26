@@ -17,11 +17,10 @@ export default function Post({ postData }) {
           lineHeight="1.3"
           fontWeight="800"
           letterSpacing="-0.05rem"
-          margin="1rem 0"
         >
           {postData.title}
         </Heading>
-        <Box color="gray.400">
+        <Box fontSize="lg" color="gray.400" mb="1rem">
           <Date dateString={postData.date} />
         </Box>
         <Box dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

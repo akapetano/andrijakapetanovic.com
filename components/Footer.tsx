@@ -10,9 +10,11 @@ export default function Footer() {
     '1px solid rgba(0, 0, 0, 0.05)',
     '1px solid rgba(255, 255, 255, 0.05)'
   );
+  const footerBg = useColorModeValue('white', 'gray.800');
 
   return (
     <Flex
+      bg={footerBg}
       borderTop={footerBorder}
       align="center"
       justify="center"
@@ -24,6 +26,7 @@ export default function Footer() {
       width="100%"
       height="8rem"
       boxShadow="base"
+      zIndex="100"
     >
       <HStack spacing="3.5rem">
         <Link href="https://github.com/akapetano" target="_blank">
@@ -31,7 +34,7 @@ export default function Footer() {
             as={FaGithub}
             color={iconColor}
             opacity="0.6"
-            boxSize={8}
+            boxSize={['6', '6', '8', '8']}
             transition="all 0.2s ease-in-out"
             _hover={{
               opacity: 1,
@@ -49,7 +52,7 @@ export default function Footer() {
             as={FaLinkedin}
             color={iconColor}
             opacity="0.6"
-            boxSize={8}
+            boxSize={['6', '6', '8', '8']}
             transition="all 0.2s ease-in-out"
             _hover={{ opacity: 1, transform: 'scale(1.2)', color: '#0e76a8' }}
             _focus={{ boxShadow: 'outline' }}
@@ -60,7 +63,7 @@ export default function Footer() {
             as={FaTwitter}
             color={iconColor}
             opacity="0.6"
-            boxSize={8}
+            boxSize={['6', '6', '8', '8']}
             transition="all 0.2s ease-in-out"
             _hover={{ opacity: 1, transform: 'scale(1.2)', color: '#00ACEE' }}
             _focus={{ boxShadow: 'outline' }}

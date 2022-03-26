@@ -28,7 +28,12 @@ export default function Layout({ children, home }: Props) {
   );
 
   return (
-    <Container maxWidth="36rem" padding="0 1rem" margin="8rem auto 6rem">
+    <Container
+      maxWidth="36rem"
+      height="100vh"
+      padding="0 1rem"
+      margin="8rem auto 6rem"
+    >
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
