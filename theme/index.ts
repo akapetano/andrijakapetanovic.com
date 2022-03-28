@@ -20,18 +20,20 @@ const theme = extendTheme({
     global: (props: any) => ({
       'html, body': {
         color: mode('gray.700', 'gray.200')(props),
-        padding: 0,
-        margin: 0,
+        padding: '0',
+        margin: '0',
         fontSize: '1.2rem',
         lineHeight: 1.6,
-        boxSizing: 'border-box',
       },
       a: {
+        position: 'relative',
         _link: {
           color: mode('brand.600', 'brand.400')(props),
+          textDecoration: 'none',
         },
         _visited: {
           color: mode('brand.600', 'brand.400')(props),
+          textDecoration: 'none',
         },
         _hover: {
           color: mode('brand.700', 'brand.500')(props),

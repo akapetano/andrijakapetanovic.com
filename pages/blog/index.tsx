@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout';
 import { getSortedPostsData } from '../../lib/posts';
 import NextLink from 'next/link';
+import Head from 'next/head';
 import Date from '../../components/Date';
 import {
   Container,
@@ -10,6 +11,7 @@ import {
   Link,
   Text,
 } from '@chakra-ui/react';
+import BackToHome from '../../components/BackToHome';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -23,6 +25,9 @@ export async function getStaticProps() {
 export default function Blog({ allPostsData }) {
   return (
     <Layout>
+      <Head>
+        <title>Blog</title>
+      </Head>
       <section>
         <Container fontSize="1.2rem" lineHeight="1.5" pt="1px">
           <Heading fontSize="1.5rem" lineHeight="1.4" margin="1rem 0">
@@ -43,6 +48,7 @@ export default function Blog({ allPostsData }) {
           </UnorderedList>
         </Container>
       </section>
+      <BackToHome />;
     </Layout>
   );
 }

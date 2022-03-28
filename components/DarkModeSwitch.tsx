@@ -32,6 +32,7 @@ export function DarkModeSwitch() {
           position="absolute"
           zIndex="2"
           onChange={toggleColorMode}
+          size="md"
         />
         {!isDark ? (
           <SunIcon

@@ -14,6 +14,7 @@ export default function Footer() {
 
   return (
     <Flex
+      as="footer"
       bg={footerBg}
       borderTop={footerBorder}
       align="center"

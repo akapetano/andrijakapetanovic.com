@@ -1,39 +1,46 @@
-import { VStack, Menu, MenuButton, IconButton } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { Link } from '@chakra-ui/react';
+import {
+  VStack,
+  Menu,
+  MenuButton,
+  IconButton,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
+import NavItems from './NavItems';
 
 export default function HamMenu({ items }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const menuHandler = () => {
-    setIsOpen((prevState) => !prevState);
-    console.log(isOpen);
-  };
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Menu isLazy>
       <MenuButton
         as={IconButton}
         aria-label="Menu"
-        icon={!isOpen ? <HamburgerIcon /> : <CloseIcon />}
+        pos="relative"
+        mt={'0.5rem'}
+        icon={!isOpen ? <HamburgerIcon boxSize="5" /> : <CloseIcon />}
         variant=""
-        onClick={menuHandler}
+        onClick={!isOpen ? onOpen : onClose}
+        zIndex="2"
       />
       {isOpen ? (
         <VStack
-          pos="absolute"
-          justify="center"
+          bg="rgba(0,0,0,0.25)"
+          height="100vh"
+          width="100vw"
+          pos="fixed"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
           spacing={'1rem'}
           align="center"
-          display={['none', 'none', 'flex', 'flex']}
+          justify="center"
+          display={['flex', 'flex', 'flex', 'flex']}
+          zIndex="1"
+          transition="all 1s ease-in-out"
         >
-          {items.map((navItem: string) => (
-            <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
-              <Link>{navItem}</Link>
-            </NextLink>
-          ))}
+          <NavItems fontSize={'lg'} p="1rem" />
         </VStack>
       ) : null}
     </Menu>
