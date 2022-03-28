@@ -1,5 +1,5 @@
 import Layout from '../../../components/core/Layout/Layout';
-import { getAllPostIds, getPostData } from '../../../lib/posts';
+import { getAllPostSlugs, getPostData } from '../../../lib/posts';
 import Head from 'next/head';
 import Date from '../../../components/Date';
 import { Box, Heading } from '@chakra-ui/react';
@@ -34,10 +34,10 @@ export default function Post({ postData }) {
 
 export async function getStaticPaths() {
   // Return a list of possible value for id
-  const paths = getAllPostIds();
+  // const paths = getAllPostSlugs();
   return {
-    paths,
-    fallback: false,
+    paths: [{ params: { slug: 'ssg-ssr' } }],
+    fallback: true,
   };
 }
 
