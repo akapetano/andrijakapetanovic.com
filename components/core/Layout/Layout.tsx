@@ -1,10 +1,6 @@
 import { Box, BoxProps } from '@chakra-ui/react';
 
-interface ILayoutProps extends BoxProps {
-  home?: boolean;
-}
-
-export default function Layout({ home, ...restProps }: ILayoutProps) {
+export default function Layout({ ...restProps }: BoxProps) {
   return (
     <Box
       maxWidth="36rem"

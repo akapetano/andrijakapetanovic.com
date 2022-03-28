@@ -1,19 +1,8 @@
-import {
-  useColorModeValue,
-  Flex,
-  Box,
-  Image,
-  Link,
-  BoxProps,
-} from '@chakra-ui/react';
+import { useColorModeValue, Flex, Box, Image, Link } from '@chakra-ui/react';
 import DynamicShadowImage from './DynamicShadowImage';
 import NextLink from 'next/link';
 
-interface IAuthorImageProps extends BoxProps {
-  home?: boolean;
-}
-
-export default function AuthorImage({ home }: IAuthorImageProps) {
+export default function AuthorImage({ home }) {
   const imageSrc = useColorModeValue(
     '/images/andrija-kapetanovic.jpg',
     '/images/andrija-kapetanovic-dark.jpg'

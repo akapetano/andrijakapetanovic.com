@@ -1,13 +1,15 @@
-import Layout from '../components/Layout';
-import Head from 'next/head';
+import Layout from '../components/core/Layout/Layout';
+import NextHead from '../components/NextHead';
+import LayoutHeader from '../components/core/Layout/LayoutHeader';
 import BackToHome from '../components/BackToHome';
+import LayoutMain from '../components/core/Layout/LayoutMain';
 
 export default function About() {
   return (
     <Layout>
-      <Head>
-        <title>About</title>
-      </Head>
+      <NextHead title="About" />
+      <LayoutHeader />
+      <LayoutMain />
       <BackToHome />
     </Layout>
   );

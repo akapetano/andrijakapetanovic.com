@@ -1,4 +1,5 @@
 ---
+slug: 'pre-rendering'
 title: 'Two Forms of Pre-rendering'
 date: '2022-03-24'
 ---
