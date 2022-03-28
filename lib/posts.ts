@@ -1,21 +1,22 @@
 import fs from 'fs';
 import path from 'path';
-import matter, { GrayMatterFile } from 'gray-matter';
+import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 interface IPostData {
-  data: { title: string; date: Date };
+  data: { slug: string; title: string; date: Date };
 }
 
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
+
   const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
+    // // Remove ".md" from file name to get id
+    // const id = fileName.replace(/\.md$/, '');
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
@@ -36,33 +37,37 @@ export function getSortedPostsData() {
   });
 }
 
-export function getAllPostIds() {
+export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
+  const postSlugs = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const { slug: string } = fs.readFileSync(fullPath, 'utf8');
 
-  // Return an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr',
-  //     },
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering',
-  //     },
-  //   },
-  // ];
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    };
+    // Return an array that looks like this:
+    // [
+    //   {
+    //     params: {
+    //       id: 'ssg-ssr',
+    //     },
+    //   },
+    //   {
+    //     params: {
+    //       id: 'pre-rendering',
+    //     },
+    //   },
+    // ];
+    return fileNames.map((slug) => {
+      return {
+        params: {
+          slug: slug,
+        },
+      };
+    });
   });
 }
 
 export async function getPostData(slug: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section
