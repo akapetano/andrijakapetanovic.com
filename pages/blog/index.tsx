@@ -42,7 +42,7 @@ export default function Blog({ allPostsData }) {
           </UnorderedList>
         </Container>
       </section>
-      <BackToHome />;
+      <BackToHome />
     </Layout>
   );
 }
