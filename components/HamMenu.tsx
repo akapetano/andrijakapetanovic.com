@@ -18,14 +18,20 @@ export default function HamMenu({ items }) {
         aria-label="Menu"
         pos="relative"
         mt={'0.5rem'}
-        icon={!isOpen ? <HamburgerIcon boxSize="5" /> : <CloseIcon />}
+        icon={
+          !isOpen ? (
+            <HamburgerIcon boxSize="5" />
+          ) : (
+            <CloseIcon color="gray.900" />
+          )
+        }
         variant=""
         onClick={!isOpen ? onOpen : onClose}
-        zIndex="2"
+        zIndex="9000"
       />
       {isOpen ? (
         <VStack
-          bg="rgba(0,0,0,0.25)"
+          bg="rgba(0,0,0,0.65)"
           height="100vh"
           width="100vw"
           pos="fixed"
@@ -37,7 +43,7 @@ export default function HamMenu({ items }) {
           align="center"
           justify="center"
           display={['flex', 'flex', 'flex', 'flex']}
-          zIndex="1"
+          zIndex="8999"
           transition="all 1s ease-in-out"
         >
           <NavItems fontSize={'lg'} p="1rem" />
