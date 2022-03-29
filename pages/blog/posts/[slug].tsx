@@ -1,11 +1,11 @@
-import Layout from '../../../components/core/Layout/Layout';
-import LayoutHeader from '../../../components/core/Layout/LayoutHeader';
-import LayoutMain from '../../../components/core/Layout/LayoutMain';
+import Layout from '../../../components/shared/Layout/Layout';
+import LayoutHeader from '../../../components/shared/LayoutHeader/LayoutHeader';
+import LayoutMain from '../../../components/shared/LayoutMain/LayoutMain';
 import { getAllPostSlugs, getPostData } from '../../../lib/posts';
-import NextHead from '../../../components/NextHead';
-import Date from '../../../components/Date';
+import NextHead from '../../../components/shared/NextHead/NextHead';
+import Date from '../../../components/features/blog/Date/Date';
 import { Box, Heading } from '@chakra-ui/react';
-import Footer from '../../../components/Footer';
+import Footer from '../../../components/shared/Footer/Footer';
 
 export default function Post({ postData }) {
   return (

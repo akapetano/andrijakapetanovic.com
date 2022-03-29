@@ -1,13 +1,13 @@
-import Layout from '../../components/core/Layout/Layout';
-import NextHead from '../../components/NextHead';
+import Layout from '../../components/shared/Layout/Layout';
+import NextHead from '../../components/shared/NextHead/NextHead';
 import { Container, Heading } from '@chakra-ui/react';
-import BackToHome from '../../components/BackToHome';
-import LayoutHeader from '../../components/core/Layout/LayoutHeader';
+import BackToHome from '../../components/shared/BackToHome/BackToHome';
+import LayoutHeader from '../../components/shared/LayoutHeader/LayoutHeader';
 import { UnorderedList, ListItem, Link, Text } from '@chakra-ui/react';
 import { getSortedPostsData } from '../../lib/posts';
-import Date from '../../components/Date';
+import Date from '../../components/features/blog/Date/Date';
 import NextLink from 'next/link';
-import Footer from '../../components/Footer';
+import Footer from '../../components/shared/Footer/Footer';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();

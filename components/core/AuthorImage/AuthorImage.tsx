@@ -1,5 +1,5 @@
 import { useColorModeValue, Flex, Box, Image, Link } from '@chakra-ui/react';
-import DynamicShadowImage from './DynamicShadowImage';
+import DynamicShadowImage from '../DynamicShadowImage/DynamicShadowImage';
 import NextLink from 'next/link';
 
 export default function AuthorImage({ home }) {

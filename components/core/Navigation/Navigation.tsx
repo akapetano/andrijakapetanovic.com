@@ -1,10 +1,10 @@
 import { HStack, Box, Flex } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { DarkModeSwitch } from './DarkModeSwitch';
+import { DarkModeSwitch } from '../DarkModeSwitch/DarkModeSwitch';
 import { useColorModeValue } from '@chakra-ui/react';
-import HamMenu from './HamMenu';
-import NavItems from './NavItems';
+import HamMenu from '../HamMenu/HamMenu';
+import NavItems from '../NavItems/NavItems';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 

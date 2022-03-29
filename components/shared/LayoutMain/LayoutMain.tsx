@@ -1,6 +1,5 @@
 import { Box, BoxProps } from '@chakra-ui/react';
-import AuthorImage from '../../AuthorImage';
-import HomeIntro from '../../HomeIntro';
+import AuthorImage from '../../core/AuthorImage/AuthorImage';
 
 interface ILayoutMainProps extends BoxProps {
   home?: boolean;

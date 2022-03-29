@@ -1,9 +1,9 @@
-import Layout from '../components/core/Layout/Layout';
-import Footer from '../components/Footer';
-import NextHead from '../components/NextHead';
-import LayoutHeader from '../components/core/Layout/LayoutHeader';
-import HomeIntro from '../components/HomeIntro';
-import LayoutMain from '../components/core/Layout/LayoutMain';
+import Layout from '../components/shared/Layout/Layout';
+import Footer from '../components/shared/Footer/Footer';
+import NextHead from '../components/shared/NextHead/NextHead';
+import LayoutHeader from '../components/shared/LayoutHeader/LayoutHeader';
+import HomeIntro from '../components/features/home/HomeIntro/HomeIntro';
+import LayoutMain from '../components/shared/LayoutMain/LayoutMain';
 
 const SITE_TITLE = 'Andrija Kapetanović | Front-End Developer';
 

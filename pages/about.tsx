@@ -1,8 +1,9 @@
-import Layout from '../components/core/Layout/Layout';
-import NextHead from '../components/NextHead';
-import LayoutHeader from '../components/core/Layout/LayoutHeader';
-import BackToHome from '../components/BackToHome';
-import LayoutMain from '../components/core/Layout/LayoutMain';
+import Layout from '../components/shared/Layout/Layout';
+import NextHead from '../components/shared/NextHead/NextHead';
+import LayoutHeader from '../components/shared/LayoutHeader/LayoutHeader';
+import BackToHome from '../components/shared/BackToHome/BackToHome';
+import LayoutMain from '../components/shared/LayoutMain/LayoutMain';
+import Footer from '../components/shared/Footer/Footer';
 
 export default function About() {
   return (
@@ -11,6 +12,7 @@ export default function About() {
       <LayoutHeader />
       <LayoutMain />
       <BackToHome />
+      <Footer />
     </Layout>
   );
 }

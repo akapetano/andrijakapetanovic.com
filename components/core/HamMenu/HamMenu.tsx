@@ -6,7 +6,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import NavItems from './NavItems';
+import NavItems from '../NavItems/NavItems';
 
 export default function HamMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
