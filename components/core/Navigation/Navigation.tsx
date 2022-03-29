@@ -1,4 +1,4 @@
-import { HStack, Box, Spacer, Flex } from '@chakra-ui/react';
+import { Stack, Box, Spacer, Flex } from '@chakra-ui/react';
 import NavigationWrapper from '../NavigationWrapper/NavigationWrapper';
 import { DarkModeSwitch } from '../DarkModeSwitch/DarkModeSwitch';
 import HamMenu from '../HamMenu/HamMenu';
@@ -13,18 +13,18 @@ export default function Navigation() {
       <Box flex="2">
         <Logo />
       </Box>
-      <HStack>
-        <HStack
-          alignItems="center"
-          display={['none', 'none', 'flex', 'flex']}
-          mr="2rem"
-          spacing="2rem"
-        >
-          <NavItems fontSize={'sm'} />
-          <DarkModeSwitch />
-        </HStack>
+
+      <Stack
+        spacing={8}
+        align={'center'}
+        justify={['center', 'space-between', 'flex-end', 'flex-end']}
+        direction={['row', 'row', 'row', 'row']}
+        pt={[4, 4, 0, 0]}
+      >
+        <NavItems fontSize={'sm'} />
+        <DarkModeSwitch />
         <HamMenu />
-      </HStack>
+      </Stack>
     </NavigationWrapper>
   );
 }

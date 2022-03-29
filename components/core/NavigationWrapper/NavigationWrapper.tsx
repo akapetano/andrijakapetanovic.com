@@ -13,6 +13,8 @@ export default function NavigationWrapper({ children, ...restProps }) {
       as="header"
       bg={navBg}
       align="center"
+      justify="space-between"
+      wrap="wrap"
       pos="fixed"
       top="0"
       right="0"

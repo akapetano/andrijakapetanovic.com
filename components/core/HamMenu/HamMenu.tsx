@@ -16,7 +16,6 @@ export default function HamMenu() {
       <MenuButton
         as={IconButton}
         aria-label="Menu"
-        mt={'0.5rem'}
         icon={
           !isOpen ? (
             <HamburgerIcon boxSize="5" />
@@ -26,7 +25,7 @@ export default function HamMenu() {
         }
         variant=""
         onClick={onToggle}
-        display={['flex', 'flex', 'none', 'none']}
+        display={['flex', 'flex', 'flex', 'flex']}
         zIndex="9000"
       />
       {isOpen ? (
@@ -42,11 +41,11 @@ export default function HamMenu() {
           spacing={'1rem'}
           align="center"
           justify="center"
-          display={['flex', 'flex', 'none', 'none']}
+          display={['flex', 'flex', 'flex', 'flex']}
           zIndex="8999"
-          transition="all 1s ease-in-out"
+          transition="all .3s ease-in-out"
         >
-          <NavItems fontSize={'lg'} p="1rem" />
+          <NavItems fontSize={'lg'} p="1rem" opacity="1" />
         </VStack>
       ) : null}
     </Menu>

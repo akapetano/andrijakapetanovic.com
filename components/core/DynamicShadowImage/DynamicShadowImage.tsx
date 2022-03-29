@@ -28,7 +28,7 @@ export default function DynamicShadowImage({ src, height, width, alt }: Props) {
         height={height}
         width={width}
         alt={alt}
-        zIndex={100}
+        zIndex={1}
         position="relative"
         objectFit="cover"
         rounded="full"

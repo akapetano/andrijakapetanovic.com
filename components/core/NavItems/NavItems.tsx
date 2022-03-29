@@ -1,4 +1,4 @@
-import { HStack, Link } from '@chakra-ui/react';
+import { Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
@@ -10,12 +10,13 @@ export default function NavItems({ fontSize, ...restProps }) {
         <NextLink key={navItem} passHref href={`/${navItem.toLowerCase()}`}>
           <Link
             fontSize={fontSize}
+            opacity="0.8"
             textTransform="uppercase"
             fontWeight={300}
             _hover={{ opacity: '1' }}
             {...restProps}
           >
-            {navItem}
+            <Text display="block">{navItem}</Text>
           </Link>
         </NextLink>
       ))}
