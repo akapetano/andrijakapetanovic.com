@@ -5,7 +5,6 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 interface IPostData {
-  slug: string;
   title: string;
   date: string;
 }

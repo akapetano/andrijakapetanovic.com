@@ -9,14 +9,13 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import NavItems from '../NavItems/NavItems';
 
 export default function HamMenu() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Menu isLazy>
       <MenuButton
         as={IconButton}
         aria-label="Menu"
-        pos="relative"
         mt={'0.5rem'}
         icon={
           !isOpen ? (
@@ -26,13 +25,13 @@ export default function HamMenu() {
           )
         }
         variant=""
-        onClick={!isOpen ? onOpen : onClose}
+        onClick={onToggle}
         display={['flex', 'flex', 'none', 'none']}
         zIndex="9000"
       />
       {isOpen ? (
         <VStack
-          bg="rgba(0,0,0,0.65)"
+          bg="rgba(255,255,255,0.75)"
           height="100vh"
           width="100vw"
           pos="fixed"

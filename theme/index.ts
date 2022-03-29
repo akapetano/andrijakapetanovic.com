@@ -60,13 +60,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
+    body: `Roboto Condensed, ${base.fonts?.body}`,
     heading: `Montserrat, ${base.fonts?.heading}`,
-    body: `Inter, ${base.fonts?.body}`,
-  },
-  components: {
-    Image: {
-      borderRadius: 'full',
-    },
   },
   breakpoints,
   boxShadow,
