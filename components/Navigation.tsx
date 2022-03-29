@@ -37,16 +37,15 @@ export default function Navigation() {
           </Link>
         </NextLink>
       </Box>
-      <HStack
-        spacing={'2rem'}
-        mt={'0.5rem'}
-        align="center"
-        display={['none', 'none', 'flex', 'flex']}
-      >
-        <NavItems fontSize={'sm'} p="0" />
-      </HStack>
-      <DarkModeSwitch />
-      <HamMenu items={NAV_ITEMS} />
+      <Box flex="1" display={['none', 'none', 'flex', 'flex']}>
+        <HStack spacing={'2rem'}>
+          <NavItems fontSize={'sm'} p="0" />
+        </HStack>
+
+        <DarkModeSwitch />
+
+        <HamMenu />
+      </Box>
     </Flex>
   );
 }

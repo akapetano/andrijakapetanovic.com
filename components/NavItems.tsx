@@ -1,4 +1,4 @@
-import { HStack, Link } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];

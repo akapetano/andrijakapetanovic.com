@@ -8,7 +8,7 @@ import {
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import NavItems from './NavItems';
 
-export default function HamMenu({ items }) {
+export default function HamMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -27,6 +27,7 @@ export default function HamMenu({ items }) {
         }
         variant=""
         onClick={!isOpen ? onOpen : onClose}
+        display={['flex', 'flex', 'none', 'none']}
         zIndex="9000"
       />
       {isOpen ? (
@@ -42,7 +43,7 @@ export default function HamMenu({ items }) {
           spacing={'1rem'}
           align="center"
           justify="center"
-          display={['flex', 'flex', 'flex', 'flex']}
+          display={['flex', 'flex', 'none', 'none']}
           zIndex="8999"
           transition="all 1s ease-in-out"
         >
