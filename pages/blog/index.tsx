@@ -7,6 +7,7 @@ import { UnorderedList, ListItem, Link, Text } from '@chakra-ui/react';
 import { getSortedPostsData } from '../../lib/posts';
 import Date from '../../components/Date';
 import NextLink from 'next/link';
+import Footer from '../../components/Footer';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -43,6 +44,7 @@ export default function Blog({ allPostsData }) {
         </Container>
       </section>
       <BackToHome />
+      <Footer />
     </Layout>
   );
 }

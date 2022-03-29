@@ -1,5 +1,4 @@
 ---
-slug: 'ssg-ssr'
 title: 'When to Use Static Generation v.s. Server-side Rendering'
 date: '2022-03-24'
 ---

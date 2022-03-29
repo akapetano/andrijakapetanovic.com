@@ -5,7 +5,6 @@ import LayoutHeader from '../components/core/Layout/LayoutHeader';
 import HomeIntro from '../components/HomeIntro';
 import LayoutMain from '../components/core/Layout/LayoutMain';
 
-export const AUTHOR_NAME = 'Andrija Kapetanović';
 const SITE_TITLE = 'Andrija Kapetanović | Front-End Developer';
 
 export default function Home() {
