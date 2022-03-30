@@ -6,8 +6,17 @@ import NextHead from '../../../components/shared/NextHead/NextHead';
 import Date from '../../../components/features/blog/Date/Date';
 import { Box, Heading } from '@chakra-ui/react';
 import Footer from '../../../components/shared/Footer/Footer';
+import { IPostDataWithContent } from '../../../lib/posts';
 
-export default function Post({ postData }) {
+interface IParams {
+  params: { slug: string };
+}
+
+interface IPostData {
+  postData: IPostDataWithContent;
+}
+
+export default function Post({ postData }: IPostData) {
   return (
     <Layout>
       <NextHead title={postData.title} />
@@ -46,9 +55,9 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: IParams) {
   // Fetch necessary data for the blog post
-  const postData = await getPostData(params.slug);
+  const postData = await getPostData(params!.slug!);
   return {
     props: {
       postData,

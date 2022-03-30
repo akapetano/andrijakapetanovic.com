@@ -3,7 +3,14 @@ import NextLink from 'next/link';
 
 const NAV_ITEMS = ['About', 'Portfolio', 'Blog'];
 
-export default function NavItems({ fontSize, ...restProps }) {
+interface INavItemsProps {
+  fontSize: string | number;
+  p?: string;
+  opacity?: string;
+  restProps?: any;
+}
+
+export default function NavItems({ fontSize, ...restProps }: INavItemsProps) {
   return (
     <>
       {NAV_ITEMS?.map((navItem) => (

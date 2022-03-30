@@ -1,6 +1,13 @@
-import { Flex, useColorModeValue } from '@chakra-ui/react';
+import { Flex, useColorModeValue, FlexProps } from '@chakra-ui/react';
 
-export default function NavigationWrapper({ children, ...restProps }) {
+interface INavigationWrapperProps extends FlexProps {
+  children: JSX.Element;
+}
+
+export default function NavigationWrapper({
+  children,
+  ...restProps
+}: INavigationWrapperProps) {
   const navBoxShadow = useColorModeValue(
     '0 0 4px 0 rgba(0, 0, 0, 0.15)',
     '0 0 4px 0 rgba(255, 255, 255, 0.1)'

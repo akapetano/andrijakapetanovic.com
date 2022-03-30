@@ -1,6 +1,10 @@
 import Head from 'next/head';
 
-export default function NextHead({ title }) {
+interface INextHeadProps {
+  title: string;
+}
+
+export default function NextHead({ title }: INextHeadProps) {
   return (
     <Head>
       <link rel="icon" href="/favicon.ico" />

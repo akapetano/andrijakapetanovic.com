@@ -4,7 +4,15 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-interface IPostData {
+export interface IPostData {
+  slug: string;
+  title: string;
+  date: string;
+}
+
+export interface IPostDataWithContent {
+  slug: string;
+  contentHtml: string;
   title: string;
   date: string;
 }
@@ -25,7 +33,7 @@ export function getSortedPostsData() {
     // Use gray-matter to parse the post metadata section
     const { data } = matter(fileContents);
 
-    return { slug, ...(data as IPostData) };
+    return { slug, ...data } as IPostData;
   });
   // Sort posts by date
   return allPostsData.sort(({ date: dateA }, { date: dateB }) => {
