@@ -33,6 +33,7 @@ export function ColorModeButton() {
               zIndex="3"
               color={iconsColor}
               pointerEvents="none"
+              boxSize="4"
             />
           ) : (
             <MoonIcon
@@ -41,6 +42,7 @@ export function ColorModeButton() {
               zIndex="3"
               color={iconsColor}
               pointerEvents="none"
+              boxSize="4"
             />
           )
         }
