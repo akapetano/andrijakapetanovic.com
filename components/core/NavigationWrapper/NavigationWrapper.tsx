@@ -1,7 +1,7 @@
 import { Flex, useColorModeValue, FlexProps } from '@chakra-ui/react';
 
 interface INavigationWrapperProps extends FlexProps {
-  children: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export default function NavigationWrapper({
@@ -20,7 +20,6 @@ export default function NavigationWrapper({
       as="header"
       bg={navBg}
       align="center"
-      justify="space-between"
       wrap="wrap"
       pos="fixed"
       top="0"
