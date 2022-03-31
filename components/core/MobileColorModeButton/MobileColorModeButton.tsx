@@ -1,12 +1,10 @@
 import {
   useColorMode,
   useColorModeValue,
-  IconButton,
   Flex,
   Button,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { mode } from '@chakra-ui/theme-tools';
 
 export function MobileColorModeButton() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -25,6 +23,7 @@ export function MobileColorModeButton() {
         size="md"
         overflow="hidden"
         variant="outline"
+        fontWeight="300"
         leftIcon={
           !isDark ? (
             <SunIcon
@@ -45,7 +44,7 @@ export function MobileColorModeButton() {
           )
         }
       >
-        Tap here to change the color mode
+        {isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       </Button>
     </Flex>
   );

@@ -8,7 +8,11 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 export function ColorModeButton() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const switchColorScheme = useColorModeValue('brand.500', 'brand.700');
+  const iconButtonColorScheme = useColorModeValue('gray.200', 'gray.500');
+  const iconButtonHoverColorScheme = useColorModeValue(
+    'brand.400',
+    'brand.500'
+  );
   const iconsColor = useColorModeValue('brand.500', 'icons.moon');
   const isDark = colorMode === 'dark';
 
@@ -18,12 +22,14 @@ export function ColorModeButton() {
         isRound
         display={['none', 'none', 'block', 'block']}
         aria-label="Color mode"
-        colorScheme={switchColorScheme}
+        colorScheme={iconButtonColorScheme}
         zIndex="2"
         onClick={toggleColorMode}
         size="md"
         overflow="hidden"
-        border={'1px solid gray'}
+        border="2px solid"
+        borderColor={iconButtonColorScheme}
+        _hover={{ borderColor: `${iconButtonHoverColorScheme}` }}
         icon={
           !isDark ? (
             <SunIcon

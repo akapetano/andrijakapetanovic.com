@@ -29,6 +29,7 @@ export default function NavigationWrapper({
       height={16}
       boxShadow={navBoxShadow}
       zIndex="100"
+      overflow="hidden"
       {...restProps}
     >
       {children}

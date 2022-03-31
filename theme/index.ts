@@ -24,6 +24,7 @@ const theme = extendTheme({
         margin: '0',
         fontSize: '1.2rem',
         lineHeight: 1.6,
+        minHeight: 'fit-content',
       },
       a: {
         position: 'relative',
@@ -47,7 +48,6 @@ const theme = extendTheme({
     }),
   },
   colors: {
-    white: '#fff',
     brand: {
       400: '#74b9ff',
       500: '#3498db',
