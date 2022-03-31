@@ -28,6 +28,7 @@ export default function Footer() {
       height="8rem"
       boxShadow="base"
       overflow="hidden"
+      zIndex="10"
     >
       <HStack spacing="3.5rem">
         <Link href="https://github.com/akapetano" target="_blank">

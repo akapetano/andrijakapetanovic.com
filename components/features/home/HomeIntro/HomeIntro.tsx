@@ -7,12 +7,13 @@ export default function HomeIntro() {
         Hi, my name is <strong>Andrija</strong>. I&apos;m a front-end developer.
         You can contact me on{' '}
         <Link
-          href="https://twitter.com/AndiKapetanovic"
+          href="https://www.linkedin.com/in/andrija-kapetanovi%C4%87"
           rel="noreferrer"
           target="_blank"
         >
-          Twitter
+          LinkedIn
         </Link>
+        .
       </Text>
     </section>
   );

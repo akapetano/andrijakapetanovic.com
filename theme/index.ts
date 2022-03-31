@@ -55,7 +55,7 @@ const theme = extendTheme({
       700: '#0984e3',
     },
     icons: {
-      sun: '#ffc32b',
+      sun: '#FFC312',
       moon: '#FCE570',
     },
   },
