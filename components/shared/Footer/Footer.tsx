@@ -31,7 +31,11 @@ export default function Footer() {
       zIndex="10"
     >
       <HStack spacing="3.5rem">
-        <Link href="https://github.com/akapetano" target="_blank">
+        <Link
+          href="https://github.com/akapetano"
+          target="_blank"
+          _before={{ content: 'none' }}
+        >
           <Icon
             as={FaGithub}
             color={iconColor}
@@ -49,6 +53,7 @@ export default function Footer() {
         <Link
           href="https://www.linkedin.com/in/andrija-kapetanovi%C4%87"
           target="_blank"
+          _before={{ content: 'none' }}
         >
           <Icon
             as={FaLinkedin}
@@ -60,7 +65,11 @@ export default function Footer() {
             _focus={{ boxShadow: 'outline' }}
           />
         </Link>
-        <Link href="https://twitter.com/AndiKapetanovic" target="_blank">
+        <Link
+          href="https://twitter.com/AndiKapetanovic"
+          target="_blank"
+          _before={{ content: 'none' }}
+        >
           <Icon
             as={FaTwitter}
             color={iconColor}

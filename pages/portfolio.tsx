@@ -8,7 +8,7 @@ import Footer from '../components/shared/Footer/Footer';
 export default function Portfolio() {
   return (
     <Layout>
-      <NextHead title="About" />
+      <NextHead title="Portfolio" />
       <LayoutHeader />
       <LayoutMain />
       <BackToHome />

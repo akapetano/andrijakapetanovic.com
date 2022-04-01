@@ -1,40 +1,37 @@
 import {
   Flex,
-  Box,
+  Container,
   Link,
   Button,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 
 export default function BackToHome() {
-  const iconButtonColorScheme = useColorModeValue('gray.200', 'gray.500');
-  const iconButtonHoverColorScheme = useColorModeValue(
-    'brand.400',
-    'brand.500'
-  );
-
   return (
-    <Box>
-      <NextLink passHref href="/">
-        <Link fontSize="md">
-          <Flex align="center" justify="flex-start">
+    <Container lineHeight="1.5" pt="2rem">
+      <Flex justify="center">
+        <NextLink passHref href="/">
+          <Link
+            fontSize="md"
+            _hover={{ textDecor: 'none' }}
+            _before={{ content: 'none' }}
+          >
             <Button
               aria-label="Back to home button"
-              leftIcon={<ArrowBackIcon />}
+              leftIcon={
+                <ArrowBackIcon _hover={{ transform: 'translateX(-20%)' }} />
+              }
               border="2px solid"
-              borderColor={iconButtonColorScheme}
-              _hover={{ borderColor: `${iconButtonHoverColorScheme}` }}
               bg="transparent"
-              mr="0.5rem"
+              variant="primary"
             >
               Back to home
             </Button>
-          </Flex>
-        </Link>
-      </NextLink>
-    </Box>
+          </Link>
+        </NextLink>
+      </Flex>
+    </Container>
   );
 }

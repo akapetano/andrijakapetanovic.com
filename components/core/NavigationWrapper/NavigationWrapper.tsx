@@ -1,4 +1,9 @@
-import { Flex, useColorModeValue, FlexProps } from '@chakra-ui/react';
+import {
+  Flex,
+  useColorModeValue,
+  FlexProps,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 
 interface INavigationWrapperProps extends FlexProps {
   children?: React.ReactNode;
@@ -24,9 +29,9 @@ export default function NavigationWrapper({
       pos="fixed"
       top="0"
       right="0"
-      px={4}
+      px={[4, 4, 24, 40]}
       width="100%"
-      height={16}
+      height={24}
       boxShadow={navBoxShadow}
       zIndex="100"
       overflow="hidden"

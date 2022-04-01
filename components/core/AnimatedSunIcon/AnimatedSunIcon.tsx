@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { transition } from '../../../constants/constants';
-import { Flex } from '@chakra-ui/react';
+import { Flex, useColorModeValue } from '@chakra-ui/react';
 
 export function AnimatedSunIcon() {
   const whileTap = { scale: 0.95, rotate: 15 };
@@ -15,7 +15,7 @@ export function AnimatedSunIcon() {
     animate: { scale: 1, transition },
   };
 
-  const sunColor = '#f1c40f';
+  const sunColor = '#3498db';
 
   return (
     <Flex justify="center">

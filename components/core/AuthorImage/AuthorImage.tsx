@@ -40,7 +40,7 @@ export default function AuthorImage({ home }: IAuthorImageProps) {
         <Flex justify="center">
           <Flex flexDir="column" align="center" margin="0 0 1.5rem">
             <NextLink passHref href="/">
-              <Link>
+              <Link _before={{ content: 'none' }}>
                 {colorMode === 'lightMode' ? (
                   <Image
                     src={imageSrc}

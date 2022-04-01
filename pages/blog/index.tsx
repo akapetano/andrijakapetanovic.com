@@ -4,12 +4,12 @@ import LayoutMain from '../../components/shared/LayoutMain/LayoutMain';
 import NextHead from '../../components/shared/NextHead/NextHead';
 import { Container, Heading } from '@chakra-ui/react';
 import BackToHome from '../../components/shared/BackToHome/BackToHome';
-import { UnorderedList, ListItem, Link, Text } from '@chakra-ui/react';
+import { UnorderedList, ListItem, Text } from '@chakra-ui/react';
 import { getSortedPostsData } from '../../lib/posts';
 import Date from '../../components/features/blog/Date/Date';
-import NextLink from 'next/link';
 import Footer from '../../components/shared/Footer/Footer';
 import { IPostData } from '../../lib/posts';
+import NavLink from '../../components/core/NavLink/NavLink';
 
 export interface IAllPostsData {
   allPostsData: IPostData[];
@@ -38,11 +38,11 @@ export default function Blog({ allPostsData }: IAllPostsData) {
             <UnorderedList listStyleType="none" p={0} m={0}>
               {allPostsData.map(({ slug, date, title }) => (
                 <ListItem margin="0 0 1.25rem" key={slug}>
-                  <NextLink passHref href={`blog/posts/${slug}`}>
-                    <Link>{title}</Link>
-                  </NextLink>
+                  <NavLink pb={'0.3rem'} to={`blog/posts/${slug}`}>
+                    {title}
+                  </NavLink>
                   <br />
-                  <Text fontSize="sm" color="gray.400">
+                  <Text mt={'0.3rem'} fontSize="sm" color="gray.400">
                     <Date dateString={date} />
                   </Text>
                 </ListItem>

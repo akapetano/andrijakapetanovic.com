@@ -10,8 +10,8 @@ import { AnimatedSunIcon } from '../AnimatedSunIcon/AnimatedSunIcon';
 
 export function ColorModeButton() {
   const { toggleColorMode } = useColorMode();
-  const iconButtonColorScheme = useColorModeValue('gray.200', 'gray.500');
-  const iconButtonHoverColorScheme = useColorModeValue(
+  const iconButtonBorderColor = useColorModeValue('gray.200', 'gray.500');
+  const iconButtonHoverBorderColor = useColorModeValue(
     'brand.400',
     'brand.500'
   );
@@ -30,8 +30,8 @@ export function ColorModeButton() {
         size="md"
         overflow="hidden"
         border="2px solid"
-        borderColor={iconButtonColorScheme}
-        _hover={{ borderColor: `${iconButtonHoverColorScheme}` }}
+        borderColor={iconButtonBorderColor}
+        _hover={{ borderColor: `${iconButtonHoverBorderColor}` }}
         icon={<SwitchIcon />}
       />
     </Flex>

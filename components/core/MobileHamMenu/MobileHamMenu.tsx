@@ -8,8 +8,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import NavItems from '../NavItems/NavItems';
 import { MobileColorModeButton } from '../MobileColorModeButton/MobileColorModeButton';
+import NavLinks from '../NavLinks/NavLinks';
 
 export default function MobileHamMenu() {
   const { isOpen, onToggle } = useDisclosure();
@@ -44,7 +44,7 @@ export default function MobileHamMenu() {
             zIndex="8999"
             transition="all .3s ease-in-out"
           >
-            <NavItems fontSize={'lg'} p="1rem" opacity="1" />
+            <NavLinks fontSize={'lg'} p="1rem" opacity="1" />
             <MobileColorModeButton />
           </VStack>
         ) : null}

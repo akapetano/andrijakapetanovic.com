@@ -10,7 +10,7 @@ export default function LayoutMain({
   ...restProps
 }: ILayoutMainProps) {
   return (
-    <Box as="main" {...restProps}>
+    <Box as="main" {...restProps} pb="5rem">
       <AuthorImage home={home} />
       {children}
     </Box>

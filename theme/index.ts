@@ -28,36 +28,78 @@ const theme = extendTheme({
       },
       a: {
         position: 'relative',
+        textDecoration: 'none',
+        _before: {
+          content: "''",
+          position: 'absolute',
+          width: '100%',
+          height: '2px',
+          borderRadius: '2px',
+          backgroundColor: mode('brand.600', 'brand.200')(props),
+          bottom: '0',
+          left: '0',
+          transformOrigin: 'right',
+          transform: 'scaleX(0)',
+          transition: 'transform .3s ease-in-out',
+        },
         _link: {
-          color: mode('brand.600', 'brand.400')(props),
+          color: mode('brand.700', 'brand.300')(props),
           textDecoration: 'none',
         },
         _visited: {
-          color: mode('brand.600', 'brand.400')(props),
+          color: mode('brand.700', 'brand.300')(props),
           textDecoration: 'none',
         },
         _hover: {
-          color: mode('brand.700', 'brand.500')(props),
-          textDecoration: 'underline',
+          color: mode('brand.600', 'brand.200')(props),
+          textDecoration: 'none',
+          _before: {
+            backgroundColor: mode('brand.600', 'brand.200')(props),
+            transformOrigin: 'left',
+            transform: 'scaleX(1)',
+          },
         },
         _active: {
-          color: mode('brand.700', 'brand.500')(props),
-          textDecoration: 'underline',
+          color: mode('brand.600', 'brand.200')(props),
+          textDecoration: 'none',
         },
       },
     }),
   },
   colors: {
     brand: {
-      400: '#74b9ff',
+      200: '#48dbfb',
+      300: '#0abde3',
+      400: '#45aaf2',
       500: '#3498db',
       600: '#2980b9',
       700: '#0984e3',
     },
+    selected: { color: mode('brand.700', 'brand.500') },
   },
   fonts: {
     body: `Roboto Condensed, ${base.fonts?.body}`,
     heading: `Montserrat, ${base.fonts?.heading}`,
+  },
+  components: {
+    Button: {
+      _hover: { transform: 'scale(1.1)' },
+      variants: {
+        primary: (props: any) => ({
+          borderColor: mode('gray.200', 'gray.500')(props),
+          _hover: {
+            color: mode('gray.100', 'gray.800')(props),
+            bg: mode('brand.700', 'brand.200')(props),
+            borderColor: mode('brand.700', 'brand.200')(props),
+          },
+        }),
+      },
+    },
+    Link: {
+      _hover: {
+        textDecoration: 'none',
+      },
+    },
   },
   breakpoints,
   boxShadow,
