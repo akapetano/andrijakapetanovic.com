@@ -1,7 +1,7 @@
 import { Stack, Box, Spacer, Flex } from '@chakra-ui/react';
 import NavigationWrapper from '../NavigationWrapper/NavigationWrapper';
 import { ColorModeButton } from '../ColorModeButton/ColorModeButton';
-import HamMenu from '../HamMenu/HamMenu';
+import MobileHamMenu from '../MobileHamMenu/MobileHamMenu';
 import NavItems from '../NavItems/NavItems';
 import Logo from '../Logo/Logo';
 
@@ -22,7 +22,7 @@ export default function Navigation() {
         <NavItems fontSize={'sm'} />
         <ColorModeButton />
       </Stack>
-      <HamMenu />
+      <MobileHamMenu />
     </NavigationWrapper>
   );
 }

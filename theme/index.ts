@@ -54,10 +54,6 @@ const theme = extendTheme({
       600: '#2980b9',
       700: '#0984e3',
     },
-    icons: {
-      sun: '#FFC312',
-      moon: '#FCE570',
-    },
   },
   fonts: {
     body: `Roboto Condensed, ${base.fonts?.body}`,

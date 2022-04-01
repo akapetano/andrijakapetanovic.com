@@ -21,6 +21,7 @@ export default function NavItems({ fontSize, ...restProps }: INavItemsProps) {
             textTransform="uppercase"
             fontWeight={300}
             _hover={{ opacity: '1' }}
+            transitionDelay=".3s"
             {...restProps}
           >
             <Text display="block">{navItem}</Text>
