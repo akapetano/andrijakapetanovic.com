@@ -37,14 +37,14 @@ export default function MobileHamMenu() {
             left="0"
             right="0"
             bottom="0"
-            spacing={'1rem'}
+            spacing={'5rem'}
             align="center"
             justify="center"
             display={['flex', 'flex', 'flex', 'flex']}
             zIndex="8999"
             transition="all .3s ease-in-out"
           >
-            <NavLinks fontSize={'lg'} p="1rem" opacity="1" />
+            <NavLinks fontSize={'lg'} />
             <MobileColorModeButton />
           </VStack>
         ) : null}

@@ -60,7 +60,6 @@ export default function NavLink({
   return (
     <NextLink href={to} passHref>
       <ChakraLink
-        // color={linkColor}
         textTransform={textTransform}
         fontWeight={300}
         {...props}
