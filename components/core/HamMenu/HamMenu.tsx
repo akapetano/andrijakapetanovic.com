@@ -5,6 +5,7 @@ import {
   IconButton,
   useDisclosure,
   Flex,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import NavItems from '../NavItems/NavItems';
@@ -12,6 +13,7 @@ import { MobileColorModeButton } from '../MobileColorModeButton/MobileColorModeB
 
 export default function HamMenu() {
   const { isOpen, onToggle } = useDisclosure();
+  const bgColor = useColorModeValue('white', 'gray.800');
 
   return (
     <Flex display={['flex', 'flex', 'none', 'none']}>
@@ -19,13 +21,7 @@ export default function HamMenu() {
         <MenuButton
           as={IconButton}
           aria-label="Menu"
-          icon={
-            !isOpen ? (
-              <HamburgerIcon boxSize="5" />
-            ) : (
-              <CloseIcon color="gray.900" />
-            )
-          }
+          icon={!isOpen ? <HamburgerIcon boxSize="5" /> : <CloseIcon />}
           variant=""
           onClick={onToggle}
           display={['flex', 'flex', 'flex', 'flex']}
@@ -33,7 +29,7 @@ export default function HamMenu() {
         />
         {isOpen ? (
           <VStack
-            bg="rgba(255,255,255,0.75)"
+            bg={bgColor}
             height="100vh"
             width="100vw"
             pos="fixed"

@@ -2,7 +2,7 @@ import {
   Flex,
   Box,
   Link,
-  IconButton,
+  Button,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -21,17 +21,17 @@ export default function BackToHome() {
       <NextLink passHref href="/">
         <Link fontSize="md">
           <Flex align="center" justify="flex-start">
-            <IconButton
+            <Button
               aria-label="Back to home button"
-              icon={<ArrowBackIcon />}
+              leftIcon={<ArrowBackIcon />}
               border="2px solid"
               borderColor={iconButtonColorScheme}
               _hover={{ borderColor: `${iconButtonHoverColorScheme}` }}
-              isRound
               bg="transparent"
-              mr="1rem"
-            />{' '}
-            <Text>Back to home</Text>
+              mr="0.5rem"
+            >
+              Back to home
+            </Button>
           </Flex>
         </Link>
       </NextLink>
