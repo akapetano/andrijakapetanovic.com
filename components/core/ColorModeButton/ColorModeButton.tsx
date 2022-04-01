@@ -3,26 +3,28 @@ import {
   useColorModeValue,
   IconButton,
   Flex,
+  Box,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { AnimatedMoonIcon } from '../AnimatedMoonIcon/AnimatedMoonIcon';
+import { AnimatedSunIcon } from '../AnimatedSunIcon/AnimatedSunIcon';
 
 export function ColorModeButton() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
   const iconButtonColorScheme = useColorModeValue('gray.200', 'gray.500');
   const iconButtonHoverColorScheme = useColorModeValue(
     'brand.400',
     'brand.500'
   );
-  const iconsColor = useColorModeValue('brand.500', 'icons.moon');
-  const isDark = colorMode === 'dark';
+  const SwitchIcon = useColorModeValue(AnimatedSunIcon, AnimatedMoonIcon);
 
   return (
-    <Flex align="center" justify="center">
+    <Flex>
       <IconButton
+        variant="ghost"
+        fontSize="2xl"
         isRound
         display={['none', 'none', 'block', 'block']}
-        aria-label="Color mode"
-        colorScheme={iconButtonColorScheme}
+        aria-label="Color mode toggler"
         zIndex="2"
         onClick={toggleColorMode}
         size="md"
@@ -30,27 +32,7 @@ export function ColorModeButton() {
         border="2px solid"
         borderColor={iconButtonColorScheme}
         _hover={{ borderColor: `${iconButtonHoverColorScheme}` }}
-        icon={
-          !isDark ? (
-            <SunIcon
-              w="3"
-              h="3"
-              zIndex="3"
-              color={iconsColor}
-              pointerEvents="none"
-              boxSize="4"
-            />
-          ) : (
-            <MoonIcon
-              w="3"
-              h="3"
-              zIndex="3"
-              color={iconsColor}
-              pointerEvents="none"
-              boxSize="4"
-            />
-          )
-        }
+        icon={<SwitchIcon />}
       />
     </Flex>
   );

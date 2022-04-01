@@ -10,6 +10,7 @@ import {
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import NavItems from '../NavItems/NavItems';
 import { MobileColorModeButton } from '../MobileColorModeButton/MobileColorModeButton';
+import { motion } from 'framer-motion';
 
 export default function HamMenu() {
   const { isOpen, onToggle } = useDisclosure();
