@@ -1,16 +1,10 @@
-import {
-  Flex,
-  Container,
-  Link,
-  Button,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Flex, Container, Link, Button } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 
 export default function BackToHome() {
   return (
-    <Container lineHeight="1.5" pt="2rem">
+    <Container lineHeight="1.5" pt="1rem" pb="8rem">
       <Flex justify="center">
         <NextLink passHref href="/">
           <Link

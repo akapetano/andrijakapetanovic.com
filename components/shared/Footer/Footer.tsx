@@ -19,8 +19,6 @@ export default function Footer() {
       borderTop={footerBorder}
       align="center"
       justify="center"
-      mt="1rem"
-      h="1rem"
       pos="fixed"
       bottom="0"
       left="0"

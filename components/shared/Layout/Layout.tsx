@@ -1,11 +1,10 @@
-import { Box, BoxProps } from '@chakra-ui/react';
+import { Container, ContainerProps } from '@chakra-ui/react';
 
-export default function Layout({ ...restProps }: BoxProps) {
+export default function Layout({ ...restProps }: ContainerProps) {
   return (
-    <Box
-      maxWidth="36rem"
+    <Container
+      maxWidth="40rem"
       height="100%"
-      padding="0 1rem"
       margin="8rem auto 6rem"
       {...restProps}
     />
