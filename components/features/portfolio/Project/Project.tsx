@@ -1,31 +1,30 @@
-import { GridItem, useColorModeValue } from '@chakra-ui/react';
+import { Heading, Image, Box, Text } from '@chakra-ui/react';
+import { ProjectText } from '../ProjectText/ProjectText';
+import { ProjectWrapper } from '../ProjectWrapper/ProjectWrapper';
 
-export function Project() {
+interface IProjectProps {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+}
+
+export function Project({ src, alt, title, description }: IProjectProps) {
   return (
-    <GridItem
-      w="100%"
-      h="200"
-      bg="brand.100"
-      position="relative"
-      overflow="hidden"
-      _after={{
-        content: "''",
-        position: 'absolute',
-        display: 'block',
-        background: 'black',
-        opacity: '0.9',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        transform: 'scale(2) translateX(-75%) translateY(-75%) rotate(-28deg)',
-        transition: 'transform 3s cubic-bezier(0.2, 1, 0.3, 1)',
-      }}
-      _hover={{
-        _after: {
-          transform: 'scale(2) translateX(0) translateY(0) rotate(-28deg)',
-        },
-      }}
-    ></GridItem>
+    <ProjectWrapper>
+      <Image
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        width="auto"
+        height="100%"
+        lineHeight="0"
+        src={src}
+        alt={alt}
+        rounded="full"
+        _hover={{ transform: 'scale(1.2)' }}
+      />
+      <ProjectText title={title} description={description} />
+    </ProjectWrapper>
   );
 }

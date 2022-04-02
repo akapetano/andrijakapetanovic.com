@@ -13,12 +13,18 @@ export function ProjectGrid() {
         ]}
         gap={2}
       >
-        <Project />
-        <GridItem w="100%" h="200" bg="brand.200" />
-        <GridItem w="100%" h="200" bg="brand.300" />
-        <GridItem w="100%" h="200" bg="brand.400" />
-        <GridItem w="100%" h="200" bg="brand.500" />
-        <GridItem w="100%" h="200" bg="brand.600" />
+        <Project
+          src="/images/projects/crypton_logo.png"
+          alt="Crypton - cryptocurrency Portfolio app"
+          title="Crypton"
+          description="Coming soon..."
+        />
+        <Project
+          src="/images/projects/crypton_logo.png"
+          alt="Crypton - cryptocurrency Portfolio app"
+          title="Crypton"
+          description="Cryptocurrency App"
+        />
       </Grid>
     </Container>
   );
