@@ -21,7 +21,6 @@ export function Project({ src, alt, title, description }: IProjectProps) {
         lineHeight="0"
         src={src}
         alt={alt}
-        rounded="full"
         _hover={{ transform: 'scale(1.2)' }}
       />
       <ProjectText title={title} description={description} />

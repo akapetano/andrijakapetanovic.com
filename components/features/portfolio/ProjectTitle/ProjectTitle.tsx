@@ -6,7 +6,7 @@ interface IProjectTitleProps extends HeadingProps {
 
 export function ProjectTitle({ title }: IProjectTitleProps) {
   return (
-    <Heading as="h3" fontSize="xl" p="0 2rem">
+    <Heading as="h3" fontSize="2xl" p="0 2rem">
       {title}
     </Heading>
   );
