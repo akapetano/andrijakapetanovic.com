@@ -29,6 +29,7 @@ const theme = extendTheme({
       a: {
         position: 'relative',
         textDecoration: 'none',
+        pb: '0.2rem',
         _before: {
           content: "''",
           position: 'absolute',
@@ -43,18 +44,18 @@ const theme = extendTheme({
           transition: 'transform .3s ease-in-out',
         },
         _link: {
-          color: mode('brand.700', 'brand.300')(props),
+          color: mode('brand.600', 'brand.300')(props),
           textDecoration: 'none',
         },
         _visited: {
-          color: mode('brand.700', 'brand.300')(props),
+          color: mode('brand.600', 'brand.300')(props),
           textDecoration: 'none',
         },
         _hover: {
-          color: mode('brand.600', 'brand.200')(props),
+          color: mode('brand.700', 'brand.200')(props),
           textDecoration: 'none',
           _before: {
-            backgroundColor: mode('brand.600', 'brand.200')(props),
+            backgroundColor: mode('brand.700', 'brand.200')(props),
             transformOrigin: 'left',
             transform: 'scaleX(1)',
           },
@@ -68,12 +69,15 @@ const theme = extendTheme({
   },
   colors: {
     brand: {
+      100: '#81ecec',
       200: '#48dbfb',
       300: '#0abde3',
       400: '#45aaf2',
       500: '#3498db',
-      600: '#2980b9',
-      700: '#0984e3',
+      600: '#0984e3',
+      700: '#2980b9',
+      800: '#1e3799',
+      900: '#0c2461',
     },
     selected: { color: mode('brand.700', 'brand.500') },
   },
@@ -86,7 +90,7 @@ const theme = extendTheme({
       _hover: { transform: 'scale(1.1)' },
       variants: {
         primary: (props: any) => ({
-          borderColor: mode('gray.200', 'gray.500')(props),
+          color: mode('brand.500', 'brand.300')(props),
           _hover: {
             color: mode('gray.100', 'gray.800')(props),
             bg: mode('brand.700', 'brand.200')(props),
@@ -96,8 +100,13 @@ const theme = extendTheme({
       },
     },
     Link: {
-      _hover: {
-        textDecoration: 'none',
+      variants: {
+        'without-underline': {
+          textDecoraction: 'none',
+          _hover: {
+            textDecoration: 'none',
+          },
+        },
       },
     },
   },

@@ -11,6 +11,7 @@ export default function HomeIntro() {
           rel="noreferrer"
           target="_blank"
           textDecorationLine="none"
+          variant="without-underline"
         >
           LinkedIn
         </Link>

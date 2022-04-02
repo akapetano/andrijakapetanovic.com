@@ -29,7 +29,7 @@ export default function NavigationWrapper({
       pos="fixed"
       top="0"
       right="0"
-      px={[4, 4, 24, 40]}
+      px={[4, 4, 20, 36]}
       width="100%"
       height={24}
       boxShadow={navBoxShadow}

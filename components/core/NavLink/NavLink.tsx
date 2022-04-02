@@ -25,7 +25,7 @@ export default function NavLink({
 }: NavLinkProps) {
   const router = useRouter();
   const isActive = router.pathname === to;
-  const linkColor = useColorModeValue('brand.600', 'brand.200');
+  const linkColor = useColorModeValue('brand.700', 'brand.200');
   if (isActive) {
     return (
       <NextLink href={to} passHref>

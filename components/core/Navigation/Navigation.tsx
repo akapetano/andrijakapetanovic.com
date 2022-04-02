@@ -16,7 +16,7 @@ export default function Navigation() {
         spacing={6}
         align={'center'}
         direction={['row', 'row', 'row', 'row']}
-        pt={[4, 4, 0, 0]}
+        pt={[4, 4, 1, 1]}
         display={['none', 'none', 'flex', 'flex']}
       >
         <NavLinks fontSize={'sm'} />

@@ -37,7 +37,7 @@ export default function MobileHamMenu() {
             left="0"
             right="0"
             bottom="0"
-            spacing={'5rem'}
+            spacing={'3rem'}
             align="center"
             justify="center"
             display={['flex', 'flex', 'flex', 'flex']}
