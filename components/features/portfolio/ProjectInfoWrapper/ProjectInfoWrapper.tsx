@@ -5,12 +5,16 @@ import { ProjectTitle } from '../ProjectTitle/ProjectTitle';
 
 interface IProjectInfoWrapperProps extends BoxProps {
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string;
+  link: string;
 }
 
 export function ProjectInfoWrapper({
   title,
-  description,
+  shortDescription,
+  longDescription,
+  link,
 }: IProjectInfoWrapperProps) {
   const textColor = useColorModeValue('whiteAlpha.900', 'gray.800');
 
@@ -28,8 +32,12 @@ export function ProjectInfoWrapper({
       color={textColor}
     >
       <ProjectTitle title={title} />
-      <ProjectDescription description={description} />
-      <ProjectInfoModal title={title} />
+      <ProjectDescription shortDescription={shortDescription} />
+      <ProjectInfoModal
+        title={title}
+        longDescription={longDescription}
+        link={link}
+      />
     </Box>
   );
 }

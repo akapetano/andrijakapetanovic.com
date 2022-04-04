@@ -13,7 +13,7 @@ export function ColorModeButton() {
   const iconButtonBorderColor = useColorModeValue('gray.200', 'gray.500');
   const iconButtonHoverBorderColor = useColorModeValue(
     'brand.400',
-    'brand.500'
+    'brand.200'
   );
   const SwitchIcon = useColorModeValue(AnimatedSunIcon, AnimatedMoonIcon);
 

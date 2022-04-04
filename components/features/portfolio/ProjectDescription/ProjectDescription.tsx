@@ -1,13 +1,15 @@
 import { Text, TextProps } from '@chakra-ui/react';
 
 interface IProjectDescriptionProps extends TextProps {
-  description: string;
+  shortDescription: string;
 }
 
-export function ProjectDescription({ description }: IProjectDescriptionProps) {
+export function ProjectDescription({
+  shortDescription,
+}: IProjectDescriptionProps) {
   return (
     <Text textTransform="uppercase" fontSize="md" opacity="0.5" mb="1rem">
-      {description}
+      {shortDescription}
     </Text>
   );
 }

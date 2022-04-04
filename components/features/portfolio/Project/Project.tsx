@@ -6,10 +6,19 @@ interface IProjectProps {
   src: string;
   alt: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string;
+  link: string;
 }
 
-export function Project({ src, alt, title, description }: IProjectProps) {
+export function Project({
+  src,
+  alt,
+  title,
+  shortDescription,
+  longDescription,
+  link,
+}: IProjectProps) {
   return (
     <ProjectWrapper className="project-wrapper">
       <Image
@@ -37,7 +46,9 @@ export function Project({ src, alt, title, description }: IProjectProps) {
       />
       <ProjectInfo
         title={title}
-        description={description}
+        shortDescription={shortDescription}
+        longDescription={longDescription}
+        link={link}
         sx={{
           '.project-wrapper: hover &': {
             opacity: '1',

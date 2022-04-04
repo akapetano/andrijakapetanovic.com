@@ -109,6 +109,16 @@ const theme = extendTheme({
             bg: mode('accent.400', 'accent.200')(props),
           },
         }),
+        secondaryGhost: (props: any) => ({
+          border: '2px solid',
+          color: mode('accent.300', 'accent.100')(props),
+          borderColor: mode('accent.300', 'accent.100')(props),
+          _hover: {
+            color: mode('white', 'gray.800')(props),
+            bg: mode('accent.400', 'accent.200')(props),
+            borderColor: mode('accent.400', 'accent.200')(props),
+          },
+        }),
       },
     },
     Link: {

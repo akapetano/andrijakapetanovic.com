@@ -24,13 +24,15 @@ export function CourseProjectsGrid() {
           src="/images/projects/omnifood.webp"
           alt="Omnifood - AI-powered food subscription website"
           title="Omnifood"
-          description="Food subscription website"
+          shortDescription="Food subscription website"
+          longDescription='Omnifood is an AI-powered food subscription website built as part of the course "Build Responsive Real-World Websites With HTML and CSS" by Jonas Schmedtmann.'
+          link="https://omnifood-andrija.netlify.app/"
         />
         <Project
           src="/images/projects/forkify.webp"
           alt="Forkify - recipe application with custom recipe uploads"
           title="Forkify"
-          description="Recipe application"
+          shortDescription="Recipe application"
         />
         <Project
           src="/images/projects/natours.webp"
