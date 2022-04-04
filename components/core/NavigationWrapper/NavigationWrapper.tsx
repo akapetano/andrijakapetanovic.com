@@ -31,7 +31,7 @@ export default function NavigationWrapper({
       right="0"
       px={[4, 4, 20, 36]}
       width="100%"
-      height="6rem"
+      height={['4rem', '4rem', '5rem', '5rem']}
       boxShadow={navBoxShadow}
       zIndex="100"
       overflow="hidden"

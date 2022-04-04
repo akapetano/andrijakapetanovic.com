@@ -17,18 +17,22 @@ export default function Footer() {
       as="footer"
       bg={footerBg}
       borderTop={footerBorder}
-      align="center"
-      justify="center"
+      alignItems="center"
+      justifyContent="center"
+      textAlign="center"
       pos="fixed"
       bottom="0"
       left="0"
       width="100%"
-      height="8rem"
+      height={['4rem', '4rem', '6rem', '6rem']}
       boxShadow="base"
       overflow="hidden"
       zIndex="10"
     >
-      <HStack spacing="3.5rem">
+      <HStack
+        spacing={['2rem', '2rem', '4rem', '4rem']}
+        mt={['0.5rem', '0.5rem', '1rem', '1rem']}
+      >
         <Link
           href="https://github.com/akapetano"
           target="_blank"
