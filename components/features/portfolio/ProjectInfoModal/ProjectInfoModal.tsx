@@ -11,6 +11,7 @@ import {
   Divider,
   Flex,
   Link,
+  Tooltip,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
@@ -54,14 +55,20 @@ export function ProjectInfoModal({
               target="_blank"
               _hover={{ textDecor: 'none', _before: { content: 'none' } }}
             >
-              <Button
-                disabled={isDisabledButton}
-                _before={{ content: 'none' }}
-                leftIcon={<ExternalLinkIcon />}
-                variant="secondaryGhost"
+              <Tooltip
+                hasArrow
+                label={isDisabledButton ? 'Coming soon...' : null}
+                shouldWrapChildren
               >
-                Website
-              </Button>
+                <Button
+                  disabled={isDisabledButton}
+                  _before={{ content: 'none' }}
+                  leftIcon={<ExternalLinkIcon />}
+                  variant="secondaryGhost"
+                >
+                  Website
+                </Button>
+              </Tooltip>
             </Link>
           </ModalFooter>
         </ModalContent>
