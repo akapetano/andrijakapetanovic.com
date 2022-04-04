@@ -103,7 +103,7 @@ const theme = extendTheme({
           },
         }),
         secondary: (props: any) => ({
-          color: mode('whiteAlpha.900', 'gray.800')(props),
+          color: mode('white', 'gray.800')(props),
           bg: mode('accent.300', 'accent.100')(props),
           _hover: {
             bg: mode('accent.400', 'accent.200')(props),

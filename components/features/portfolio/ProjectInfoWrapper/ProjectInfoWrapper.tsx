@@ -1,5 +1,6 @@
-import { Box, BoxProps, Button } from '@chakra-ui/react';
+import { Box, BoxProps, useColorModeValue } from '@chakra-ui/react';
 import { ProjectDescription } from '../ProjectDescription/ProjectDescription';
+import { ProjectInfoModal } from '../ProjectInfoModal/ProjectInfoModal';
 import { ProjectTitle } from '../ProjectTitle/ProjectTitle';
 
 interface IProjectInfoWrapperProps extends BoxProps {
@@ -11,6 +12,8 @@ export function ProjectInfoWrapper({
   title,
   description,
 }: IProjectInfoWrapperProps) {
+  const textColor = useColorModeValue('whiteAlpha.900', 'gray.800');
+
   return (
     <Box
       display="flex"
@@ -22,12 +25,11 @@ export function ProjectInfoWrapper({
       width="100%"
       top="50%"
       transform="translateY(-50%)"
+      color={textColor}
     >
       <ProjectTitle title={title} />
       <ProjectDescription description={description} />
-      <Button size="sm" variant="secondary">
-        More Info
-      </Button>
+      <ProjectInfoModal title={title} />
     </Box>
   );
 }

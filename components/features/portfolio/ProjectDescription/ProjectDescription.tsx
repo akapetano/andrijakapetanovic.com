@@ -6,7 +6,7 @@ interface IProjectDescriptionProps extends TextProps {
 
 export function ProjectDescription({ description }: IProjectDescriptionProps) {
   return (
-    <Text textTransform="uppercase" fontSize="md" opacity="0.7" margin="0">
+    <Text textTransform="uppercase" fontSize="md" opacity="0.5" mb="1rem">
       {description}
     </Text>
   );
