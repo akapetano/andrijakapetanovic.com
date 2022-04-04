@@ -23,9 +23,9 @@ export function ProjectWrapper({ children, ...restProps }: GridItemProps) {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '200%',
         transform: 'scale(2) translateX(-75%) translateY(-75%) rotate(-30deg)',
-        transition: 'transform 2s cubic-bezier(0.2, 1, 0.3, 1)',
+        transition: 'transform 3s cubic-bezier(0.2, 1, 0.3, 1)',
         zIndex: '2',
       }}
       _hover={{

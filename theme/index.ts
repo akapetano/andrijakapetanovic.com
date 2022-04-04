@@ -79,6 +79,12 @@ const theme = extendTheme({
       800: '#1e3799',
       900: '#0c2461',
     },
+    accent: {
+      100: '#fffa65',
+      200: '#fff200',
+      300: '#e84118',
+      400: '#c23616',
+    },
     selected: { color: mode('brand.700', 'brand.500') },
   },
   fonts: {
@@ -94,6 +100,13 @@ const theme = extendTheme({
             color: mode('gray.100', 'gray.800')(props),
             bg: mode('brand.700', 'brand.200')(props),
             borderColor: mode('brand.700', 'brand.200')(props),
+          },
+        }),
+        secondary: (props: any) => ({
+          color: mode('whiteAlpha.900', 'gray.800')(props),
+          bg: mode('accent.300', 'accent.100')(props),
+          _hover: {
+            bg: mode('accent.400', 'accent.200')(props),
           },
         }),
       },

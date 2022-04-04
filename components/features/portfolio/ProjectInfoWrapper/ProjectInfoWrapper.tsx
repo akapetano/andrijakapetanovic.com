@@ -1,16 +1,16 @@
-import { Box, BoxProps } from '@chakra-ui/react';
+import { Box, BoxProps, Button } from '@chakra-ui/react';
 import { ProjectDescription } from '../ProjectDescription/ProjectDescription';
 import { ProjectTitle } from '../ProjectTitle/ProjectTitle';
 
-interface IProjectTextWrapperProps extends BoxProps {
+interface IProjectInfoWrapperProps extends BoxProps {
   title: string;
   description: string;
 }
 
-export function ProjectTextWrapper({
+export function ProjectInfoWrapper({
   title,
   description,
-}: IProjectTextWrapperProps) {
+}: IProjectInfoWrapperProps) {
   return (
     <Box
       display="flex"
@@ -25,6 +25,9 @@ export function ProjectTextWrapper({
     >
       <ProjectTitle title={title} />
       <ProjectDescription description={description} />
+      <Button size="sm" variant="secondary">
+        More Info
+      </Button>
     </Box>
   );
 }

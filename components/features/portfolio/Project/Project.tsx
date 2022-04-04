@@ -1,5 +1,5 @@
-import { Heading, Image, Box, Text } from '@chakra-ui/react';
-import { ProjectText } from '../ProjectText/ProjectText';
+import { Image } from '@chakra-ui/react';
+import { ProjectInfo } from '../ProjectInfo/ProjectInfo';
 import { ProjectWrapper } from '../ProjectWrapper/ProjectWrapper';
 
 interface IProjectProps {
@@ -35,7 +35,7 @@ export function Project({ src, alt, title, description }: IProjectProps) {
           },
         }}
       />
-      <ProjectText
+      <ProjectInfo
         title={title}
         description={description}
         sx={{

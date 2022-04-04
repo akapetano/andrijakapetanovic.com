@@ -1,16 +1,16 @@
 import { Box, BoxProps, useColorModeValue } from '@chakra-ui/react';
-import { ProjectTextWrapper } from '../ProjectTextWrapper/ProjectTextWrapper';
+import { ProjectInfoWrapper } from '../ProjectInfoWrapper/ProjectInfoWrapper';
 
-interface IProjectTextProps extends BoxProps {
+interface IProjectInfoProps extends BoxProps {
   title: string;
   description: string;
 }
 
-export function ProjectText({
+export function ProjectInfo({
   title,
   description,
   ...restProps
-}: IProjectTextProps) {
+}: IProjectInfoProps) {
   const textColor = useColorModeValue('gray.200', 'gray.50');
   return (
     <Box
@@ -27,7 +27,7 @@ export function ProjectText({
       transitionDelay="100ms"
       {...restProps}
     >
-      <ProjectTextWrapper title={title} description={description} />
+      <ProjectInfoWrapper title={title} description={description} />
     </Box>
   );
 }
