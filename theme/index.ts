@@ -121,14 +121,14 @@ const theme = extendTheme({
         }),
       },
     },
-    Link: {
+    ModalCloseButton: {
       variants: {
-        'without-underline': {
-          textDecoraction: 'none',
+        closeProject: (props: any) => ({
+          bgColor: mode('brand.500', 'brand.300')(props),
           _hover: {
-            textDecoration: 'none',
+            color: mode('brand.500', 'brand.300')(props),
           },
-        },
+        }),
       },
     },
   },

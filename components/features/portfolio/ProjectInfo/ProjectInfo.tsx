@@ -6,6 +6,8 @@ interface IProjectInfoProps extends BoxProps {
   shortDescription: string;
   longDescription: string;
   link: string;
+  src: string;
+  alt: string;
 }
 
 export function ProjectInfo({
@@ -13,6 +15,8 @@ export function ProjectInfo({
   shortDescription,
   longDescription,
   link,
+  src,
+  alt,
   ...restProps
 }: IProjectInfoProps) {
   const textColor = useColorModeValue('gray.200', 'gray.50');
@@ -36,6 +40,8 @@ export function ProjectInfo({
         shortDescription={shortDescription}
         longDescription={longDescription}
         link={link}
+        src={src}
+        alt={alt}
       />
     </Box>
   );

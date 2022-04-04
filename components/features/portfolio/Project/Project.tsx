@@ -49,6 +49,8 @@ export function Project({
         shortDescription={shortDescription}
         longDescription={longDescription}
         link={link}
+        src={src}
+        alt={alt}
         sx={{
           '.project-wrapper: hover &': {
             opacity: '1',

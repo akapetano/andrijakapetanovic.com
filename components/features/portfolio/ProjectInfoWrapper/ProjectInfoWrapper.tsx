@@ -8,6 +8,8 @@ interface IProjectInfoWrapperProps extends BoxProps {
   shortDescription: string;
   longDescription: string;
   link: string;
+  src: string;
+  alt: string;
 }
 
 export function ProjectInfoWrapper({
@@ -15,6 +17,8 @@ export function ProjectInfoWrapper({
   shortDescription,
   longDescription,
   link,
+  src,
+  alt,
 }: IProjectInfoWrapperProps) {
   const textColor = useColorModeValue('whiteAlpha.900', 'gray.800');
 
@@ -37,6 +41,8 @@ export function ProjectInfoWrapper({
         title={title}
         longDescription={longDescription}
         link={link}
+        src={src}
+        alt={alt}
       />
     </Box>
   );
