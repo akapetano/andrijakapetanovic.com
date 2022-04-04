@@ -48,7 +48,7 @@ export const courseProjectData = [
     title: 'Moshify',
     shortDescription: 'Cloud hosting website',
     longDescription:
-      "Nexter - Luxury homes website which I've built with the focus on CSS grid as part of the Advanced CSS and Sass course by Jonas Schmedtmann.",
+      "Moshify is the first completely responsive website which I've worked on as part of Mosh Hamedani's Ultimate HTML & CSS course.",
     imgSrc: '/images/projects/moshify.webp',
     alt: 'Moshify - Cloud hosting website',
     link: 'https://moshify-andrija.netlify.app/',
