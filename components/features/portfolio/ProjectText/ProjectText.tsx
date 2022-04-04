@@ -6,7 +6,11 @@ interface IProjectTextProps extends BoxProps {
   description: string;
 }
 
-export function ProjectText({ title, description }: IProjectTextProps) {
+export function ProjectText({
+  title,
+  description,
+  ...restProps
+}: IProjectTextProps) {
   const textColor = useColorModeValue('gray.200', 'gray.50');
   return (
     <Box
@@ -19,9 +23,9 @@ export function ProjectText({ title, description }: IProjectTextProps) {
       textAlign="center"
       color={textColor}
       transform="translateY(-50%)"
-      transition="opacity 400ms cubic-bezier(0.2, 1, 0.3, 1), transform 400ms cubic-bezier(0.2, 1, 0.3, 1)"
-      transitionDelay="300ms"
-      _hover={{ opacity: '1', transform: 'translateY(0)', zIndex: '10' }}
+      transition="opacity 300ms cubic-bezier(0.2, 1, 0.3, 1), transform 300ms cubic-bezier(0.2, 1, 0.3, 1)"
+      transitionDelay="100ms"
+      {...restProps}
     >
       <ProjectTextWrapper title={title} description={description} />
     </Box>

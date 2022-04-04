@@ -11,9 +11,9 @@ interface IProjectProps {
 
 export function Project({ src, alt, title, description }: IProjectProps) {
   return (
-    <ProjectWrapper>
+    <ProjectWrapper className="project-wrapper">
       <Image
-        display="flex"
+        display="block"
         alignItems="center"
         justifyContent="center"
         width="auto"
@@ -21,9 +21,31 @@ export function Project({ src, alt, title, description }: IProjectProps) {
         lineHeight="0"
         src={src}
         alt={alt}
-        _hover={{ transform: 'scale(1.2)' }}
+        transform="translateZ(0)"
+        transition="transform 750ms cubic-bezier(0.2, 1, 0.3, 1)"
+        _before={{
+          content: "''",
+          display: 'block',
+          pt: '75%',
+          overflow: 'hidden',
+        }}
+        sx={{
+          '.project-wrapper: hover &': {
+            transform: 'scale(1.2)',
+          },
+        }}
       />
-      <ProjectText title={title} description={description} />
+      <ProjectText
+        title={title}
+        description={description}
+        sx={{
+          '.project-wrapper: hover &': {
+            opacity: '1',
+            transform: 'translateY(0)',
+            zIndex: '10',
+          },
+        }}
+      />
     </ProjectWrapper>
   );
 }

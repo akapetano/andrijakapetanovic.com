@@ -87,7 +87,6 @@ const theme = extendTheme({
   },
   components: {
     Button: {
-      _hover: { transform: 'scale(1.1)' },
       variants: {
         primary: (props: any) => ({
           color: mode('brand.500', 'brand.300')(props),

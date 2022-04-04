@@ -9,9 +9,6 @@ export function PortfolioSection() {
     <PortfolioWrapper>
       <PortfolioIntro />
       <PersonalProjectsGrid />
-      <Text color="gray.500">
-        And some of the projects I&apos;ve build as part of courses...
-      </Text>
       <CourseProjectsGrid />
     </PortfolioWrapper>
   );

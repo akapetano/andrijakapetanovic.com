@@ -1,6 +1,6 @@
 import { GridItem, useColorModeValue, GridItemProps } from '@chakra-ui/react';
 
-export function ProjectWrapper({ children }: GridItemProps) {
+export function ProjectWrapper({ children, ...restProps }: GridItemProps) {
   const overlayColor = useColorModeValue('brand.600', 'brand.200');
   const bgColor = useColorModeValue('gray.100', 'gray.700');
 
@@ -33,6 +33,7 @@ export function ProjectWrapper({ children }: GridItemProps) {
           transform: 'scale(2) translateX(0) translateY(0) rotate(-30deg)',
         },
       }}
+      {...restProps}
     >
       {children}
     </GridItem>
