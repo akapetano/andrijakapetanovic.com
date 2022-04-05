@@ -14,6 +14,7 @@ import {
   Tooltip,
   Image,
   useColorModeValue,
+  HStack,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
@@ -96,29 +97,32 @@ export function ProjectInfoModal({
 
           <Divider alignSelf="center" w="95%" />
           <ModalFooter>
-            <Button variant="secondary" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Link
-              href={link}
-              target="_blank"
-              _hover={{ textDecor: 'none', _before: { content: 'none' } }}
-            >
-              <Tooltip
-                hasArrow
-                label={isDisabled ? 'Coming soon...' : null}
-                shouldWrapChildren
+            <HStack spacing="1rem">
+              <Button variant="secondary" onClick={onClose}>
+                Close
+              </Button>
+              <Link
+                href={link}
+                target="_blank"
+                _hover={{ textDecor: 'none', _before: { content: 'none' } }}
               >
-                <Button
-                  disabled={isDisabled}
-                  _before={{ content: 'none' }}
-                  leftIcon={<ExternalLinkIcon />}
-                  variant="secondaryGhost"
+                <Tooltip
+                  hasArrow
+                  label={isDisabled ? 'Coming soon...' : null}
+                  shouldWrapChildren
                 >
-                  Website
-                </Button>
-              </Tooltip>
-            </Link>
+                  <Button
+                    disabled={isDisabled}
+                    _before={{ content: 'none' }}
+                    leftIcon={<ExternalLinkIcon />}
+                    variant="secondaryGhost"
+                    mt="0.2rem"
+                  >
+                    Website
+                  </Button>
+                </Tooltip>
+              </Link>
+            </HStack>
           </ModalFooter>
         </ModalContent>
       </Modal>

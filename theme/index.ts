@@ -111,6 +111,7 @@ const theme = extendTheme({
         }),
         secondaryGhost: (props: any) => ({
           border: '2px solid',
+          outline: 'none',
           color: mode('accent.300', 'accent.100')(props),
           borderColor: mode('accent.300', 'accent.100')(props),
           _hover: {

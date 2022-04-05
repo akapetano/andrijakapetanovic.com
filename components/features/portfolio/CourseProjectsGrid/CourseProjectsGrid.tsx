@@ -1,6 +1,6 @@
 import { Grid, Text, useColorModeValue } from '@chakra-ui/react';
 import { Project } from '../Project/Project';
-import { courseProjectData } from '../courseProjectData/courseProjectData';
+import { courseProjectData } from '../projectData/projectData';
 
 export function CourseProjectsGrid() {
   const textColor = useColorModeValue('gray.600', 'gray.300');

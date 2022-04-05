@@ -1,6 +1,6 @@
 import { Grid } from '@chakra-ui/react';
 import { Project } from '../Project/Project';
-import { personalProjectData } from '../personalProjectData/personalProjectData';
+import { personalProjectData } from '../projectData/projectData';
 
 export function PersonalProjectsGrid() {
   return (
