@@ -32,14 +32,14 @@ export default function Footer() {
       bottom="0"
       left="0"
       width="100%"
-      height={['4rem', '4rem', '8rem', '8rem']}
+      height={['6rem', '6rem', '8rem', '8rem']}
       boxShadow="base"
       overflow="hidden"
       zIndex="10"
     >
       <HStack
         spacing={['2rem', '2rem', '4rem', '4rem']}
-        m={['0.5rem 0', '0.5rem 0', '1rem 0', '1rem 0']}
+        m={['0', '0', '1rem 0', '1rem 0']}
       >
         <Link
           href="https://github.com/akapetano"
@@ -95,6 +95,7 @@ export default function Footer() {
         <Link variant="withoutUnderline">
           <Text fontSize="xs" color={copyrightColor}>
             &copy; 2022 Andrija Kapetanović &bull; Front-end web developer
+            &bull; Translator
           </Text>
         </Link>
       </NextLink>
