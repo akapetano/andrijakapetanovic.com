@@ -1,6 +1,11 @@
 import { Heading } from '@chakra-ui/react';
 import { SectionContainer } from '../../../shared/SectionContainer/SectionContainer';
-import { UnorderedList, ListItem, Text } from '@chakra-ui/react';
+import {
+  UnorderedList,
+  ListItem,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import Date from '../Date/Date';
 import { IPostData } from '../../../../lib/posts';
 import NavLink from '../../../core/NavLink/NavLink';
@@ -10,6 +15,8 @@ export interface IAllPostsData {
 }
 
 export function BlogSection({ allPostsData }: IAllPostsData) {
+  const dateColor = useColorModeValue('gray.500', 'gray.400');
+
   return (
     <SectionContainer>
       <Heading fontSize="1.5rem" lineHeight="1.4" margin="1rem 0">
@@ -22,7 +29,7 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
               {title}
             </NavLink>
             <br />
-            <Text fontSize="sm" color="gray.400">
+            <Text fontSize="sm" color={dateColor}>
               <Date dateString={date} />
             </Text>
           </ListItem>

@@ -29,6 +29,9 @@ const theme = extendTheme({
       ul: {
         marginLeft: '2rem',
       },
+      p: {
+        marginBottom: '0.5rem',
+      },
       a: {
         position: 'relative',
         textDecoration: 'none',
@@ -139,8 +142,8 @@ const theme = extendTheme({
         primary: (props: any) => ({
           border: '2px solid',
 
-          color: mode('gray.700', 'gray.300')(props),
-          borderColor: mode('brand.300', 'brand.300')(props),
+          color: mode('gray.500', 'gray.400')(props),
+          borderColor: mode('brand.400', 'brand.300')(props),
         }),
       },
     },

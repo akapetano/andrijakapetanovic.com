@@ -4,7 +4,7 @@ import LayoutMain from '../../../components/shared/LayoutMain/LayoutMain';
 import { getAllPostSlugs, getPostData } from '../../../lib/posts';
 import NextHead from '../../../components/shared/NextHead/NextHead';
 import Date from '../../../components/features/blog/Date/Date';
-import { Box, Heading, Flex } from '@chakra-ui/react';
+import { Box, Heading, Flex, useColorModeValue } from '@chakra-ui/react';
 import Footer from '../../../components/shared/Footer/Footer';
 import { IPostDataWithContent } from '../../../lib/posts';
 import { ReadTimeBadge } from '../../../components/features/blog/ReadTimeBadge/ReadTimeBadge';
@@ -18,6 +18,8 @@ interface IPostData {
 }
 
 export default function Post({ postData }: IPostData) {
+  const dateColor = useColorModeValue('gray.500', 'gray.400');
+
   return (
     <Layout>
       <NextHead title={postData.title} />
@@ -34,18 +36,12 @@ export default function Post({ postData }: IPostData) {
           >
             {postData.title}
           </Heading>
-          <Flex align="center" fontSize="md" color="gray.400" mb="1rem">
+          <Flex align="center" fontSize="md" color={dateColor} mb="1rem">
             <Date dateString={postData.date} />
             <ReadTimeBadge text={postData.contentHtml} ml="1rem" />
           </Flex>
           <Box
             fontSize="md"
-            className="content-box"
-            sx={{
-              '.content-box ul': {
-                ml: '1rem',
-              },
-            }}
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </article>
