@@ -1,7 +1,13 @@
-import { Link, Flex, HStack } from '@chakra-ui/react';
+import {
+  Link,
+  Flex,
+  HStack,
+  Icon,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { Icon } from '@chakra-ui/react';
-import { useColorModeValue } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 export default function Footer() {
   const iconColor = useColorModeValue('black', 'gray.400');
@@ -11,6 +17,7 @@ export default function Footer() {
     '1px solid rgba(255, 255, 255, 0.05)'
   );
   const footerBg = useColorModeValue('white', 'gray.800');
+  const copyrightColor = useColorModeValue('gray.400', 'gray.600');
 
   return (
     <Flex
@@ -20,18 +27,19 @@ export default function Footer() {
       alignItems="center"
       justifyContent="center"
       textAlign="center"
+      flexDir="column"
       pos="fixed"
       bottom="0"
       left="0"
       width="100%"
-      height={['4rem', '4rem', '6rem', '6rem']}
+      height={['4rem', '4rem', '8rem', '8rem']}
       boxShadow="base"
       overflow="hidden"
       zIndex="10"
     >
       <HStack
         spacing={['2rem', '2rem', '4rem', '4rem']}
-        mt={['0.5rem', '0.5rem', '1rem', '1rem']}
+        m={['0.5rem 0', '0.5rem 0', '1rem 0', '1rem 0']}
       >
         <Link
           href="https://github.com/akapetano"
@@ -83,6 +91,13 @@ export default function Footer() {
           />
         </Link>
       </HStack>
+      <NextLink href="/" passHref>
+        <Link variant="withoutUnderline">
+          <Text fontSize="xs" color={copyrightColor}>
+            &copy; 2022 Andrija Kapetanović &bull; Front-end web developer
+          </Text>
+        </Link>
+      </NextLink>
     </Flex>
   );
 }

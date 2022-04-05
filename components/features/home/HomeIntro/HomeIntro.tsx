@@ -10,8 +10,7 @@ export default function HomeIntro() {
           href="https://www.linkedin.com/in/andrija-kapetanovi%C4%87"
           rel="noreferrer"
           target="_blank"
-          textDecorationLine="none"
-          variant="without-underline"
+          variant="withoutUnderline"
         >
           LinkedIn
         </Link>

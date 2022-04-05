@@ -27,7 +27,7 @@ export function ColorModeButton() {
         aria-label="Color mode toggler"
         zIndex="2"
         onClick={toggleColorMode}
-        size="lg"
+        size="md"
         overflow="hidden"
         border="2px solid"
         borderColor={iconButtonBorderColor}

@@ -122,6 +122,15 @@ const theme = extendTheme({
         }),
       },
     },
+    Link: {
+      variants: {
+        withoutUnderline: (props: any) => ({
+          _hover: {
+            textDecoration: 'none',
+          },
+        }),
+      },
+    },
     ModalCloseButton: {
       variants: {
         closeProject: (props: any) => ({
