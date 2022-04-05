@@ -1,4 +1,4 @@
-import { Container, Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { SectionContainer } from '../../../shared/SectionContainer/SectionContainer';
 import { UnorderedList, ListItem, Text } from '@chakra-ui/react';
 import Date from '../Date/Date';

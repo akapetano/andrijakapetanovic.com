@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { transition } from '../../../constants/constants';
+import { TRANSITION } from '../../../constants/constants';
 import { Flex } from '@chakra-ui/react';
 
 export function AnimatedMoonIcon() {
   const variants = {
     initial: { scale: 0.6, rotate: 90 },
-    animate: { scale: 1, rotate: 0, transition },
+    animate: { scale: 1, rotate: 0, TRANSITION },
     whileTap: { scale: 0.95, rotate: 15 },
   };
 

@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
-import { transition } from '../../../constants/constants';
-import { Flex, useColorMode } from '@chakra-ui/react';
+import { TRANSITION } from '../../../constants/constants';
+import { Flex } from '@chakra-ui/react';
 
 export function AnimatedSunIcon() {
   const whileTap = { scale: 0.95, rotate: 15 };
 
   const raysVariants = {
     initial: { rotate: 45 },
-    animate: { rotate: 0, transition },
+    animate: { rotate: 0, TRANSITION },
   };
 
   const coreVariants = {
     initial: { scale: 1.5 },
-    animate: { scale: 1, transition },
+    animate: { scale: 1, TRANSITION },
   };
 
   const sunColor = '#e84118';

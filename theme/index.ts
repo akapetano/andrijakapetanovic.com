@@ -26,6 +26,9 @@ const theme = extendTheme({
         lineHeight: 1.6,
         minHeight: 'fit-content',
       },
+      ul: {
+        marginLeft: '2rem',
+      },
       a: {
         position: 'relative',
         textDecoration: 'none',
@@ -128,6 +131,16 @@ const theme = extendTheme({
           _hover: {
             textDecoration: 'none',
           },
+        }),
+      },
+    },
+    Badge: {
+      variants: {
+        primary: (props: any) => ({
+          border: '2px solid',
+
+          color: mode('gray.700', 'gray.300')(props),
+          borderColor: mode('brand.300', 'brand.300')(props),
         }),
       },
     },

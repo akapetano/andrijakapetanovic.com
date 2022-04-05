@@ -2,7 +2,6 @@ import Layout from '../../components/shared/Layout/Layout';
 import LayoutHeader from '../../components/shared/LayoutHeader/LayoutHeader';
 import LayoutMain from '../../components/shared/LayoutMain/LayoutMain';
 import NextHead from '../../components/shared/NextHead/NextHead';
-import BackToHome from '../../components/shared/BackToHome/BackToHome';
 import { getSortedPostsData } from '../../lib/posts';
 import Footer from '../../components/shared/Footer/Footer';
 import { IPostData } from '../../lib/posts';

@@ -4,9 +4,10 @@ import LayoutMain from '../../../components/shared/LayoutMain/LayoutMain';
 import { getAllPostSlugs, getPostData } from '../../../lib/posts';
 import NextHead from '../../../components/shared/NextHead/NextHead';
 import Date from '../../../components/features/blog/Date/Date';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Flex } from '@chakra-ui/react';
 import Footer from '../../../components/shared/Footer/Footer';
 import { IPostDataWithContent } from '../../../lib/posts';
+import { ReadTimeBadge } from '../../../components/features/blog/ReadTimeBadge/ReadTimeBadge';
 
 interface IParams {
   params: { slug: string };
@@ -29,14 +30,22 @@ export default function Post({ postData }: IPostData) {
             fontWeight="600"
             fontSize="2xl"
             letterSpacing="-0.05rem"
+            pr={2}
           >
             {postData.title}
           </Heading>
-          <Box fontSize="md" color="gray.400" mb="1rem">
+          <Flex align="center" fontSize="md" color="gray.400" mb="1rem">
             <Date dateString={postData.date} />
-          </Box>
+            <ReadTimeBadge text={postData.contentHtml} ml="1rem" />
+          </Flex>
           <Box
             fontSize="md"
+            className="content-box"
+            sx={{
+              '.content-box ul': {
+                ml: '1rem',
+              },
+            }}
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </article>
