@@ -96,6 +96,7 @@ export default function Footer() {
           <Text
             fontSize={['xx-small', 'xx-small', 'xs', 'xs']}
             color={copyrightColor}
+            pb="0"
           >
             &copy; 2022 Andrija Kapetanović &bull; Front-end web developer
             &bull; Translator

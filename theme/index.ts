@@ -29,9 +29,6 @@ const theme = extendTheme({
       ul: {
         marginLeft: '2rem',
       },
-      p: {
-        marginBottom: '0.5rem',
-      },
       a: {
         position: 'relative',
         textDecoration: 'none',
