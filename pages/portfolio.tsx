@@ -15,7 +15,6 @@ export default function Portfolio() {
       <LayoutMain>
         <PortfolioSection />
       </LayoutMain>
-      <BackToHome />
       <Footer />
     </Layout>
   );

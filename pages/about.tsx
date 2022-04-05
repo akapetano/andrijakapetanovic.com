@@ -14,7 +14,6 @@ export default function About() {
       <LayoutMain>
         <AboutSection />
       </LayoutMain>
-      <BackToHome />
       <Footer />
     </Layout>
   );

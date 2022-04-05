@@ -6,9 +6,14 @@ export function AboutIntro() {
   return (
     <>
       <Heading fontSize="1.5rem" lineHeight="1.4" margin="auto 0">
-        About
+        About me
       </Heading>
-      <Text color={textColor}>I was born in Zadar, Croatia.</Text>
+      <Text fontSize="smaller" color={textColor}>
+        I was born in Zadar, Croatia.
+      </Text>
+      <Text fontSize="smaller" color={textColor}>
+        I was born in Zadar, Croatia.
+      </Text>
     </>
   );
 }

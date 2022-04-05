@@ -1,13 +1,16 @@
 import { Container, ContainerProps } from '@chakra-ui/react';
 
-export function PortfolioWrapper({ children }: ContainerProps) {
+export function SectionContainer({ children, ...restProps }: ContainerProps) {
   return (
     <Container
+      as="section"
       display="flex"
       flexDir="column"
       justifyContent="space-around"
       fontSize="1.2rem"
-      p="1px"
+      lineHeight="1.5"
+      pt="1px"
+      {...restProps}
     >
       {children}
     </Container>
