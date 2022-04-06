@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 
 export default function BackToHome() {
   return (
-    <Container lineHeight="1.5" pt="1rem" pb={['4rem', '4rem', '6rem', '6rem']}>
+    <Container lineHeight="1.5" pt="2rem" pb={['4rem', '4rem', '6rem', '6rem']}>
       <Flex justify="center">
         <NextLink passHref href="/">
           <Link
