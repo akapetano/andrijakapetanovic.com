@@ -13,13 +13,19 @@ export default function BackToHome() {
             _before={{ content: 'none' }}
           >
             <Button
+              className="BackToHome"
               aria-label="Back to home button"
               leftIcon={
-                <ArrowBackIcon _hover={{ transform: 'translateX(-20%)' }} />
+                <ArrowBackIcon
+                  transition="transform .3s ease-in-out"
+                  sx={{
+                    '.BackToHome: hover &': {
+                      transform: 'translateX(-30%)',
+                    },
+                  }}
+                />
               }
-              border="2px solid"
-              bg="transparent"
-              variant="primary"
+              variant="primaryGhost"
             >
               Back to home
             </Button>

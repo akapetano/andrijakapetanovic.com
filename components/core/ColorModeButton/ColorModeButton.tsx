@@ -3,7 +3,6 @@ import {
   useColorModeValue,
   IconButton,
   Flex,
-  Box,
 } from '@chakra-ui/react';
 import { AnimatedMoonIcon } from '../AnimatedMoonIcon/AnimatedMoonIcon';
 import { AnimatedSunIcon } from '../AnimatedSunIcon/AnimatedSunIcon';
@@ -31,7 +30,7 @@ export function ColorModeButton() {
         overflow="hidden"
         border="2px solid"
         borderColor={iconButtonBorderColor}
-        _hover={{ borderColor: `${iconButtonHoverBorderColor}` }}
+        _hover={{ borderColor: iconButtonHoverBorderColor }}
         icon={<SwitchIcon />}
       />
     </Flex>

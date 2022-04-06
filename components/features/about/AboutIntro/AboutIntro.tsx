@@ -10,16 +10,17 @@ export function AboutIntro() {
         About me
       </Heading>
       <Text fontSize="smaller" color={textColor} mb="0.5rem">
-        I&apos;m a highly motivated front-end developer and translator who
-        specializes in JavaScript based front-end application, in particular the
-        React library, and its framework Next.js.
+        I&apos;m a front-end developer and translator who specializes in
+        JavaScript based front-end application, in particular the React library,
+        and its framework Next.js.
       </Text>
       <Text fontSize="smaller" color={textColor} mb="0.5rem">
         I attained my master&apos;s degree in English and German language after
         graduating from the University of Zadar. From June 2017 to January 2022
         I worked in the international relations office at the University of
         Zadar where I dipped my toes in waters of the web development through
-        simple content manipulation via CMS.
+        simple content manipulation via CMS. With the background in
+        international relations, I am skilled in communication
       </Text>
       <Text fontSize="smaller" color={textColor} mb="0.5rem">
         In July 2021, I decided to change my career, and to become a web

@@ -98,7 +98,17 @@ const theme = extendTheme({
     Button: {
       variants: {
         primary: (props: any) => ({
+          color: mode('white', 'gray.800')(props),
+          bg: mode('brand.600', 'brand.300')(props),
+          _hover: {
+            color: mode('gray.50', 'gray.700')(props),
+            bg: mode('brand.700', 'brand.200')(props),
+            borderColor: mode('brand.700', 'brand.200')(props),
+          },
+        }),
+        primaryGhost: (props: any) => ({
           color: mode('brand.500', 'brand.300')(props),
+          border: '2px solid',
           _hover: {
             color: mode('gray.100', 'gray.800')(props),
             bg: mode('brand.700', 'brand.200')(props),
@@ -137,10 +147,17 @@ const theme = extendTheme({
     Badge: {
       variants: {
         primary: (props: any) => ({
-          border: '2px solid',
-
           color: mode('gray.500', 'gray.400')(props),
-          borderColor: mode('brand.400', 'brand.300')(props),
+        }),
+      },
+    },
+    Text: {
+      variants: {
+        primary: (props: any) => ({
+          color: mode('gray.700', 'gray.200')(props),
+        }),
+        secondary: (props: any) => ({
+          color: mode('gray.600', 'gray.400')(props),
         }),
       },
     },
