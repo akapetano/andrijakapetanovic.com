@@ -10,9 +10,9 @@ export function AboutIntro() {
         About me
       </Heading>
       <Text fontSize="smaller" color={textColor} mb="0.5rem">
-        I&apos;m a front-end developer and translator who specializes in
-        JavaScript based front-end application, in particular the React library,
-        and its framework Next.js.
+        I&apos;m a front-end developer and translator based in Zadar, Croatia,
+        who specializes in JavaScript based front-end application, in particular
+        the React library, and its framework Next.js.
       </Text>
       <Text fontSize="smaller" color={textColor} mb="0.5rem">
         I attained my master&apos;s degree in English and German language after

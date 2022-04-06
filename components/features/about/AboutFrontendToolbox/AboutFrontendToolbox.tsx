@@ -5,8 +5,8 @@ import {
   Heading,
   Tooltip,
 } from '@chakra-ui/react';
-import { FaSass, FaJs, FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa';
-import { SiNextdotjs, SiChakraui } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaSass, FaJs, FaReact } from 'react-icons/fa';
+import { SiNextdotjs, SiChakraui, SiTypescript } from 'react-icons/si';
 
 export function AboutFrontendToolbox() {
   const jsColor = useColorModeValue('#000', '#f7df1e');
@@ -17,6 +17,7 @@ export function AboutFrontendToolbox() {
     { toolName: 'CSS3', toolIcon: FaCss3Alt, toolColor: '#167dbe' },
     { toolName: 'Sass', toolIcon: FaSass, toolColor: '#ce679a' },
     { toolName: 'JavaScript', toolIcon: FaJs, toolColor: jsColor },
+    { toolName: 'TypeScript', toolIcon: SiTypescript, toolColor: '#3178c6' },
     { toolName: 'React', toolIcon: FaReact, toolColor: '#5ed3f3' },
     { toolName: 'Next.js', toolIcon: SiNextdotjs, toolColor: nextJsColor },
     { toolName: 'Chakra UI', toolIcon: SiChakraui, toolColor: '#2cc6b8' },
@@ -31,8 +32,8 @@ export function AboutFrontendToolbox() {
         templateColumns={[
           'repeat(4, 1fr)',
           'repeat(4, 1fr)',
-          'repeat(7, 1fr)',
-          'repeat(7, 1fr)',
+          'repeat(8, 1fr)',
+          'repeat(8, 1fr)',
         ]}
         m="1rem 0"
         gap="2rem"
