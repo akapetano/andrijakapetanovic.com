@@ -1,39 +1,27 @@
 import {
-  useColorModeValue,
   Grid,
   Icon,
   Heading,
   Tooltip,
   Box,
-  Text,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { FaHtml5, FaCss3Alt, FaSass, FaJs, FaReact } from 'react-icons/fa';
-import { SiNextdotjs, SiChakraui, SiTypescript } from 'react-icons/si';
+import { FaLinux, FaGitAlt, FaFigma } from 'react-icons/fa';
 
-export function AboutFrontendToolbox() {
-  const textColor = useColorModeValue('gray.500', 'gray.400');
-  const jsColor = useColorModeValue('#f7c427', '#f7df1e');
-  const nextJsColor = useColorModeValue('#000', 'gray.100');
+export function AboutOtherTools() {
+  const figmaColor = useColorModeValue('gray.700', 'gray.100');
 
   const FRONTEND_TOOLBOX = [
-    { toolName: 'HTML5', toolIcon: FaHtml5, toolColor: '#E34C26' },
-    { toolName: 'CSS3', toolIcon: FaCss3Alt, toolColor: '#167dbe' },
-    { toolName: 'Sass', toolIcon: FaSass, toolColor: '#ce679a' },
-    { toolName: 'JavaScript', toolIcon: FaJs, toolColor: jsColor },
-    { toolName: 'TypeScript', toolIcon: SiTypescript, toolColor: '#3178c6' },
-    { toolName: 'React', toolIcon: FaReact, toolColor: '#5ed3f3' },
-    { toolName: 'Next.js', toolIcon: SiNextdotjs, toolColor: nextJsColor },
-    { toolName: 'Chakra UI', toolIcon: SiChakraui, toolColor: '#2cc6b8' },
+    { toolName: 'Linux', toolIcon: FaLinux, toolColor: '#000' },
+    { toolName: 'Git', toolIcon: FaGitAlt, toolColor: '#f05033' },
+    { toolName: 'Figma', toolIcon: FaFigma, toolColor: figmaColor },
   ];
 
   return (
-    <Box mb="2rem">
+    <Box>
       <Heading as="h3" fontSize="lg">
-        Front-end toolbox
+        Other
       </Heading>
-      <Text fontSize="smaller" color={textColor}>
-        These are the tools that I use in my day-to-day work.
-      </Text>
       <Grid
         templateColumns={[
           'repeat(4, 1fr)',
