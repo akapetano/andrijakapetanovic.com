@@ -46,6 +46,7 @@ export function AboutFrontendToolbox() {
             label={tool.toolName}
             hasArrow
             shouldWrapChildren
+            bg={tool.toolColor}
           >
             <Icon
               key={tool.toolName}

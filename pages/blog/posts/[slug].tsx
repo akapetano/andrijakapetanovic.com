@@ -43,6 +43,7 @@ export default function Post({ postData }: IPostData) {
           <Box
             fontSize="md"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+            sx={{ p: { mb: '0.5rem' } }}
           />
         </article>
       </LayoutMain>
