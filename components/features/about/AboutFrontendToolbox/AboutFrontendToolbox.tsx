@@ -1,6 +1,6 @@
 import {
   useColorModeValue,
-  HStack,
+  Grid,
   Icon,
   Heading,
   Tooltip,
@@ -27,11 +27,18 @@ export function AboutFrontendToolbox() {
       <Heading as="h3" fontSize="xl">
         Front-end toolbox
       </Heading>
-      <HStack
+      <Grid
+        templateColumns={[
+          'repeat(4, 1fr)',
+          'repeat(4, 1fr)',
+          'repeat(7, 1fr)',
+          'repeat(7, 1fr)',
+        ]}
         m="1rem 0"
-        spacing="2rem"
+        gap="2rem"
         alignItems="center"
         justifyContent="center"
+        textAlign="center"
       >
         {FRONTEND_TOOLBOX.map((tool) => (
           <Tooltip
@@ -54,7 +61,7 @@ export function AboutFrontendToolbox() {
             />
           </Tooltip>
         ))}
-      </HStack>
+      </Grid>
     </>
   );
 }
