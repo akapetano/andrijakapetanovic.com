@@ -1,5 +1,4 @@
 import { SectionContainer } from '../../../shared/SectionContainer/SectionContainer';
-
 import HomeIntro from '../HomeIntro/HomeIntro';
 import { HomeActionButtons } from '../HomeActionButtons/HomeActionButtons';
 

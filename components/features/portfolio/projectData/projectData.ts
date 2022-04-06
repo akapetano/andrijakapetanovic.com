@@ -42,7 +42,7 @@ export const courseProjectData = [
     title: 'Trillo',
     shortDescription: 'Booking application',
     longDescription:
-      "Trillo - All-in-one booking app which I've built with the focus on flexbox as part of the Advanced CSS and Sass course by Jonas Schmedtmann.",
+      'Trillo - All-in-one booking app with the focus on flexbox built as part of the "Advanced CSS and Sass: Flexbox, Grid, Animations and More" by Jonas Schmedtmann.',
     imgSrc: '/images/projects/trillo.webp',
     alt: 'Trillo - All-in-one booking application',
     link: 'https://trillo-andrija.netlify.app/',
@@ -51,7 +51,7 @@ export const courseProjectData = [
     title: 'Nexter',
     shortDescription: 'Luxury homes website',
     longDescription:
-      "Nexter - Luxury homes website which I've built with the focus on CSS grid as part of the Advanced CSS and Sass course by Jonas Schmedtmann.",
+      'Nexter - Luxury homes website with the focus on CSS grid built as part of the "Advanced CSS and Sass: Flexbox, Grid, Animations and More" course by Jonas Schmedtmann.',
     imgSrc: '/images/projects/nexter.webp',
     alt: 'Nexter - Luxury homes website',
     link: 'https://nexter-andrija.netlify.app/',

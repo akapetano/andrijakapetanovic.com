@@ -25,6 +25,16 @@ const theme = extendTheme({
         fontSize: '1.2rem',
         lineHeight: 1.6,
         minHeight: 'fit-content',
+        sx: {
+          '&::-webkit-scrollbar': {
+            width: '16px',
+            borderRadius: '8px',
+            backgroundColor: `black`,
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: `black`,
+          },
+        },
       },
       ul: {
         marginLeft: '2rem',
@@ -147,7 +157,9 @@ const theme = extendTheme({
     Badge: {
       variants: {
         primary: (props: any) => ({
+          border: '2px solid',
           color: mode('gray.500', 'gray.400')(props),
+          borderColor: mode('brand.400', 'brand.300')(props),
         }),
       },
     },

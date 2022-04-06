@@ -1,4 +1,4 @@
-import { Button, Flex, Link, Stack } from '@chakra-ui/react';
+import { Button, Link, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 export function HomeActionButtons() {

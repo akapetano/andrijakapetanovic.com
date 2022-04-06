@@ -1,4 +1,14 @@
-import { Text, Link, Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Text,
+  Box,
+  Heading,
+  useColorModeValue,
+  HStack,
+  Icon,
+  Image,
+} from '@chakra-ui/react';
+import { FaSass, FaJs, FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa';
+import { SiNextdotjs } from 'react-icons/si';
 
 export default function HomeIntro() {
   const nameColor = useColorModeValue('brand.600', 'brand.300');
