@@ -13,6 +13,7 @@ export default function BackToHome() {
             _before={{ content: 'none' }}
           >
             <Button
+              width={['80vw', '100%', '100%', '100%']}
               className="BackToHome"
               aria-label="Back to home button"
               leftIcon={

@@ -1,4 +1,4 @@
-import { Grid, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Grid, Text, useColorModeValue } from '@chakra-ui/react';
 import { Project } from '../Project/Project';
 import { courseProjectData } from '../projectData/projectData';
 
@@ -6,8 +6,8 @@ export function CourseProjectsGrid() {
   const textColor = useColorModeValue('gray.600', 'gray.300');
 
   return (
-    <>
-      <Text color={textColor}>
+    <Box>
+      <Text color={textColor} mb="0.5rem">
         And some of the projects I&apos;ve built as part of courses...
       </Text>
       <Grid
@@ -35,6 +35,6 @@ export function CourseProjectsGrid() {
           )
         )}
       </Grid>
-    </>
+    </Box>
   );
 }

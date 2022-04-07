@@ -6,7 +6,7 @@ export function HomeActionButtons() {
     <Stack align="center" direction={['column', 'column', 'row', 'row']}>
       <ActionButton href="/about" btnVariant="primary" text="Learn More" />
       <ActionButton
-        href="/about"
+        href="mailto:andrija.kapetanovic@gmail.com"
         btnVariant="primaryGhost"
         text="Get in contact"
       />

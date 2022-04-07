@@ -11,9 +11,10 @@ import { TouchFriendlyTooltip } from '../../../core/TouchFriendlyTooltip/TouchFr
 
 export function AboutOtherTools() {
   const figmaColor = useColorModeValue('gray.700', 'gray.100');
+  const linuxColor = useColorModeValue('#000', 'gray.100');
 
   const FRONTEND_TOOLBOX = [
-    { toolName: 'Linux', toolIcon: FaLinux, toolColor: '#000' },
+    { toolName: 'Linux', toolIcon: FaLinux, toolColor: linuxColor },
     { toolName: 'Git', toolIcon: FaGitAlt, toolColor: '#f05033' },
     { toolName: 'Figma', toolIcon: FaFigma, toolColor: figmaColor },
   ];
