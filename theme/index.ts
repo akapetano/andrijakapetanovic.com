@@ -1,4 +1,4 @@
-import { extendTheme, theme as base } from '@chakra-ui/react';
+import { extendTheme, theme as base, ThemeConfig } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 
 const breakpoints = {
@@ -8,14 +8,15 @@ const breakpoints = {
   xl: '80em',
 };
 
-// const config: ThemeConfig = {
-//   initialColorMode: 'light',
-//   useSystemColorMode: false,
-// };
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
 
 const boxShadow = '0px 0px 4px 0px rgba(0, 0, 0, 0.3)';
 
 const theme = extendTheme({
+  config,
   styles: {
     global: (props: any) => ({
       'html, body': {
@@ -29,10 +30,10 @@ const theme = extendTheme({
           '&::-webkit-scrollbar': {
             width: '16px',
             borderRadius: '8px',
-            backgroundColor: `black`,
+            background: `black`,
           },
           '&::-webkit-scrollbar-thumb': {
-            backgroundColor: `black`,
+            background: `black`,
           },
         },
       },

@@ -20,7 +20,7 @@ export default function BackToHome() {
                   transition="transform .3s ease-in-out"
                   sx={{
                     '.BackToHome: hover &': {
-                      transform: 'translateX(-30%)',
+                      transform: 'translateX(-30%) scale(1.1)',
                     },
                   }}
                 />

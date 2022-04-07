@@ -1,15 +1,15 @@
 import { Stack } from '@chakra-ui/react';
 import { ActionButton } from '../../../core/ActionButton/ActionButton';
 
-export function HomeActionButtons() {
+export function AboutActionButtons() {
   return (
     <Stack align="center" direction={['column', 'column', 'row', 'row']}>
-      <ActionButton href="/about" btnVariant="primary" text="Learn More" />
       <ActionButton
-        href="/about"
-        btnVariant="primaryGhost"
-        text="Get in contact"
+        href="/portfolio"
+        btnVariant="secondary"
+        text="View my work"
       />
+      <ActionButton href="/about" btnVariant="secondaryGhost" text="Resume" />
     </Stack>
   );
 }

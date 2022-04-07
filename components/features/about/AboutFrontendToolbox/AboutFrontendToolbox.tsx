@@ -10,7 +10,7 @@ import { SiNextdotjs, SiChakraui, SiTypescript } from 'react-icons/si';
 import { TouchFriendlyTooltip } from '../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip';
 
 export function AboutFrontendToolbox() {
-  const textColor = useColorModeValue('gray.500', 'gray.400');
+  const textColor = useColorModeValue('gray.600', 'gray.300');
   const jsColor = useColorModeValue('#f7c427', '#f7df1e');
   const nextJsColor = useColorModeValue('#000', 'gray.100');
 
@@ -27,7 +27,7 @@ export function AboutFrontendToolbox() {
 
   return (
     <Box mb="2rem">
-      <Heading as="h3" fontSize="lg">
+      <Heading as="h3" fontSize="lg" mb="0.5rem">
         Front-end toolbox
       </Heading>
       <Text fontSize="smaller" color={textColor}>
