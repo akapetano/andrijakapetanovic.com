@@ -1,12 +1,4 @@
-import {
-  useColorModeValue,
-  Grid,
-  Icon,
-  Heading,
-  Tooltip,
-  Box,
-  Text,
-} from '@chakra-ui/react';
+import { useColorModeValue, Grid, Heading, Box, Text } from '@chakra-ui/react';
 import {
   FaHtml5,
   FaCss3Alt,
@@ -15,6 +7,7 @@ import {
   FaReact,
 } from 'react-icons/fa';
 import { SiNextdotjs, SiChakraui, SiTypescript } from 'react-icons/si';
+import { TouchFriendlyTooltip } from '../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip';
 
 export function AboutFrontendToolbox() {
   const textColor = useColorModeValue('gray.500', 'gray.400');
@@ -54,28 +47,12 @@ export function AboutFrontendToolbox() {
         textAlign="center"
       >
         {FRONTEND_TOOLBOX.map((tool) => (
-          <Tooltip
+          <TouchFriendlyTooltip
             key={tool.toolName}
-            label={tool.toolName}
-            hasArrow
-            shouldWrapChildren
-            bg={tool.toolColor}
-          >
-            <span>
-              <Icon
-                key={tool.toolName}
-                as={tool.toolIcon}
-                boxSize={['6', '6', '8', '8']}
-                transition="all 0.2s ease-in-out"
-                _hover={{
-                  opacity: 1,
-                  transform: 'scale(1.2)',
-                  color: tool.toolColor,
-                }}
-                _focus={{ boxShadow: 'outline' }}
-              />
-            </span>
-          </Tooltip>
+            toolName={tool.toolName}
+            toolIcon={tool.toolIcon}
+            toolColor={tool.toolColor}
+          />
         ))}
       </Grid>
     </Box>
