@@ -7,6 +7,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { FaLinux, FaGitAlt, FaFigma } from 'react-icons/fa';
+import { TouchFriendlyTooltip } from '../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip';
 
 export function AboutOtherTools() {
   const figmaColor = useColorModeValue('gray.700', 'gray.100');
@@ -36,26 +37,12 @@ export function AboutOtherTools() {
         textAlign="center"
       >
         {FRONTEND_TOOLBOX.map((tool) => (
-          <Tooltip
+          <TouchFriendlyTooltip
             key={tool.toolName}
-            label={tool.toolName}
-            hasArrow
-            shouldWrapChildren
-            bg={tool.toolColor}
-          >
-            <Icon
-              key={tool.toolName}
-              as={tool.toolIcon}
-              boxSize={['6', '6', '8', '8']}
-              transition="all 0.2s ease-in-out"
-              _hover={{
-                opacity: 1,
-                transform: 'scale(1.2)',
-                color: tool.toolColor,
-              }}
-              _focus={{ boxShadow: 'outline' }}
-            />
-          </Tooltip>
+            toolName={tool.toolName}
+            toolIcon={tool.toolIcon}
+            toolColor={tool.toolColor}
+          />
         ))}
       </Grid>
     </Box>

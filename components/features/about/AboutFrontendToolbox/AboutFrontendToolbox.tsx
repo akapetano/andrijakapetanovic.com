@@ -7,7 +7,13 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
-import { FaHtml5, FaCss3Alt, FaSass, FaJs, FaReact } from 'react-icons/fa';
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaSass,
+  FaJsSquare,
+  FaReact,
+} from 'react-icons/fa';
 import { SiNextdotjs, SiChakraui, SiTypescript } from 'react-icons/si';
 
 export function AboutFrontendToolbox() {
@@ -19,9 +25,9 @@ export function AboutFrontendToolbox() {
     { toolName: 'HTML5', toolIcon: FaHtml5, toolColor: '#E34C26' },
     { toolName: 'CSS3', toolIcon: FaCss3Alt, toolColor: '#167dbe' },
     { toolName: 'Sass', toolIcon: FaSass, toolColor: '#ce679a' },
-    { toolName: 'JavaScript', toolIcon: FaJs, toolColor: jsColor },
-    { toolName: 'TypeScript', toolIcon: SiTypescript, toolColor: '#3178c6' },
+    { toolName: 'JavaScript', toolIcon: FaJsSquare, toolColor: jsColor },
     { toolName: 'React', toolIcon: FaReact, toolColor: '#5ed3f3' },
+    { toolName: 'TypeScript', toolIcon: SiTypescript, toolColor: '#3178c6' },
     { toolName: 'Next.js', toolIcon: SiNextdotjs, toolColor: nextJsColor },
     { toolName: 'Chakra UI', toolIcon: SiChakraui, toolColor: '#2cc6b8' },
   ];
@@ -42,7 +48,7 @@ export function AboutFrontendToolbox() {
           'repeat(8, 1fr)',
         ]}
         m="1rem 0"
-        gap="2rem"
+        gap={['1rem', '1rem', '0.5rem', '0.5rem']}
         alignItems="center"
         justifyContent="center"
         textAlign="center"
@@ -55,18 +61,20 @@ export function AboutFrontendToolbox() {
             shouldWrapChildren
             bg={tool.toolColor}
           >
-            <Icon
-              key={tool.toolName}
-              as={tool.toolIcon}
-              boxSize={['6', '6', '8', '8']}
-              transition="all 0.2s ease-in-out"
-              _hover={{
-                opacity: 1,
-                transform: 'scale(1.2)',
-                color: tool.toolColor,
-              }}
-              _focus={{ boxShadow: 'outline' }}
-            />
+            <span>
+              <Icon
+                key={tool.toolName}
+                as={tool.toolIcon}
+                boxSize={['6', '6', '8', '8']}
+                transition="all 0.2s ease-in-out"
+                _hover={{
+                  opacity: 1,
+                  transform: 'scale(1.2)',
+                  color: tool.toolColor,
+                }}
+                _focus={{ boxShadow: 'outline' }}
+              />
+            </span>
           </Tooltip>
         ))}
       </Grid>
