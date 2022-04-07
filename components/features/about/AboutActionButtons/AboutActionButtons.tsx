@@ -9,7 +9,11 @@ export function AboutActionButtons() {
         btnVariant="secondary"
         text="View my work"
       />
-      <ActionButton href="/about" btnVariant="secondaryGhost" text="Resume" />
+      <ActionButton
+        href="/about/resume"
+        btnVariant="secondaryGhost"
+        text="Resume"
+      />
     </Stack>
   );
 }

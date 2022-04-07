@@ -149,7 +149,9 @@ const theme = extendTheme({
     Link: {
       variants: {
         withoutUnderline: (props: any) => ({
+          color: mode('brand.600', 'brand.300')(props),
           _hover: {
+            color: mode('brand.700', 'brand.200')(props),
             textDecoration: 'none',
           },
         }),
