@@ -26,7 +26,7 @@ export function AboutFrontendToolbox() {
   ];
 
   return (
-    <Box mb="2rem">
+    <Box mb="1rem">
       <Heading as="h3" fontSize="lg" mb="0.5rem">
         Front-end toolbox
       </Heading>

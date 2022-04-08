@@ -15,6 +15,7 @@ export function AboutSection() {
         <AboutFrontendToolbox />
         <AboutOtherTools />
         <AboutOutro />
+        <AboutActionButtons />
       </SectionContainer>
     </>
   );
