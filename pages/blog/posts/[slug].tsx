@@ -19,6 +19,7 @@ interface IPostData {
 
 export default function Post({ postData }: IPostData) {
   const dateColor = useColorModeValue('gray.500', 'gray.400');
+  const textColor = useColorModeValue('gray.600', 'gray.300');
 
   return (
     <Layout>
@@ -41,6 +42,7 @@ export default function Post({ postData }: IPostData) {
             <ReadTimeBadge text={postData.contentHtml} ml="1rem" />
           </Flex>
           <Box
+            color={textColor}
             fontSize="md"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
             sx={{ p: { mb: '0.5rem' } }}

@@ -5,9 +5,12 @@ import {
   Text,
   UnorderedList,
   ListItem,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 export function WorkExperience() {
+  const textColor = useColorModeValue('gray.600', 'gray.300');
+
   return (
     <Box>
       <Heading fontSize="large" as="h3" textTransform="uppercase">
@@ -26,7 +29,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Associate
         </Text>
-        <UnorderedList fontSize="medium">
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             in charge of incoming student and staff mobility and the web
             administrator of the International Relations Office&apos;s official
@@ -43,7 +46,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Student Office Assistant
         </Text>
-        <UnorderedList fontSize="medium">
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             in charge of incoming students (student applications, admission
             procedure, assistance in composing student&apos;s learning
@@ -59,10 +62,9 @@ export function WorkExperience() {
           From June 2017 to March 2018
         </Text>
         <Text fontSize="medium" fontWeight="bold">
-          Student Office Assistan
+          Student Office Assistant
         </Text>
-
-        <UnorderedList fontSize="medium">
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             administrative work, receipt of incoming and outgoing student
             applications and both academic and non-academic staff applications

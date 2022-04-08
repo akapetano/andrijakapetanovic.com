@@ -32,7 +32,7 @@ export default function Footer() {
       bottom="0"
       left="0"
       width="100%"
-      height={['6rem', '6rem', '8rem', '8rem']}
+      height={['6rem', '6rem', '6rem', '8rem']}
       boxShadow="base"
       overflow="hidden"
       zIndex="10"

@@ -6,9 +6,12 @@ import {
   UnorderedList,
   ListItem,
   Link,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 export function References() {
+  const textColor = useColorModeValue('gray.600', 'gray.300');
+
   return (
     <Box>
       <Heading fontSize="large" as="h3" textTransform="uppercase">
@@ -22,7 +25,7 @@ export function References() {
       <Text fontSize="medium" fontWeight="bold">
         Adrian Bićanić
       </Text>
-      <UnorderedList fontSize="medium" mb="1rem">
+      <UnorderedList fontSize="medium" mb="1rem" color={textColor}>
         <ListItem>role: JavaScript Engineer</ListItem>
         <ListItem>company: Infinum</ListItem>
         <ListItem>
@@ -35,7 +38,7 @@ export function References() {
       <Text fontSize="medium" fontWeight="bold">
         Marija Džaja Sikirić
       </Text>
-      <UnorderedList fontSize="medium">
+      <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>role: International relations officer</ListItem>
         <ListItem>company: University of Zadar</ListItem>
         <ListItem>

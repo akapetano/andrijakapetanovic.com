@@ -19,10 +19,11 @@ export default function HomeIntro() {
         fontSize={['3xl', '3xl', '5xl', '5xl']}
         sx={{ '.authorName': { color: nameColor } }}
       >
-        Hi, I&apos;m <strong className="authorName">Andrija</strong>
+        Hi, I&apos;m <strong className="authorName">Andrija</strong>.
       </Heading>
       <Text variant="secondary" fontSize="xl">
-        I&apos;m a front-end developer and translator.
+        I&apos;m a front-end developer and translator who specializes in
+        building front-end applications with great user experience.
       </Text>
     </Box>
   );

@@ -4,9 +4,12 @@ import {
   Divider,
   UnorderedList,
   ListItem,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 export function Courses() {
+  const textColor = useColorModeValue('gray.600', 'gray.300');
+
   return (
     <Box>
       <Heading fontSize="large" as="h3" textTransform="uppercase">
@@ -17,7 +20,7 @@ export function Courses() {
         Online Courses
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
-      <UnorderedList fontSize="medium">
+      <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
           &quot;Understanding TypeScript 2022&quot; by Maximilian Schwarzmüller
           - March 2022
