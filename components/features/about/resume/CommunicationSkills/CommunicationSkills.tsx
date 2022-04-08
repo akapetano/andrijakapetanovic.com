@@ -1,4 +1,10 @@
-import { Box, Heading, Divider, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Divider,
+  UnorderedList,
+  ListItem,
+} from '@chakra-ui/react';
 
 export function CommunicationSkills() {
   return (
@@ -7,14 +13,16 @@ export function CommunicationSkills() {
         Communication Skills
       </Heading>
       <Divider m="0 0 1rem 0" />
-      <Text fontSize="medium">
-        - great communication skills in Croatian, English and German acquired in
-        the course of education and working in the International Relations
-        Office at the University of Zadar
-      </Text>
-      <Text fontSize="medium">
-        - everyday oral and written communication and correspondence
-      </Text>
+      <UnorderedList fontSize="medium">
+        <ListItem>
+          great communication skills in Croatian, English and German acquired in
+          the course of education and working in the International Relations
+          Office at the University of Zadar
+        </ListItem>
+        <ListItem>
+          everyday oral and written communication and correspondence
+        </ListItem>
+      </UnorderedList>
       <Divider m="0.5rem 0 1rem 0" />
     </Box>
   );

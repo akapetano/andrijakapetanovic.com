@@ -22,7 +22,7 @@ export function References() {
       <Text fontSize="medium" fontWeight="bold">
         Adrian Bićanić
       </Text>
-      <UnorderedList fontSize="medium">
+      <UnorderedList fontSize="medium" mb="1rem">
         <ListItem>role: JavaScript Engineer</ListItem>
         <ListItem>company: Infinum</ListItem>
         <ListItem>
