@@ -45,7 +45,7 @@ export default function Post({ postData }: IPostData) {
             color={textColor}
             fontSize="md"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-            sx={{ p: { mb: '0.5rem' } }}
+            sx={{ p: { mb: '1rem' } }}
           />
         </article>
       </LayoutMain>
