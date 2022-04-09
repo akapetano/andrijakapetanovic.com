@@ -16,6 +16,7 @@ export function CourseProjectsGrid() {
           'repeat(1, 1fr)',
           'repeat(2, 1fr)',
           'repeat(2, 1fr)',
+          'repeat(2, 1fr)',
         ]}
         gap={0}
         mb="2rem"

@@ -3,7 +3,7 @@ import { ActionButton } from '../../../core/ActionButton/ActionButton';
 
 export function AboutActionButtons() {
   return (
-    <Stack align="center" direction={['column', 'column', 'row', 'row']}>
+    <Stack align="center" direction={['column', 'column', 'row', 'row', 'row']}>
       <ActionButton
         href="/portfolio"
         btnVariant="secondary"

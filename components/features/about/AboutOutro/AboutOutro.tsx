@@ -1,6 +1,4 @@
-import { Link, Text, Heading, useColorModeValue, Box } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { AboutActionButtons } from '../AboutActionButtons/AboutActionButtons';
+import { Text, useColorModeValue, Box } from '@chakra-ui/react';
 
 export function AboutOutro() {
   const textColor = useColorModeValue('gray.600', 'gray.300');

@@ -39,7 +39,7 @@ export default function Footer() {
     >
       <HStack
         spacing={['2rem', '2rem', '2rem', '4rem', '4rem']}
-        m={['0', '0', '0', '0.5rem 0', '0.5rem 0']}
+        m={['0', '0', '0', '1rem 0 0 0', '1rem 0 0 0']}
       >
         <Link
           href="https://github.com/akapetano"

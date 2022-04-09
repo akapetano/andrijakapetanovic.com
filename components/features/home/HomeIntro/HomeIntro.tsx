@@ -4,7 +4,7 @@ export default function HomeIntro() {
   const nameColor = useColorModeValue('brand.600', 'brand.300');
 
   return (
-    <Box pb="1rem" textAlign={['center', 'center', 'left', 'left']}>
+    <Box pb="1rem" textAlign={['center', 'center', 'left', 'left', 'left']}>
       <Heading
         fontSize={['3xl', '3xl', '5xl', '5xl', '5xl']}
         sx={{ '.authorName': { color: nameColor } }}

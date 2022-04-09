@@ -14,8 +14,8 @@ export function AboutOtherTools() {
   const linuxColor = useColorModeValue('#000', 'gray.100');
 
   const FRONTEND_TOOLBOX = [
-    { toolName: 'Linux', toolIcon: FaLinux, toolColor: linuxColor },
     { toolName: 'Git', toolIcon: FaGitAlt, toolColor: '#f05033' },
+    { toolName: 'Linux', toolIcon: FaLinux, toolColor: linuxColor },
     { toolName: 'Figma', toolIcon: FaFigma, toolColor: figmaColor },
   ];
 
@@ -28,6 +28,7 @@ export function AboutOtherTools() {
         templateColumns={[
           'repeat(4, 1fr)',
           'repeat(4, 1fr)',
+          'repeat(8, 1fr)',
           'repeat(8, 1fr)',
           'repeat(8, 1fr)',
         ]}

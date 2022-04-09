@@ -39,9 +39,10 @@ export function AboutFrontendToolbox() {
           'repeat(4, 1fr)',
           'repeat(8, 1fr)',
           'repeat(8, 1fr)',
+          'repeat(8, 1fr)',
         ]}
         m="1rem 0"
-        gap={['1rem', '1rem', '0.5rem', '0.5rem']}
+        gap={['1rem', '1rem', '0.5rem', '0.5rem', '0.5rem']}
         alignItems="center"
         justifyContent="center"
         textAlign="center"

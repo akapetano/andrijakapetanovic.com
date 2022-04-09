@@ -4,7 +4,11 @@ import NextLink from 'next/link';
 
 export default function BackToHome() {
   return (
-    <Container lineHeight="1.5" pt="2rem" pb={['4rem', '4rem', '6rem', '6rem']}>
+    <Container
+      lineHeight="1.5"
+      pt="2rem"
+      pb={['4rem', '4rem', '6rem', '6rem', '6rem']}
+    >
       <Flex justify="center">
         <NextLink passHref href="/">
           <Link
@@ -13,7 +17,7 @@ export default function BackToHome() {
             _before={{ content: 'none' }}
           >
             <Button
-              width={['80vw', '100%', '100%', '100%']}
+              width={['80vw', '100%', '100%', '100%', '100%']}
               className="BackToHome"
               aria-label="Back to home button"
               leftIcon={
