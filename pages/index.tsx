@@ -12,7 +12,7 @@ export default function Home() {
     <Layout>
       <NextHead title={SITE_TITLE} />
       <LayoutHeader />
-      <LayoutMain home>
+      <LayoutMain home mb="2rem">
         <HomeSection />
       </LayoutMain>
       <Footer />

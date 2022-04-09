@@ -21,7 +21,7 @@ export default function HomeIntro() {
       >
         Hi, I&apos;m <strong className="authorName">Andrija</strong>.
       </Heading>
-      <Text variant="secondary" fontSize="xl">
+      <Text variant="secondary" fontSize={['large', 'large', 'xl', 'xl']}>
         I&apos;m a front-end developer and translator who specializes in
         building front-end applications with great user experience.
       </Text>
