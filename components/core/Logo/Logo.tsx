@@ -7,7 +7,7 @@ export default function Logo() {
   return (
     <NextLink passHref href="/">
       <Link
-        fontSize={['lg', 'lg', 'lg', 'xl']}
+        fontSize={['lg', 'lg', 'lg', 'xl', 'xl']}
         _hover={{ textDecoration: 'none' }}
       >
         Andrija Kapetanović

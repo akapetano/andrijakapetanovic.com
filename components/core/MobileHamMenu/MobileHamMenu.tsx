@@ -16,7 +16,7 @@ export default function MobileHamMenu() {
   const bgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Flex display={['flex', 'flex', 'none', 'none']}>
+    <Flex display={['flex', 'flex', 'none', 'none', 'none']}>
       <Menu isLazy>
         <MenuButton
           as={IconButton}
@@ -24,7 +24,7 @@ export default function MobileHamMenu() {
           icon={!isOpen ? <HamburgerIcon boxSize="5" /> : <CloseIcon />}
           variant=""
           onClick={onToggle}
-          display={['flex', 'flex', 'flex', 'flex']}
+          display="flex"
           zIndex="9000"
         />
         {isOpen ? (
@@ -40,11 +40,11 @@ export default function MobileHamMenu() {
             spacing={'3rem'}
             align="center"
             justify="center"
-            display={['flex', 'flex', 'flex', 'flex']}
+            display="flex"
             zIndex="8999"
             transition="all .3s ease-in-out"
           >
-            <NavLinks fontSize={'lg'} />
+            <NavLinks fontSize="lg" />
             <MobileColorModeButton />
           </VStack>
         ) : null}

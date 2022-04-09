@@ -11,7 +11,10 @@ export function ActionButton({ href, btnVariant, text }: IActionButton) {
   return (
     <NextLink href={href} passHref>
       <Link variant="withoutUnderline" _before={{ content: 'none' }}>
-        <Button width={['80vw', '100%', '100%', '100%']} variant={btnVariant}>
+        <Button
+          width={['80vw', '100%', '100%', '100%', '100%']}
+          variant={btnVariant}
+        >
           {text}
         </Button>
       </Link>

@@ -26,7 +26,7 @@ export function TouchFriendlyTooltip({
       <Icon
         key={toolName}
         as={toolIcon}
-        boxSize={['6', '6', '8', '8']}
+        boxSize={['6', '6', '8', '8', '8']}
         transition="all 0.2s ease-in-out"
         _hover={{
           opacity: 1,

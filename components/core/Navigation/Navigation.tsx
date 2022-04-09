@@ -15,9 +15,9 @@ export default function Navigation() {
       <Stack
         spacing={6}
         align={'center'}
-        direction={['row', 'row', 'row', 'row']}
+        direction="row"
         pt={[4, 4, 1, 1]}
-        display={['none', 'none', 'flex', 'flex']}
+        display={['none', 'none', 'flex', 'flex', 'flex']}
       >
         <NavLinks fontSize={'sm'} />
         <ColorModeButton />

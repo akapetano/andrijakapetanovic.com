@@ -32,14 +32,14 @@ export default function Footer() {
       bottom="0"
       left="0"
       width="100%"
-      height={['6rem', '6rem', '6rem', '8rem']}
+      height={['6rem', '6rem', '6rem', '6rem', '6rem']}
       boxShadow="base"
       overflow="hidden"
       zIndex="10"
     >
       <HStack
-        spacing={['2rem', '2rem', '4rem', '4rem']}
-        m={['0', '0', '1rem 0', '1rem 0']}
+        spacing={['2rem', '2rem', '2rem', '4rem', '4rem']}
+        m={['0', '0', '0', '0.5rem 0', '0.5rem 0']}
       >
         <Link
           href="https://github.com/akapetano"
@@ -50,7 +50,7 @@ export default function Footer() {
             as={FaGithub}
             color={iconColor}
             opacity="0.6"
-            boxSize={['4', '4', '6', '6']}
+            boxSize={['4', '4', '4', '5', '5']}
             transition="all 0.2s ease-in-out"
             _hover={{
               opacity: 1,
@@ -69,7 +69,7 @@ export default function Footer() {
             as={FaLinkedin}
             color={iconColor}
             opacity="0.6"
-            boxSize={['4', '4', '6', '6']}
+            boxSize={['4', '4', '4', '5', '5']}
             transition="all 0.2s ease-in-out"
             _hover={{ opacity: 1, transform: 'scale(1.2)', color: '#0e76a8' }}
             _focus={{ boxShadow: 'outline' }}
@@ -84,7 +84,7 @@ export default function Footer() {
             as={FaTwitter}
             color={iconColor}
             opacity="0.6"
-            boxSize={['4', '4', '6', '6']}
+            boxSize={['4', '4', '4', '5', '5']}
             transition="all 0.2s ease-in-out"
             _hover={{ opacity: 1, transform: 'scale(1.2)', color: '#00ACEE' }}
             _focus={{ boxShadow: 'outline' }}
@@ -94,7 +94,7 @@ export default function Footer() {
       <NextLink href="/" passHref>
         <Link variant="withoutUnderline">
           <Text
-            fontSize={['xx-small', 'xx-small', 'xs', 'xs']}
+            fontSize={['xx-small', 'xx-small', 'xx-small', 'xs', 'xs']}
             color={copyrightColor}
             pb="0"
           >

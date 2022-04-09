@@ -20,13 +20,13 @@ export function ColorModeButton() {
     <Flex>
       <IconButton
         variant="ghost"
-        fontSize="2xl"
+        fontSize="xl"
         isRound
-        display={['none', 'none', 'block', 'block']}
+        display={['none', 'none', 'block', 'block', 'block']}
         aria-label="Color mode toggler"
         zIndex="2"
         onClick={toggleColorMode}
-        size="md"
+        size="sm"
         overflow="hidden"
         border="2px solid"
         borderColor={iconButtonBorderColor}
