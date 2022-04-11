@@ -4,12 +4,12 @@ import {
   Flex,
   Button,
 } from '@chakra-ui/react';
-import { AnimatedMoonIcon } from '../AnimatedMoonIcon/AnimatedMoonIcon';
-import { AnimatedSunIcon } from '../AnimatedSunIcon/AnimatedSunIcon';
+import { MoonIconInColor } from '../MoonIconInColor/MoonIconInColor';
+import { SunIconInColor } from '../SunIconInColor/SunIconInColor';
 
 export function MobileColorModeButton() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const SwitchIcon = useColorModeValue(AnimatedSunIcon, AnimatedMoonIcon);
+  const SwitchIcon = useColorModeValue(SunIconInColor, MoonIconInColor);
   const buttonOutlineColor = useColorModeValue('brand.600', 'brand.300');
   const buttonHoverOutlineColor = useColorModeValue('brand.700', 'brand.200');
   const isDark = colorMode === 'dark';

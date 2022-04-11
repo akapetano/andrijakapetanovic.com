@@ -4,8 +4,8 @@ import {
   IconButton,
   Flex,
 } from '@chakra-ui/react';
-import { AnimatedMoonIcon } from '../AnimatedMoonIcon/AnimatedMoonIcon';
-import { AnimatedSunIcon } from '../AnimatedSunIcon/AnimatedSunIcon';
+import { MoonIconInColor } from '../MoonIconInColor/MoonIconInColor';
+import { SunIconInColor } from '../SunIconInColor/SunIconInColor';
 
 export function ColorModeButton() {
   const { toggleColorMode } = useColorMode();
@@ -14,7 +14,7 @@ export function ColorModeButton() {
     'brand.400',
     'brand.200'
   );
-  const SwitchIcon = useColorModeValue(AnimatedSunIcon, AnimatedMoonIcon);
+  const SwitchIcon = useColorModeValue(SunIconInColor, MoonIconInColor);
 
   return (
     <Flex>
@@ -22,7 +22,7 @@ export function ColorModeButton() {
         variant="ghost"
         fontSize="xl"
         isRound
-        display={['none', 'none', 'block', 'block', 'block']}
+        display={['none', 'none', 'flex', 'flex', 'flex']}
         aria-label="Color mode toggler"
         zIndex="2"
         onClick={toggleColorMode}
