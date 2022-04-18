@@ -42,6 +42,7 @@ const theme = extendTheme({
         marginLeft: '2rem',
       },
       a: {
+        color: mode('brand.600', 'brand.300')(props),
         position: 'relative',
         textDecoration: 'none',
         pb: '0.2rem',
