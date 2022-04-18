@@ -20,6 +20,10 @@ export default function NextHead({ title }: INextHeadProps) {
       />
       <meta name="og:title" content={title} />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="google-site-verification"
+        content="BQ2RB3sAhryGbULmIDs46FzavlFvGCi61ZbcIdEh1KA"
+      />
     </Head>
   );
 }
