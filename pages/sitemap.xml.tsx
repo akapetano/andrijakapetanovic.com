@@ -10,7 +10,7 @@ type Url = {
   date?: Date;
 };
 
-const excludedRoutes: Array<string> = ['/_app', '/_document', '/sitemap'];
+const excludedRoutes: Array<string> = ['/_app', '/_document', '/sitemap.xml'];
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const basePath: string = process.cwd();
