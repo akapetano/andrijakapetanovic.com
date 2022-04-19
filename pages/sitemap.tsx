@@ -10,25 +10,21 @@ type Url = {
   date?: Date;
 };
 
-const excludedRoutes: Array<string> = [
-  '_app.tsx',
-  '_document.tsx',
-  'sitemap.xml.ts',
-];
+const excludedRoutes: Array<string> = ['_app', '_document', 'sitemap'];
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const basePath: string = process.cwd();
-  const routes_manifest: object | null = ReadManifestFile(basePath);
+  const routes_manifest: object | null = readManifestFile(basePath);
   const host: string = 'https://www.andrijakapetanovic.com/';
 
-  let routes: Array<Url> = GetPathsFromManifest(routes_manifest, host);
+  let routes: Array<Url> = getPathsFromManifest(routes_manifest, host);
   const pagesPath = path.join(basePath + '/.next/server/pages/');
   routes = routes.concat(
-    GetPathsFromBuildFolder(pagesPath, [], host, pagesPath)
+    getPathsFromBuildFolder(pagesPath, [], host, pagesPath)
   );
 
   routes = routes.filter((el) => !excludedRoutes.includes(el.route));
-  const sitemap: string = GetSitemapXml(routes);
+  const sitemap: string = getSitemapXml(routes);
 
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);
@@ -38,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   };
 };
 
-const ReadManifestFile = (basePath: string): object | null => {
+const readManifestFile = (basePath: string): object | null => {
   const routes_manifest_path = path.join(
     basePath + '/.next/server/pages-manifest.json'
   );
@@ -49,7 +45,7 @@ const ReadManifestFile = (basePath: string): object | null => {
   } else return null;
 };
 
-const GetPathsFromManifest = (manifest: any, host: string): Array<Url> => {
+const getPathsFromManifest = (manifest: any, host: string): Array<Url> => {
   let routes: Array<string> = [];
 
   for (let [route, file] of Object.entries(manifest)) {
@@ -70,7 +66,7 @@ const isNextInternalUrl = (path: string): boolean => {
   return new RegExp(/[^\/]*^.[_]|(?:\[)/g).test(path);
 };
 
-const GetPathsFromBuildFolder = (
+const getPathsFromBuildFolder = (
   dir: string,
   urlList: Array<Url>,
   host: string,
@@ -81,7 +77,7 @@ const GetPathsFromBuildFolder = (
 
   files.forEach((file) => {
     if (fs.statSync(dir + file).isDirectory()) {
-      urlList = GetPathsFromBuildFolder(
+      urlList = getPathsFromBuildFolder(
         dir + file + '/',
         urlList,
         host,
@@ -99,16 +95,16 @@ const GetPathsFromBuildFolder = (
   return urlList;
 };
 
-const GetUrlElement = ({ host, route, date }: Url): string => {
+const getUrlElement = ({ host, route, date }: Url): string => {
   if (date) {
     return `<url><loc>${host}${route}</loc><lastmod>${date}</lastmod></url>`;
   } else return `<url><loc>${host}${route}</loc></url>`;
 };
 
-const GetSitemapXml = (
+const getSitemapXml = (
   urls: Array<Url>
 ): string => `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${urls.map((url) => GetUrlElement(url)).join('')}
+  ${urls.map((url) => getUrlElement(url)).join('')}
   </urlset>
 `;
