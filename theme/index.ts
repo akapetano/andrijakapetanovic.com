@@ -20,6 +20,26 @@ const theme = extendTheme({
   config,
   styles: {
     global: (props: any) => ({
+      '::-webkit-scrollbar': {
+        width: '0.6em',
+      },
+      '::-webkit-scrollbar-track': {
+        boxShadow: mode(
+          'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+          'inset 0 0 6px rgba(255, 255, 255, 0.3)'
+        )(props),
+      },
+
+      '::-webkit-scrollbar-thumb': {
+        borderRadius: '10px',
+        backgroundColor: mode('brand.600', 'brand.300')(props),
+        boxShadow: mode(
+          'inset 0 0 12px rgba(4, 53, 91, 0.5)',
+          'inset 0 0 12px rgba(3, 57, 68, 0.9)'
+        )(props),
+        outline: '1px solid #3498db',
+      },
+
       'html, body': {
         color: mode('gray.700', 'gray.200')(props),
         padding: '0',
@@ -27,16 +47,6 @@ const theme = extendTheme({
         fontSize: '1.2rem',
         lineHeight: 1.6,
         minHeight: 'fit-content',
-        sx: {
-          '&::-webkit-scrollbar': {
-            width: '16px',
-            borderRadius: '8px',
-            background: `black`,
-          },
-          '&::-webkit-scrollbar-thumb': {
-            background: `black`,
-          },
-        },
       },
       ul: {
         marginLeft: '2rem',
