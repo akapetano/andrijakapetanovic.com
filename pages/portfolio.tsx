@@ -9,7 +9,7 @@ import { PortfolioSection } from '../components/features/portfolio/PortfolioSect
 export default function Portfolio() {
   return (
     <Layout>
-      <NextHead title="Portfolio" />
+      <NextHead title="Andrija Kapetanović | Portfolio" />
       <LayoutHeader />
       <LayoutMain>
         <PortfolioSection />

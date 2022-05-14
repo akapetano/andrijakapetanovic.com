@@ -12,6 +12,7 @@ export default function NextHead({ title }: INextHeadProps) {
         name="description"
         content="Andrija Kapetanović - Front-end Developer"
       />
+      <title>{title}</title>
       <meta
         property="og:image"
         content={`https://og-image.vercel.app/${encodeURI(

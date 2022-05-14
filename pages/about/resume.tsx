@@ -8,7 +8,7 @@ import { ResumeSection } from '../../components/features/about/resume/ResumeSect
 export default function Resume() {
   return (
     <Layout>
-      <NextHead title="Resume" />
+      <NextHead title="Andrija Kapetanović | Resume" />
       <LayoutHeader />
       <LayoutMain>
         <ResumeSection />

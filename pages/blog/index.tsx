@@ -23,7 +23,7 @@ export async function getStaticProps() {
 export default function Blog({ allPostsData }: IAllPostsData) {
   return (
     <Layout>
-      <NextHead title="Blog" />
+      <NextHead title="Andrija Kapetanović | Blog" />
       <LayoutHeader />
       <LayoutMain>
         <BlogSection allPostsData={allPostsData} />

@@ -5,12 +5,10 @@ import LayoutHeader from '../components/shared/LayoutHeader/LayoutHeader';
 import { HomeSection } from '../components/features/home/HomeSection/HomeSection';
 import LayoutMain from '../components/shared/LayoutMain/LayoutMain';
 
-const SITE_TITLE = 'Andrija Kapetanović | Front-End Developer';
-
 export default function Home() {
   return (
     <Layout>
-      <NextHead title={SITE_TITLE} />
+      <NextHead title="Andrija Kapetanović | Front-End Developer | Translator" />
       <LayoutHeader />
       <LayoutMain home>
         <HomeSection />

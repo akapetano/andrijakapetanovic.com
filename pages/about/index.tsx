@@ -8,7 +8,7 @@ import { AboutSection } from '../../components/features/about/AboutSection/About
 export default function About() {
   return (
     <Layout>
-      <NextHead title="About" />
+      <NextHead title="Andrija Kapetanović | About" />
       <LayoutHeader />
       <LayoutMain>
         <AboutSection />
