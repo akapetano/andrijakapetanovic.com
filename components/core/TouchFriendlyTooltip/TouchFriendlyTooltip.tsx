@@ -1,6 +1,6 @@
-import { Tooltip, TooltipProps, Icon } from '@chakra-ui/react';
-import { IconType } from 'react-icons';
-import { useState } from 'react';
+import { Tooltip, Icon } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+import { useState } from "react";
 
 interface ITouchFriendlyTooltipProps {
   toolName: string;
@@ -22,18 +22,19 @@ export function TouchFriendlyTooltip({
       hasArrow
       shouldWrapChildren
       bg={toolColor}
+      zIndex="10"
     >
       <Icon
         key={toolName}
         as={toolIcon}
-        boxSize={['6', '6', '8', '8', '8']}
+        boxSize={["6", "6", "8", "8", "8"]}
         transition="all 0.2s ease-in-out"
         _hover={{
           opacity: 1,
-          transform: 'scale(1.2)',
+          transform: "scale(1.2)",
           color: toolColor,
         }}
-        _focus={{ boxShadow: 'outline' }}
+        _focus={{ boxShadow: "outline" }}
         onMouseEnter={() => setIsLabelOpen(true)}
         onMouseLeave={() => setIsLabelOpen(false)}
         onClick={() => setIsLabelOpen(true)}

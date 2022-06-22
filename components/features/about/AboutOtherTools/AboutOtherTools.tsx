@@ -1,22 +1,25 @@
+import { Grid, Heading, Box, useColorModeValue } from "@chakra-ui/react";
 import {
-  Grid,
-  Icon,
-  Heading,
-  Tooltip,
-  Box,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { FaLinux, FaGitAlt, FaFigma } from 'react-icons/fa';
-import { TouchFriendlyTooltip } from '../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip';
+  FaLinux,
+  FaGitAlt,
+  FaFigma,
+  FaGithub,
+  FaBitbucket,
+  FaInvision,
+} from "react-icons/fa";
+import { TouchFriendlyTooltip } from "../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip";
 
 export function AboutOtherTools() {
-  const figmaColor = useColorModeValue('gray.700', 'gray.100');
-  const linuxColor = useColorModeValue('#000', 'gray.100');
+  const figmaColor = useColorModeValue("gray.700", "gray.100");
+  const linuxAndGithubColor = useColorModeValue("#000", "gray.100");
 
   const FRONTEND_TOOLBOX = [
-    { toolName: 'Git', toolIcon: FaGitAlt, toolColor: '#f05033' },
-    { toolName: 'Linux', toolIcon: FaLinux, toolColor: linuxColor },
-    { toolName: 'Figma', toolIcon: FaFigma, toolColor: figmaColor },
+    { toolName: "Git", toolIcon: FaGitAlt, toolColor: "#f05033" },
+    { toolName: "GitHub", toolIcon: FaGithub, toolColor: linuxAndGithubColor },
+    { toolName: "Bitbucket", toolIcon: FaBitbucket, toolColor: "#2684ff" },
+    { toolName: "Linux", toolIcon: FaLinux, toolColor: linuxAndGithubColor },
+    { toolName: "Figma", toolIcon: FaFigma, toolColor: figmaColor },
+    { toolName: "InVision", toolIcon: FaInvision, toolColor: "#ff3366" },
   ];
 
   return (
@@ -26,11 +29,11 @@ export function AboutOtherTools() {
       </Heading>
       <Grid
         templateColumns={[
-          'repeat(4, 1fr)',
-          'repeat(4, 1fr)',
-          'repeat(8, 1fr)',
-          'repeat(8, 1fr)',
-          'repeat(8, 1fr)',
+          "repeat(4, 1fr)",
+          "repeat(4, 1fr)",
+          "repeat(8, 1fr)",
+          "repeat(8, 1fr)",
+          "repeat(8, 1fr)",
         ]}
         m="1rem 0"
         gap="2rem"
