@@ -5,6 +5,7 @@ import {
   FaSass,
   FaJsSquare,
   FaReact,
+  FaVuejs,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -19,6 +20,7 @@ export function AboutFrontendToolbox() {
   const textColor = useColorModeValue("gray.600", "gray.300");
   const jsColor = useColorModeValue("#f7c427", "#f7df1e");
   const nextJsColor = useColorModeValue("#000", "gray.100");
+  const vueJsColor = useColorModeValue("#35495e", "#42b883");
 
   const FRONTEND_TOOLBOX = [
     { toolName: "HTML5", toolIcon: FaHtml5, toolColor: "#E34C26" },
@@ -28,6 +30,7 @@ export function AboutFrontendToolbox() {
     { toolName: "React", toolIcon: FaReact, toolColor: "#5ed3f3" },
     { toolName: "TypeScript", toolIcon: SiTypescript, toolColor: "#3178c6" },
     { toolName: "Next.js", toolIcon: SiNextdotjs, toolColor: nextJsColor },
+    { toolName: "Vuejs", toolIcon: FaVuejs, toolColor: vueJsColor },
     { toolName: "Chakra UI", toolIcon: SiChakraui, toolColor: "#2cc6b8" },
     {
       toolName: "Tailwind CSS",
