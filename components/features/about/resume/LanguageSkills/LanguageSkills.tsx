@@ -6,6 +6,7 @@ import {
   UnorderedList,
   ListItem,
   useColorModeValue,
+  Link as ChakraLink,
 } from '@chakra-ui/react';
 
 export function LanguageSkills() {
@@ -27,8 +28,20 @@ export function LanguageSkills() {
         </UnorderedList>
       </Box>
       <Text fontSize="small" color="gray.500" fontStyle="italic">
-        Levels: A1 and A2: Basic user; B1 and B2: Independent user; C1 and C2:
-        Proficient user
+        CEFR Levels: A1 and A2: Basic user; B1 and B2: Independent user; C1 and
+        C2: Proficient user
+      </Text>
+      <Text fontSize="small" color="gray.500" fontStyle="italic">
+        (Source:{' '}
+        <ChakraLink
+          variant="withoutUnderline"
+          href="https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Council of Europe
+        </ChakraLink>
+        )
       </Text>
       <Divider m="0.5rem 0 1rem 0" />
     </Box>

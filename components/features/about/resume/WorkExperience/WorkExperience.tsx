@@ -19,6 +19,34 @@ export function WorkExperience() {
       <Divider mb="1rem" />
       <Box>
         <Heading fontSize="medium" as="h4" textTransform="uppercase">
+          Crafted - Indianapolis, USA
+        </Heading>
+        <Text fontSize="medium">06/2022 - present</Text>
+        <Divider m="1rem 0" />
+        <Text fontSize="medium" fontWeight="bold">
+          From June 2022
+        </Text>
+        <Text fontSize="medium" fontWeight="bold">
+          Front-end developer
+        </Text>
+        <UnorderedList fontSize="medium" color={textColor}>
+          <ListItem>
+            translation of the UI/UX designs into components, and building them
+            into websites and web applications
+          </ListItem>
+          <ListItem>
+            learning new technologies, such as WordPress, and new frameworks
+            such as Vue, Nuxt
+          </ListItem>
+          <ListItem>
+            collaboration with teammates, and exploring different architectural
+            solutions
+          </ListItem>
+        </UnorderedList>
+        <Divider m="0.5rem 0 1rem 0" />
+      </Box>
+      <Box>
+        <Heading fontSize="medium" as="h4" textTransform="uppercase">
           International Relations Office - University of Zadar
         </Heading>
         <Text fontSize="medium">06/2017 - 01/2022</Text>

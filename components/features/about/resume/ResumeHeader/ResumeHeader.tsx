@@ -29,6 +29,7 @@ export function ResumeHeader() {
         <Text fontSize="medium">
           Email:{' '}
           <Link
+            type="email"
             href="mailto:andrija.kapetanovic@gmail.com"
             variant="withoutUnderline"
           >

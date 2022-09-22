@@ -30,7 +30,11 @@ export function References() {
         <ListItem>company: Infinum</ListItem>
         <ListItem>
           email:{' '}
-          <Link href="to:adibicanic@gmail.com" variant="withoutUnderline">
+          <Link
+            type="email"
+            href="to:adibicanic@gmail.com"
+            variant="withoutUnderline"
+          >
             adibicanic@gmail.com
           </Link>
         </ListItem>
@@ -44,6 +48,7 @@ export function References() {
         <ListItem>
           email:{' '}
           <Link
+            type="email"
             href="to:marija.dzajasikiric@gmail.com"
             variant="withoutUnderline"
           >
