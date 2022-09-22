@@ -7,54 +7,50 @@ interface IAuthorImageProps {
 }
 
 export default function AuthorImage({ home }: IAuthorImageProps) {
-  const imageSrc = useColorModeValue(
-    '/images/andrija-kapetanovic.jpg',
-    '/images/andrija-kapetanovic-dark.jpg'
-  );
   const colorMode = useColorModeValue('lightMode', 'darkMode');
 
   return (
     <Box>
       {home ? (
-        <Flex justify="center">
-          <Box margin="0 0 1.5rem">
+        <Flex justify='center'>
+          <Box margin='0 0 1.5rem'>
             {colorMode === 'lightMode' ? (
               <Image
-                src={imageSrc}
+                src='/images/andrija-kapetanovic.jpg'
                 height={144}
                 width={144}
-                alt="Andrija Kapetanović"
-                rounded="full"
+                alt='Picture of the site creator, Andrija Kapetanović'
+                rounded='full'
               />
             ) : (
               <DynamicShadowImage
-                src={imageSrc}
+                src='/images/andrija-kapetanovic-dark.jpg'
                 height={144}
                 width={144}
-                alt="Andrija Kapetanović"
+                alt='Picture of the site creator, Andrija Kapetanović (dark side)'
               />
             )}
           </Box>
         </Flex>
       ) : (
-        <Flex justify="center">
-          <Flex flexDir="column" align="center" margin="0 0 1.5rem">
-            <NextLink passHref href="/">
+        <Flex justify='center'>
+          <Flex flexDir='column' align='center' margin='0 0 1.5rem'>
+            <NextLink passHref href='/'>
               <Link _before={{ content: 'none' }}>
                 {colorMode === 'lightMode' ? (
                   <Image
-                    src={imageSrc}
+                    src='/images/andrija-kapetanovic.jpg'
                     height={108}
                     width={108}
-                    alt="Andrija Kapetanović"
-                    rounded="full"
+                    alt='Andrija Kapetanović'
+                    rounded='full'
                   />
                 ) : (
                   <DynamicShadowImage
-                    src={imageSrc}
+                    src='/images/andrija-kapetanovic-dark.jpg'
                     height={108}
                     width={108}
-                    alt="Andrija Kapetanović"
+                    alt='Andrija Kapetanović'
                   />
                 )}
               </Link>

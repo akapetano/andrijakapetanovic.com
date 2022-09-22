@@ -14,8 +14,7 @@ export default function HomeIntro() {
       </Heading>
       <Text variant="secondary" fontSize={["large", "large", "xl", "xl", "xl"]}>
         I&apos;m a front-end developer and translator who specializes in
-        building front-end applications with great user experience, currently
-        employed at{" "}
+        building front-end applications with great user experience, working at{" "}
         <a href="https://craftedup.com/" target="_blank" rel="noreferrer">
           Crafted
         </a>

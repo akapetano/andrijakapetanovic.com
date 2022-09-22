@@ -1,5 +1,5 @@
-import NavLink from '../NavLink/NavLink';
-import { NAV_ITEMS } from '../../../constants/constants';
+import NavLink from "../NavLink/NavLink";
+import { NAV_ITEMS } from "../../../constants/constants";
 
 interface INavLinksProps {
   fontSize: string | number;
@@ -21,7 +21,7 @@ export default function NavLinks({
           flex={flex}
           textTransform="uppercase"
           key={navItem}
-          to={navItem === 'Home' ? '/' : `/${navItem.toLowerCase()}`}
+          to={navItem === "Home" ? "/" : `/${navItem.toLowerCase()}`}
           {...restProps}
         >
           {navItem}

@@ -87,7 +87,7 @@ const theme = extendTheme({
           },
         },
         _active: {
-          color: mode('brand.600', 'brand.200')(props),
+          color: mode('brand.700', 'brand.200')(props),
           textDecoration: 'none',
         },
       },
@@ -162,6 +162,18 @@ const theme = extendTheme({
       variants: {
         withoutUnderline: (props: any) => ({
           color: mode('brand.600', 'brand.300')(props),
+          _link: {
+            color: mode('brand.600', 'brand.300')(props),
+            textDecoration: 'none',
+          },
+          _visited: {
+            color: mode('brand.600', 'brand.300')(props),
+            textDecoration: 'none',
+          },
+          _active: {
+            color: mode('brand.700', 'brand.200')(props),
+            textDecoration: 'none',
+          },
           _hover: {
             color: mode('brand.700', 'brand.200')(props),
             textDecoration: 'none',
