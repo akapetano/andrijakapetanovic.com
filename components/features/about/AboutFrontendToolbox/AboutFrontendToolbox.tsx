@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import {
   SiNextdotjs,
+  SiNuxtdotjs,
   SiChakraui,
   SiTypescript,
   SiTailwindcss,
@@ -21,6 +22,7 @@ export function AboutFrontendToolbox() {
   const jsColor = useColorModeValue("#f7c427", "#f7df1e");
   const nextJsColor = useColorModeValue("#000", "gray.100");
   const vueJsColor = useColorModeValue("#35495e", "#42b883");
+  const nuxtJsColor = useColorModeValue("#04dc82", "#81edc0");
 
   const FRONTEND_TOOLBOX = [
     { toolName: "HTML5", toolIcon: FaHtml5, toolColor: "#E34C26" },
@@ -31,6 +33,7 @@ export function AboutFrontendToolbox() {
     { toolName: "TypeScript", toolIcon: SiTypescript, toolColor: "#3178c6" },
     { toolName: "Next.js", toolIcon: SiNextdotjs, toolColor: nextJsColor },
     { toolName: "Vuejs", toolIcon: FaVuejs, toolColor: vueJsColor },
+    { toolName: "Nuxtjs", toolIcon: SiNuxtdotjs, toolColor: nuxtJsColor },
     { toolName: "Chakra UI", toolIcon: SiChakraui, toolColor: "#2cc6b8" },
     {
       toolName: "Tailwind CSS",

@@ -4,10 +4,10 @@ import {
   Divider,
   Text,
   useColorModeValue,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 export function DeveloperToolbox() {
-  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
@@ -16,8 +16,8 @@ export function DeveloperToolbox() {
       </Heading>
       <Divider m="0 0 1rem 0" />
       <Text fontSize="medium" color={textColor}>
-        Chakra UI | Next.js | React | TypeScript | JavaScript | CSS/Sass | HTML
-        | Git | GitHub | Linux | Node.js
+        Next.js | React | Nuxt.js | Vue | TypeScript | JavaScript | CSS | Sass |
+        Chakra UI | HTML | Git | GitHub | Linux | Node.js
       </Text>
       <Divider m="0.5rem 0 1rem 0" />
     </Box>

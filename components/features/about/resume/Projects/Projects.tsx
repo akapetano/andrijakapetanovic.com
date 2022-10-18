@@ -5,10 +5,10 @@ import {
   UnorderedList,
   ListItem,
   useColorModeValue,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 export function Projects() {
-  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
@@ -33,7 +33,7 @@ export function Projects() {
           In regards to JavaScript, as part of &quot;The Complete JavaScript
           Course 2021: From Zero to Expert&quot;, I have built a modern recipe
           application called Forkify. Furthermore, I have also taken part in the
-          30- day challenge by Wes Bos in which I&apos;ve built 30 vanilla
+          30-day challenge by Wes Bos in which I&apos;ve built 30 vanilla
           JavaScript projects by using different APIs such as geolocation,
           speech recognition, speech sythnesis etc. As part of the
           &quot;JavaScript - The Complete Guide 2022&quot; course by Maximilian
