@@ -1,20 +1,19 @@
-import { Box, BoxProps } from '@chakra-ui/react';
-import AuthorImage from '../../core/AuthorImage/AuthorImage';
-import BackToHome from '../BackToHome/BackToHome';
+"use client";
 
-interface ILayoutMainProps extends BoxProps {
-  home?: boolean;
-}
-export default function LayoutMain({
-  home,
-  children,
-  ...restProps
-}: ILayoutMainProps) {
+import { Box, BoxProps } from "@chakra-ui/react";
+import AuthorImage from "../../core/AuthorImage/AuthorImage";
+import BackToHome from "../BackToHome/BackToHome";
+import { useRouter } from "next/router";
+
+export default function LayoutMain({ children, ...restProps }: BoxProps) {
+  const router = useRouter();
+  const isHome = router.pathname === "/";
+
   return (
     <Box as="main" {...restProps}>
-      <AuthorImage home={home} />
+      <AuthorImage home={isHome} />
       {children}
-      {!home ? <BackToHome /> : null}
+      {!isHome ? <BackToHome /> : null}
     </Box>
   );
 }

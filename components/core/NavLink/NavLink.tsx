@@ -6,7 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
+import { useSelectedLayoutSegment } from "next/navigation";
 import React from "react";
 
 interface NavLinkProps extends LinkProps {
@@ -25,8 +25,8 @@ export default function NavLink({
   _hover,
   ...props
 }: NavLinkProps) {
-  const router = useRouter();
-  const isActive = router.pathname === to;
+  const segment = useSelectedLayoutSegment();
+  const isActive = to === `/${segment}`;
   const linkColor = useColorModeValue("brand.700", "brand.200");
   if (isActive) {
     return (

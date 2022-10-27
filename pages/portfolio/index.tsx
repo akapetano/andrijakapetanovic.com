@@ -3,15 +3,16 @@ import LayoutHeader from "../../components/shared/LayoutHeader/LayoutHeader";
 import LayoutMain from "../../components/shared/LayoutMain/LayoutMain";
 import NextHead from "../../components/shared/NextHead/NextHead";
 import Footer from "../../components/shared/Footer/Footer";
-import { ResumeSection } from "../../components/features/about/resume/ResumeSection/ResumeSection";
 
-export default function Resume() {
+import { PortfolioSection } from "../../components/features/portfolio/PortfolioSection/PortfolioSection";
+
+export default function Portfolio() {
   return (
     <Layout>
-      <NextHead title="Andrija Kapetanović | Resume" />
+      <NextHead title="Andrija Kapetanović | Portfolio" />
       <LayoutHeader />
       <LayoutMain>
-        <ResumeSection />
+        <PortfolioSection />
       </LayoutMain>
       <Footer />
     </Layout>
