@@ -35,12 +35,13 @@ export function AboutIntro() {
         In July 2021, I decided to change my career, and become a front-end
         developer. Nine months in the journey, I&apos;ve created this website.
         You can read more about it in my{" "}
-        <NextLink
+        <Link
+          as={NextLink}
           href="/blog/posts/my-first-post-and-the-journey-so-far"
-          passHref
+          variant="withoutUnderline"
         >
-          <Link variant="withoutUnderline">first blog post</Link>
-        </NextLink>
+          first blog post
+        </Link>
         .
       </Text>
     </Box>
