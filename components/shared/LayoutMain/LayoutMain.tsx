@@ -3,11 +3,11 @@
 import { Box, BoxProps } from "@chakra-ui/react";
 import AuthorImage from "../../core/AuthorImage/AuthorImage";
 import BackToHome from "../BackToHome/BackToHome";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function LayoutMain({ children, ...restProps }: BoxProps) {
-  const router = useRouter();
-  const isHome = router.pathname === "/";
+  const pathname = usePathname();
+  const isHome = !pathname;
 
   return (
     <Box as="main" {...restProps}>
