@@ -91,18 +91,17 @@ export default function Footer() {
           />
         </Link>
       </HStack>
-      <NextLink href="/" passHref>
-        <Link variant="withoutUnderline">
-          <Text
-            fontSize={["xx-small", "xx-small", "xx-small", "xs", "xs"]}
-            color={copyrightColor}
-            pb="0"
-          >
-            &copy; 2022 Andrija Kapetanović &bull; Front-end web developer
-            &bull; Translator
-          </Text>
-        </Link>
-      </NextLink>
+
+      <Link as={NextLink} href="/" variant="withoutUnderline">
+        <Text
+          fontSize={["xx-small", "xx-small", "xx-small", "xs", "xs"]}
+          color={copyrightColor}
+          pb="0"
+        >
+          &copy; 2022 Andrija Kapetanović &bull; Front-end web developer &bull;
+          Translator
+        </Text>
+      </Link>
     </Flex>
   );
 }
