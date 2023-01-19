@@ -1,12 +1,19 @@
-import '../styles/global.css';
-import { ChakraProvider } from '@chakra-ui/provider';
-import theme from '../theme';
-import { AppProps } from 'next/app';
+import "../styles/global.css";
+import { ChakraProvider } from "@chakra-ui/provider";
+import theme from "../theme";
+import { AppProps } from "next/app";
+import { AnimatePresence } from "framer-motion";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AnimatePresence
+      mode="wait"
+      initial={false}
+      onExitComplete={() => window.scrollTo(0, 0)}
+    >
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </AnimatePresence>
   );
 }
