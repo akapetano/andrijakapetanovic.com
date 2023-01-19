@@ -1,8 +1,10 @@
 import { Flex, Container, Link, Button } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 export default function BackToHome() {
+  const router = useRouter();
   return (
     <Container
       lineHeight="1.5"
@@ -10,32 +12,24 @@ export default function BackToHome() {
       pb={["4rem", "4rem", "6rem", "6rem", "6rem"]}
     >
       <Flex justify="center">
-        <Link
-          as={NextLink}
-          href="/"
-          fontSize="md"
-          _hover={{ textDecor: "none" }}
-          _before={{ content: "none" }}
+        <Button
+          className="BackToHome"
+          aria-label="Back to home button"
+          leftIcon={
+            <ArrowBackIcon
+              transition="transform .3s ease-in-out"
+              sx={{
+                ".BackToHome: hover &": {
+                  transform: "translateX(-30%) scale(1.1)",
+                },
+              }}
+            />
+          }
+          variant="primaryGhost"
+          onClick={() => router.push("/")}
         >
-          <Button
-            width={["80vw", "100%", "100%", "100%", "100%"]}
-            className="BackToHome"
-            aria-label="Back to home button"
-            leftIcon={
-              <ArrowBackIcon
-                transition="transform .3s ease-in-out"
-                sx={{
-                  ".BackToHome: hover &": {
-                    transform: "translateX(-30%) scale(1.1)",
-                  },
-                }}
-              />
-            }
-            variant="primaryGhost"
-          >
-            Back to home
-          </Button>
-        </Link>
+          Back to home
+        </Button>
       </Flex>
     </Container>
   );
