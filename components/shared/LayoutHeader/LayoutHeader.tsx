@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, BoxProps } from "@chakra-ui/react";
 import Navigation from "../../core/Navigation/Navigation";
 
