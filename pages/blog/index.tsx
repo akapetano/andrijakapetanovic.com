@@ -1,11 +1,7 @@
-import Layout from "../../components/shared/Layout/Layout";
-import LayoutHeader from "../../components/shared/LayoutHeader/LayoutHeader";
-import LayoutMain from "../../components/shared/LayoutMain/LayoutMain";
-import NextHead from "../../components/shared/NextHead/NextHead";
 import { getSortedPostsData } from "../../lib/posts";
-import Footer from "../../components/shared/Footer/Footer";
 import { IPostData } from "../../lib/posts";
 import { BlogSection } from "../../components/features/blog/BlogSection/BlogSection";
+import AppLayout from "../../components/shared/AppLayout/AppLayout";
 
 export interface IAllPostsData {
   allPostsData: IPostData[];
@@ -22,13 +18,8 @@ export async function getStaticProps() {
 
 export default function Blog({ allPostsData }: IAllPostsData) {
   return (
-    <Layout>
-      <NextHead title="Andrija Kapetanović | Blog" />
-      <LayoutHeader />
-      <LayoutMain>
-        <BlogSection allPostsData={allPostsData} />
-      </LayoutMain>
-      <Footer />
-    </Layout>
+    <AppLayout pageTitle="Andrija Kapetanović | Blog">
+      <BlogSection allPostsData={allPostsData} />
+    </AppLayout>
   );
 }
