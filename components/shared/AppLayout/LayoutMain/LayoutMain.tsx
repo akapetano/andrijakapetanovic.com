@@ -3,7 +3,11 @@
 import { Box, BoxProps } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-export default function LayoutMain({ children, ...restProps }: BoxProps) {
+interface ILayoutMainProps {
+  children: JSX.Element;
+}
+
+export default function LayoutMain({ children }: ILayoutMainProps) {
   const MotionBox = motion<Omit<BoxProps, "transition">>(Box);
 
   return (
@@ -13,10 +17,9 @@ export default function LayoutMain({ children, ...restProps }: BoxProps) {
       exit={{ x: -300, opacity: 0 }}
       transition={{
         type: "spring",
-        stiffness: 260,
+        stiffness: 280,
         damping: 20,
       }}
-      {...restProps}
     >
       {children}
     </MotionBox>
