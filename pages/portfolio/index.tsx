@@ -1,17 +1,18 @@
 import Layout from "../../components/shared/Layout/Layout";
-import NextHead from "../../components/shared/NextHead/NextHead";
 import LayoutHeader from "../../components/shared/LayoutHeader/LayoutHeader";
 import LayoutMain from "../../components/shared/LayoutMain/LayoutMain";
+import NextHead from "../../components/shared/NextHead/NextHead";
 import Footer from "../../components/shared/Footer/Footer";
-import { AboutSection } from "../../components/features/about/AboutSection/AboutSection";
 
-export default function About() {
+import { PortfolioSection } from "../../components/features/portfolio/PortfolioSection/PortfolioSection";
+
+export default function Portfolio() {
   return (
     <Layout>
-      <NextHead title="Andrija Kapetanović | About" />
+      <NextHead title="Andrija Kapetanović | Portfolio" />
       <LayoutHeader />
       <LayoutMain>
-        <AboutSection />
+        <PortfolioSection />
       </LayoutMain>
       <Footer />
     </Layout>

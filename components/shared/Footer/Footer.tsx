@@ -91,7 +91,6 @@ export default function Footer() {
           />
         </Link>
       </HStack>
-
       <Link as={NextLink} href="/" variant="withoutUnderline">
         <Text
           fontSize={["xx-small", "xx-small", "xx-small", "xs", "xs"]}

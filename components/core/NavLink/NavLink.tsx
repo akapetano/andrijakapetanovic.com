@@ -1,8 +1,4 @@
-import {
-  Link as ChakraLink,
-  LinkProps,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Link, LinkProps, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -28,7 +24,7 @@ export default function NavLink({
   const linkColor = useColorModeValue("brand.700", "brand.200");
   if (isActive) {
     return (
-      <ChakraLink
+      <Link
         as={NextLink}
         href={to}
         color={linkColor}
@@ -53,12 +49,12 @@ export default function NavLink({
         }}
       >
         {children}
-      </ChakraLink>
+      </Link>
     );
   }
 
   return (
-    <ChakraLink
+    <Link
       as={NextLink}
       href={to}
       textTransform={textTransform}
@@ -67,6 +63,6 @@ export default function NavLink({
       _hover={{ textDecoration: "none", opacity: "1" }}
     >
       {children}
-    </ChakraLink>
+    </Link>
   );
 }
