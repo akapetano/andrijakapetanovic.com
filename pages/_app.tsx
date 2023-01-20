@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/provider";
 import theme from "../theme";
 import { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       onExitComplete={() => window.scrollTo(0, 0)}
     >
       <ChakraProvider theme={theme}>
+        <GoogleAnalytics trackPageViews />
         <Component {...pageProps} />
       </ChakraProvider>
     </AnimatePresence>
