@@ -97,7 +97,7 @@ export default function Footer() {
           color={copyrightColor}
           pb="0"
         >
-          &copy; 2022 Andrija Kapetanović &bull; Front-end web developer &bull;
+          &copy; 2023 Andrija Kapetanović &bull; Front-end web developer &bull;
           Translator
         </Text>
       </Link>

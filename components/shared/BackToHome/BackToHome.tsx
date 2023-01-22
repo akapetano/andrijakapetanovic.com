@@ -27,6 +27,7 @@ export default function BackToHome() {
           }
           variant="primaryGhost"
           onClick={() => router.push("/")}
+          w={{ base: "100%", sm: "auto" }}
         >
           Back to home
         </Button>
