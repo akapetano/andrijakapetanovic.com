@@ -17,6 +17,12 @@ const config: ThemeConfig = {
 
 const boxShadow = "0px 0px 4px 0px rgba(0, 0, 0, 0.3)";
 
+const activeLabelStyles = (props: StyleProps) => ({
+  transform: "scale(0.85) translateY(-50px) translateX(-22px) ",
+  transition: "0.3s ease",
+  color: mode("gray.900", "gray.100")(props),
+});
+
 const theme = extendTheme({
   config,
   styles: {
@@ -210,6 +216,38 @@ const theme = extendTheme({
           bgColor: mode("brand.500", "brand.300")(props),
           _hover: {
             color: mode("brand.500", "brand.300")(props),
+          },
+        }),
+      },
+    },
+    Form: {
+      variants: {
+        floating: (props: StyleProps) => ({
+          container: {
+            mt: "1rem",
+            _focusWithin: {
+              label: {
+                ...activeLabelStyles(props),
+              },
+            },
+            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label":
+              {
+                ...activeLabelStyles,
+              },
+
+            label: {
+              color: mode("gray.500", "gray.600")(props),
+              top: 0,
+              left: 0,
+              zIndex: 2,
+              position: "absolute",
+              backgroundColor: "none",
+              pointerEvents: "none",
+              mx: 3,
+              px: 1,
+              my: 2,
+              transformOrigin: "left top",
+            },
           },
         }),
       },

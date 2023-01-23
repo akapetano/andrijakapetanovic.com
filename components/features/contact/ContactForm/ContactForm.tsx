@@ -16,16 +16,14 @@ import {
 import { Card } from "../../../core/Card/Card";
 
 interface IContactFormValues {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   title: string;
   message: string;
 }
 
 const schema = zod.object({
-  firstName: zod.string().min(4),
-  lastName: zod.string().min(2),
+  name: zod.string().min(4),
   email: zod.string().email().min(2),
   title: zod.string().min(4),
   message: zod.string().min(4),
@@ -40,11 +38,12 @@ export function ContactForm() {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  const onSubmit = async (values) => {
-    await fetch("/api/form", {
-      method: "POST",
-      body: JSON.stringify(values),
-    });
+  const onSubmit = async (data: any) => {
+    // await fetch("/api/form", {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    // });
+    console.log(data);
 
     reset();
   };
@@ -63,7 +62,7 @@ export function ContactForm() {
         </Link>
         . I look forward to hearing from you!
       </Text>
-      <Card>
+      <Card pt="1.5rem">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex
             justifyContent={"center"}
@@ -71,13 +70,15 @@ export function ContactForm() {
             flexDir={"column"}
             gap="1.5rem"
           >
-            <FormControl isInvalid={errors.firstName}>
-              <FormLabel htmlFor="firstName">First name</FormLabel>
+            <FormControl
+              variant={"floating"}
+              isDisabled={Boolean(errors?.name)}
+            >
+              <FormLabel htmlFor="name">Name</FormLabel>
               <Input
-                id="firstName"
-                placeholder="First Name"
-                {...register("firstName", {
-                  required: "First name is required",
+                id="name"
+                {...register("name", {
+                  required: "Name is required",
                   minLength: {
                     value: 4,
                     message: "Minimum length should be 4",
@@ -85,57 +86,46 @@ export function ContactForm() {
                 })}
               />
               <FormErrorMessage>
-                {errors.firstName && errors.firstName.message}
+                {errors?.name && errors?.name?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={errors.lastName}>
-              <FormLabel htmlFor="lastName">Last name</FormLabel>
-              <Input
-                id="lastName"
-                placeholder="Last Name"
-                {...register("lastName", {
-                  required: "Last name is required",
-                  minLength: {
-                    value: 2,
-                    message: "Minimum length should be 2",
-                  },
-                })}
-              />
-              <FormErrorMessage>
-                {errors.lastName && errors.lastName.message}
-              </FormErrorMessage>
-            </FormControl>
-            <FormControl isInvalid={errors.email}>
+            <FormControl
+              variant={"floating"}
+              isDisabled={Boolean(errors?.email)}
+            >
               <FormLabel htmlFor="email">Email</FormLabel>
               <Input
                 id="email"
-                placeholder="Email"
                 {...register("email", {
                   required: "Email is required",
                 })}
               />
               <FormErrorMessage>
-                {errors.email && errors.email.message}
+                {errors?.email && errors?.email?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={errors.title}>
+            <FormControl
+              variant={"floating"}
+              isDisabled={Boolean(errors?.title)}
+            >
               <FormLabel htmlFor="title">Title</FormLabel>
               <Input
                 id="title"
-                placeholder="Title"
                 {...register("title", {
                   required: "Title is required",
                 })}
               />
               <FormErrorMessage>
-                {errors.title && errors.title.message}
+                {errors?.title && errors?.title?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={errors.message}>
+            <FormControl
+              variant={"floating"}
+              isDisabled={Boolean(errors?.message)}
+              id="message"
+            >
               <FormLabel htmlFor="message">Message</FormLabel>
               <Textarea
-                id="message"
-                placeholder="Message"
                 {...register("message", {
                   required: "Message is required",
                   minLength: {
@@ -145,7 +135,7 @@ export function ContactForm() {
                 })}
               />
               <FormErrorMessage>
-                {errors.message && errors.message.message}
+                {errors?.message && errors?.message?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
             <Button
@@ -156,7 +146,7 @@ export function ContactForm() {
               isLoading={isSubmitting}
               type="submit"
             >
-              Submit
+              Send Message
             </Button>
           </Flex>
         </form>

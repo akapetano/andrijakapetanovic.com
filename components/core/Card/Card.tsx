@@ -12,7 +12,7 @@ export function Card({ children, ...restProps }: ICardProps) {
   );
 
   return (
-    <Box rounded="lg" p="1rem" boxShadow={cardShadow}>
+    <Box rounded="lg" p="1rem" boxShadow={cardShadow} {...restProps}>
       {children}
     </Box>
   );
