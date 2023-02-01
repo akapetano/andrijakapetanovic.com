@@ -19,7 +19,7 @@ const boxShadow = "0px 0px 4px 0px rgba(0, 0, 0, 0.3)";
 
 const activeLabelStyles = (props: StyleProps) => ({
   transform: "scale(0.85) translateY(-50px) translateX(-22px) ",
-  transition: "0.3s ease",
+  transition: "transform 0.3s ease-out",
   color: mode("gray.900", "gray.100")(props),
 });
 
@@ -230,9 +230,9 @@ const theme = extendTheme({
                 ...activeLabelStyles(props),
               },
             },
-            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label":
+            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label":
               {
-                ...activeLabelStyles,
+                ...activeLabelStyles(props),
               },
 
             label: {
@@ -247,6 +247,7 @@ const theme = extendTheme({
               px: 1,
               my: 2,
               transformOrigin: "left top",
+              transition: "transform 0.3s ease-in",
             },
           },
         }),

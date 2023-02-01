@@ -3,7 +3,7 @@ import { ContactSection } from "../../components/features/contact/ContactSection
 
 export default function Portfolio() {
   return (
-    <AppLayout pageTitle="Andrija Kapetanović | Portfolio">
+    <AppLayout pageTitle="Andrija Kapetanović | Contact">
       <ContactSection />
     </AppLayout>
   );

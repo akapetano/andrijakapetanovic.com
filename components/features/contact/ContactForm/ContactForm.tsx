@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as zod from "zod";
 import {
   FormErrorMessage,
   FormLabel,
@@ -8,26 +7,26 @@ import {
   Input,
   Button,
   Flex,
-  Box,
   Textarea,
   Text,
   Link,
+  Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import { Card } from "../../../core/Card/Card";
+import { z } from "zod";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from "react";
 
-interface IContactFormValues {
-  name: string;
-  email: string;
-  title: string;
-  message: string;
-}
-
-const schema = zod.object({
-  name: zod.string().min(4),
-  email: zod.string().email().min(2),
-  title: zod.string().min(4),
-  message: zod.string().min(4),
+const schema = z.object({
+  name: z.string().min(4),
+  email: z.string().email().min(2),
+  title: z.string().min(4),
+  message: z.string().min(4),
+  token: z.string(),
 });
+
+type FormData = z.infer<typeof schema>;
 
 export function ContactForm() {
   const {
@@ -35,21 +34,57 @@ export function ContactForm() {
     reset,
     register,
     formState: { errors, isSubmitting },
-  } = useForm({
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
-  const onSubmit = async (data: any) => {
-    // await fetch("/api/form", {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    // });
-    console.log(data);
 
-    reset();
+  const toast = useToast();
+
+  const onSubmit = async (data: FormData) => {
+    const token = await recaptchaRef?.current?.executeAsync();
+    recaptchaRef?.current?.reset();
+    data["token"] = token || "";
+    const requestConfig = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    try {
+      const response = await fetch("/api/form", requestConfig);
+      if (response.status === 200) {
+        toast({
+          title: "Message sent.",
+          description:
+            "Thank you for contacting me. I will get back to you as soon as possible.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+        reset();
+      }
+    } catch (error) {
+      toast({
+        title: error.response.data.message,
+        description: error.response.statusText,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
   };
 
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   return (
-    <Box w="100%">
+    <Flex
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+      w="100%"
+      mb={{ base: "0rem", md: "5rem" }}
+    >
       <Text fontSize={"md"} mb="1.5rem">
         Thanks for visiting my website. If you&apos;re interested in working
         together or have any questions, please feel free to contact me by using
@@ -62,11 +97,11 @@ export function ContactForm() {
         </Link>
         . I look forward to hearing from you!
       </Text>
-      <Card pt="1.5rem">
+      <Card pt="1.5rem" w="100%">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex
             justifyContent={"center"}
-            alignItems={"start"}
+            alignItems={"end"}
             flexDir={"column"}
             gap="1.5rem"
           >
@@ -74,7 +109,6 @@ export function ContactForm() {
               variant={"floating"}
               isDisabled={Boolean(errors?.name)}
             >
-              <FormLabel htmlFor="name">Name</FormLabel>
               <Input
                 id="name"
                 {...register("name", {
@@ -84,7 +118,9 @@ export function ContactForm() {
                     message: "Minimum length should be 4",
                   },
                 })}
+                placeholder=" "
               />
+              <FormLabel htmlFor="name">Name</FormLabel>
               <FormErrorMessage>
                 {errors?.name && errors?.name?.message?.toString()}
               </FormErrorMessage>
@@ -93,13 +129,14 @@ export function ContactForm() {
               variant={"floating"}
               isDisabled={Boolean(errors?.email)}
             >
-              <FormLabel htmlFor="email">Email</FormLabel>
               <Input
                 id="email"
                 {...register("email", {
                   required: "Email is required",
                 })}
+                placeholder=" "
               />
+              <FormLabel htmlFor="email">Email</FormLabel>
               <FormErrorMessage>
                 {errors?.email && errors?.email?.message?.toString()}
               </FormErrorMessage>
@@ -108,13 +145,14 @@ export function ContactForm() {
               variant={"floating"}
               isDisabled={Boolean(errors?.title)}
             >
-              <FormLabel htmlFor="title">Title</FormLabel>
               <Input
                 id="title"
                 {...register("title", {
                   required: "Title is required",
                 })}
+                placeholder=" "
               />
+              <FormLabel htmlFor="title">Title</FormLabel>
               <FormErrorMessage>
                 {errors?.title && errors?.title?.message?.toString()}
               </FormErrorMessage>
@@ -124,7 +162,6 @@ export function ContactForm() {
               isDisabled={Boolean(errors?.message)}
               id="message"
             >
-              <FormLabel htmlFor="message">Message</FormLabel>
               <Textarea
                 {...register("message", {
                   required: "Message is required",
@@ -133,24 +170,33 @@ export function ContactForm() {
                     message: "Minimum length should be 10",
                   },
                 })}
+                placeholder=" "
               />
+              <FormLabel htmlFor="message">Message</FormLabel>
               <FormErrorMessage>
                 {errors?.message && errors?.message?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+              size="invisible"
+              ref={recaptchaRef}
+              hl="en"
+            />
             <Button
               w={{ base: "100%", md: "auto" }}
               mt={2}
               mb={4}
               variant="primary"
               isLoading={isSubmitting}
+              disabled={isSubmitting}
               type="submit"
             >
-              Send Message
+              {isSubmitting ? <Spinner mx="2.5rem" /> : "Send Message"}
             </Button>
           </Flex>
         </form>
       </Card>
-    </Box>
+    </Flex>
   );
 }
