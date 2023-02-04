@@ -12,6 +12,18 @@ interface FormData {
   token: string;
 }
 
+async function validateHuman(token: string) {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  const response = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
+    {
+      method: "POST",
+    }
+  );
+  const data = await response.json();
+  return data.success;
+}
+
 const handlebarOptions = {
   viewEngine: {
     extName: ".handlebars",
@@ -70,16 +82,4 @@ export default async function ContactApi(
   } catch (error) {
     response.status(500).json({ message: "An error occurred" });
   }
-}
-
-async function validateHuman(token: string) {
-  const secret = process.env.RECAPTCHA_SECRET_KEY;
-  const response = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
-    {
-      method: "POST",
-    }
-  );
-  const data = await response.json();
-  return data.success;
 }

@@ -19,11 +19,19 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
 
 const schema = z.object({
-  name: z.string().min(4),
-  email: z.string().email().min(2),
-  title: z.string().min(4),
-  message: z.string().min(4),
-  token: z.string(),
+  firstName: z
+    .string()
+    .min(2, { message: "First name must be 2 or more characters long" }),
+  lastName: z
+    .string()
+    .min(2, { message: "Last name must be 2 or more characters long" }),
+  email: z.string().email({ message: "Email address must be valid" }).min(2),
+  title: z
+    .string()
+    .min(4, { message: "Title must be 4 or more characters long" }),
+  message: z
+    .string()
+    .min(4, { message: "Message must be 4 or more characters long" }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -43,6 +51,8 @@ export function ContactForm() {
   const onSubmit = async (data: FormData) => {
     const token = await recaptchaRef?.current?.executeAsync();
     recaptchaRef?.current?.reset();
+    console.log(token);
+    // @ts-ignore-next-line
     data["token"] = token || "";
     const requestConfig = {
       method: "post",
@@ -53,23 +63,32 @@ export function ContactForm() {
     };
     try {
       const response = await fetch("/api/form", requestConfig);
-      if (response.status === 200) {
+      if (response && response?.status === 200) {
         toast({
           title: "Message sent.",
           description:
             "Thank you for contacting me. I will get back to you as soon as possible.",
           status: "success",
-          duration: 9000,
+          duration: 6000,
           isClosable: true,
         });
         reset();
       }
-    } catch (error) {
+    } catch (error: any) {
       toast({
-        title: error.response.data.message,
-        description: error.response.statusText,
+        title:
+          error &&
+          error?.response &&
+          error?.response?.data &&
+          error?.response?.data?.message
+            ? error?.response?.data?.message
+            : "Error!",
+        description:
+          error && error?.response && error?.response?.statusText
+            ? error?.response?.statusText
+            : "Something went wrong!",
         status: "error",
-        duration: 9000,
+        duration: 6000,
         isClosable: true,
       });
     }
@@ -107,33 +126,42 @@ export function ContactForm() {
           >
             <FormControl
               variant={"floating"}
-              isDisabled={Boolean(errors?.name)}
+              isInvalid={Boolean(errors?.firstName)}
             >
               <Input
-                id="name"
-                {...register("name", {
-                  required: "Name is required",
-                  minLength: {
-                    value: 4,
-                    message: "Minimum length should be 4",
-                  },
-                })}
+                id="firstName"
+                {...register("firstName")}
+                isDisabled={isSubmitting}
                 placeholder=" "
               />
-              <FormLabel htmlFor="name">Name</FormLabel>
+              <FormLabel htmlFor="firstName">First Name</FormLabel>
               <FormErrorMessage>
-                {errors?.name && errors?.name?.message?.toString()}
+                {errors?.firstName && errors?.firstName?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
             <FormControl
               variant={"floating"}
-              isDisabled={Boolean(errors?.email)}
+              isInvalid={Boolean(errors?.lastName)}
+            >
+              <Input
+                id="lastName"
+                {...register("lastName")}
+                isDisabled={isSubmitting}
+                placeholder=" "
+              />
+              <FormLabel htmlFor="lastName">Last Name</FormLabel>
+              <FormErrorMessage>
+                {errors?.lastName && errors?.lastName?.message?.toString()}
+              </FormErrorMessage>
+            </FormControl>
+            <FormControl
+              variant={"floating"}
+              isInvalid={Boolean(errors?.email)}
             >
               <Input
                 id="email"
-                {...register("email", {
-                  required: "Email is required",
-                })}
+                {...register("email")}
+                isDisabled={isSubmitting}
                 placeholder=" "
               />
               <FormLabel htmlFor="email">Email</FormLabel>
@@ -143,13 +171,12 @@ export function ContactForm() {
             </FormControl>
             <FormControl
               variant={"floating"}
-              isDisabled={Boolean(errors?.title)}
+              isInvalid={Boolean(errors?.title)}
             >
               <Input
                 id="title"
-                {...register("title", {
-                  required: "Title is required",
-                })}
+                {...register("title")}
+                isDisabled={isSubmitting}
                 placeholder=" "
               />
               <FormLabel htmlFor="title">Title</FormLabel>
@@ -159,17 +186,12 @@ export function ContactForm() {
             </FormControl>
             <FormControl
               variant={"floating"}
-              isDisabled={Boolean(errors?.message)}
-              id="message"
+              isInvalid={Boolean(errors?.message)}
             >
               <Textarea
-                {...register("message", {
-                  required: "Message is required",
-                  minLength: {
-                    value: 10,
-                    message: "Minimum length should be 10",
-                  },
-                })}
+                id="message"
+                {...register("message")}
+                isDisabled={isSubmitting}
                 placeholder=" "
               />
               <FormLabel htmlFor="message">Message</FormLabel>
