@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import { ContactFormData } from "../components/features/contact/ContactForm/ContactForm";
+import { UseFormReset } from "react-hook-form";
 
 export const useContactForm = () => {
   const toast = useToast({
@@ -8,7 +9,10 @@ export const useContactForm = () => {
     },
   });
 
-  const sendContactForm = async (data: ContactFormData) => {
+  const sendContactForm = async (
+    data: ContactFormData,
+    reset: UseFormReset<ContactFormData>
+  ) => {
     try {
       const response = await fetch("api/contact", {
         method: "POST",
@@ -32,7 +36,7 @@ export const useContactForm = () => {
           isClosable: true,
         });
       }
-
+      reset();
       return response.json();
     } catch (error) {
       if (error instanceof Error) {

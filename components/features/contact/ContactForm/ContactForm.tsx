@@ -11,7 +11,6 @@ import {
   Text,
   Link,
   Spinner,
-  useToast,
 } from "@chakra-ui/react";
 import { Card } from "../../../core/Card/Card";
 import { z } from "zod";
@@ -51,10 +50,10 @@ export function ContactForm() {
   const { sendContactForm } = useContactForm();
 
   const onSubmit = async (data: ContactFormData) => {
-    await sendContactForm(data);
+    await sendContactForm(data, reset);
   };
 
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  // const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   return (
     <Flex
@@ -159,12 +158,12 @@ export function ContactForm() {
                 {errors?.message && errors?.message?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
               size="invisible"
               ref={recaptchaRef}
               hl="en"
-            />
+            /> */}
             <Button
               w={{ base: "100%", md: "auto" }}
               mt={2}
