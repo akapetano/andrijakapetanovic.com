@@ -17,6 +17,7 @@ import { Card } from "../../../core/Card/Card";
 import { z } from "zod";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
+import { useContactForm } from "../../../../hooks/useContactForm";
 
 const schema = z.object({
   firstName: z
@@ -26,15 +27,16 @@ const schema = z.object({
     .string()
     .min(2, { message: "Last name must be 2 or more characters long" }),
   email: z.string().email({ message: "Email address must be valid" }).min(2),
-  title: z
+  subject: z
     .string()
-    .min(4, { message: "Title must be 4 or more characters long" }),
+    .min(4, { message: "Subject must be 4 or more characters long" }),
   message: z
     .string()
     .min(4, { message: "Message must be 4 or more characters long" }),
+  token: z.string().optional(),
 });
 
-type FormData = z.infer<typeof schema>;
+export type ContactFormData = z.infer<typeof schema>;
 
 export function ContactForm() {
   const {
@@ -42,56 +44,14 @@ export function ContactForm() {
     reset,
     register,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
   });
 
-  const toast = useToast();
+  const { sendContactForm } = useContactForm();
 
-  const onSubmit = async (data: FormData) => {
-    const token = await recaptchaRef?.current?.executeAsync();
-    recaptchaRef?.current?.reset();
-    console.log(token);
-    // @ts-ignore-next-line
-    data["token"] = token || "";
-    const requestConfig = {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-    try {
-      const response = await fetch("/api/form", requestConfig);
-      if (response && response?.status === 200) {
-        toast({
-          title: "Message sent.",
-          description:
-            "Thank you for contacting me. I will get back to you as soon as possible.",
-          status: "success",
-          duration: 6000,
-          isClosable: true,
-        });
-        reset();
-      }
-    } catch (error: any) {
-      toast({
-        title:
-          error &&
-          error?.response &&
-          error?.response?.data &&
-          error?.response?.data?.message
-            ? error?.response?.data?.message
-            : "Error!",
-        description:
-          error && error?.response && error?.response?.statusText
-            ? error?.response?.statusText
-            : "Something went wrong!",
-        status: "error",
-        duration: 6000,
-        isClosable: true,
-      });
-    }
+  const onSubmit = async (data: ContactFormData) => {
+    await sendContactForm(data);
   };
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -171,17 +131,17 @@ export function ContactForm() {
             </FormControl>
             <FormControl
               variant={"floating"}
-              isInvalid={Boolean(errors?.title)}
+              isInvalid={Boolean(errors?.subject)}
             >
               <Input
-                id="title"
-                {...register("title")}
+                id="subject"
+                {...register("subject")}
                 isDisabled={isSubmitting}
                 placeholder=" "
               />
-              <FormLabel htmlFor="title">Title</FormLabel>
+              <FormLabel htmlFor="subject">Subject</FormLabel>
               <FormErrorMessage>
-                {errors?.title && errors?.title?.message?.toString()}
+                {errors?.subject && errors?.subject?.message?.toString()}
               </FormErrorMessage>
             </FormControl>
             <FormControl

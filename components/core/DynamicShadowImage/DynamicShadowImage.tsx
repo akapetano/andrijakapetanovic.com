@@ -1,13 +1,18 @@
-import { Box, Image } from '@chakra-ui/react';
+import { Box, Image } from "@chakra-ui/react";
 
-type Props = {
+type DynamicShadowImageProps = {
   src: string;
   height?: string | number;
   width?: string | number;
   alt: string;
 };
 
-export default function DynamicShadowImage({ src, height, width, alt }: Props) {
+export default function DynamicShadowImage({
+  src,
+  height,
+  width,
+  alt,
+}: DynamicShadowImageProps) {
   return (
     <Box pos="relative">
       <Image
