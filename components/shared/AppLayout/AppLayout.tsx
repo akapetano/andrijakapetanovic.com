@@ -22,7 +22,7 @@ export default function AppLayout({ children, pageTitle }: IAppLayout) {
     <Layout>
       <NextHead title={pageTitle} />
       <LayoutHeader />
-      <AuthorImage home={isHome} />
+      <AuthorImage isHome={isHome} />
       <LayoutMain>{children}</LayoutMain>
       {!isHome ? <BackToHome /> : null}
       <Footer />
