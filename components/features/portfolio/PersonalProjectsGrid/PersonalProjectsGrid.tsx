@@ -1,10 +1,10 @@
-import { Grid } from '@chakra-ui/react';
-import { Project } from '../Project/Project';
-import { personalProjectData } from '../projectData/projectData';
+import { Grid } from "@chakra-ui/react";
+import { Project } from "../Project/Project";
+import { personalProjectData } from "../projectData/projectData";
 
 export function PersonalProjectsGrid() {
   return (
-    <Grid gridColumn="1" gap={0} mb="2rem" boxShadow="md">
+    <Grid templateColumns={"repeat(2, 1fr)"} gap={0} mb="2rem" boxShadow="md">
       {personalProjectData.map(
         ({ title, shortDescription, longDescription, imgSrc, alt, link }) => (
           <Project
