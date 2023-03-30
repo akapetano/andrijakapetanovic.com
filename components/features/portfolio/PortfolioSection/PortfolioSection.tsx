@@ -1,14 +1,12 @@
-import { SectionContainer } from '../../../shared/SectionContainer/SectionContainer';
-import { PortfolioIntro } from '../PortfolioIntro/PortfolioIntro';
-import { PersonalProjectsGrid } from '../PersonalProjectsGrid/PersonalProjectsGrid';
-import { CourseProjectsGrid } from '../CourseProjectsGrid/CourseProjectsGrid';
+import { SectionContainer } from "../../../shared/SectionContainer/SectionContainer";
+import { PortfolioIntro } from "../PortfolioIntro/PortfolioIntro";
+import { PersonalProjectsGrid } from "../PersonalProjectsGrid/PersonalProjectsGrid";
 
 export function PortfolioSection() {
   return (
     <SectionContainer>
       <PortfolioIntro />
       <PersonalProjectsGrid />
-      <CourseProjectsGrid />
     </SectionContainer>
   );
 }
