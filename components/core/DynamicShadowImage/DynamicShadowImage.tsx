@@ -1,10 +1,12 @@
 import { Box, Image } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 type DynamicShadowImageProps = {
   src: string;
   height?: string | number;
   width?: string | number;
   alt: string;
+  isClicked: boolean;
 };
 
 export default function DynamicShadowImage({
@@ -12,9 +14,10 @@ export default function DynamicShadowImage({
   height,
   width,
   alt,
+  isClicked,
 }: DynamicShadowImageProps) {
   return (
-    <Box pos="relative">
+    <Box pos="relative" as={motion.div}>
       <Image
         src={src}
         height={height}
