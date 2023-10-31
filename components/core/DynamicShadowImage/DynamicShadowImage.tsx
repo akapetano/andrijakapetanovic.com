@@ -1,23 +1,28 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, ImageProps, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-type DynamicShadowImageProps = {
+interface IDynamicShadowImageProps extends ImageProps {
   src: string;
   height?: string | number;
   width?: string | number;
   alt: string;
-  isClicked: boolean;
-};
+}
 
 export default function DynamicShadowImage({
   src,
   height,
   width,
   alt,
-  isClicked,
-}: DynamicShadowImageProps) {
+}: IDynamicShadowImageProps) {
+  const colorMode = useColorModeValue("lightMode", "darkMode");
   return (
-    <Box pos="relative" as={motion.div}>
+    <motion.div
+      layout
+      style={{
+        position: "relative",
+        rotate: colorMode === "darkMode" ? 180 : 0,
+      }}
+    >
       <Image
         src={src}
         height={height}
@@ -41,6 +46,6 @@ export default function DynamicShadowImage({
         objectFit="cover"
         rounded="full"
       />
-    </Box>
+    </motion.div>
   );
 }
