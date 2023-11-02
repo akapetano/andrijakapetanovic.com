@@ -1,7 +1,7 @@
-import { SunIcon } from '@chakra-ui/icons';
+import { SunIcon, IconProps } from "@chakra-ui/icons";
 
-export function SunIconInColor() {
-  const sunColor = 'accent.300';
+export function SunIconInColor(props: IconProps) {
+  const sunColor = "accent.300";
 
-  return <SunIcon color={sunColor} />;
+  return <SunIcon color={sunColor} {...props} />;
 }

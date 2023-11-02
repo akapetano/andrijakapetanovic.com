@@ -6,22 +6,35 @@ import {
   useDisclosure,
   Flex,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import { MobileColorModeButton } from '../MobileColorModeButton/MobileColorModeButton';
-import NavLinks from '../NavLinks/NavLinks';
+} from "@chakra-ui/react";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { MobileColorModeButton } from "../MobileColorModeButton/MobileColorModeButton";
+import NavLinks from "../NavLinks/NavLinks";
+import { motion } from "framer-motion";
+import { MenuButtonIcon } from "./MenuButtonIcon/MenuButtonIcon";
 
 export default function MobileHamMenu() {
   const { isOpen, onToggle } = useDisclosure();
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const bgColor = useColorModeValue("whiteAlpha.700", "rgba(26,32,44,0.7)");
+  const iconColor = useColorModeValue("brand.700", "brand.200");
 
   return (
-    <Flex display={['flex', 'flex', 'none', 'none', 'none']}>
+    <Flex display={["flex", "flex", "none", "none", "none"]}>
       <Menu isLazy>
         <MenuButton
           as={IconButton}
           aria-label="Menu"
-          icon={!isOpen ? <HamburgerIcon boxSize="5" /> : <CloseIcon />}
+          icon={
+            <MenuButtonIcon
+              color={iconColor}
+              isOpen={isOpen}
+              strokeWidth={2}
+              lineProps={{ strokeLinecap: "round" }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              height="20"
+              width="20"
+            />
+          }
           variant=""
           onClick={onToggle}
           display="flex"
@@ -29,6 +42,8 @@ export default function MobileHamMenu() {
         />
         {isOpen ? (
           <VStack
+            backdropFilter="auto"
+            backdropBlur="10px"
             bg={bgColor}
             height="100vh"
             width="100vw"
@@ -37,9 +52,10 @@ export default function MobileHamMenu() {
             left="0"
             right="0"
             bottom="0"
-            spacing={'3rem'}
+            spacing={"2rem"}
             align="center"
-            justify="center"
+            justify="start"
+            pt={"7rem"}
             display="flex"
             zIndex="8999"
             transition="all .3s ease-in-out"
