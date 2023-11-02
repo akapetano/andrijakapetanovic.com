@@ -1,7 +1,7 @@
-import { MoonIcon } from '@chakra-ui/icons';
+import { MoonIcon, IconProps } from "@chakra-ui/icons";
 
-export function MoonIconInColor() {
-  const moonColor = 'accent.100';
+export function MoonIconInColor(props: IconProps) {
+  const moonColor = "accent.100";
 
-  return <MoonIcon color={moonColor} />;
+  return <MoonIcon color={moonColor} {...props} />;
 }

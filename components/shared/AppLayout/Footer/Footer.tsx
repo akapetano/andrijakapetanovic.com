@@ -35,7 +35,7 @@ export default function Footer() {
       height={["6rem", "6rem", "6rem", "6rem", "6rem"]}
       boxShadow="base"
       overflow="hidden"
-      zIndex="100"
+      zIndex="99"
     >
       <HStack
         spacing={["2rem", "2rem", "2rem", "4rem", "4rem"]}

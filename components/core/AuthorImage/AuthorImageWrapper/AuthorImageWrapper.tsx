@@ -52,7 +52,7 @@ export default function AuthorImageWrapper({
             animate={{
               rotate: colorMode === "darkMode" ? 180 : 0,
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            transition={{ type: "spring", stiffness: 150, damping: 16 }}
           >
             {children}
           </motion.div>
