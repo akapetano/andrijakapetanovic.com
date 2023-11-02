@@ -1,24 +1,29 @@
 import DynamicShadowImage from "../DynamicShadowImage/DynamicShadowImage";
 import AuthorImageWrapper from "./AuthorImageWrapper/AuthorImageWrapper";
+import { useColorModeValue } from "@chakra-ui/react";
 
 interface IAuthorImageProps {
   isHome: boolean;
 }
 
 export default function AuthorImage({ isHome }: IAuthorImageProps) {
+  const colorMode = useColorModeValue("lightMode", "darkMode");
+  const srcLightMode = "/images/andrija-kapetanovic.jpg";
+  const srcDarkMode = "/images/andrija-kapetanovic-dark.jpg";
+
   return (
     <AuthorImageWrapper isHome={isHome}>
       <DynamicShadowImage
-        src="/images/andrija-kapetanovic.jpg"
+        src={srcLightMode}
         height={isHome ? 144 : 108}
         width={isHome ? 144 : 108}
-        alt="Picture of the site creator, Andrija Kapetanović (dark side)"
+        alt="Andrija Kapetanović"
       />
       <DynamicShadowImage
-        src="/images/andrija-kapetanovic-dark.jpg"
+        src={srcDarkMode}
         height={isHome ? 144 : 108}
         width={isHome ? 144 : 108}
-        alt="Picture of the site creator, Andrija Kapetanović (dark side)"
+        alt="Andrija Kapetanović (dark mode)"
         rotate={180}
       />
     </AuthorImageWrapper>

@@ -31,6 +31,7 @@ export default function AuthorImageWrapper({
       <div className={styles.wrapper}>
         <div style={wrapperStyle}>
           <motion.div
+            initial={false}
             layoutId={layoutId}
             style={{
               width: 288,
