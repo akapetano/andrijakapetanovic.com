@@ -22,6 +22,45 @@ export function Courses() {
       <Divider m="0.5rem 0 1rem 0" />
       <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
+          &quot;Basics of Go&quot; by Maximiliano Firtman - August 2023
+        </ListItem>
+        <ListItem>
+          &quot;Go for JavaScript Developers&quot; by Brenna Martenson - August
+          2023
+        </ListItem>
+        <ListItem>
+          &quot;JavaScript: The Hard Parts, v2&quot; by Will Sentance - June
+          2023
+        </ListItem>
+        <ListItem>
+          &quot;Complete Intro to SQL & PostgreSQL&quot; by Brian Holt - June
+          2023
+        </ListItem>
+        <ListItem>
+          &quot;Building a FullStack App from Scratch v2&quot; by Scott Moss -
+          May 2023
+        </ListItem>
+        <ListItem>
+          &quot;Introduction to Next.js 13+, v2&quot; by Scott Moss - May 2023
+        </ListItem>
+        <ListItem>
+          &quot;Complete Intro to Linux and the Command-Line&quot; by Brian Holt
+          - May 2023
+        </ListItem>
+        <ListItem>
+          &quot;API Design in Node.js, v4&quot; by Scott Moss - April 2023
+        </ListItem>
+        <ListItem>
+          &quot;Complete Intro to Databases&quot; by Brian Holt - April 2023
+        </ListItem>
+        <ListItem>
+          &quot;Full Stack for Front-end Engineers, v3&quot; by Jem Young -
+          March 2023
+        </ListItem>
+        <ListItem>
+          &quot;Introduction to Node.js, v2&quot; by Scott Moss - March 2023
+        </ListItem>
+        <ListItem>
           &quot;Design Systems with React & Storybook&quot; by Emma Boston -
           December 2022
         </ListItem>
@@ -97,6 +136,9 @@ export function Courses() {
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
       <UnorderedList fontSize="medium" color={textColor}>
+        <ListItem>
+          &quot;Joy of React&quot; by Josh Comeau - October 2023
+        </ListItem>
         <ListItem>
           &quot;Just JavaScript&quot; by Dan Abramov - February 2023
         </ListItem>
