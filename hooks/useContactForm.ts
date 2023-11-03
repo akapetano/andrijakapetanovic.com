@@ -1,5 +1,5 @@
 import { useToast } from "@chakra-ui/react";
-import { ContactFormData } from "../components/features/contact/ContactForm/ContactForm";
+import { ContactFormData } from "../src/components/features/contact/ContactForm/ContactForm";
 import { UseFormReset } from "react-hook-form";
 
 export const useContactForm = () => {
