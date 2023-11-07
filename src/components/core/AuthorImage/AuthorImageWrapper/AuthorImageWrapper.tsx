@@ -24,6 +24,7 @@ export default function AuthorImageWrapper({
     height: isHome ? 150 : 114,
     width: isHome ? 150 : 114,
     borderRadius: "100%",
+    zIndex: 10,
   };
 
   return (

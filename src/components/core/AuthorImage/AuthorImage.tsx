@@ -1,13 +1,11 @@
 import DynamicShadowImage from "../DynamicShadowImage/DynamicShadowImage";
 import AuthorImageWrapper from "./AuthorImageWrapper/AuthorImageWrapper";
-import { useColorModeValue } from "@chakra-ui/react";
 
 interface IAuthorImageProps {
   isHome: boolean;
 }
 
 export default function AuthorImage({ isHome }: IAuthorImageProps) {
-  const colorMode = useColorModeValue("lightMode", "darkMode");
   const srcLightMode = "/images/andrija-kapetanovic.jpg";
   const srcDarkMode = "/images/andrija-kapetanovic-dark.jpg";
 
