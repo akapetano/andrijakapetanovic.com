@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import { mailOptions, transporter } from "../../../lib/nodemailer";
 import { ContactFormData } from "../../../components/features/contact/ContactForm/ContactForm";
 import { htmlTemplateInjector } from "../../../utils/htmlTemplateInjector";
@@ -50,17 +50,23 @@ const generateEmailContent = (data: ContactFormData) => {
   };
 };
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   if (req.method === "POST") {
-    const data: ContactFormData = req.body;
+    const { data }: { data: ContactFormData } = await req.json();
+
     const { firstName, lastName, email, subject, message, token } = data;
 
     // const human = await validateHuman(token);
 
     if (!firstName || !lastName || !email || !subject || !message) {
-      return res
-        .status(400)
-        .json({ message: "Bad request. Please fill out the form completely." });
+      return NextResponse.json(
+        {
+          message: "Bad request. Please fill out the form completely.",
+        },
+        {
+          status: 400,
+        }
+      );
     }
 
     // if (!human) {
@@ -76,23 +82,26 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
         subject: subject,
       });
 
-      return res.status(200).json({
-        success: true,
-        message: {
-          title: "Your message has been successfully sent.",
-          description:
-            "Thank you for contacting me. I will get back to you as soon as possible.",
+      return NextResponse.json(
+        {
+          success: true,
+          message: {
+            title: "Your message has been successfully sent.",
+            description:
+              "Thank you for contacting me. I will get back to you as soon as possible.",
+          },
         },
-      });
+        { status: 200 }
+      );
     } catch (error) {
       console.log(error);
       if (error instanceof Error) {
-        return res.status(400).json({ message: error?.message });
+        return NextResponse.json({ message: error?.message }, { status: 400 });
       }
     }
   }
 
-  return res.status(400).json({ message: "Bad request" });
+  return NextResponse.json({ message: "Bad request" }, { status: 400 });
 
   // const human = await validateHuman(token);
 
