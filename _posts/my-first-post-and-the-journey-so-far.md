@@ -1,6 +1,7 @@
 ---
-title: 'My first post and the journey so far'
-date: '2022-04-11'
+title: "My first post and the journey so far"
+date: "2022-04-11"
+category: "career"
 ---
 
 I did it! After nine months of intensive learning, I launched my own website where I can showcase my work, effort, and thoughts which are sometimes trapped or fade on this never-ending path of learning web development. The website has been built with JavaScript's typed superset, [TypeScript](https://www.typescriptlang.org/), [Next.js](https://nextjs.org/), the [React](https://reactjs.org/) framework, and for styling, [Chakra UI](https://chakra-ui.com/), the modular component library for React.
