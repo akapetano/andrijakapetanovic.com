@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -9,15 +11,20 @@ import {
 } from "@chakra-ui/react";
 
 export function Presentations() {
-  // const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+        color={textColor}
+      >
         Presentations
       </Heading>
       <Divider m="0 0 1rem 0" />
-      <Box color={"gray.600"}>
+      <Box color={textColor}>
         <Text fontSize="medium">
           Held and organized the following presentations:
         </Text>

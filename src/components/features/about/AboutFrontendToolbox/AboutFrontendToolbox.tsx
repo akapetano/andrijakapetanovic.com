@@ -20,22 +20,22 @@ import {
 import { TouchFriendlyTooltip } from "../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip";
 
 export function AboutFrontendToolbox() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
-  // const jsColor = useColorModeValue("#f7c427", "#f7df1e");
-  // const nextJsColor = useColorModeValue("#000", "gray.100");
-  // const vueJsColor = useColorModeValue("#35495e", "#42b883");
-  // const nuxtJsColor = useColorModeValue("#04dc82", "#81edc0");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+  const jsColor = useColorModeValue("#f7c427", "#f7df1e");
+  const nextJsColor = useColorModeValue("#000", "gray.100");
+  const vueJsColor = useColorModeValue("#35495e", "#42b883");
+  const nuxtJsColor = useColorModeValue("#04dc82", "#81edc0");
 
   const FRONTEND_TOOLBOX = [
     { toolName: "HTML5", toolIcon: FaHtml5, toolColor: "#E34C26" },
     { toolName: "CSS3", toolIcon: FaCss3Alt, toolColor: "#167dbe" },
     { toolName: "Sass", toolIcon: FaSass, toolColor: "#ce679a" },
-    { toolName: "JavaScript", toolIcon: FaJsSquare, toolColor: "#f7c427" },
+    { toolName: "JavaScript", toolIcon: FaJsSquare, toolColor: jsColor },
     { toolName: "React", toolIcon: FaReact, toolColor: "#5ed3f3" },
     { toolName: "TypeScript", toolIcon: SiTypescript, toolColor: "#3178c6" },
-    { toolName: "Next.js", toolIcon: SiNextdotjs, toolColor: "#000" },
-    { toolName: "Vuejs", toolIcon: FaVuejs, toolColor: "#35495e" },
-    { toolName: "Nuxtjs", toolIcon: SiNuxtdotjs, toolColor: "#04dc82" },
+    { toolName: "Next.js", toolIcon: SiNextdotjs, toolColor: nextJsColor },
+    { toolName: "Vuejs", toolIcon: FaVuejs, toolColor: vueJsColor },
+    { toolName: "Nuxtjs", toolIcon: SiNuxtdotjs, toolColor: nuxtJsColor },
     { toolName: "Chakra UI", toolIcon: SiChakraui, toolColor: "#2cc6b8" },
     {
       toolName: "Tailwind CSS",
@@ -50,11 +50,11 @@ export function AboutFrontendToolbox() {
   ];
 
   return (
-    <Box mb="1rem">
+    <Box mb="1rem" color={textColor}>
       <Heading as="h3" fontSize="lg" mb="0.5rem">
         Front-end toolbox
       </Heading>
-      <Text fontSize="smaller" color={"gray.600"}>
+      <Text fontSize="smaller">
         These are the tools that I use in my day-to-day work.
       </Text>
       <Grid

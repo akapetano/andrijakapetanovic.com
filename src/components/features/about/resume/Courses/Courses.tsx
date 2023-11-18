@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -8,10 +10,10 @@ import {
 } from "@chakra-ui/react";
 
 export function Courses() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Box>
+    <Box color={textColor}>
       <Heading fontSize="large" as="h3" textTransform="uppercase">
         Courses
       </Heading>
@@ -20,7 +22,7 @@ export function Courses() {
         Frontend Masters
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
-      <UnorderedList fontSize="medium" color={"gray.600"}>
+      <UnorderedList fontSize="medium">
         <ListItem>
           &quot;Basics of Go&quot; by Maximiliano Firtman - August 2023
         </ListItem>
@@ -135,7 +137,7 @@ export function Courses() {
         Online Courses
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
-      <UnorderedList fontSize="medium" color={"gray.600"}>
+      <UnorderedList fontSize="medium">
         <ListItem>
           &quot;Joy of React&quot; by Josh Comeau - October 2023
         </ListItem>

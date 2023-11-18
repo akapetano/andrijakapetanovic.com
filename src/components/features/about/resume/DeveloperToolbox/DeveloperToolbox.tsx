@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -7,15 +9,15 @@ import {
 } from "@chakra-ui/react";
 
 export function DeveloperToolbox() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Box>
+    <Box color={textColor}>
       <Heading fontSize="large" as="h3" textTransform="uppercase">
         Developer Toolbox
       </Heading>
       <Divider m="0 0 1rem 0" />
-      <Text fontSize="medium" color={"gray.600"}>
+      <Text fontSize="medium">
         Next.js | React | Nuxt.js | Vue | TypeScript | JavaScript | CSS | Sass |
         Chakra UI | HTML | Git | GitHub | Linux | Node.js
       </Text>

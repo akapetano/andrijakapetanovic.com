@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -8,15 +10,20 @@ import {
 } from "@chakra-ui/react";
 
 export function OrganizationalSkills() {
-  // const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+        color={textColor}
+      >
         Organizational Skills
       </Heading>
       <Divider m="0 0 1rem 0" />
-      <UnorderedList fontSize="medium" color={"gray.600"}>
+      <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
           as essential component in the work of an International Relations
           Office while in charge of incoming students (processing documentation

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -10,11 +12,16 @@ import {
 } from "@chakra-ui/react";
 
 export function References() {
-  // const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+    <Box color={textColor}>
+      <Heading
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+        color={textColor}
+      >
         References
       </Heading>
       <Divider mb="1rem" />
@@ -25,7 +32,7 @@ export function References() {
       <Text fontSize="medium" fontWeight="bold">
         Adrian Bićanić
       </Text>
-      <UnorderedList fontSize="medium" mb="1rem" color={"gray.600"}>
+      <UnorderedList fontSize="medium" mb="1rem">
         <ListItem>role: JavaScript Engineer</ListItem>
         <ListItem>company: Infinum</ListItem>
         <ListItem>
@@ -42,7 +49,7 @@ export function References() {
       <Text fontSize="medium" fontWeight="bold">
         Marija Džaja Sikirić
       </Text>
-      <UnorderedList fontSize="medium" color={"gray.600"}>
+      <UnorderedList fontSize="medium">
         <ListItem>role: International relations officer</ListItem>
         <ListItem>company: University of Zadar</ListItem>
         <ListItem>

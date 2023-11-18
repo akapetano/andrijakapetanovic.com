@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -9,15 +11,20 @@ import {
 } from "@chakra-ui/react";
 
 export function WorkExperience() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+        color={textColor}
+      >
         Work Experience
       </Heading>
       <Divider mb="1rem" />
-      <Box>
+      <Box color={textColor}>
         <Heading fontSize="medium" as="h4" textTransform="uppercase">
           Crafted - Indianapolis, USA
         </Heading>
@@ -29,7 +36,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Front-end developer
         </Text>
-        <UnorderedList fontSize="medium" color={"gray.600"}>
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             translation of the UI/UX designs into components, and building them
             into websites and web applications
@@ -45,7 +52,7 @@ export function WorkExperience() {
         </UnorderedList>
         <Divider m="0.5rem 0 1rem 0" />
       </Box>
-      <Box>
+      <Box color={textColor}>
         <Heading fontSize="medium" as="h4" textTransform="uppercase">
           International Relations Office - University of Zadar
         </Heading>
@@ -57,7 +64,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Associate
         </Text>
-        <UnorderedList fontSize="medium" color={"gray.600"}>
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             in charge of incoming student and staff mobility and the web
             administrator of the International Relations Office&apos;s official
@@ -74,7 +81,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Student Office Assistant
         </Text>
-        <UnorderedList fontSize="medium" color={"gray.600"}>
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             in charge of incoming students (student applications, admission
             procedure, assistance in composing student&apos;s learning
@@ -92,7 +99,7 @@ export function WorkExperience() {
         <Text fontSize="medium" fontWeight="bold">
           Student Office Assistant
         </Text>
-        <UnorderedList fontSize="medium" color={"gray.600"}>
+        <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
             administrative work, receipt of incoming and outgoing student
             applications and both academic and non-academic staff applications

@@ -80,10 +80,6 @@ const theme = extendTheme({
           color: mode("brand.600", "brand.300")(props),
           textDecoration: "none",
         },
-        _visited: {
-          color: mode("brand.600", "brand.300")(props),
-          textDecoration: "none",
-        },
         _hover: {
           color: mode("brand.700", "brand.200")(props),
           textDecoration: "none",
@@ -92,10 +88,6 @@ const theme = extendTheme({
             transformOrigin: "left",
             transform: "scaleX(1)",
           },
-        },
-        _active: {
-          color: mode("brand.700", "brand.200")(props),
-          textDecoration: "none",
         },
       },
     }),
@@ -164,6 +156,11 @@ const theme = extendTheme({
           },
         }),
       },
+    },
+    Heading: {
+      baseStyle: (props: StyleProps) => ({
+        color: mode("gray.600", "gray.300")(props),
+      }),
     },
     Link: {
       baseStyle: (props: StyleProps) => ({

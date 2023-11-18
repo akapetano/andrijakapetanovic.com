@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -8,19 +10,24 @@ import {
 } from "@chakra-ui/react";
 
 export function Projects() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+        color={textColor}
+      >
         Projects
       </Heading>
       <Divider mb="1rem" />
-      <Heading fontSize="large" as="h4">
+      <Heading fontSize="large" as="h4" color={textColor}>
         Front-end development experience
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
-      <UnorderedList fontSize="medium" color={"gray.600"}>
+      <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
           As part of my self-taught web development journey, through the online
           courses which I have taken via different learning platforms (Udemy,

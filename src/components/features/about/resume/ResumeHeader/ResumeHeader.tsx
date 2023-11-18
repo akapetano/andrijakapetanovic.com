@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Heading,
   Box,
@@ -8,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 export function ResumeHeader() {
-  // const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
@@ -17,14 +19,15 @@ export function ResumeHeader() {
         fontSize="1.5rem"
         lineHeight="1.4"
         margin="auto 0 0.5rem 0"
+        color={textColor}
       >
         Resume
       </Heading>
       <Divider m="0.5rem 0 1rem 0" />
-      <Heading fontSize="large" as="h3" fontWeight="600">
+      <Heading fontSize="large" as="h3" fontWeight="600" color={textColor}>
         Andrija Kapetanović
       </Heading>
-      <Box color={"gray.600"}>
+      <Box color={textColor}>
         <Text fontSize="medium">Date of birth: 07/07/1993</Text>
         <Text fontSize="medium">
           Email:{" "}

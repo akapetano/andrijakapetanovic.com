@@ -1,6 +1,5 @@
-import { Box, ImageProps, useColorModeValue } from "@chakra-ui/react";
+import { ImageProps, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import styles from "./DynamicShadowImage.module.css";
 import Image from "next/image";
 
 interface IDynamicShadowImageProps extends ImageProps {
