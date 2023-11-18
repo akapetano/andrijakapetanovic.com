@@ -1,4 +1,4 @@
-import { parseISO, format } from 'date-fns';
+import { parseISO, format } from "date-fns";
 
 interface IDateProps {
   dateString: string;
@@ -6,5 +6,5 @@ interface IDateProps {
 
 export default function Date({ dateString }: IDateProps) {
   const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>;
+  return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>;
 }

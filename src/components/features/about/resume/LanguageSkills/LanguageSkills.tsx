@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Heading,
@@ -10,15 +12,20 @@ import {
 } from "@chakra-ui/react";
 
 export function LanguageSkills() {
-  // const textColor = useColorModeValue('gray.600', 'gray.300');
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
     <Box>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading
+        color={textColor}
+        fontSize="large"
+        as="h3"
+        textTransform="uppercase"
+      >
         Language Skills
       </Heading>
       <Divider m="0 0 1rem 0" />
-      <Box color={"gray.600"}>
+      <Box color={textColor}>
         <Text fontSize="medium">Native language: Croatian</Text>
         <Text fontSize="medium">Other languages:</Text>
         <UnorderedList fontSize="medium">

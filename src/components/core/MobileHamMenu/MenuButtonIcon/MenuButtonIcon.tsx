@@ -33,7 +33,8 @@ export function MenuButtonIcon({
     },
     opened: {
       rotate: 45,
-      translateY: 2,
+      translateY: 0,
+      translateX: 1.4,
     },
   };
   const center = {
@@ -51,7 +52,8 @@ export function MenuButtonIcon({
     },
     opened: {
       rotate: -45,
-      translateY: -2,
+      translateY: 0,
+      translateX: -1.4,
     },
   };
   lineProps = {

@@ -1,11 +1,13 @@
+"use client";
+
 import { Link, Text, Heading, useColorModeValue, Box } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 export function AboutIntro() {
-  // const textColor = useColorModeValue("gray.600", "gray.300");
+  const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Box mb="2rem" color={"gray.600"}>
+    <Box mb="2rem" color={textColor}>
       <Heading fontSize="1.5rem" lineHeight="1.4" margin="auto 0 0.5rem 0">
         About me
       </Heading>

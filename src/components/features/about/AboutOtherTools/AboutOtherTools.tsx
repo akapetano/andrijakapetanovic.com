@@ -12,20 +12,21 @@ import {
 import { TouchFriendlyTooltip } from "../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip";
 
 export function AboutOtherTools() {
-  // const figmaColor = useColorModeValue("gray.700", "gray.100");
-  // const linuxAndGithubColor = useColorModeValue("#000", "gray.100");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+  const figmaColor = useColorModeValue("gray.700", "gray.100");
+  const linuxAndGithubColor = useColorModeValue("#000", "gray.100");
 
   const FRONTEND_TOOLBOX = [
     { toolName: "Git", toolIcon: FaGitAlt, toolColor: "#f05033" },
-    { toolName: "GitHub", toolIcon: FaGithub, toolColor: "#000" },
+    { toolName: "GitHub", toolIcon: FaGithub, toolColor: linuxAndGithubColor },
     { toolName: "Bitbucket", toolIcon: FaBitbucket, toolColor: "#2684ff" },
-    { toolName: "Linux", toolIcon: FaLinux, toolColor: "#000" },
-    { toolName: "Figma", toolIcon: FaFigma, toolColor: "gray.700" },
+    { toolName: "Linux", toolIcon: FaLinux, toolColor: linuxAndGithubColor },
+    { toolName: "Figma", toolIcon: FaFigma, toolColor: figmaColor },
     { toolName: "InVision", toolIcon: FaInvision, toolColor: "#ff3366" },
   ];
 
   return (
-    <Box>
+    <Box textColor={textColor}>
       <Heading as="h3" fontSize="lg">
         Other
       </Heading>
