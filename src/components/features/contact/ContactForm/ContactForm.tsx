@@ -13,6 +13,7 @@ import {
   Text,
   Link,
   Spinner,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Card } from "../../../core/Card/Card";
 import { z } from "zod";
@@ -57,6 +58,8 @@ export function ContactForm() {
 
   // const recaptchaRef = useRef<ReCAPTCHA>(null);
 
+  const textColor = useColorModeValue("gray.600", "gray.300");
+
   return (
     <Flex
       flexDir="column"
@@ -65,7 +68,7 @@ export function ContactForm() {
       w="100%"
       mb={{ base: "0rem", md: "5rem" }}
     >
-      <Text fontSize={"md"} mb="1.5rem">
+      <Text fontSize={"md"} mb="1.5rem" color={textColor}>
         Thanks for visiting my website. If you&apos;re interested in working
         together or have any questions, please feel free to contact me by using
         the form below or emailing me at{" "}
