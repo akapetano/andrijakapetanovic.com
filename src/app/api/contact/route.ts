@@ -50,10 +50,7 @@ const generateEmailContent = (data: ContactFormData) => {
   };
 };
 
-export default async function contactFormHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const data: ContactFormData = req.body;
     const { firstName, lastName, email, subject, message, token } = data;
