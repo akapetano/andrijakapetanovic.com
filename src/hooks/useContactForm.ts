@@ -1,5 +1,5 @@
 import { useToast } from "@chakra-ui/react";
-import { ContactFormData } from "../src/components/features/contact/ContactForm/ContactForm";
+import { ContactFormData } from "../components/features/contact/ContactForm/ContactForm";
 import { UseFormReset } from "react-hook-form";
 
 export const useContactForm = () => {
@@ -9,10 +9,10 @@ export const useContactForm = () => {
     },
   });
 
-  const sendContactForm = async (
+  async function sendContactForm(
     data: ContactFormData,
     reset: UseFormReset<ContactFormData>
-  ) => {
+  ) {
     try {
       const response = await fetch("api/contact", {
         method: "POST",
@@ -51,7 +51,7 @@ export const useContactForm = () => {
         });
       }
     }
-  };
+  }
 
   return { sendContactForm };
 };

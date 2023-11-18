@@ -1,5 +1,5 @@
 import NavLink from "../NavLink/NavLink";
-import { NAV_ITEMS } from "../../../../constants/constants";
+import { NAV_ITEMS } from "@/constants";
 
 interface INavLinksProps {
   fontSize: string | number;

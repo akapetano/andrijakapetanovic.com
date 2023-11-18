@@ -15,7 +15,7 @@ interface IProvidersProps {
 export default function Providers({ children }: IProvidersProps) {
   return (
     <CacheProvider>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config?.initialColorMode} />
         <AnimatePresence
           mode="wait"

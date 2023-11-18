@@ -1,10 +1,12 @@
-import { Box, Image, ImageProps, useColorModeValue } from "@chakra-ui/react";
+import { Box, ImageProps, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import styles from "./DynamicShadowImage.module.css";
+import Image from "next/image";
 
 interface IDynamicShadowImageProps extends ImageProps {
   src: string;
-  height?: string | number;
-  width?: string | number;
+  height: number;
+  width: number;
   alt: string;
 }
 
@@ -28,23 +30,27 @@ export default function DynamicShadowImage({
         height={height}
         width={width}
         alt={alt}
-        objectFit="cover"
-        position="absolute"
-        inset={0}
-        filter="blur(16px)"
-        zIndex={0}
-        transform="scale(1.1, 1.1)"
-        rounded="full"
+        style={{
+          objectFit: "cover",
+          position: "absolute",
+          inset: "0",
+          filter: "blur(16px)",
+          zIndex: 0,
+          transform: "scale(1.1, 1.1)",
+          borderRadius: "100%",
+        }}
       />
       <Image
         src={src}
         height={height}
         width={width}
         alt={alt}
-        zIndex={1}
-        position="relative"
-        objectFit="cover"
-        rounded="full"
+        style={{
+          zIndex: 1,
+          position: "relative",
+          objectFit: "cover",
+          borderRadius: "100%",
+        }}
       />
     </motion.div>
   );

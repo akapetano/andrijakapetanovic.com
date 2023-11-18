@@ -1,5 +1,5 @@
 import { Badge, BadgeProps } from "@chakra-ui/react";
-import { WORDS_PER_MINUTE } from "../../../../../constants/constants";
+import { WORDS_PER_MINUTE } from "@/constants";
 
 interface IReadTimeBadgeProps extends BadgeProps {
   text: string;

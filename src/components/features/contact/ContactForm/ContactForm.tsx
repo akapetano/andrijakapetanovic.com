@@ -18,7 +18,7 @@ import { Card } from "../../../core/Card/Card";
 import { z } from "zod";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
-import { useContactForm } from "../../../../../hooks/useContactForm";
+import { useContactForm } from "../../../../hooks/useContactForm";
 
 const schema = z.object({
   firstName: z
