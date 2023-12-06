@@ -22,7 +22,6 @@ export const LIGHT_COLORS = {
   "--color-gray-700": "hsl(210, 13%, 22%)",
   "--color-gray-800": "hsl(210, 13%, 13%)",
   "--color-gray-900": "hsl(210, 13%, 12%)",
-  "--selected-color": "var(--brand-700)",
 };
 
 export const LIGHT_COLORS_2 = {

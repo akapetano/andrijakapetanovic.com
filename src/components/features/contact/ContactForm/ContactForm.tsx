@@ -74,7 +74,7 @@ export function ContactForm() {
         the form below or emailing me at{" "}
         <Link
           href="to:andrija.kapetanovic@gmail.com"
-          variant="withoutUnderline"
+          variant="slidingUnderline"
         >
           andrija.kapetanovic@gmail.com
         </Link>

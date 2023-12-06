@@ -17,10 +17,10 @@ export default function NavLinks({
     <>
       {NAV_ITEMS?.map((navItem) => (
         <NavLink
+          key={navItem}
           fontSize={fontSize}
           flex={flex}
           textTransform="uppercase"
-          key={navItem}
           to={navItem === "Home" ? "/" : `/${navItem.toLowerCase()}`}
           {...restProps}
         >

@@ -25,6 +25,8 @@ export default function HomeIntro() {
         I&apos;m a front-end developer and translator who specializes in
         building front-end applications with great user experience, working at{" "}
         <ChakraLink
+          variant={"slidingUnderline"}
+          as={Link}
           href="https://craftedup.com/"
           target="_blank"
           rel="noreferrer"

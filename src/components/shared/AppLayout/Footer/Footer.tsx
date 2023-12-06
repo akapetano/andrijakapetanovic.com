@@ -91,7 +91,7 @@ export default function Footer() {
           />
         </Link>
       </HStack>
-      <Link as={NextLink} href="/" variant="withoutUnderline">
+      <Link as={NextLink} href="/" variant="slidingUnderline">
         <Text
           fontSize={["xx-small", "xx-small", "xx-small", "xs", "xs"]}
           color={copyrightColor}

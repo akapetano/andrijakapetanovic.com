@@ -1,7 +1,13 @@
 "use client";
 
-import { Link, Text, Heading, useColorModeValue, Box } from "@chakra-ui/react";
-import NextLink from "next/link";
+import {
+  Text,
+  Heading,
+  useColorModeValue,
+  Box,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import Link from "next/link";
 
 export function AboutIntro() {
   const textColor = useColorModeValue("gray.600", "gray.300");
@@ -15,14 +21,15 @@ export function AboutIntro() {
         I&apos;m a front-end developer and translator from Zadar, Croatia, who
         specializes in building web applications in React, and its framework
         Next.js. As of June 2022, I&apos;m working at{" "}
-        <Link
+        <ChakraLink
+          variant={"slidingUnderline"}
+          as={Link}
           href="https://craftedup.com/"
           target="_blank"
           rel="noreferrer"
-          variant="withoutUnderline"
         >
           Crafted
-        </Link>
+        </ChakraLink>
         , a digital studio in Indianapolis, US.
       </Text>
       <Text fontSize="smaller" mb="0.5rem">
@@ -37,13 +44,13 @@ export function AboutIntro() {
         In July 2021, I decided to change my career, and become a front-end
         developer. Nine months in the journey, I&apos;ve created this website.
         You can read more about it in my{" "}
-        <Link
-          as={NextLink}
+        <ChakraLink
+          variant={"slidingUnderline"}
+          as={Link}
           href="/blog/posts/my-first-post-and-the-journey-so-far"
-          variant="withoutUnderline"
         >
           first blog post
-        </Link>
+        </ChakraLink>
         .
       </Text>
     </Box>
