@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import React from "react";
 import Providers from "../components/shared/Providers/Providers";
 import AppLayout from "../components/shared/AppLayout/AppLayout";

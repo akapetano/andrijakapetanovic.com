@@ -41,7 +41,7 @@ export function LanguageSkills() {
       <Text fontSize="small" color="gray.500" fontStyle="italic">
         (Source:{" "}
         <ChakraLink
-          variant="withoutUnderline"
+          variant="slidingUnderline"
           href="https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions"
           target="_blank"
           rel="noreferrer"

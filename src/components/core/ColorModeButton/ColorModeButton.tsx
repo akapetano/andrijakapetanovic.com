@@ -22,7 +22,7 @@ export function ColorModeButton() {
   return (
     <Flex>
       <IconButton
-        variant="ghost"
+        variant="primaryGhostIconButton"
         fontSize="xl"
         isRound
         display={["none", "none", "flex", "flex", "flex"]}
@@ -31,9 +31,6 @@ export function ColorModeButton() {
         onClick={toggleColorMode}
         size="sm"
         overflow="hidden"
-        border="2px solid"
-        borderColor={iconButtonBorderColor}
-        _hover={{ borderColor: iconButtonHoverBorderColor }}
         icon={<SwitchIcon />}
       />
     </Flex>

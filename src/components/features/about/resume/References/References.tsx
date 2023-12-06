@@ -40,7 +40,7 @@ export function References() {
           <Link
             type="email"
             href="to:adibicanic@gmail.com"
-            variant="withoutUnderline"
+            variant="slidingUnderline"
           >
             adibicanic@gmail.com
           </Link>
@@ -57,7 +57,7 @@ export function References() {
           <Link
             type="email"
             href="to:marija.dzajasikiric@gmail.com"
-            variant="withoutUnderline"
+            variant="slidingUnderline"
           >
             marija.dzajasikiric@gmail.com
           </Link>

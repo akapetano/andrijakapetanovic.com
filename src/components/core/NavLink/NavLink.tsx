@@ -16,9 +16,7 @@ interface NavLinkProps extends LinkProps {
 export default function NavLink({
   to,
   textTransform,
-  activeProps,
   children,
-  _hover,
   ...props
 }: NavLinkProps) {
   const pathname = usePathname();
@@ -27,28 +25,14 @@ export default function NavLink({
   if (isActive) {
     return (
       <Link
+        variant={"activeNavLink"}
         as={NextLink}
+        position="relative"
         href={to}
         color={linkColor}
         opacity="1"
         textTransform={textTransform}
         {...props}
-        {...activeProps}
-        _before={{
-          content: "''",
-          position: "absolute",
-          width: "100%",
-          height: "2px",
-          borderRadius: "2px",
-          bottom: "0",
-          left: "0",
-          transform: "scaleX(100%)",
-          transition: "transform .3s ease-in-out",
-        }}
-        _hover={{
-          color: linkColor,
-          textDecoration: "none",
-        }}
       >
         {children}
       </Link>
@@ -57,12 +41,12 @@ export default function NavLink({
 
   return (
     <Link
+      variant={"slidingUnderline"}
       as={NextLink}
       href={to}
       textTransform={textTransform}
       fontWeight={300}
       {...props}
-      _hover={{ textDecoration: "none", opacity: "1" }}
     >
       {children}
     </Link>

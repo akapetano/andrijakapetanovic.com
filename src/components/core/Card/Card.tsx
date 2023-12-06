@@ -1,4 +1,9 @@
-import { Box, BoxProps, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  useColorModeValue,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface ICardProps extends BoxProps {
@@ -6,13 +11,10 @@ interface ICardProps extends BoxProps {
 }
 
 export function Card({ children, ...restProps }: ICardProps) {
-  const cardShadow = useColorModeValue(
-    "0 0 10px 0 rgba(0, 0, 0, 0.15)",
-    "0 0 10px 0 rgba(255, 255, 255, 0.1)"
-  );
+  const styles = useStyleConfig("Card");
 
   return (
-    <Box rounded="lg" p="1rem" boxShadow={cardShadow} {...restProps}>
+    <Box __css={styles} {...restProps}>
       {children}
     </Box>
   );

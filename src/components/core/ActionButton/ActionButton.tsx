@@ -12,7 +12,7 @@ export function ActionButton({ href, btnVariant, text }: IActionButton) {
     <ChakraLink
       as={Link}
       href={href}
-      variant="withoutUnderline"
+      textDecoration="none"
       _before={{ content: "none" }}
     >
       <Button

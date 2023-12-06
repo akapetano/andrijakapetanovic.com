@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import styles from "../AuthorImage.module.css";
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Flex, Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 interface IAuthorImageWrapper {
@@ -28,8 +27,15 @@ export default function AuthorImageWrapper({
   };
 
   return (
-    <div>
-      <div className={styles.wrapper}>
+    <Box>
+      <Flex
+        justifyContent="center"
+        overflow="hidden"
+        mt="-2.5rem"
+        pt="2.5rem"
+        pb="0.5rem"
+        mb="-0.5rem"
+      >
         <div style={wrapperStyle}>
           <motion.div
             initial={false}
@@ -59,7 +65,7 @@ export default function AuthorImageWrapper({
             {children}
           </motion.div>
         </div>
-      </div>
-    </div>
+      </Flex>
+    </Box>
   );
 }
