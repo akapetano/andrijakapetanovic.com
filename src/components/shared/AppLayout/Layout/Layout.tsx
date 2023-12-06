@@ -1,16 +1,18 @@
-import { ReactNode } from "react";
+import { Container, ContainerProps } from "@chakra-ui/react";
 
-interface ILayoutProps {
-  children: ReactNode;
-}
-
-export default function Layout({ children, ...restProps }: ILayoutProps) {
+export default function Layout({ ...restProps }: ContainerProps) {
   return (
-    <div
-      style={{ maxWidth: "40rem", height: "100%", margin: "6rem auto 6rem" }}
+    <Container
+      maxWidth="40rem"
+      height="100%"
+      margin={[
+        "6rem auto 6rem",
+        "6rem auto 4rem",
+        "6rem auto 4rem",
+        "6rem auto 4rem",
+        "6rem auto 4rem",
+      ]}
       {...restProps}
-    >
-      {children}
-    </div>
+    />
   );
 }
