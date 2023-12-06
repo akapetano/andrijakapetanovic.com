@@ -176,6 +176,11 @@ const components = {
     baseStyle: (props: StyleFunctionProps) => ({
       color: mode(props, "gray.300", "gray.600"),
     }),
+    variants: {
+      projectInfo: (props: StyleFunctionProps) => ({
+        color: mode(props, "gray.800", "whiteAlpha.900"),
+      }),
+    },
   },
   Link: {
     baseStyle: (props: StyleFunctionProps) => ({

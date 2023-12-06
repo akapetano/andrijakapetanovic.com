@@ -1,6 +1,6 @@
-import { Image } from '@chakra-ui/react';
-import { ProjectInfo } from '../ProjectInfo/ProjectInfo';
-import { ProjectWrapper } from '../ProjectWrapper/ProjectWrapper';
+import { Image } from "@chakra-ui/react";
+import { ProjectInfo } from "../ProjectInfo/ProjectInfo";
+import { ProjectWrapper } from "../ProjectWrapper/ProjectWrapper";
 
 interface IProjectProps {
   src: string;
@@ -34,13 +34,13 @@ export function Project({
         transition="transform 750ms cubic-bezier(0.2, 1, 0.3, 1)"
         _before={{
           content: "''",
-          display: 'block',
-          pt: '75%',
-          overflow: 'hidden',
+          display: "block",
+          pt: "75%",
+          overflow: "hidden",
         }}
         sx={{
-          '.project-wrapper: hover &': {
-            transform: 'scale(1.2)',
+          ".project-wrapper: hover &": {
+            transform: "scale(1.2)",
           },
         }}
       />
@@ -52,10 +52,10 @@ export function Project({
         src={src}
         alt={alt}
         sx={{
-          '.project-wrapper: hover &': {
-            opacity: '1',
-            transform: 'translateY(0)',
-            zIndex: '10',
+          ".project-wrapper: hover &": {
+            opacity: "1",
+            transform: "translateY(0)",
+            zIndex: "10",
           },
         }}
       />

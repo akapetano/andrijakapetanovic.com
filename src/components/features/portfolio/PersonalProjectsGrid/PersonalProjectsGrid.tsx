@@ -1,19 +1,21 @@
 "use client";
 
-import { Grid } from "@chakra-ui/react";
+import { Grid, useColorModeValue } from "@chakra-ui/react";
 import { Project } from "../Project/Project";
 import { personalProjectData } from "../../../../constants/projectData";
 
 export function PersonalProjectsGrid() {
+  const boxShadow = useColorModeValue(
+    "5px 5px 10px rgba(0, 0, 0, 0.3)",
+    "5px 5px 10px rgba(255, 255, 255, 0.3)"
+  );
+
   return (
-    <section
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        gap: 0,
-        marginBottom: "2rem",
-        boxShadow: "5px 10px #888888",
-      }}
+    <Grid
+      gridTemplateColumns={"repeat(2, 1fr)"}
+      gap={0}
+      marginBottom="2rem"
+      boxShadow={boxShadow}
     >
       {personalProjectData.map(
         ({ title, shortDescription, longDescription, imgSrc, alt, link }) => (
@@ -28,6 +30,6 @@ export function PersonalProjectsGrid() {
           />
         )
       )}
-    </section>
+    </Grid>
   );
 }

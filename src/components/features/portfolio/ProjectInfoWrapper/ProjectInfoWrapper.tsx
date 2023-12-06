@@ -1,7 +1,5 @@
-import { Box, BoxProps, useColorModeValue } from '@chakra-ui/react';
-import { ProjectDescription } from '../ProjectDescription/ProjectDescription';
-import { ProjectInfoModal } from '../ProjectInfoModal/ProjectInfoModal';
-import { ProjectTitle } from '../ProjectTitle/ProjectTitle';
+import { Box, BoxProps, useColorModeValue } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
 interface IProjectInfoWrapperProps extends BoxProps {
   title: string;
@@ -10,6 +8,7 @@ interface IProjectInfoWrapperProps extends BoxProps {
   link: string;
   src: string;
   alt: string;
+  children: ReactNode;
 }
 
 export function ProjectInfoWrapper({
@@ -19,31 +18,40 @@ export function ProjectInfoWrapper({
   link,
   src,
   alt,
+  children,
+  ...restProps
 }: IProjectInfoWrapperProps) {
-  const textColor = useColorModeValue('whiteAlpha.900', 'gray.800');
+  const textColor = useColorModeValue("whiteAlpha.900", "gray.800");
 
   return (
     <Box
-      display="flex"
-      flexDir="column"
-      alignItems="center"
-      textAlign="center"
-      justifyContent="center"
       position="absolute"
-      width="100%"
-      top="50%"
-      transform="translateY(-50%)"
+      top="0"
+      left="0"
+      bottom="0"
+      right="0"
+      opacity="0"
+      textAlign="center"
       color={textColor}
+      transform="translateY(-50%)"
+      transition="opacity 300ms cubic-bezier(0.2, 1, 0.3, 1), transform 300ms cubic-bezier(0.2, 1, 0.3, 1)"
+      transitionDelay="100ms"
+      {...restProps}
     >
-      <ProjectTitle title={title} />
-      <ProjectDescription shortDescription={shortDescription} />
-      <ProjectInfoModal
-        title={title}
-        longDescription={longDescription}
-        link={link}
-        src={src}
-        alt={alt}
-      />
+      <Box
+        display="flex"
+        flexDir="column"
+        alignItems="center"
+        textAlign="center"
+        justifyContent="center"
+        position="absolute"
+        width="100%"
+        top="50%"
+        transform="translateY(-50%)"
+        color={textColor}
+      >
+        {children}
+      </Box>
     </Box>
   );
 }
