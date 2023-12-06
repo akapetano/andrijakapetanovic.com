@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Container } from "@chakra-ui/react";
 
 interface ISectionContainerProps {
   children: ReactNode;
@@ -11,22 +12,21 @@ export function SectionContainer({
   children,
   justifyContent = "space-around",
   alignItems = "start",
-  maxWidth = "auto",
+  ...restProps
 }: ISectionContainerProps) {
   return (
-    <section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: justifyContent,
-        fontSize: "1.2rem",
-        lineHeight: "1.5",
-        paddingTop: "1px",
-        alignItems: alignItems,
-        maxWidth: maxWidth,
-      }}
+    <Container
+      as="section"
+      display="flex"
+      flexDir="column"
+      justifyContent={justifyContent}
+      alignItems={alignItems}
+      fontSize="1.2rem"
+      lineHeight="1.5"
+      pt="1px"
+      {...restProps}
     >
       {children}
-    </section>
+    </Container>
   );
 }
