@@ -5,7 +5,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalCloseButton,
   ModalBody,
   ModalFooter,
   Divider,
@@ -15,8 +14,12 @@ import {
   Image,
   useColorModeValue,
   HStack,
-} from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+  Icon,
+} from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { CloseIcon } from "@chakra-ui/icons";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface IProjectInfoModalProps {
   title: string;
@@ -34,12 +37,26 @@ export function ProjectInfoModal({
   alt,
 }: IProjectInfoModalProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const modalCloseButtonColor = useColorModeValue('accent.300', 'accent.100');
+  const [isHovered, setIsHovered] = useState(false);
+  const modalCloseButtonColor = useColorModeValue("accent.300", "accent.100");
   const modalCloseButtonHoverColor = useColorModeValue(
-    'accent.400',
-    'accent.200'
+    "accent.400",
+    "accent.200"
   );
-  const isDisabled = link === '' ? true : false;
+  const isDisabled = link === "" ? true : false;
+
+  function handleMouseEnter() {
+    setIsHovered(true);
+  }
+
+  function handleMouseLeave() {
+    setIsHovered(false);
+  }
+
+  function handleClose() {
+    onClose();
+    setIsHovered(false);
+  }
 
   return (
     <>
@@ -50,17 +67,28 @@ export function ProjectInfoModal({
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent display="flex">
-          <Flex>
+          <Flex justifyContent="space-between">
             <ModalHeader fontSize="2xl">{title}</ModalHeader>
-            <ModalCloseButton
-              size="lg"
-              color={modalCloseButtonColor}
-              transition="all .3s ease-in-out"
-              _hover={{
-                color: modalCloseButtonHoverColor,
-                transform: 'scale(1.1)',
+            <motion.button
+              onClick={handleClose}
+              initial={false}
+              style={{ paddingInline: "1rem" }}
+              animate={{
+                rotate: isHovered ? 20 : 0,
               }}
-            />
+              transition={{ type: "spring", stiffness: 175, damping: 8 }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Icon
+                color={
+                  isHovered ? modalCloseButtonHoverColor : modalCloseButtonColor
+                }
+                as={CloseIcon}
+                width={5}
+                height={5}
+              />
+            </motion.button>
           </Flex>
           <Divider alignSelf="center" w="95%" mb="1rem" />
           {isDisabled ? (
@@ -78,7 +106,7 @@ export function ProjectInfoModal({
             <Link
               href={link}
               target="_blank"
-              _hover={{ textDecor: 'none', _before: { content: 'none' } }}
+              _hover={{ textDecor: "none", _before: { content: "none" } }}
             >
               <Image
                 display="block"
@@ -97,26 +125,25 @@ export function ProjectInfoModal({
 
           <Divider alignSelf="center" w="95%" />
           <ModalFooter>
-            <HStack spacing="1rem">
-              <Button variant="secondary" onClick={onClose}>
-                Close
-              </Button>
+            <HStack spacing="1rem" width={{ base: "100%", md: "auto" }}>
               <Link
                 href={link}
                 target="_blank"
-                _hover={{ textDecor: 'none', _before: { content: 'none' } }}
+                _hover={{ textDecor: "none", _before: { content: "none" } }}
+                width="100%"
               >
                 <Tooltip
                   hasArrow
-                  label={isDisabled ? 'Coming soon...' : null}
+                  label={isDisabled ? "Coming soon..." : null}
                   shouldWrapChildren
                 >
                   <Button
                     disabled={isDisabled}
-                    _before={{ content: 'none' }}
+                    _before={{ content: "none" }}
                     leftIcon={<ExternalLinkIcon />}
                     variant="secondaryGhost"
                     mt="0.2rem"
+                    width="100%"
                   >
                     Website
                   </Button>
