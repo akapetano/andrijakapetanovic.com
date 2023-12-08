@@ -12,7 +12,7 @@ export function PersonalProjectsGrid() {
 
   return (
     <Grid
-      gridTemplateColumns={"repeat(2, 1fr)"}
+      gridTemplateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
       gap={0}
       marginBottom="2rem"
       boxShadow={boxShadow}

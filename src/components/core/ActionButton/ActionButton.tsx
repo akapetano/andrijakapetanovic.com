@@ -14,11 +14,9 @@ export function ActionButton({ href, btnVariant, text }: IActionButton) {
       href={href}
       textDecoration="none"
       _before={{ content: "none" }}
+      width={["80vw", "90vw", "100%", "100%", "100%"]}
     >
-      <Button
-        width={["80vw", "100%", "100%", "100%", "100%"]}
-        variant={btnVariant}
-      >
+      <Button width="100%" variant={btnVariant}>
         {text}
       </Button>
     </ChakraLink>
