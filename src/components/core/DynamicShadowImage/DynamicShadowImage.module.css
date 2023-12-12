@@ -1,0 +1,16 @@
+.shadowImage {
+  object-fit: cover;
+  position: "absolute";
+  inset: 0;
+  filter: blur(16px);
+  z-index: 0;
+  transform: scale(1.1, 1.1);
+  border-radius: "100%";
+}
+
+.frontImage {
+  z-index: 1;
+  position: "relative";
+  object-fit: "cover";
+  border-radius: "100%";
+}
