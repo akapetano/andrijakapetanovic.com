@@ -11,9 +11,10 @@ import {
 import Date from "../BlogPost/Date/Date";
 import { IPostData } from "../../../../lib/posts";
 import NavLink from "../../../core/NavLink/NavLink";
+import { IBlogPost } from "@/types/blog";
 
 export interface IAllPostsData {
-  allPostsData: IPostData[];
+  allPostsData: IBlogPost[];
 }
 
 export function BlogSection({ allPostsData }: IAllPostsData) {
@@ -25,14 +26,14 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
         Blog posts
       </Heading>
       <UnorderedList listStyleType="none" p={0} m={0}>
-        {allPostsData?.map(({ slug, date, title }) => (
+        {allPostsData?.map(({ slug, publishedOn, title }) => (
           <ListItem margin="0 0 1.25rem" key={slug}>
             <NavLink pb={"0.3rem"} to={`blog/posts/${slug}`}>
               {title}
             </NavLink>
             <br />
             <Text fontSize="sm" color={dateColor}>
-              <Date dateString={date} />
+              <Date dateString={publishedOn} />
             </Text>
           </ListItem>
         ))}

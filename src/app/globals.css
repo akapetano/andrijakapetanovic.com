@@ -66,3 +66,16 @@ h6 {
     color-scheme: dark;
   }
 }
+
+code {
+  font-family: var(--font-family-mono);
+}
+
+/* THEME VARIABLES */
+html {
+  --viewport-padding: 16px;
+}
+
+::-webkit-scrollbar {
+  width: "0.6em";
+}

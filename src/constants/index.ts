@@ -1,3 +1,5 @@
+export const SITE_TITLE = "Andrija Kapetanović";
+
 export const SITE_DESCRIPTION =
   "Personal portfolio website of front-end developer Andrija Kapetanović.";
 

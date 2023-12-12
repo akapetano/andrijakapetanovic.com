@@ -6,6 +6,8 @@ interface IReadTimeBadgeProps extends BadgeProps {
 }
 
 export function ReadTimeBadge({ text, ...restProps }: IReadTimeBadgeProps) {
+  if (!text) return null;
+
   const noOfWords = text.split(/\s/g).length;
   const minutes = noOfWords / WORDS_PER_MINUTE;
   const readTime = Math.ceil(minutes);
