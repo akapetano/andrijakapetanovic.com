@@ -1,4 +1,4 @@
-import { Image } from "@chakra-ui/react";
+import { Image as ChakraImage } from "@chakra-ui/react";
 import { ProjectInfo } from "../ProjectInfo/ProjectInfo";
 import { ProjectWrapper } from "../ProjectWrapper/ProjectWrapper";
 
@@ -21,7 +21,7 @@ export function Project({
 }: IProjectProps) {
   return (
     <ProjectWrapper className="project-wrapper">
-      <Image
+      <ChakraImage
         display="block"
         alignItems="center"
         justifyContent="center"
