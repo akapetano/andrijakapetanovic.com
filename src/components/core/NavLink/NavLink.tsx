@@ -32,6 +32,8 @@ export default function NavLink({
         color={linkColor}
         opacity="1"
         textTransform={textTransform}
+        fontWeight={600}
+        pb={{ base: "0.5em", md: "0.8em" }}
         {...props}
       >
         {children}
@@ -45,7 +47,8 @@ export default function NavLink({
       as={NextLink}
       href={to}
       textTransform={textTransform}
-      fontWeight={300}
+      fontWeight={400}
+      pb={{ base: "0.5em", md: "0.8em" }}
       {...props}
     >
       {children}

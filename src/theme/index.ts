@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { StyleFunctionProps } from "@chakra-ui/styled-system";
 import { mode } from "@/utils/mode";
+import { Montserrat, Fira_Code, Hind } from "next/font/google";
 
 const breakpoints = {
   sm: "30em",
@@ -41,9 +42,28 @@ const colors = {
   },
 } as const;
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-family-heading",
+});
+
+const hind = Hind({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-family-body",
+});
+
+const monoFont = Fira_Code({
+  subsets: ["latin"],
+  display: "fallback",
+  weight: "variable",
+  variable: "--font-family-mono",
+});
+
 const fonts = {
-  body: `Roboto Condensed, ${base.fonts?.body}`,
-  heading: `Montserrat, ${base.fonts?.heading}`,
+  body: hind.style.fontFamily,
+  heading: montserrat.style.fontFamily,
+  code: monoFont.style.fontFamily,
 } as const;
 
 const styles = {
@@ -191,7 +211,7 @@ const components = {
     variants: {
       slidingUnderline: (props: StyleFunctionProps) => ({
         position: "relative",
-        pb: "0.2rem",
+        pb: "0.4rem",
         color: mode(props, "brand.300", "brand.600"),
         textDecoration: "none",
         _before: {
@@ -201,7 +221,7 @@ const components = {
           height: "2px",
           borderRadius: "2px",
           backgroundColor: mode(props, "brand.200", "brand.600"),
-          bottom: "0",
+          bottom: "2.5",
           left: "0",
           transformOrigin: "right",
           transform: "scaleX(0)",
@@ -231,7 +251,7 @@ const components = {
       activeNavLink: (props: StyleFunctionProps) => ({
         position: "relative",
         textDecoration: "none",
-        pb: "0.2rem",
+        pb: "0.4rem",
         color: mode(props, "brand.300", "brand.600"),
         _before: {
           content: "''",
@@ -240,7 +260,7 @@ const components = {
           height: "2px",
           borderRadius: "2px",
           backgroundColor: mode(props, "brand.200", "brand.600"),
-          bottom: "0",
+          bottom: "2.5",
           left: "0",
           transformOrigin: "right",
           transform: "scaleX(1)",
