@@ -3,7 +3,12 @@ import { Code, BrightProps } from "bright";
 import theme from "./theme";
 
 import styles from "./CodeSnippet.module.css";
+import { CodeSnippetWrapper } from "./CodeSnippetWrapper/CodeSnippetWrapper";
 
 export function CodeSnippet(props: BrightProps) {
-  return <Code {...props} className={styles.wrapper} />;
+  return (
+    <CodeSnippetWrapper>
+      <Code {...props} theme={theme} className={styles.wrapper} />
+    </CodeSnippetWrapper>
+  );
 }
