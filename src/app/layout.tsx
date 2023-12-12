@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Montserrat, Spline_Sans_Mono } from "next/font/google";
+import { Montserrat, Fira_Code } from "next/font/google";
 import React from "react";
 import clsx from "clsx";
 import Providers from "../components/shared/Providers/Providers";
@@ -8,7 +8,7 @@ import { ReducedMotionPreferences } from "../components/shared/ReducedMotionPref
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const monoFont = Spline_Sans_Mono({
+const monoFont = Fira_Code({
   subsets: ["latin"],
   display: "fallback",
   weight: "variable",
