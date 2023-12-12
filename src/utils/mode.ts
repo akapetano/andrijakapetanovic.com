@@ -3,8 +3,7 @@ import { StyleFunctionProps } from "@chakra-ui/react";
 export const mode = (
   { colorMode }: StyleFunctionProps,
   darkModeValue: string,
-  lightModeValue: string,
-  src?: string
+  lightModeValue: string
 ) => {
   switch (colorMode) {
     case "light":

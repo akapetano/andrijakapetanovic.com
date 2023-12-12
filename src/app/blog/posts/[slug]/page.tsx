@@ -1,7 +1,7 @@
-import { getPostData } from "../../../../lib/posts";
 import { IPostDataWithContent } from "../../../../lib/posts";
-import { SITE_DESCRIPTION } from "../../../../constants";
+import { SITE_TITLE } from "../../../../constants";
 import { BlogPost } from "../../../../components/features/blog/BlogPost/BlogPost";
+import { loadBlogPost } from "@/lib/file";
 
 interface IParams {
   params: { slug: string };
@@ -12,18 +12,28 @@ export interface IPostData {
 }
 
 export async function generateMetadata({ params }: IParams) {
-  const postData = await getPostData(params!.slug!);
+  const slug = params.slug;
+
+  const { frontmatter } = await loadBlogPost(slug);
+  const { title, abstract } = frontmatter;
 
   return {
-    title: postData.title,
-    description: SITE_DESCRIPTION,
+    title: `${title} • ${SITE_TITLE}`,
+    description: abstract,
   };
 }
 
 export default async function Post({ params }: IParams) {
-  const { title, date, contentHtml, slug } = await getPostData(params!.slug!);
+  const slug = params.slug;
+  const { frontmatter, content } = await loadBlogPost(slug);
+  const { title, publishedOn } = frontmatter;
 
   return (
-    <BlogPost slug={slug} title={title} date={date} contentHtml={contentHtml} />
+    <BlogPost
+      slug={slug}
+      title={title}
+      publishedOn={publishedOn}
+      content={content}
+    />
   );
 }

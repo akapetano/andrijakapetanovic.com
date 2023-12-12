@@ -1,4 +1,4 @@
-export const LIGHT_COLORS = {
+export const THEME_COLORS = {
   "--color-brand-100": "hsl(192, 75%, 70%)",
   "--color-brand-200": "hsl(204, 100%, 65%)",
   "--color-brand-300": "hsl(192, 90%, 48%)",
@@ -22,60 +22,6 @@ export const LIGHT_COLORS = {
   "--color-gray-700": "hsl(210, 13%, 22%)",
   "--color-gray-800": "hsl(210, 13%, 13%)",
   "--color-gray-900": "hsl(210, 13%, 12%)",
-};
-
-export const LIGHT_COLORS_2 = {
-  "--color-text": "hsl(0, 0%, 5)",
-  "--color-primary-100": "hsl(240, 100%, 90%)",
-  "--color-primary-300": "hsl(242, 100%, 70%)",
-  "--color-primary-500": "hsl(245, 100%, 60%)",
-  "--color-primary-700": "hsl(250, 100%, 33%)",
-  "--color-primary-900": "hsl(256, 100%, 20%)",
-  "--color-primary-contrast": "white",
-  "--color-secondary-500": "hsl(328, 100%, 50%)",
-  "--color-decorative-100": "hsl(50, 100%, 94%)",
-  "--color-decorative-200": "hsl(50, 100%, 90%)",
-  "--color-decorative-300": "hsl(50, 100%, 85%)",
-  "--color-decorative-500": "hsl(50, 100%, 70%)",
-  "--color-decorative-600": "hsl(50, 100%, 60%)",
-  "--color-decorative-700": "hsl(50, 100%, 50%)",
-  "--color-decorative-800": "hsl(50, 100%, 33%)",
-  "--color-decorative-900": "hsl(50, 100%, 25%)",
-  "--color-gray-0": "white",
-  "--color-gray-100": "hsl(50, 20%, 90%)",
-  "--color-gray-200": "hsl(50, 15%, 85%)",
-  "--color-gray-300": "hsl(50, 10%, 70%)",
-  "--color-gray-500": "hsl(50, 4%, 50%)",
-  "--color-gray-700": "hsl(50, 10%, 25%)",
-  "--color-gray-900": "hsl(50, 20%, 10%)",
-  "--color-gray-1000": "black",
-};
-
-export const DARK_COLORS = {
-  "--color-text": "hsl(0 0% 100%)",
-  "--color-primary-100": "hsl(50 100% 90%)",
-  "--color-primary-300": "hsl(50 100% 70%)",
-  "--color-primary-500": "hsl(50 100% 50%)",
-  "--color-primary-700": "hsl(50 100% 35%)",
-  "--color-primary-900": "hsl(50 100% 25%)",
-  "--color-primary-contrast": "black",
-  "--color-secondary-500": "hsl(328 100% 50%)",
-  "--color-decorative-100": "hsl(256 20% 4%)",
-  "--color-decorative-200": "hsl(256 30% 10%)",
-  "--color-decorative-300": "hsl(256 30% 15%)",
-  "--color-decorative-500": "hsl(256 40% 30%)",
-  "--color-decorative-600": "hsl(256 40% 40%)",
-  "--color-decorative-700": "hsl(256 40% 50%)",
-  "--color-decorative-800": "hsl(256 45% 65%)",
-  "--color-decorative-900": "hsl(256 55% 80%)",
-  "--color-gray-0": "black",
-  "--color-gray-100": "hsl(256 20% 10%)",
-  "--color-gray-200": "hsl(256 15% 15%)",
-  "--color-gray-300": "hsl(256 10% 30%)",
-  "--color-gray-500": "hsl(256 4% 50%)",
-  "--color-gray-700": "hsl(256 10% 75%)",
-  "--color-gray-900": "hsl(256 20% 90%)",
-  "--color-gray-1000": "white",
 };
 
 export const COLOR_THEME_COOKIE_NAME = "color-theme";
