@@ -1,3 +1,5 @@
+"use client";
+
 import {
   VStack,
   Menu,
@@ -10,11 +12,18 @@ import {
 import { MobileColorModeButton } from "../MobileColorModeButton/MobileColorModeButton";
 import NavLinks from "../NavLinks/NavLinks";
 import { MenuButtonIcon } from "./MenuButtonIcon/MenuButtonIcon";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function MobileHamMenu() {
-  const { isOpen, onToggle } = useDisclosure();
+  const pathname = usePathname();
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const bgColor = useColorModeValue("whiteAlpha.700", "rgba(26,32,44,0.7)");
   const iconColor = useColorModeValue("brand.700", "brand.200");
+
+  useEffect(() => {
+    onClose();
+  }, [pathname, onClose]);
 
   return (
     <Flex display={["flex", "flex", "none", "none", "none"]}>
