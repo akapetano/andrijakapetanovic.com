@@ -9,7 +9,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import Date from "../BlogPost/Date/Date";
-import { IPostData } from "../../../../lib/posts";
 import NavLink from "../../../core/NavLink/NavLink";
 import { IBlogPost } from "@/types/blog";
 

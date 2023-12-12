@@ -6,5 +6,5 @@ interface IMDXRendererProps {
 }
 
 export function MDXRenderer({ source }: IMDXRendererProps) {
-  return <MDXRemote source={source} />;
+  return <MDXRemote source={source} components={COMPONENT_MAP} />;
 }
