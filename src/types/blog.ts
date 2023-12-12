@@ -1,9 +1,10 @@
 export type BlogPostCategory = "career" | "tech" | "life";
 
 export interface IBlogPost {
-  slug: string;
+  slug?: string;
   title: string;
-  abstract: "";
+  abstract?: string;
+  content: string;
   publishedOn: string;
-  category: BlogPostCategory;
+  category?: BlogPostCategory;
 }

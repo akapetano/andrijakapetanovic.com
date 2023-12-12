@@ -3,10 +3,10 @@
 import { Heading, Flex, Box, useColorModeValue } from "@chakra-ui/react";
 import { ReadTimeBadge } from "../../ReadTimeBadge/ReadTimeBadge";
 import Date from "../Date/Date";
-import { IPostDataWithContent } from "@/lib/posts";
+import { IBlogPost } from "@/types/blog";
 import { ReactNode } from "react";
 
-interface IBlogPostWrapperProps extends IPostDataWithContent {
+interface IBlogPostWrapperProps extends IBlogPost {
   children: ReactNode;
 }
 

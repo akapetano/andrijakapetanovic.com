@@ -25,6 +25,7 @@ export default function DynamicShadowImage({
       }}
     >
       <Image
+        priority
         src={src}
         height={height}
         width={width}
@@ -40,6 +41,7 @@ export default function DynamicShadowImage({
         }}
       />
       <Image
+        priority
         src={src}
         height={height}
         width={width}

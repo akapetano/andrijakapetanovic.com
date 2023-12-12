@@ -10,12 +10,12 @@ export function sortBlogPosts(blogPosts: Array<IBlogPost>) {
 }
 
 export async function getBlogPostList() {
-  const fileNames = await readDirectory("/_posts");
+  const fileNames = await readDirectory("/content");
 
   const blogPosts: IBlogPost[] = [];
 
   for (let fileName of fileNames) {
-    const rawContent = await readFile(`/_posts/${fileName}`);
+    const rawContent = await readFile(`/content/${fileName}`);
 
     const { data: frontmatter } = matter(rawContent);
 
@@ -39,7 +39,7 @@ export const loadBlogPost = cache(async function loadBlogPost(slug: string) {
     notFound();
   }
 
-  const rawContent = await readFile(`/_posts/${slug}.mdx`);
+  const rawContent = await readFile(`/content/${slug}.mdx`);
 
   const { data: frontmatter, content } = matter(rawContent);
 
