@@ -1,7 +1,7 @@
-import { getSortedPostsData } from "../../lib/posts";
 import { BlogSection } from "../../components/features/blog/BlogSection/BlogSection";
 import { Metadata } from "next";
 import { SITE_DESCRIPTION } from "../../constants";
+import { getBlogPostList } from "@/lib/file";
 
 export const metadata: Metadata = {
   title: "Andrija Kapetanović | Blog",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  const allPostsData = await getSortedPostsData();
+  const allPostsData = await getBlogPostList();
 
   return <BlogSection allPostsData={allPostsData} />;
 }

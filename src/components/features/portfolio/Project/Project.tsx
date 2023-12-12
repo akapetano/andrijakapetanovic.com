@@ -25,6 +25,7 @@ export function Project({
         display="block"
         alignItems="center"
         justifyContent="center"
+        objectFit={{ base: "cover", md: "unset" }}
         width="auto"
         height="100%"
         lineHeight="0"

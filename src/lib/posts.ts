@@ -11,10 +11,10 @@ export interface IPostData {
 }
 
 export interface IPostDataWithContent {
-  slug: string;
-  contentHtml: string;
+  slug?: string;
+  content: string;
   title: string;
-  date: string;
+  publishedOn: string;
 }
 
 const postsDirectory = path.join(process.cwd(), "_posts");
@@ -69,23 +69,4 @@ export function getAllPostSlugs() {
       },
     };
   });
-}
-
-export async function getPostData(slug: string) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
-  const { content, data } = matter(fileContents);
-
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-
-  // Combine the data with the slug
-  return {
-    slug,
-    contentHtml,
-    ...data,
-  } as IPostDataWithContent;
 }

@@ -48,9 +48,23 @@ const fonts = {
 
 const styles = {
   global: (props: StyleFunctionProps) => ({
+    "html, body": {
+      color: mode(props, "gray.200", "gray.700"),
+      padding: "0",
+      margin: "0",
+      fontSize: "1.2rem",
+      lineHeight: 1.6,
+      minHeight: "fit-content",
+    },
+
+    ul: {
+      marginLeft: "2rem",
+    },
+
     "::-webkit-scrollbar": {
       width: "0.6em",
     },
+
     "::-webkit-scrollbar-track": {
       boxShadow: mode(
         props,
@@ -69,18 +83,6 @@ const styles = {
       ),
       outline: "1px solid",
       outlineColor: mode(props, "brand.300", "brand.600"),
-    },
-
-    "html, body": {
-      color: mode(props, "gray.200", "gray.700", "html,body"),
-      padding: "0",
-      margin: "0",
-      fontSize: "1.2rem",
-      lineHeight: 1.6,
-      minHeight: "fit-content",
-    },
-    ul: {
-      marginLeft: "2rem",
     },
   }),
   ...config,
