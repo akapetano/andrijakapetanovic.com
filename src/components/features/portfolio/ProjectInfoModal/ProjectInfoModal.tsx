@@ -74,9 +74,9 @@ export function ProjectInfoModal({
               initial={false}
               style={{ paddingInline: "1rem" }}
               animate={{
-                rotate: isHovered ? 20 : 0,
+                rotate: isHovered ? 15 : 0,
               }}
-              transition={{ type: "spring", stiffness: 175, damping: 8 }}
+              transition={{ type: "spring", stiffness: 250, damping: 10 }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -85,8 +85,8 @@ export function ProjectInfoModal({
                   isHovered ? modalCloseButtonHoverColor : modalCloseButtonColor
                 }
                 as={CloseIcon}
-                width={5}
-                height={5}
+                width={4}
+                height={4}
               />
             </motion.button>
           </Flex>
