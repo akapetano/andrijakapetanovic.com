@@ -9,8 +9,14 @@ export function HomeActionButtons() {
       direction={["column", "column", "column", "row", "row"]}
       mb={["0", "0", "0", "4rem", "4rem"]}
     >
-      <ActionButton href="/about" btnVariant="primary" text="Learn More" />
       <ActionButton
+        ariaLabel="Learn More About Andrija Kapetanović"
+        href="/about"
+        btnVariant="primary"
+        text="Learn More"
+      />
+      <ActionButton
+        ariaLabel="Get in contact with Andrija Kapetanović"
         href="/contact"
         btnVariant="primaryGhost"
         text="Get in contact"
