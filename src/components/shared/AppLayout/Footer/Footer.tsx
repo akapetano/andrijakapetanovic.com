@@ -17,7 +17,7 @@ export default function Footer() {
     "1px solid rgba(255, 255, 255, 0.05)"
   );
   const footerBg = useColorModeValue("white", "gray.800");
-  const copyrightColor = useColorModeValue("gray.400", "gray.600");
+  const copyrightColor = useColorModeValue("gray.500", "gray.600");
 
   return (
     <Flex
@@ -36,12 +36,14 @@ export default function Footer() {
       boxShadow="base"
       overflow="hidden"
       zIndex="99"
+      gap={"0.3rem"}
     >
       <HStack
         spacing={["2rem", "2rem", "2rem", "4rem", "4rem"]}
         m={["0", "0", "0", "1rem 0 0 0", "1rem 0 0 0"]}
       >
         <Link
+          aria-label="GitHub Account of Andrija Kapetanović"
           href="https://github.com/akapetano"
           target="_blank"
           _before={{ content: "none" }}
@@ -61,6 +63,7 @@ export default function Footer() {
           />
         </Link>
         <Link
+          aria-label="LinkedIn Account of Andrija Kapetanović"
           href="https://www.linkedin.com/in/andrija-kapetanovi%C4%87"
           target="_blank"
           _before={{ content: "none" }}
@@ -76,6 +79,7 @@ export default function Footer() {
           />
         </Link>
         <Link
+          aria-label="Twitter/X Account of Andrija Kapetanović"
           href="https://twitter.com/AndiKapetanovic"
           target="_blank"
           _before={{ content: "none" }}
@@ -95,7 +99,7 @@ export default function Footer() {
         <Text
           fontSize={["xx-small", "xx-small", "xx-small", "xs", "xs"]}
           color={copyrightColor}
-          pb="0"
+          pb={"0.3rem"}
         >
           &copy; 2022-present Andrija Kapetanović
         </Text>

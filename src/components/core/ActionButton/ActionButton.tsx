@@ -5,9 +5,15 @@ interface IActionButton {
   href: string;
   btnVariant: string;
   text: string;
+  ariaLabel?: string;
 }
 
-export function ActionButton({ href, btnVariant, text }: IActionButton) {
+export function ActionButton({
+  href,
+  btnVariant,
+  text,
+  ariaLabel,
+}: IActionButton) {
   return (
     <ChakraLink
       as={Link}
@@ -15,6 +21,7 @@ export function ActionButton({ href, btnVariant, text }: IActionButton) {
       textDecoration="none"
       _before={{ content: "none" }}
       width={["80vw", "90vw", "100%", "100%", "100%"]}
+      aria-label={ariaLabel}
     >
       <Button width="100%" variant={btnVariant}>
         {text}
