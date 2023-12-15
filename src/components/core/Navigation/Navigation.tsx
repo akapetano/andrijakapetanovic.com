@@ -8,13 +8,14 @@ import Logo from "../Logo/Logo";
 export default function Navigation() {
   return (
     <NavigationWrapper>
-      <Box flex="1">
+      <Box flex="1" mt={"0.3em"}>
         <Logo />
       </Box>
 
       <Stack
         spacing={6}
-        align={"center"}
+        justifyContent={"center"}
+        alignItems="center"
         direction="row"
         pt={[4, 4, 1, 1]}
         display={["none", "none", "flex", "flex", "flex"]}

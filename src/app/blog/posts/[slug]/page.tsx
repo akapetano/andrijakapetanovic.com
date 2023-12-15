@@ -1,14 +1,9 @@
-import { IPostDataWithContent } from "../../../../lib/posts";
-import { SITE_TITLE } from "../../../../constants";
+import { SITE_TITLE } from "@/constants";
 import { BlogPost } from "../../../../components/features/blog/BlogPost/BlogPost";
 import { loadBlogPost } from "@/lib/file";
 
 interface IParams {
   params: { slug: string };
-}
-
-export interface IPostData {
-  postData: IPostDataWithContent;
 }
 
 export async function generateMetadata({ params }: IParams) {

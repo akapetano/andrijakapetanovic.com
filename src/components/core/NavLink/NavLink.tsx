@@ -25,6 +25,7 @@ export default function NavLink({
   if (isActive) {
     return (
       <Link
+        fontFamily="heading"
         variant={"activeNavLink"}
         as={NextLink}
         position="relative"
@@ -32,6 +33,8 @@ export default function NavLink({
         color={linkColor}
         opacity="1"
         textTransform={textTransform}
+        fontWeight={600}
+        py={{ base: "0.5em", md: "0.8em" }}
         {...props}
       >
         {children}
@@ -41,11 +44,13 @@ export default function NavLink({
 
   return (
     <Link
+      fontFamily="heading"
       variant={"slidingUnderline"}
       as={NextLink}
       href={to}
       textTransform={textTransform}
-      fontWeight={300}
+      fontWeight={400}
+      py={{ base: "0.5em", md: "0.8em" }}
       {...props}
     >
       {children}

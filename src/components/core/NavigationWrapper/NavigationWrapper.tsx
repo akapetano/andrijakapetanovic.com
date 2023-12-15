@@ -19,7 +19,7 @@ export default function NavigationWrapper({
     <Flex
       as="header"
       bg={navBg}
-      align="center"
+      alignItems="center"
       wrap="wrap"
       pos="fixed"
       top="0"

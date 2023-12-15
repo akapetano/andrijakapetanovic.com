@@ -1,3 +1,5 @@
+import { Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
 import { CodeSnippet } from "../components/core/CodeSnippet/CodeSnippet";
 import { Heading } from "@chakra-ui/react";
 import type { MDXComponents } from "mdx/types";
@@ -7,4 +9,7 @@ export const COMPONENT_MAP = {
   h1: (props) => <Heading as="h1" size="xl" {...props} />,
   h2: (props) => <Heading as="h2" size="lg" {...props} />,
   h3: (props) => <Heading as="h3" size="md" mb={"0.5rem"} {...props} />,
+  a: (props) => (
+    <ChakraLink variant={"slidingUnderline"} as={Link} {...props} />
+  ),
 } as MDXComponents;
