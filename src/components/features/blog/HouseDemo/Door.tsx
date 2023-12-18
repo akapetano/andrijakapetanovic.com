@@ -1,15 +1,14 @@
-import {
-  AspectRatio,
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  IconButton,
-} from "@chakra-ui/react";
+"use client";
+
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import { WindowPane } from "./WindowPane";
 import { BellIcon } from "@chakra-ui/icons";
 
 export function Door() {
+  function handleDoorbellClick() {
+    console.log("Ding Dong!");
+  }
+
   return (
     <Flex
       justifyContent={"center"}
@@ -27,7 +26,7 @@ export function Door() {
         gridTemplateColumns={"repeat(3, 1fr)"}
         h={"full"}
         w={"full"}
-        gap={1}
+        gap={{ base: 0.5, md: 1 }}
         p={1}
       >
         <GridItem
@@ -189,6 +188,7 @@ export function Door() {
         border={"1px solid"}
         borderColor={"gray.400"}
         rounded={"none"}
+        onClick={handleDoorbellClick}
       >
         <BellIcon
           width={2}

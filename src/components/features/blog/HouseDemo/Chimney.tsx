@@ -9,6 +9,10 @@ export function Chimney() {
 
   return (
     <Box
+      onClick={() => {
+        console.log("Chimney");
+        setFireIsOn(!fireIsOn);
+      }}
       id="chimney-main"
       position="absolute"
       top={{ base: 18, md: 15 }}
@@ -19,7 +23,7 @@ export function Chimney() {
       <motion.div
         animate={{
           opacity: fireIsOn ? 100 : 0,
-          translateY: fireIsOn ? 0 : -100,
+          translateY: fireIsOn ? 0 : 25,
         }}
         id="chimney-smoke-box"
         style={{
