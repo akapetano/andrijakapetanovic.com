@@ -1,9 +1,4 @@
-import {
-  Box,
-  BoxProps,
-  useColorModeValue,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { Box, BoxProps, useStyleConfig } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface ICardProps extends BoxProps {
