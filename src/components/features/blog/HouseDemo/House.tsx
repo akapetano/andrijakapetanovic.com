@@ -5,7 +5,8 @@ import { Chimney } from "./Chimney";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { WindowPane } from "./WindowPane";
-import { GroundFloorWindow } from "./GroundFloorWindow";
+import { Window } from "./Window";
+import { Door } from "./Door";
 
 function House() {
   const [hasCss, setHasCss] = useState(false);
@@ -53,7 +54,7 @@ function House() {
           border={"2px solid"}
           borderColor={"gray.900"}
           zIndex={-1}
-          bgColor={"yellow.200"}
+          bgColor={"yellow.100"}
         >
           <Flex
             maxW={{ base: "320px", md: "none" }}
@@ -66,7 +67,13 @@ function House() {
               h={{ base: "8rem", md: "10rem" }}
               w={"full"}
             >
-              <Box h={{ base: "8rem", md: "10rem" }} w="40%"></Box>
+              <Flex
+                h={{ base: "8rem", md: "10rem" }}
+                w={{ base: "50%", md: "40%" }}
+                justifyContent={"center"}
+              >
+                <Window />
+              </Flex>
               <Box h={{ base: "8rem", md: "10rem" }} w="20%"></Box>
               <Box h={{ base: "8rem", md: "10rem" }} w="40%"></Box>
             </Flex>
@@ -83,51 +90,10 @@ function House() {
                 w={{ base: "50%", md: "40%" }}
                 justifyContent={"center"}
               >
-                <GroundFloorWindow />
+                <Window />
               </Flex>
 
-              <Box
-                className="door"
-                backgroundColor={"white"}
-                h={"50%"}
-                w={{ base: "18%", md: "10%" }}
-                position={"relative"}
-                border={"1px solid"}
-                borderColor="gray.400"
-              >
-                <Box
-                  className="door-window"
-                  position={"absolute"}
-                  h={"30%"}
-                  w={"75%"}
-                  top="10%"
-                  bgColor={"blue.300"}
-                  right={1.5}
-                  overflow={"hidden"}
-                >
-                  <WindowPane />
-                </Box>
-                <Box
-                  className="door-knob"
-                  rounded="100%"
-                  bgColor={"gray.900"}
-                  h={"0.5rem"}
-                  w={"0.5rem"}
-                  position={"absolute"}
-                  top={"50%"}
-                  right={"10%"}
-                >
-                  <Box
-                    rounded="100%"
-                    bgColor={"gray.400"}
-                    h={"0.1rem"}
-                    w={"0.15rem"}
-                    position={"absolute"}
-                    top={"47%"}
-                    right={"13%"}
-                  />
-                </Box>
-              </Box>
+              <Door />
 
               <Flex
                 className="right-side"
@@ -135,7 +101,7 @@ function House() {
                 w={{ base: "50%", md: "40%" }}
                 justifyContent={"center"}
               >
-                <GroundFloorWindow />
+                <Window />
               </Flex>
             </Flex>
           </Flex>

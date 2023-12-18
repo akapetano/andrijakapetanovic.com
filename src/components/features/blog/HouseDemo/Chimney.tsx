@@ -40,7 +40,8 @@ export function Chimney() {
       <Box
         id="chimney"
         bgColor="red.600"
-        border="1px solid #000000"
+        border="2px solid"
+        borderColor="gray.900"
         borderTopWidth="20px"
         borderRadius="5px 5px 0 0"
         h={"7rem"}

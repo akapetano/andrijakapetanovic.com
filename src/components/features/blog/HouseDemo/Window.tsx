@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import { WindowPane } from "./WindowPane";
 
-export function GroundFloorWindow() {
+export function Window() {
   return (
     <Grid
       h={"50%"}
