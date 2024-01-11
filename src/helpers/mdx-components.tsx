@@ -5,6 +5,7 @@ import { CodeSnippet } from "../components/core/CodeSnippet/CodeSnippet";
 import { Heading } from "@chakra-ui/react";
 import HouseDemo from "../components/features/blog/HouseDemo/HouseDemo";
 
+//@ts-ignore
 interface ComponentsMap extends MDXComponents {
   HouseDemo: typeof HouseDemo;
 }
