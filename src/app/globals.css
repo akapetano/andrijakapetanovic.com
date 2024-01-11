@@ -154,6 +154,42 @@ html {
   width: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+  .chimney-smoke {
+    animation: smoke 3.5s infinite ease-out;
+    -webkit-animation: smoke 3.5s infinite ease-out;
+    background: RGBA(255, 255, 255, 0.36);
+    background: -webkit-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: -o-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: -moz-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+}
+
 #chimney-smoke2 {
   top: -55px;
   animation-delay: 0.5s;

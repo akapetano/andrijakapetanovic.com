@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Tooltip } from "@chakra-ui/react";
 import { WindowPane } from "./WindowPane";
 import { BellIcon } from "@chakra-ui/icons";
 
@@ -174,29 +174,37 @@ export function Door() {
         />
       </Box>
 
-      <Flex
-        aria-label="doorbell"
-        as={"button"}
-        cursor={"pointer"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        width={3}
-        height={3}
-        position={"absolute"}
-        right={{ base: "-40%", md: "-30%" }}
-        bgColor={"white"}
-        border={"1px solid"}
-        borderColor={"gray.400"}
-        rounded={"none"}
-        onClick={handleDoorbellClick}
+      <Tooltip
+        label={"Ding dong!"}
+        aria-label="A doorbell"
+        hasArrow
+        placement="top"
       >
-        <BellIcon
-          width={2}
-          height={2}
+        <Flex
+          aria-label="doorbell"
+          as={"button"}
+          cursor={"pointer"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          width={3}
+          height={3}
+          position={"absolute"}
+          right={{ base: "-40%", md: "-30%" }}
+          bgColor={"white"}
           border={"1px solid"}
           borderColor={"gray.400"}
-        />
-      </Flex>
+          rounded={"none"}
+          onClick={handleDoorbellClick}
+        >
+          <BellIcon
+            width={2}
+            height={2}
+            border={"1px solid"}
+            borderColor={"gray.400"}
+            color={"gray.700"}
+          />
+        </Flex>
+      </Tooltip>
     </Flex>
   );
 }

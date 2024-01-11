@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 import { Chimney } from "./Chimney";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -10,6 +10,8 @@ import { Door } from "./Door";
 
 function House() {
   const [hasCss, setHasCss] = useState(false);
+  const roofColor = useColorModeValue("red.600", "red.800");
+  const houseColor = useColorModeValue("yellow.200", "yellow.100");
 
   return (
     // <Flex overflowX={"auto"} justifyContent={"center"} w={"fit-content"} px={5}>
@@ -30,7 +32,7 @@ function House() {
               md: "17.6rem solid transparent",
             }}
             borderBottom="12rem solid"
-            borderBottomColor={"red.600"}
+            borderBottomColor={roofColor}
             zIndex={3}
           />
           <Box
@@ -53,8 +55,7 @@ function House() {
         <Flex
           border={"2px solid"}
           borderColor={"gray.900"}
-          zIndex={-1}
-          bgColor={"yellow.100"}
+          bgColor={houseColor}
         >
           <Flex
             maxW={{ base: "320px", md: "none" }}
@@ -66,16 +67,26 @@ function House() {
               className="first-floor"
               h={{ base: "8rem", md: "10rem" }}
               w={"full"}
+              justifyContent={"space-between"}
             >
               <Flex
+                className="left-side"
                 h={{ base: "8rem", md: "10rem" }}
-                w={{ base: "50%", md: "40%" }}
+                w={"100%"}
                 justifyContent={"center"}
               >
                 <Window />
               </Flex>
-              <Box h={{ base: "8rem", md: "10rem" }} w="20%"></Box>
-              <Box h={{ base: "8rem", md: "10rem" }} w="40%"></Box>
+              <Flex
+                className="right-side"
+                h={{ base: "8rem", md: "10rem" }}
+                w={"100%"}
+                justifyContent={"center"}
+              >
+                <Window />
+              </Flex>
+              {/* <Box h={{ base: "8rem", md: "10rem" }} w="20%"></Box>
+              <Box h={{ base: "8rem", md: "10rem" }} w="40%"></Box> */}
             </Flex>
             <Flex
               className="ground-floor"

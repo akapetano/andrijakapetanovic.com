@@ -1,11 +1,12 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 export function Chimney() {
   const [fireIsOn, setFireIsOn] = useState(false);
+  const roofColor = useColorModeValue("red.600", "red.800");
 
   return (
     <Box
@@ -43,7 +44,7 @@ export function Chimney() {
       </motion.div>
       <Box
         id="chimney"
-        bgColor="red.600"
+        bgColor={roofColor}
         border="2px solid"
         borderColor="gray.900"
         borderTopWidth="20px"
