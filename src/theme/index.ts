@@ -209,6 +209,29 @@ const components = {
       color: mode(props, "brand.300", "brand.600"),
     }),
     variants: {
+      noUnderline: (props: StyleFunctionProps) => ({
+        position: "relative",
+        pb: "0.4rem",
+        color: mode(props, "brand.300", "brand.600"),
+        textDecoration: "none",
+
+        _link: {
+          color: mode(props, "brand.300", "brand.600"),
+          textDecoration: "none",
+        },
+        _visited: {
+          color: mode(props, "brand.300", "brand.600"),
+          textDecoration: "none",
+        },
+        _active: {
+          color: mode(props, "brand.200", "brand.700"),
+          textDecoration: "none",
+        },
+        _hover: {
+          color: mode(props, "brand.200", "brand.700"),
+          textDecoration: "none",
+        },
+      }),
       slidingUnderline: (props: StyleFunctionProps) => ({
         position: "relative",
         pb: "0.4rem",

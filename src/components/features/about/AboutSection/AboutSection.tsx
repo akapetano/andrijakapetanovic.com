@@ -3,6 +3,7 @@ import { AboutIntro } from "../AboutIntro/AboutIntro";
 import { AboutFrontendToolbox } from "../AboutFrontendToolbox/AboutFrontendToolbox";
 import { AboutOtherTools } from "../AboutOtherTools/AboutOtherTools";
 import { AboutActionButtons } from "../AboutActionButtons/AboutActionButtons";
+import { AboutBackendToolbox } from "../AboutBackendToolbox/AboutBackendToolbox";
 
 export function AboutSection() {
   return (
@@ -12,6 +13,7 @@ export function AboutSection() {
       </SectionContainer>
       <SectionContainer>
         <AboutFrontendToolbox />
+        <AboutBackendToolbox />
         <AboutOtherTools />
         <AboutActionButtons />
       </SectionContainer>
