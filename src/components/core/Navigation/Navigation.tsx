@@ -14,11 +14,11 @@ export default function Navigation() {
 
       <Stack
         spacing={6}
-        justifyContent={"center"}
+        justifyContent="center"
         alignItems="center"
         direction="row"
         pt={[4, 4, 1, 1]}
-        display={["none", "none", "flex", "flex", "flex"]}
+        display={["none", "none", "none", "none", "flex"]}
       >
         <NavLinks fontSize={"sm"} />
         <ColorModeButton />

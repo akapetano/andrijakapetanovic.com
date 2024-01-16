@@ -26,7 +26,7 @@ export default function MobileHamMenu() {
   }, [pathname, onClose]);
 
   return (
-    <Flex display={["flex", "flex", "none", "none", "none"]}>
+    <Flex display={["flex", "flex", "flex", "flex", "none"]}>
       <Menu isLazy>
         <MenuButton
           as={IconButton}
