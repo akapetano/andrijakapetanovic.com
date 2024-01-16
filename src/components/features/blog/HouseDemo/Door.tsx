@@ -21,7 +21,6 @@ export function Door({ layer }: IDoorProps) {
   const htmlOnlybgColor = useColorModeValue("white", "gray.200");
   function handleDoorbellClick() {
     if (isFullHouse) {
-      console.log("Ding Dong!");
     } else {
       return null;
     }
