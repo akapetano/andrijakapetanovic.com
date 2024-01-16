@@ -154,7 +154,7 @@ html {
   width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .chimney-smoke {
     animation: smoke 3.5s infinite ease-out;
     -webkit-animation: smoke 3.5s infinite ease-out;
@@ -188,7 +188,7 @@ html {
     position: relative;
     width: 100%;
   }
-}
+} */
 
 #chimney-smoke2 {
   top: -55px;

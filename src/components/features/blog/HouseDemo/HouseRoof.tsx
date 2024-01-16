@@ -1,8 +1,14 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { Chimney } from "./Chimney";
 
-export function HouseRoof() {
+interface IHouseRoofProps {
+  layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
+}
+
+export function HouseRoof({ layer }: IHouseRoofProps) {
   const roofColor = useColorModeValue("red.600", "red.800");
+  const htmlOnlybgColor = useColorModeValue("white", "gray.200");
+  const isHTMLOnly = layer === "HTML";
 
   return (
     <Box as="header" position="relative">
@@ -15,7 +21,7 @@ export function HouseRoof() {
           md: "17.6rem solid transparent",
         }}
         borderBottom="12rem solid"
-        borderBottomColor={roofColor}
+        borderBottomColor={!isHTMLOnly ? roofColor : htmlOnlybgColor}
         zIndex={3}
       />
       <Box
@@ -30,10 +36,27 @@ export function HouseRoof() {
         borderBottom="12.2rem solid"
         borderBottomColor={"gray.900"}
         top={{ base: "-2px", md: "-3px" }}
-        left={{ base: "-4px", md: "-4px" }}
+        left={{ base: "-4px", md: "-3.5px" }}
         zIndex={-1}
       />
-      <Chimney />
+      {isHTMLOnly && (
+        <Box
+          className="roof-outline"
+          position="absolute"
+          w={0}
+          h={0}
+          borderInline={{
+            base: "9.8rem solid transparent",
+            md: "17.4rem solid transparent",
+          }}
+          borderBottom="12rem solid"
+          borderBottomColor={"white"}
+          top={{ base: "-2px", md: "-1px" }}
+          left={{ base: "-4px", md: "4px" }}
+          zIndex={-1}
+        />
+      )}
+      <Chimney layer={layer} />
     </Box>
   );
 }

@@ -4,22 +4,35 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export function Chimney() {
+interface IChimneyProps {
+  layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
+}
+
+export function Chimney({ layer }: IChimneyProps) {
   const [fireIsOn, setFireIsOn] = useState(false);
   const roofColor = useColorModeValue("red.600", "red.800");
+  const htmlOnlybgColor = useColorModeValue("white", "gray.200");
+  const isHTMLOnly = layer === "HTML";
+  const isFullHouse = layer === "HTML, CSS & JavaScript";
+
+  function handleChimneyClick() {
+    if (isFullHouse) {
+      setFireIsOn((currentState) => !currentState);
+    } else {
+      return null;
+    }
+  }
 
   return (
     <Box
-      onClick={() => {
-        console.log("Chimney");
-        setFireIsOn(!fireIsOn);
-      }}
+      onClick={handleChimneyClick}
       id="chimney-main"
       position="absolute"
       top={{ base: 18, md: 15 }}
       right={{ base: 100, md: 175 }}
       h={"5rem"}
       w={"2rem"}
+      cursor={isFullHouse ? "pointer" : "default"}
     >
       <motion.div
         animate={{
@@ -44,7 +57,7 @@ export function Chimney() {
       </motion.div>
       <Box
         id="chimney"
-        bgColor={roofColor}
+        bgColor={!isHTMLOnly ? roofColor : htmlOnlybgColor}
         border="2px solid"
         borderColor="gray.900"
         borderTopWidth="20px"

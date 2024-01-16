@@ -2,8 +2,14 @@ import { Window } from "./Window";
 import { Door } from "./Door";
 import { Flex, useColorModeValue } from "@chakra-ui/react";
 
-export function HouseBody() {
+interface IHouseBodyProps {
+  layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
+}
+
+export function HouseBody({ layer }: IHouseBodyProps) {
+  const htmlOnlybgColor = useColorModeValue("white", "gray.200");
   const houseColor = useColorModeValue("yellow.200", "yellow.100");
+  const isHTMLOnly = layer === "HTML";
 
   return (
     <Flex
@@ -11,7 +17,7 @@ export function HouseBody() {
       borderInline={"2px solid"}
       borderTop={"2px solid"}
       borderColor={"gray.900"}
-      bgColor={houseColor}
+      bgColor={!isHTMLOnly ? houseColor : htmlOnlybgColor}
     >
       <Flex
         maxW={{ base: "320px", md: "none" }}
@@ -31,7 +37,7 @@ export function HouseBody() {
             w={"100%"}
             justifyContent={"center"}
           >
-            <Window />
+            <Window layer={layer} />
           </Flex>
           <Flex
             className="right-side"
@@ -39,7 +45,7 @@ export function HouseBody() {
             w={"100%"}
             justifyContent={"center"}
           >
-            <Window />
+            <Window layer={layer} />
           </Flex>
         </Flex>
         <Flex
@@ -55,10 +61,10 @@ export function HouseBody() {
             w={{ base: "50%", md: "40%" }}
             justifyContent={"center"}
           >
-            <Window />
+            <Window layer={layer} />
           </Flex>
 
-          <Door />
+          <Door layer={layer} />
 
           <Flex
             className="right-side"
@@ -66,7 +72,7 @@ export function HouseBody() {
             w={{ base: "50%", md: "40%" }}
             justifyContent={"center"}
           >
-            <Window />
+            <Window layer={layer} />
           </Flex>
         </Flex>
       </Flex>
