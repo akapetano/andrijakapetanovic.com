@@ -1,6 +1,7 @@
 "use client";
 
 import { useColorModeValue, Grid, Heading, Box, Text } from "@chakra-ui/react";
+
 import {
   FaHtml5,
   FaCss3Alt,

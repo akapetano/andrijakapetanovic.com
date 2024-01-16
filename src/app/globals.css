@@ -79,3 +79,134 @@ html {
 ::-webkit-scrollbar {
   width: "0.6em";
 }
+
+@keyframes smoke {
+  0% {
+    opacity: 1;
+    border-radius: 50%;
+    transform: scale(1);
+  }
+  80% {
+    transform: translate3d(40px, -150px, 0px) rotate(20deg) skew(-30deg)
+      scale(2);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    border-radius: 50%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes smoke {
+  0% {
+    opacity: 1;
+    border-radius: 50%;
+    transform: scale(1);
+  }
+  80% {
+    transform: translate3d(40px, -150px, 0px) rotate(20deg) skew(-30deg)
+      scale(2);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    border-radius: 50%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.chimney-smoke {
+  animation: smoke 3.5s infinite ease-out;
+  -webkit-animation: smoke 3.5s infinite ease-out;
+  background: RGBA(0, 0, 0, 0.36);
+  background: -webkit-repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    RGBA(0, 0, 0, 0.36) 50%
+  );
+  background: -o-repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    RGBA(0, 0, 0, 0.36) 50%
+  );
+  background: -moz-repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    RGBA(0, 0, 0, 0.36) 50%
+  );
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0%,
+    RGBA(0, 0, 0, 0.36) 50%
+  );
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -o-filter: blur(4px);
+  filter: blur(4px);
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .chimney-smoke {
+    animation: smoke 3.5s infinite ease-out;
+    -webkit-animation: smoke 3.5s infinite ease-out;
+    background: RGBA(255, 255, 255, 0.36);
+    background: -webkit-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: -o-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: -moz-repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0%,
+      RGBA(255, 255, 255, 0.36) 50%
+    );
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+} */
+
+#chimney-smoke2 {
+  top: -55px;
+  animation-delay: 0.5s;
+}
+#chimney-smoke3 {
+  top: -105px;
+  animation-delay: 1s;
+}
+#chimney-smoke4 {
+  top: -155px;
+  animation-delay: 1.5s;
+}
+#chimney-smoke5 {
+  top: -205px;
+  animation-delay: 2.5s;
+}
+#chimney-smoke6 {
+  top: -255px;
+  animation-delay: 3s;
+}
