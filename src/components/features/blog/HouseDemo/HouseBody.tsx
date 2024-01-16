@@ -8,7 +8,7 @@ interface IHouseBodyProps {
 
 export function HouseBody({ layer }: IHouseBodyProps) {
   const htmlOnlybgColor = useColorModeValue("white", "gray.200");
-  const houseColor = useColorModeValue("yellow.200", "yellow.100");
+  const houseColor = useColorModeValue("yellow.200", "yellow.300");
   const isHTMLOnly = layer === "HTML";
 
   return (

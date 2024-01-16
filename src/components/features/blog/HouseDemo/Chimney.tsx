@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 interface IChimneyProps {
@@ -22,6 +22,12 @@ export function Chimney({ layer }: IChimneyProps) {
       return null;
     }
   }
+
+  useEffect(() => {
+    if (!isFullHouse) {
+      setFireIsOn(false);
+    }
+  }, [isFullHouse]);
 
   return (
     <Box

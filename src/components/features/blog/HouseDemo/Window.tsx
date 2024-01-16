@@ -3,7 +3,7 @@
 import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 import { WindowPane } from "./WindowPane";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IWindowProps {
   layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
@@ -22,6 +22,12 @@ export function Window({ layer }: IWindowProps) {
       return;
     }
   }
+
+  useEffect(() => {
+    if (!isFullHouse && isHTMLOnly) {
+      setIsOpen(false);
+    }
+  }, [isFullHouse, isHTMLOnly]);
 
   return (
     <Grid
