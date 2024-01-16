@@ -1,4 +1,9 @@
-import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  useColorModeValue,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
 interface IHouseFoundationProps {
   layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
@@ -9,6 +14,7 @@ export function HouseFoundation({ layer }: IHouseFoundationProps) {
   const htmlOnlybgColor = useColorModeValue("white", "gray.200");
   const bgColor = useColorModeValue("gray.600", "gray.500");
   const brickColor = useColorModeValue("gray.400", "gray.600");
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
 
   return !isHTMLOnly ? (
     <Grid
@@ -27,26 +33,30 @@ export function HouseFoundation({ layer }: IHouseFoundationProps) {
       alignItems="center"
       justifyContent="center"
     >
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
-      <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+      {isLargerThan768 ? (
+        <>
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+          <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
+        </>
+      ) : null}
       <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
       <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />
       <GridItem h="0.75rem" w="1.5rem" bgColor={brickColor} />

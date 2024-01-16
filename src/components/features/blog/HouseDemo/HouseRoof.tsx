@@ -39,23 +39,6 @@ export function HouseRoof({ layer }: IHouseRoofProps) {
         left={{ base: "-4px", md: "-3.5px" }}
         zIndex={-1}
       />
-      {isHTMLOnly && (
-        <Box
-          className="roof-outline"
-          position="absolute"
-          w={0}
-          h={0}
-          borderInline={{
-            base: "9.8rem solid transparent",
-            md: "17.4rem solid transparent",
-          }}
-          borderBottom="12rem solid"
-          borderBottomColor={"white"}
-          top={{ base: "-2px", md: "-1px" }}
-          left={{ base: "-4px", md: "4px" }}
-          zIndex={-1}
-        />
-      )}
       <Chimney layer={layer} />
     </Box>
   );
