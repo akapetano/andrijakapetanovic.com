@@ -37,7 +37,7 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
         display="grid"
         gridTemplateColumns={{
           base: "1fr",
-          md: "repeat(auto-fill, minmax(16rem, 1fr))",
+          md: "repeat(2, 1fr)",
         }}
         gridAutoRows="1fr"
         gap={{ base: 0, md: 5 }}
@@ -50,13 +50,9 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
               key={slug}
               className="blog-post-list-item"
               margin="0 0 1.25rem"
-              display={"flex"}
+              display={{ base: "block", md: "flex" }}
             >
-              <Card
-                display={"flex"}
-                flexDirection="column"
-                justifyContent={"space-between"}
-              >
+              <Card display={"flex"} flexDirection="column">
                 <ChakraLink
                   fontSize="lg"
                   display="flex"
@@ -88,7 +84,11 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
                   </Text>
                 )}
                 {publishedOn && (
-                  <Text fontSize="sm" color={dateColor} flexGrow={1}>
+                  <Text
+                    fontSize="sm"
+                    color={dateColor}
+                    flexGrow={{ base: "", md: 1 }}
+                  >
                     <Date dateString={publishedOn} />
                   </Text>
                 )}
