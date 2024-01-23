@@ -1,28 +1,45 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ILightProps {
-  isLightOn: boolean;
-  handleLightToggle: () => void;
+  layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
 }
 
-export function Light({ isLightOn, handleLightToggle }: ILightProps) {
+export function Light({ layer }: ILightProps) {
+  const isHTMLOnly = layer === "HTML";
+  const isFullHouse = layer === "HTML, CSS & JavaScript";
+  const [isLightOn, setIsLightOn] = useState(false);
+
+  function handleLightToggle() {
+    setIsLightOn((currentState) => !currentState);
+  }
+
+  function turnOffLight() {
+    setIsLightOn(false);
+  }
+
+  useEffect(() => {
+    if (isLightOn && !isFullHouse) {
+      turnOffLight();
+    }
+  }, [isFullHouse, isLightOn]);
+
   return (
     <>
       <Box
         className="wire"
         position="absolute"
-        left="calc(50% - 2px)"
-        width="4px"
-        height="12vh"
-        top={"0"}
+        left="50%"
+        width="1px"
+        height="80%"
+        top={"1.5rem"}
         bg="black"
         zIndex={3}
       />
       <Flex
         className="light"
         position="relative"
-        top="calc(30% - 5rem)"
+        top="2rem"
         justifyContent="center"
         w="full"
         onClick={handleLightToggle}
@@ -32,23 +49,23 @@ export function Light({ isLightOn, handleLightToggle }: ILightProps) {
           className="bulb"
           position="relative"
           bg={isLightOn ? "white" : "gray.300"}
-          w="80px"
-          h="80px"
+          w="8px"
+          h="8px"
           rounded="full"
           boxShadow={
             isLightOn
-              ? "0 0 50px #fff, 0 0 100px #fff, 0 0 150px #fff, 0 0 200px #fff, 0 0 250px #fff, 0 0 300px #fff, 0 0 350px #fff"
+              ? "0 20px 20px #fff, 0 40px 40px #fff, 0 60px 60px #fff, 0 80px 80px #fff, 0 100px 100px #fff, 0 120px 120px #fff, 0 140px 140px #fff"
               : "unset"
           }
           _before={{
             content: "''",
             position: "absolute",
             bgColor: "inherit",
-            top: "-50px",
-            left: "22.5px",
-            width: "35.5px",
-            height: "80px",
-            borderTop: "30px solid #000",
+            top: "-5px",
+            left: "2px",
+            width: "4px",
+            height: "10px",
+            borderTop: "4px solid #000",
             borderRadius: "md",
             zIndex: 3,
           }}
@@ -70,32 +87,7 @@ export function Light({ isLightOn, handleLightToggle }: ILightProps) {
               : {}
           }
           zIndex={2}
-        >
-          <Box
-            position={"absolute"}
-            top="-16px"
-            left="-4px"
-            width={"30px"}
-            height={"30px"}
-            bg="transparent"
-            transform="rotate(342deg)"
-            borderBottomRightRadius="40px"
-            boxShadow={`20px 20px 0 10px ${isLightOn ? "#fff" : "inherit"}`}
-            zIndex={2}
-          />
-          <Box
-            position={"absolute"}
-            top="-16px"
-            right="-4px"
-            width={"30px"}
-            height={"30px"}
-            bg="transparent"
-            transform="rotate(18deg)"
-            borderBottomLeftRadius="40px"
-            boxShadow={`-20px 20px 0 10px ${isLightOn ? "#fff" : "inherit"}`}
-            zIndex={2}
-          />
-        </Box>
+        />
       </Flex>
     </>
   );
