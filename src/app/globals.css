@@ -80,6 +80,8 @@ html {
   width: "0.6em";
 }
 
+/* CHIMNEY */
+
 @keyframes smoke {
   0% {
     opacity: 1;
