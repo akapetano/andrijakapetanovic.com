@@ -13,7 +13,7 @@ export function FirstFloor({ layer }: IFirstFloorProps) {
       w={"100%"}
       justifyContent={"space-evenly"}
       gap={{ base: "2.5rem", md: "8.5rem" }}
-      mt="1rem"
+      mt={{ base: 0, md: "1rem" }}
     >
       <Flex
         className="left-side"
