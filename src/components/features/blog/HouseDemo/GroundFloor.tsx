@@ -15,25 +15,26 @@ export function GroundFloor({ layer }: IGroundFloorProps) {
       alignItems={"flex-end"}
       h={{ base: "8rem", md: "10rem" }}
       w={"full"}
+      gap={{ base: 0, md: "2rem" }}
     >
       <Flex
         className="left-side"
-        h={"10rem"}
+        h={{ base: "8rem", md: "9rem" }}
         w={{ base: "50%", md: "40%" }}
         justifyContent={"center"}
       >
-        <Room layer={layer} />
+        <Room layer={layer} roomColor="pink" />
       </Flex>
 
       <Door layer={layer} />
 
       <Flex
         className="right-side"
-        h={"10rem"}
+        h={{ base: "8rem", md: "9rem" }}
         w={{ base: "50%", md: "40%" }}
         justifyContent={"center"}
       >
-        <Room layer={layer} />
+        <Room layer={layer} roomColor="blue" />
       </Flex>
     </Flex>
   );

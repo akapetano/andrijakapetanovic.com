@@ -3,26 +3,24 @@ import { useState, useEffect } from "react";
 
 interface ILightProps {
   layer: "HTML" | "HTML & CSS" | "HTML, CSS & JavaScript";
+  isLightOn: boolean;
+  handleToggleLight: () => void;
+  handleTurnOffLight: () => void;
 }
 
-export function Light({ layer }: ILightProps) {
-  const isHTMLOnly = layer === "HTML";
+export function Light({
+  layer,
+  isLightOn,
+  handleToggleLight,
+  handleTurnOffLight,
+}: ILightProps) {
   const isFullHouse = layer === "HTML, CSS & JavaScript";
-  const [isLightOn, setIsLightOn] = useState(false);
-
-  function handleLightToggle() {
-    setIsLightOn((currentState) => !currentState);
-  }
-
-  function turnOffLight() {
-    setIsLightOn(false);
-  }
 
   useEffect(() => {
     if (isLightOn && !isFullHouse) {
-      turnOffLight();
+      handleTurnOffLight();
     }
-  }, [isFullHouse, isLightOn]);
+  }, [isFullHouse, isLightOn, handleTurnOffLight]);
 
   return (
     <>
@@ -32,7 +30,7 @@ export function Light({ layer }: ILightProps) {
         left="50%"
         width="1px"
         height="80%"
-        top={"1.5rem"}
+        top={"1.6rem"}
         bg="black"
         zIndex={3}
       />
@@ -42,7 +40,7 @@ export function Light({ layer }: ILightProps) {
         top="2rem"
         justifyContent="center"
         w="full"
-        onClick={handleLightToggle}
+        onClick={handleToggleLight}
         cursor="pointer"
       >
         <Box
@@ -74,15 +72,15 @@ export function Light({ layer }: ILightProps) {
               ? {
                   content: "''",
                   position: "absolute",
-                  top: "50%",
+                  top: 0,
                   left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  width: "120px",
-                  height: "120px",
+                  transform: "translate(-50%, -30%)",
+                  width: "40px",
+                  height: "40px",
                   bg: "white",
                   borderRadius: "50%",
                   zIndex: 2,
-                  filter: "blur(40px)",
+                  filter: "blur(15px)",
                 }
               : {}
           }
