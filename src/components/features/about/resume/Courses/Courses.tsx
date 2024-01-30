@@ -14,15 +14,21 @@ export function Courses() {
 
   return (
     <Box color={textColor}>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading fontSize="large" as="h3" textTransform="uppercase" mb="0.5rem">
         Courses
       </Heading>
-      <Divider mb="1rem" />
+      <Divider mb="0.5rem" />
       <Heading fontSize="large" as="h4">
         Frontend Masters
       </Heading>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
       <UnorderedList fontSize="medium">
+        <ListItem>
+          &quot;Intermediate React Native&quot; by Kadi Karman - November 2023
+        </ListItem>
+        <ListItem>
+          &quot;React Native, v2&quot; by Kadi Karman - November 2023
+        </ListItem>
         <ListItem>
           &quot;Basics of Go&quot; by Maximiliano Firtman - August 2023
         </ListItem>
@@ -132,11 +138,11 @@ export function Courses() {
           2022
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
       <Heading fontSize="large" as="h4">
         Online Courses
       </Heading>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
       <UnorderedList fontSize="medium">
         <ListItem>
           &quot;Joy of React&quot; by Josh Comeau - October 2023
@@ -189,7 +195,7 @@ export function Courses() {
           University Computing Centre in Zagreb (Srce) - July 2021
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

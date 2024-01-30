@@ -19,14 +19,15 @@ export function Projects() {
         as="h3"
         textTransform="uppercase"
         color={textColor}
+        mb="0.5rem"
       >
         Projects
       </Heading>
-      <Divider mb="1rem" />
+      <Divider mb="0.5rem" />
       <Heading fontSize="large" as="h4" color={textColor}>
         Front-end development experience
       </Heading>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
       <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
           As part of my self-taught web development journey, through the online
@@ -60,7 +61,7 @@ export function Projects() {
           help me create a platform where I showcase my projects.
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

@@ -21,14 +21,15 @@ export function References() {
         as="h3"
         textTransform="uppercase"
         color={textColor}
+        mb="0.5rem"
       >
         References
       </Heading>
-      <Divider mb="1rem" />
-      <Heading fontSize="large" as="h4">
+      <Divider mb="0.5rem" />
+      <Heading fontSize="large" as="h4" mb="0.5rem">
         Professional References
       </Heading>
-      <Divider m="0 0 1rem 0" />
+      <Divider m="0 0 0.5rem 0" />
       <Text fontSize="medium" fontWeight="bold">
         Adrian Bićanić
       </Text>
@@ -63,7 +64,7 @@ export function References() {
           </Link>
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

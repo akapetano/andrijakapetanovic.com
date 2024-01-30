@@ -19,10 +19,11 @@ export function OrganizationalSkills() {
         as="h3"
         textTransform="uppercase"
         color={textColor}
+        mb="0.5rem"
       >
         Organizational Skills
       </Heading>
-      <Divider m="0 0 1rem 0" />
+      <Divider m="0 0 0.5rem 0" />
       <UnorderedList fontSize="medium" color={textColor}>
         <ListItem>
           as essential component in the work of an International Relations
@@ -36,7 +37,7 @@ export function OrganizationalSkills() {
           teamwork, responsibility, adaptability and flexibility
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }
