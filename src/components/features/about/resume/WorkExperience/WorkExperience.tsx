@@ -20,6 +20,7 @@ export function WorkExperience() {
         as="h3"
         textTransform="uppercase"
         color={textColor}
+        mb="0.5rem"
       >
         Work Experience
       </Heading>
@@ -29,7 +30,7 @@ export function WorkExperience() {
           Crafted - Indianapolis, USA
         </Heading>
         <Text fontSize="medium">06/2022 - present</Text>
-        <Divider m="1rem 0" />
+        <Divider m="0.5rem 0" />
         <Text fontSize="medium" fontWeight="bold">
           From June 2022
         </Text>
@@ -38,16 +39,20 @@ export function WorkExperience() {
         </Text>
         <UnorderedList fontSize="medium" color={textColor}>
           <ListItem>
-            translation of the UI/UX designs into components, and building them
-            into websites and web applications
+            worked on 15+ projects, translating the UI/UX designs into
+            components, and building them into websites and web applications
           </ListItem>
           <ListItem>
-            learning new technologies, such as WordPress, and new frameworks
-            such as Vue, Nuxt
+            learning new technologies, such as WordPress, React Native and new
+            frameworks such as Vue, Nuxt, and Svelte.
           </ListItem>
+          <ListItem>working with SCRUM methodology</ListItem>
           <ListItem>
-            collaboration with teammates, and exploring different architectural
+            collaborating with teammates, and exploring different architectural
             solutions
+          </ListItem>
+          <ListItem>
+            implementing documentation into the team&apos;s workflow
           </ListItem>
         </UnorderedList>
         <Divider m="0.5rem 0 1rem 0" />
@@ -57,7 +62,7 @@ export function WorkExperience() {
           International Relations Office - University of Zadar
         </Heading>
         <Text fontSize="medium">06/2017 - 01/2022</Text>
-        <Divider m="1rem 0" />
+        <Divider m="0.5rem 0" />
         <Text fontSize="medium" fontWeight="bold">
           From December 2019 to January 2022
         </Text>
@@ -74,7 +79,7 @@ export function WorkExperience() {
             site content editing with CMS, publishing scholarship opportunities
           </ListItem>
         </UnorderedList>
-        <Divider m="0.5rem 0 1rem 0" />
+        <Divider m="0.5rem 0" />
         <Text fontSize="medium" fontWeight="bold">
           From March 2018 to October 2019
         </Text>
@@ -92,7 +97,7 @@ export function WorkExperience() {
             non-academic problems)
           </ListItem>
         </UnorderedList>
-        <Divider m="0.5rem 0 1rem 0" />
+        <Divider m="0.5rem 0" />
         <Text fontSize="medium" fontWeight="bold">
           From June 2017 to March 2018
         </Text>
@@ -110,7 +115,7 @@ export function WorkExperience() {
           </ListItem>
         </UnorderedList>
       </Box>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

@@ -20,10 +20,11 @@ export function Presentations() {
         as="h3"
         textTransform="uppercase"
         color={textColor}
+        mb="0.5rem"
       >
         Presentations
       </Heading>
-      <Divider m="0 0 1rem 0" />
+      <Divider m="0 0 0.5rem 0" />
       <Box color={textColor}>
         <Text fontSize="medium">
           Held and organized the following presentations:
@@ -42,7 +43,7 @@ export function Presentations() {
           </ListItem>
         </UnorderedList>
       </Box>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

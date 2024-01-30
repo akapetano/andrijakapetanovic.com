@@ -21,10 +21,11 @@ export function LanguageSkills() {
         fontSize="large"
         as="h3"
         textTransform="uppercase"
+        mb="0.5rem"
       >
         Language Skills
       </Heading>
-      <Divider m="0 0 1rem 0" />
+      <Divider m="0 0 0.5rem 0" />
       <Box color={textColor}>
         <Text fontSize="medium">Native language: Croatian</Text>
         <Text fontSize="medium">Other languages:</Text>
@@ -45,12 +46,13 @@ export function LanguageSkills() {
           href="https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions"
           target="_blank"
           rel="noreferrer"
+          pb="0.5rem"
         >
           Council of Europe
         </ChakraLink>
         )
       </Text>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }

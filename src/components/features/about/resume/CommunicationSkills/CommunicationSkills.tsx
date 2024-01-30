@@ -14,10 +14,10 @@ export function CommunicationSkills() {
 
   return (
     <Box color={textColor}>
-      <Heading fontSize="large" as="h3" textTransform="uppercase">
+      <Heading fontSize="large" as="h3" textTransform="uppercase" mb="0.5rem">
         Communication Skills
       </Heading>
-      <Divider m="0 0 1rem 0" />
+      <Divider m="0 0 0.5rem 0" />
       <UnorderedList fontSize="medium">
         <ListItem>
           great communication skills in Croatian, English and German acquired in
@@ -28,7 +28,7 @@ export function CommunicationSkills() {
           everyday oral and written communication and correspondence
         </ListItem>
       </UnorderedList>
-      <Divider m="0.5rem 0 1rem 0" />
+      <Divider m="0.5rem 0" />
     </Box>
   );
 }
