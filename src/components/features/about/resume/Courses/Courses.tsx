@@ -24,6 +24,9 @@ export function Courses() {
       <Divider m="0.5rem 0" />
       <UnorderedList fontSize="medium">
         <ListItem>
+          &quot;Svelte 3+ Fundamentals, v2&quot; by Rich Harris - January 2024
+        </ListItem>
+        <ListItem>
           &quot;Intermediate React Native&quot; by Kadi Karman - November 2023
         </ListItem>
         <ListItem>
