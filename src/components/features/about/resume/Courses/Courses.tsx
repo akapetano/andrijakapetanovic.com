@@ -24,6 +24,10 @@ export function Courses() {
       <Divider m="0.5rem 0" />
       <UnorderedList fontSize="medium">
         <ListItem>
+          &quot;Fullstack Svelte with SvelteKit&quot; by Rich Harris - February
+          2024
+        </ListItem>
+        <ListItem>
           &quot;Svelte 3+ Fundamentals, v2&quot; by Rich Harris - January 2024
         </ListItem>
         <ListItem>
