@@ -8,3 +8,7 @@ export interface IBlogPost {
   publishedOn: string;
   category?: BlogPostCategory;
 }
+
+export type BlogPostSlug =
+  | "getting-the-fundamentals-right-introduction"
+  | "my-first-post-and-the-journey-so-far";
