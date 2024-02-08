@@ -22,3 +22,10 @@ export const ROOM_COLORS = {
   white: ["white", "gray.100"],
   yellow: ["yellow.100", "yellow.300"],
 } as const;
+
+export const BLOG_POST_TITLES = {
+  "getting-the-fundamentals-right-introduction":
+    "Getting the Fundamentals Right: Introduction",
+  "my-first-post-and-the-journey-so-far":
+    "My First Post and the Journey So Far",
+};
