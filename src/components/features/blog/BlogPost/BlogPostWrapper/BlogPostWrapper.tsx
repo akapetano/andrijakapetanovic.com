@@ -20,7 +20,7 @@ export function BlogPostWrapper({
   const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <article>
+    <Box as="article" px={{ base: "1rem", lg: 0 }}>
       <Heading
         as="h2"
         lineHeight="1.3"
@@ -38,6 +38,6 @@ export function BlogPostWrapper({
       <Box color={textColor} fontSize="md" sx={{ p: { mb: "1rem" } }}>
         {children}
       </Box>
-    </article>
+    </Box>
   );
 }
