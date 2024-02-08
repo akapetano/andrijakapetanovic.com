@@ -32,16 +32,13 @@ export default function Footer() {
       bottom="0"
       left="0"
       width="100%"
-      height={["6rem", "6rem", "6rem", "6rem", "6rem"]}
+      height={{ base: "4rem", md: "6rem" }}
       boxShadow="base"
       overflow="hidden"
       zIndex="99"
-      gap={"0.3rem"}
+      gap={{ md: "0.3rem" }}
     >
-      <HStack
-        spacing={["2rem", "2rem", "2rem", "4rem", "4rem"]}
-        m={["0", "0", "0", "1rem 0 0 0", "1rem 0 0 0"]}
-      >
+      <HStack spacing={["2rem", "2rem", "2rem", "4rem", "4rem"]} m="1rem 0 0 0">
         <Link
           aria-label="GitHub Account of Andrija Kapetanović"
           href="https://github.com/akapetano"
