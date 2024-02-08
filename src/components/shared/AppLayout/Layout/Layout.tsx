@@ -3,6 +3,7 @@ import { Container, ContainerProps } from "@chakra-ui/react";
 export default function Layout({ ...restProps }: ContainerProps) {
   return (
     <Container
+      p={0}
       maxWidth="40rem"
       height="100%"
       margin={[
