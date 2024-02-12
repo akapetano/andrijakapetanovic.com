@@ -6,17 +6,19 @@ import { Box } from "@chakra-ui/react";
 interface IAuthorImageProps {
   isHome: boolean;
   hasDynamicShadow?: boolean;
+  margin?: string;
 }
 
 export default function AuthorImage({
   isHome,
   hasDynamicShadow = true,
+  margin,
 }: IAuthorImageProps) {
   const srcLightMode = "/images/andrija-kapetanovic.jpg";
   const srcDarkMode = "/images/andrija-kapetanovic-dark.jpg";
 
   return (
-    <AuthorImageWrapper isHome={isHome}>
+    <AuthorImageWrapper isHome={isHome} margin={margin}>
       {hasDynamicShadow ? (
         <DynamicShadowImage
           src={srcLightMode}

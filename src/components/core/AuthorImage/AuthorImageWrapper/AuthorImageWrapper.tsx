@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 interface IAuthorImageWrapper {
   isHome: boolean;
   children: ReactNode;
+  margin?: string;
 }
 
 export default function AuthorImageWrapper({
   isHome,
   children,
+  margin = "0 0 1.5rem",
 }: IAuthorImageWrapper) {
   const colorMode = useColorModeValue("lightMode", "darkMode");
   const layoutId = "imageWrapper";
@@ -19,7 +21,7 @@ export default function AuthorImageWrapper({
     flexDirection: "column" as "column",
     justifyContent: "start",
     alignItems: "center",
-    margin: "0 0 1.5rem",
+    margin: margin,
     height: isHome ? 150 : 114,
     width: isHome ? 150 : 114,
     borderRadius: "100%",

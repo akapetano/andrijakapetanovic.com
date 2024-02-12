@@ -1,8 +1,32 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 export function AboutMe() {
+  const brandColor = useColorModeValue("brand.500", "brand.200");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+
   return (
-    <VStack gap="0.5rem" fontSize="large">
+    <VStack
+      gap="0.5rem"
+      fontSize="smaller"
+      alignItems="flex-start"
+      color={textColor}
+    >
+      <Heading
+        as="h2"
+        fontSize="xx-large"
+        textAlign="left"
+        borderBottom="1px solid"
+        borderColor={textColor}
+        w="100%"
+      >
+        About Me
+      </Heading>
       <Text>
         As a frontend developer at Crafted, a digital agency that creates custom
         web and mobile solutions, I apply my skills in HTML, CSS, and JavaScript
