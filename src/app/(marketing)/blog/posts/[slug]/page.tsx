@@ -1,5 +1,5 @@
 import { SITE_TITLE } from "@/constants";
-import { BlogPost } from "../../../../components/features/blog/BlogPost/BlogPost";
+import { BlogPost } from "../../../../../components/features/blog/BlogPost/BlogPost";
 import { loadBlogPost } from "@/lib/file";
 
 interface IParams {

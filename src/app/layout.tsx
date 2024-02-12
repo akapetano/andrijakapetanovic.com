@@ -1,7 +1,6 @@
 import "./globals.css";
 import React from "react";
 import Providers from "../components/shared/Providers/Providers";
-import AppLayout from "../components/shared/AppLayout/AppLayout";
 import { ReducedMotionPreferences } from "../components/shared/ReducedMotionPreferences/ReducedMotionPreferences";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/constants";
 
@@ -22,9 +21,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
     <ReducedMotionPreferences>
       <html lang="en">
         <body>
-          <Providers>
-            <AppLayout>{children}</AppLayout>
-          </Providers>
+          <Providers>{children}</Providers>
         </body>
       </html>
     </ReducedMotionPreferences>

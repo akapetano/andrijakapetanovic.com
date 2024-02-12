@@ -1,6 +1,6 @@
-import { BlogSection } from "../../components/features/blog/BlogSection/BlogSection";
+import { BlogSection } from "../../../components/features/blog/BlogSection/BlogSection";
 import { Metadata } from "next";
-import { SITE_DESCRIPTION } from "../../constants";
+import { SITE_DESCRIPTION } from "../../../constants";
 import { getBlogPostList } from "@/lib/file";
 
 export const metadata: Metadata = {

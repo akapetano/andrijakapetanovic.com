@@ -1,6 +1,6 @@
-import { PortfolioSection } from "../../components/features/portfolio/PortfolioSection/PortfolioSection";
+import { PortfolioSection } from "../../../components/features/portfolio/PortfolioSection/PortfolioSection";
 import { Metadata } from "next";
-import { SITE_DESCRIPTION } from "../../constants";
+import { SITE_DESCRIPTION } from "../../../constants";
 
 export const metadata: Metadata = {
   title: "Andrija Kapetanović | Portfolio",
