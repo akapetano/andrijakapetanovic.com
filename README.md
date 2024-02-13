@@ -1,6 +1,6 @@
 # [andrijakapetanovic.com](https://www.andrijakapetanovic.com/)
 
-![Example image](/public/images/andrijakapetanovic.com%20-%20Site%20Screenshot.png)
+![Example image](/public/images/andrijakapetanovic.com%20-%20Site%20Screenshot.webp)
 
 ## Andrija Kapetanović | Front-end Developer
 
