@@ -2,7 +2,7 @@
 
 import { Tooltip, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ITouchFriendlyTooltipProps {
   toolName: string;
@@ -16,6 +16,19 @@ export function TouchFriendlyTooltip({
   toolColor,
 }: ITouchFriendlyTooltipProps) {
   const [isLabelOpen, setIsLabelOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+      const timer = setTimeout(() => setIsScrolling(false), 200);
+      return () => clearTimeout(timer);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Tooltip
@@ -25,7 +38,7 @@ export function TouchFriendlyTooltip({
       shouldWrapChildren
       bg={toolColor}
       zIndex="10"
-      closeOnScroll
+      closeOnScroll={isScrolling}
     >
       <Icon
         key={toolName}
