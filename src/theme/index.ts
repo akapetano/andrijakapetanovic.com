@@ -80,30 +80,6 @@ const styles = {
     ul: {
       marginLeft: "2rem",
     },
-
-    "::-webkit-scrollbar": {
-      width: "0.6em",
-    },
-
-    "::-webkit-scrollbar-track": {
-      boxShadow: mode(
-        props,
-        "inset 0 0 6px rgba(255, 255, 255, 0.3)",
-        "inset 0 0 6px rgba(0, 0, 0, 0.3)"
-      ),
-    },
-
-    "::-webkit-scrollbar-thumb": {
-      borderRadius: "10px",
-      backgroundColor: mode(props, "brand.300", "brand.600"),
-      boxShadow: mode(
-        props,
-        "inset 0 0 12px rgba(3, 57, 68, 0.9)",
-        "inset 0 0 12px rgba(4, 53, 91, 0.5)"
-      ),
-      outline: "1px solid",
-      outlineColor: mode(props, "brand.300", "brand.600"),
-    },
   }),
   ...config,
 };
