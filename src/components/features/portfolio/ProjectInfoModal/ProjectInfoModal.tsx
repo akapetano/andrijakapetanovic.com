@@ -154,7 +154,12 @@ export function ProjectInfoModal({
                   </Button>
                 </Link>
               ) : (
-                <Tooltip hasArrow label={"Coming soon..."} flex={1}>
+                <Tooltip
+                  closeOnScroll
+                  hasArrow
+                  label={"Coming soon..."}
+                  flex={1}
+                >
                   <Button
                     disabled={true}
                     _before={{ content: "none" }}
