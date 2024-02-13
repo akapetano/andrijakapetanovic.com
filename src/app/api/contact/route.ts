@@ -51,97 +51,54 @@ const generateEmailContent = (data: ContactFormData) => {
 };
 
 export async function POST(req: NextRequest) {
-  if (req.method === "POST") {
-    const { data }: { data: ContactFormData } = await req.json();
+  const data = await req.json();
 
-    const { firstName, lastName, email, subject, message, token } = data;
+  const { firstName, lastName, email, subject, message, token } = data;
 
-    // const human = await validateHuman(token);
+  if (token) {
+    const human = await validateHuman(token);
 
-    if (!firstName || !lastName || !email || !subject || !message) {
-      return NextResponse.json(
-        {
-          message: "Bad request. Please fill out the form completely.",
-        },
-        {
-          status: 400,
-        }
-      );
+    if (!human) {
+      NextResponse.json({ message: "Bot denied! 🤖" }, { status: 400 });
+      return;
     }
+  }
 
-    // if (!human) {
-    //   res.status(400);
-    //   res.json({ message: "Bot denied! 🤖" });
-    //   return;
-    // }
-
-    try {
-      await transporter.sendMail({
-        ...mailOptions,
-        ...generateEmailContent(data),
-        subject: subject,
-      });
-
-      return NextResponse.json(
-        {
-          success: true,
-          message: {
-            title: "Your message has been successfully sent.",
-            description:
-              "Thank you for contacting me. I will get back to you as soon as possible.",
-          },
-        },
-        { status: 200 }
-      );
-    } catch (error) {
-      console.log(error);
-      if (error instanceof Error) {
-        return NextResponse.json({ message: error?.message }, { status: 400 });
+  if (!firstName || !lastName || !email || !subject || !message) {
+    return NextResponse.json(
+      {
+        message: "Bad request. Please fill out the form completely.",
+      },
+      {
+        status: 400,
       }
+    );
+  }
+
+  try {
+    await transporter.sendMail({
+      ...mailOptions,
+      ...generateEmailContent(data),
+      subject: subject,
+    });
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: {
+          title: "Your message has been successfully sent.",
+          description:
+            "Thank you for contacting me. I will get back to you as soon as possible.",
+        },
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.log(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ message: error?.message }, { status: 400 });
     }
   }
 
   return NextResponse.json({ message: "Bad request" }, { status: 400 });
-
-  // const human = await validateHuman(token);
-
-  // if (!human) {
-  //   response.status(400);
-  //   response.json({ errors: ["Bot denied! 🤖"] });
-  //   return;
-  // }
-
-  // const transporter = nodemailer.createTransport({
-  //   port: 465,
-  //   secure: true,
-  //   host: process.env.CONTACT_FORM_HOST,
-  //   auth: {
-  //     user: process.env.CONTACT_FORM_SEND_EMAIL,
-  //     pass: process.env.CONTACT_FORM_PASS,
-  //   },
-  //   tls: { rejectUnauthorized: false },
-  // });
-  // transporter.use("compile", hbs(handlebarOptions));
-  // try {
-  //   await transporter.sendMail({
-  //     from: `${firstName} ${lastName} (${email})`,
-  //     replyTo: email,
-  //     to: process.env.CONTACT_FORM_RECEIVE_EMAIL,
-  //     subject: `AK website: ${title}`,
-  //     // @ts-ignore-next-line
-  //     template: "contact",
-  //     context: {
-  //       firstName: firstName,
-  //       lastName: lastName,
-  //       email: email,
-  //       title: title,
-  //       message: message,
-  //     },
-  //   });
-  //   response
-  //     .status(200)
-  //     .json({ message: "Your message has been successfully sent." });
-  // } catch (error) {
-  //   response.status(500).json({ message: "An error occurred" });
-  // }
 }

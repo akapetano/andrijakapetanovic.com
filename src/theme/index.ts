@@ -139,6 +139,17 @@ const components = {
           bg: mode(props, "brand.200", "brand.700"),
           borderColor: mode(props, "brand.200", "brand.700"),
         },
+        _disabled: {
+          _hover: {
+            color: mode(props, "gray.700 !important", "gray.50 !important"),
+            bg: mode(props, "brand.200 !important", "brand.700 !important"),
+            borderColor: mode(
+              props,
+              "brand.200 !important",
+              "brand.700 !important"
+            ),
+          },
+        },
       }),
       primaryGhost: (props: StyleFunctionProps) => ({
         color: mode(props, "brand.300", "brand.500"),
