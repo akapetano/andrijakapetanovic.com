@@ -136,29 +136,37 @@ export function ProjectInfoModal({
           <Divider alignSelf="center" />
           <ModalFooter px="1rem" py="0.5rem">
             <HStack spacing="1rem" width={{ base: "100%", md: "auto" }}>
-              <Link
-                href={link}
-                target="_blank"
-                _hover={{ textDecor: "none", _before: { content: "none" } }}
-                width="100%"
-              >
-                <Tooltip
-                  hasArrow
-                  label={isDisabled ? "Coming soon..." : null}
-                  shouldWrapChildren
+              {!isDisabled ? (
+                <Link
+                  href={link}
+                  target="_blank"
+                  _hover={{ textDecor: "none", _before: { content: "none" } }}
+                  width="100%"
                 >
                   <Button
                     disabled={isDisabled}
                     _before={{ content: "none" }}
                     leftIcon={<ExternalLinkIcon />}
                     variant="secondaryGhost"
-                    mt="0.2rem"
                     width="100%"
                   >
                     Website
                   </Button>
+                </Link>
+              ) : (
+                <Tooltip hasArrow label={"Coming soon..."} flex={1}>
+                  <Button
+                    disabled={true}
+                    _before={{ content: "none" }}
+                    leftIcon={<ExternalLinkIcon />}
+                    variant="secondaryGhost"
+                    width="100%"
+                    opacity={0.7}
+                  >
+                    Website
+                  </Button>
                 </Tooltip>
-              </Link>
+              )}
             </HStack>
           </ModalFooter>
         </ModalContent>
