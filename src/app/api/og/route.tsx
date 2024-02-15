@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
           >
             {pageTitle}
           </b>
-          <b style={{ color: "white", lineHeight: 1.2, width: "700px" }}>
+          <b style={{ color: "white", lineHeight: 1.2, width: "760px" }}>
             {mainTitle}
           </b>
           <b style={{ color: "#0ABDE3", fontSize: 20, marginTop: "-10px" }}>
