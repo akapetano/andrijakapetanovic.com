@@ -13,6 +13,7 @@ export const metadata = {
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    url: "https://andrijakapetanovic.com",
   },
 };
 

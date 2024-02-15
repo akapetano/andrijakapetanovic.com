@@ -226,6 +226,7 @@ export function Door({ layer }: IDoorProps) {
           aria-label="A doorbell"
           hasArrow
           placement="top"
+          closeOnScroll
         >
           <Flex
             aria-label="doorbell"

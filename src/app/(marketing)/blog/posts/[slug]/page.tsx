@@ -15,7 +15,15 @@ export async function generateMetadata({ params }: IParams) {
   return {
     title: `${title} • ${SITE_TITLE}`,
     description: abstract,
-    openGraph: { title: `${title} • ${SITE_TITLE}`, description: abstract },
+    openGraph: {
+      title: `${title} • ${SITE_TITLE}`,
+      description: abstract,
+      images: [
+        {
+          url: `https://www.andrijakapetanovic.com/api/og?page=Blog&title=${title}`,
+        },
+      ],
+    },
   };
 }
 
