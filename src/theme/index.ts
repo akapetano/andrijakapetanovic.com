@@ -45,12 +45,14 @@ const colors = {
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-family-heading",
+  display: "swap",
 });
 
 const hind = Hind({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-family-body",
+  display: "swap",
 });
 
 const monoFont = Fira_Code({
