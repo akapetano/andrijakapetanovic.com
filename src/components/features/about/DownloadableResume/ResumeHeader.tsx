@@ -17,15 +17,14 @@ import {
   FaGlobe,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-
-import AuthorImage from "../../../../../components/core/AuthorImage/AuthorImage";
+import AuthorImage from "../../../core/AuthorImage/AuthorImage";
 
 export function ResumeHeader() {
   const brandColor = useColorModeValue("brand.500", "brand.200");
   const textColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <HStack alignSelf="center" w="100%" as="header" color={textColor}>
+    <HStack alignSelf="center" w="100%" color={textColor} as="header">
       <Box margin={"-1rem 0 -1rem -2.5rem"}>
         <AuthorImage isHome={false} hasDynamicShadow={false} margin="2.5rem" />
       </Box>

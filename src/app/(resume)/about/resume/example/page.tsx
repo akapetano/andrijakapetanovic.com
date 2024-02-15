@@ -1,8 +1,8 @@
 "use client";
 
 import { Container, Box } from "@chakra-ui/react";
-import { ResumeHeader } from "@/app/(marketing)/about/resume/ResumeComponent/ResumeHeader";
-import { AboutMe } from "@/app/(marketing)/about/resume/ResumeComponent/AboutMe";
+import { ResumeHeader } from "../../../../../components/features/about/DownloadableResume/ResumeHeader";
+import { AboutMe } from "../../../../../components/features/about/DownloadableResume/AboutMe";
 export default function ResumeExample() {
   return (
     <Container maxW="2480px" display="flex" flexDirection="column" gap="0.5rem">

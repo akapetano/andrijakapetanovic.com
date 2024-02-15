@@ -19,7 +19,7 @@ export function AboutMe() {
     >
       <Heading
         as="h2"
-        fontSize="xx-large"
+        fontSize="x-large"
         textAlign="left"
         borderBottom="1px solid"
         borderColor={textColor}
