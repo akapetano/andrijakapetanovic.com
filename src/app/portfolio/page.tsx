@@ -9,13 +9,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.andrijakapetanovic.com/api/og?page=Portfolio",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://www.andrijakapetanovic.com/api/og?page=Portfolio",
-        width: 1800,
-        height: 1600,
       },
     ],
     locale: "en_US",
