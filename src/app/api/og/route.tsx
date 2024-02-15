@@ -90,8 +90,8 @@ export async function GET(req: NextRequest) {
       </div>
     ),
     {
-      width: 1920,
-      height: 800,
+      width: 1200,
+      height: 630,
       fonts: [{ name: "Montserrat", data: fontData, style: "normal" }],
     }
   );
