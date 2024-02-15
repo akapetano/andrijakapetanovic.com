@@ -29,8 +29,8 @@ export async function GET(req: NextRequest) {
           flexDirection: "row",
           flexWrap: "nowrap",
           backgroundColor: "#1A202C",
-          paddingLeft: "100px",
-          paddingRight: "100px",
+          paddingLeft: "50px",
+          paddingRight: "50px",
           gap: "50px",
           fontFamily: "Montserrat",
         }}
@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
           >
             {pageTitle}
           </b>
-          <b style={{ color: "white", lineHeight: 1.2, width: "900px" }}>
+          <b style={{ color: "white", lineHeight: 1.2, width: "700px" }}>
             {mainTitle}
           </b>
           <b style={{ color: "#0ABDE3", fontSize: 20, marginTop: "-10px" }}>

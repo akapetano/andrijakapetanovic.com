@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://www.andrijakapetanovic.com/api/og?page=Portfolio",
+        url: "http://localhost:3000/api/og?page=Portfolio",
       },
     ],
     locale: "en_US",
