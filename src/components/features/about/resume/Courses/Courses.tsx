@@ -47,6 +47,14 @@ export function Courses() {
           <Divider m="0.5rem 0" />
           <UnorderedList fontSize="medium">
             <ListItem>
+              &quot;The Last Algorithms Course You&apos;ll Want (Part 2)&quot;
+              by The Primeagen - March 2024
+            </ListItem>
+            <ListItem>
+              &quot;The Last Algorithms Course You&apos;ll Need&quot; by The
+              Primeagen - March 2024
+            </ListItem>
+            <ListItem>
               &quot;Fullstack Svelte with SvelteKit&quot; by Rich Harris -
               February 2024
             </ListItem>
