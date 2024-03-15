@@ -25,6 +25,7 @@ export function TouchFriendlyTooltip({
       shouldWrapChildren
       bg={toolColor}
       zIndex="10"
+      closeOnScroll
     >
       <Icon
         key={toolName}

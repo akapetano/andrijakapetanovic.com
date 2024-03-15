@@ -8,6 +8,7 @@ export function HomeActionButtons() {
       align="center"
       direction={["column", "column", "column", "row", "row"]}
       mb={["0", "0", "0", "4rem", "4rem"]}
+      w={{ base: "100%", md: "auto" }}
     >
       <ActionButton
         ariaLabel="Learn More About Andrija Kapetanović"

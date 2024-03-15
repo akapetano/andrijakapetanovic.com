@@ -20,7 +20,7 @@ export function ActionButton({
       href={href}
       textDecoration="none"
       _before={{ content: "none" }}
-      width={["80vw", "90vw", "100%", "100%", "100%"]}
+      width="100%"
       aria-label={ariaLabel}
     >
       <Button width="100%" variant={btnVariant}>

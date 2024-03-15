@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   HStack,
   Icon,
+  Heading,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { CloseIcon } from "@chakra-ui/icons";
@@ -38,6 +39,7 @@ export function ProjectInfoModal({
 }: IProjectInfoModalProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isHovered, setIsHovered] = useState(false);
+  const textColor = useColorModeValue("gray.600", "gray.300");
   const modalCloseButtonColor = useColorModeValue("accent.300", "accent.100");
   const modalCloseButtonHoverColor = useColorModeValue(
     "accent.400",
@@ -66,31 +68,37 @@ export function ProjectInfoModal({
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent display="flex">
-          <Flex justifyContent="space-between">
-            <ModalHeader fontSize="2xl">{title}</ModalHeader>
-            <motion.button
-              onClick={handleClose}
-              initial={false}
-              style={{ paddingInline: "1rem" }}
-              animate={{
-                rotate: isHovered ? 15 : 0,
-              }}
-              transition={{ type: "spring", stiffness: 250, damping: 10 }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Icon
-                color={
-                  isHovered ? modalCloseButtonHoverColor : modalCloseButtonColor
-                }
-                as={CloseIcon}
-                width={4}
-                height={4}
-              />
-            </motion.button>
-          </Flex>
-          <Divider alignSelf="center" w="95%" mb="1rem" />
+        <ModalContent display="flex" mx={{ base: "0.5rem", md: 0 }}>
+          <ModalHeader fontSize="2xl" p="1rem" py="0.5rem">
+            <Flex justifyContent="space-between">
+              <Heading as="h3" fontSize="xx-large" m={0}>
+                {title}
+              </Heading>
+              <motion.button
+                onClick={handleClose}
+                initial={false}
+                style={{ paddingInline: "1rem", marginRight: "-1rem" }}
+                animate={{
+                  rotate: isHovered ? 15 : 0,
+                }}
+                transition={{ type: "spring", stiffness: 250, damping: 10 }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Icon
+                  color={
+                    isHovered
+                      ? modalCloseButtonHoverColor
+                      : modalCloseButtonColor
+                  }
+                  as={CloseIcon}
+                  width={4}
+                  height={4}
+                />
+              </motion.button>
+            </Flex>
+          </ModalHeader>
+          <Divider alignSelf="center" />
           {isDisabled ? (
             <Image
               display="block"
@@ -120,35 +128,50 @@ export function ProjectInfoModal({
               />
             </Link>
           )}
-          <Divider alignSelf="center" w="95%" mt="1rem" />
-          <ModalBody fontSize="md">{longDescription}</ModalBody>
+          <Divider alignSelf="center" />
+          <ModalBody fontSize="md" px="1rem" py="0.5rem" color={textColor}>
+            {longDescription}
+          </ModalBody>
 
-          <Divider alignSelf="center" w="95%" />
-          <ModalFooter>
+          <Divider alignSelf="center" />
+          <ModalFooter px="1rem" py="0.5rem">
             <HStack spacing="1rem" width={{ base: "100%", md: "auto" }}>
-              <Link
-                href={link}
-                target="_blank"
-                _hover={{ textDecor: "none", _before: { content: "none" } }}
-                width="100%"
-              >
-                <Tooltip
-                  hasArrow
-                  label={isDisabled ? "Coming soon..." : null}
-                  shouldWrapChildren
+              {!isDisabled ? (
+                <Link
+                  href={link}
+                  target="_blank"
+                  _hover={{ textDecor: "none", _before: { content: "none" } }}
+                  width="100%"
                 >
                   <Button
                     disabled={isDisabled}
                     _before={{ content: "none" }}
                     leftIcon={<ExternalLinkIcon />}
                     variant="secondaryGhost"
-                    mt="0.2rem"
                     width="100%"
                   >
                     Website
                   </Button>
+                </Link>
+              ) : (
+                <Tooltip
+                  closeOnScroll
+                  hasArrow
+                  label={"Coming soon..."}
+                  flex={1}
+                >
+                  <Button
+                    disabled={true}
+                    _before={{ content: "none" }}
+                    leftIcon={<ExternalLinkIcon />}
+                    variant="secondaryGhost"
+                    width="100%"
+                    opacity={0.7}
+                  >
+                    Website
+                  </Button>
                 </Tooltip>
-              </Link>
+              )}
             </HStack>
           </ModalFooter>
         </ModalContent>

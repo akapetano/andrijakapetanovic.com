@@ -17,6 +17,7 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiWordpress,
+  SiSvelte,
 } from "react-icons/si";
 import { TouchFriendlyTooltip } from "../../../core/TouchFriendlyTooltip/TouchFriendlyTooltip";
 
@@ -26,6 +27,7 @@ export function AboutFrontendToolbox() {
   const nextJsColor = useColorModeValue("#000", "gray.100");
   const vueJsColor = useColorModeValue("#35495e", "#42b883");
   const nuxtJsColor = useColorModeValue("#04dc82", "#81edc0");
+  const svelteColor = "#ff3e00";
 
   const FRONTEND_TOOLBOX = [
     { toolName: "HTML5", toolIcon: FaHtml5, toolColor: "#E34C26" },
@@ -37,6 +39,7 @@ export function AboutFrontendToolbox() {
     { toolName: "Next.js", toolIcon: SiNextdotjs, toolColor: nextJsColor },
     { toolName: "Vuejs", toolIcon: FaVuejs, toolColor: vueJsColor },
     { toolName: "Nuxtjs", toolIcon: SiNuxtdotjs, toolColor: nuxtJsColor },
+    { toolName: "Svelte", toolIcon: SiSvelte, toolColor: svelteColor },
     { toolName: "Chakra UI", toolIcon: SiChakraui, toolColor: "#2cc6b8" },
     {
       toolName: "Tailwind CSS",
