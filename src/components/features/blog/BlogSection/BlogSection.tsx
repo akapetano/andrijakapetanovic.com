@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading } from "@chakra-ui/react";
+import { VStack, Heading } from "@chakra-ui/react";
 import { SectionContainer } from "../../../shared/SectionContainer/SectionContainer";
 import {
   UnorderedList,
@@ -34,31 +34,25 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
         listStyleType="none"
         p={0}
         m={0}
-        display="grid"
+        display={"grid"}
         gridTemplateColumns={{
           base: "1fr",
           md: "repeat(2, 1fr)",
         }}
-        gridAutoRows="1fr"
-        gap={{ base: 0, md: 5 }}
+        gridAutoRows={{ base: "", md: "1fr" }}
+        gap={5}
       >
         {allPostsData?.map(({ slug, publishedOn, abstract, title }) => {
           const articlePath = `blog/posts/${slug}`;
 
           return (
-            <ListItem
-              key={slug}
-              className="blog-post-list-item"
-              margin="0 0 1.25rem"
-              display={{ base: "block", md: "flex" }}
-            >
-              <Card display={"flex"} flexDirection="column">
+            <ListItem key={slug} className="blog-post-list-item" display="flex">
+              <Card display="flex" flexDirection="column">
                 <ChakraLink
                   fontSize="lg"
                   display="flex"
                   alignItems="center"
                   gap="0.2rem"
-                  mt="0.5rem"
                   as={Link}
                   href={articlePath}
                   variant="noUnderline"
@@ -79,41 +73,39 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
                   </Heading>
                 </ChakraLink>
                 {abstract && (
-                  <Text fontSize="md" color={textColor}>
+                  <Text fontSize="md" color={textColor} flex={1}>
                     {abstract}
                   </Text>
                 )}
-                {publishedOn && (
-                  <Text
-                    fontSize="sm"
-                    color={dateColor}
-                    flexGrow={{ base: "", md: 1 }}
+                <VStack alignItems="flex-start" mt="1rem" gap="0.25rem">
+                  {publishedOn && (
+                    <Text fontSize="sm" color={dateColor}>
+                      <Date dateString={publishedOn} />
+                    </Text>
+                  )}
+                  <ChakraLink
+                    fontSize="lg"
+                    display="flex"
+                    alignItems="center"
+                    gap="0.2rem"
+                    className="read-article-button"
+                    p={0}
+                    as={Link}
+                    href={articlePath}
+                    variant="noUnderline"
+                    _hover={{ color: linkHoverColor }}
                   >
-                    <Date dateString={publishedOn} />
-                  </Text>
-                )}
-                <ChakraLink
-                  fontSize="lg"
-                  display="flex"
-                  alignItems="center"
-                  gap="0.2rem"
-                  py="0.5rem"
-                  className="read-article-button"
-                  as={Link}
-                  href={articlePath}
-                  variant="noUnderline"
-                  _hover={{ color: linkHoverColor }}
-                >
-                  Read article
-                  <ArrowForwardIcon
-                    transition="transform .3s ease-in-out"
-                    sx={{
-                      ".read-article-button: hover &": {
-                        transform: "translateX(30%) scale(1.1)",
-                      },
-                    }}
-                  />
-                </ChakraLink>
+                    Read article
+                    <ArrowForwardIcon
+                      transition="transform .3s ease-in-out"
+                      sx={{
+                        ".read-article-button: hover &": {
+                          transform: "translateX(30%) scale(1.1)",
+                        },
+                      }}
+                    />
+                  </ChakraLink>
+                </VStack>
               </Card>
             </ListItem>
           );
