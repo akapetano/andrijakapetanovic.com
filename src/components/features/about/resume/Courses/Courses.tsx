@@ -47,6 +47,16 @@ export function Courses() {
           <Divider m="0.5rem 0" />
           <UnorderedList fontSize="medium">
             <ListItem>
+              &quot;Advanced GraphQL, v2&quot; by Scott Moss - April 2024
+            </ListItem>
+            <ListItem>
+              &quot;Client-Side GraphQL in React&quot; by Scott Moss - March
+              2024
+            </ListItem>
+            <ListItem>
+              &quot;HTMX & Go&quot; by The Primeagen - March 2024
+            </ListItem>
+            <ListItem>
               &quot;The Last Algorithms Course You&apos;ll Want (Part 2)&quot;
               by The Primeagen - March 2024
             </ListItem>
