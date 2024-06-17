@@ -4,7 +4,7 @@ export default function Layout({ ...restProps }: ContainerProps) {
   return (
     <Container
       p={0}
-      maxWidth="40rem"
+      maxWidth={{ base: "40rem", xl: "50rem" }}
       height="100%"
       margin={[
         "6rem auto 6rem",

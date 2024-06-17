@@ -1,0 +1,425 @@
+---
+title: "Getting the Fundamentals Right: HTML"
+abstract:
+  "In the second installment of the 'Getting the Fundamentals Right' series,
+  we're tackling HTML—the backbone of web development. Building on the
+  foundation laid in the introduction, we explore the essential elements and
+  structure of HTML which will allow us to harness its power to the fullest."
+publishedOn: "2024-06-17"
+category: "tech"
+---
+
+You can often read on different social media platforms, and many blog posts that
+HTML is not a programming language, therefore it's not taken seriously. Some may
+say it's not as important as people claim it to be, but let's remind ourselves
+when scrolling through in our browser, that those claims and words are delivered
+by HTML, wrapped in HTML elements. This blog post explores HTML, its importance
+and purpose. If you haven't already, you can first read
+[the first blog post of the series](/blog/posts/getting-the-fundamentals-right-introduction)
+to get a clearer picture of the series' goal, but for now, let's dive right in.
+
+### What is HTML?
+
+HTML stands for _HyperText Markup Language_, and it can be described as
+[the most basic building block of the Web](https://developer.mozilla.org/en-US/docs/Web/HTML).
+"Hypertext" means that the text contains links, and "markup" refers to HTML's
+means of annotating text, images, and other content for display in a web
+browser. HTML is a language that web browsers understand, and it is used to
+structure content on the web.
+
+#### The Anatomy of an HTML Element
+
+HTML has a special syntax for defining fragments or elements of that content,
+and these are called tags. Each HTML element is composed of several parts: start
+tag, attributes, content and end tag.
+
+```html
+<h1>A simple heading</h1>
+<p>Some paragraph text to accompany the simple heading.</p>
+<a href="htts://www.example.com" target="_blank">Example Site</a>
+```
+
+In the example above, you can see that tags are enclosed in angle brackets, and
+most tags come in pairs. You might also have noticed that the opening tag and
+the closing tag are different only by the forward slash. This is because the
+closing tag has a forward slash before the tag name. The content that is
+enclosed between the opening and closing tags is the content that will be
+displayed on the screen. Self-closing elements, like the `<img>` tag, don't have
+an end tag, they don't have any content between tags, but instead rely solely on
+attributes.
+
+Attributes are used to provide additional information about the element. They
+are included within the start tag and consist of a name-value pair, like in the
+anchor tag above. The `href` attribute is used to specify the URL of the page,
+and the value within the quotes is the URL itself. The `target` attribute is
+used to specify where the linked document will be opened. The "\_blank" value
+tells the browser to open the linked document in a new tab or window.
+
+To put it simply, HTML is a language for displaying content. Just like we would
+display content on a piece of paper with a pencil, we follow a similar order to
+have some content display on a screen. To complete this analogy, HTML is the
+graphite being left on the piece of paper, but we still need to talk about what
+exactly is our digital "paper".
+
+### Behind the Scenes
+
+By defining the intended content via tags, we are sending a list to the browser,
+which is stored in C++, the low-level programming language in which the web
+browser is mostly built in, to determine what gets displayed on a page. The
+browser or rather the browser engine is responsible for parsing the list.
+
+To be more precise, when talking about this list, it's actually more of an
+object. This is the first piece of our puzzle. Since it's a representation of
+the page, it's also a model, the second piece. With the advent of the Web, pages
+were actually called documents, since it was just list of links and text. This
+brings out to our final piece of the puzzle to build out the term
+[Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model).
+The DOM is a representation of the document, and it's a model that the browser
+uses to determine what gets displayed on the screen. That representation of a
+structure is shaped as a tree of nodes.
+
+So, when an HTML page is loaded, the browser's rendering engine processes the
+HTML markup, CSS, and JavaScript. The rendering engine builds the DOM tree from
+the HTML, then the CSS is applied to the DOM, and we use JavaScript to interact
+with it. Although we see the HTML parsing as a linear process, it actually
+doesn't have to be, since scripts and styles within the HTML can alter the
+document as it's being parsed. For example, a `<script>` tag, which we'll talk
+about more in the JavaScript part of this series, might insert additional HTML
+content into the DOM, or even remove some of it.
+
+This whole process is not something that we should take for granted. It's a
+testament to the power of the web, and all the different pieces of technologies
+that had to fall into place to make this possible. Returning to the mental model
+from the introduction of this series—the house analogy—in it, the walls are
+necessary for all the other parts to have a place to be, or to have a purpose to
+serve. Sure, you could the electrical wires suspended in the air or a bucket of
+paint spilled on the floor, but it's not a house. It's just a mess. There's no
+underyling structure which gives a platform for all the other components to
+shine. Now, that we have some idea of what's going on behind the scenes, it's
+time to talk about meaning, specifically the importance of meaning in HTML.
+
+### Semantics in HTML
+
+Semantics is the study of meaning, and in the context of HTML, it refers to the
+meaning of the content and the meaning behind the tags that represent it or the
+lack of meaning when talking about generic HTML elements. This representation is
+clear to both the developer and the browser.
+
+Examples of non-semantic elements are
+[`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) and
+[`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span).
+These elements tell nothing about its content. They are mostly used as wrappers
+for grouping different elements together or for styling a fragment of a text
+within a paragraph or heading differently. Unfortunately, when not following the
+best practices of meaningful semantic HTML, we may find ourselves cooking up a
+[`<div> soup`](https://www.chillybin.co/would-you-like-another-bowl-of-div-soup/#:~:text=What%20is%20soup%20you,it%20can%20feel%20that%20way.).
+This term describes a page that is filled with `<div>` tags. Imagine the
+following structure:
+
+```html
+<div class="header">
+  <div class="menu">
+    <div class="logo">
+      <div><img src="logo.png" alt="Our Company Logo" /></div>
+    </div>
+    <div class="nav">
+      <div><a href="#">Home</a></div>
+      <div><a href="#">About Us</a></div>
+      <div><a href="#">Services</a></div>
+      <div><a href="#">Contact</a></div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="content">
+    <div class="left-panel">
+      <div class="card">
+        <div class="card-header"><div class="h2">Welcome!</div></div>
+        <div class="card-body">
+          <div class="text">Hello and welcome to our website!</div>
+        </div>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="news">
+        <div class="article">
+          <div class="h3">Latest News</div>
+          <div class="article-content">
+            <div class="text">Check out our latest product launch!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-content">
+    <div class="copyright">Copyright &copy; 2023</div>
+  </div>
+</div>
+```
+
+If no CSS classes (values within the `class` attribute) were applied, it would
+be extremenly difficult to scan through the code and understand the structure of
+the page. This is where semantic HTML comes into play. By using semantic HTML
+elements, we can give meaning to the content and structure of the page. Let's
+rewrite the above example using semantic HTML elements:
+
+```html
+<header>
+  <nav class="menu">
+    <img src="logo.png" alt="Our Company Logo" class="logo" />
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="left-panel">
+    <article class="card">
+      <header><h2>Welcome!</h2></header>
+      <p>Hello and welcome to our website!</p>
+    </article>
+  </section>
+  <aside class="right-panel">
+    <article class="news">
+      <h3>Latest News</h3>
+      <p>Check out our latest product launch!</p>
+    </article>
+  </aside>
+</main>
+<footer>
+  <p>Copyright &copy; 2023</p>
+</footer>
+```
+
+This is much easier to read and understand. It improves
+[maintainability, performance, and quality](https://web.dev/articles/vitals).
+This is the type of code that we should strive to write. It's not only easier to
+read and understand, but it's also easier to maintain and debug. It's also more
+accessible to people with disabilities, and it's better for SEO. Writing
+semantic HTML creates an optimal web experience for everyone. You can find a
+list of all HTML elements on
+[MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+
+### Accessibility in HTML
+
+Accessibility goes hand in hand with semantics. By writing semantic HTML, we are
+using elements that clearly describe their meaning which enables the assistive
+technologies to do their job to the best of their capabilities. For example, the
+proper use of
+[headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
+(`<h1>`, `<h2>`, `<h3>`, etc.) helps create a hierarchical structure for the
+content. The use of the `alt` attribute in the
+[`<img/>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) tag
+provides a textual alternative to the image for screen readers. The use of the
+[`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) tag
+in forms associates the label with the input field, making it easier for screen
+readers to understand the form. By ensuring each form control has a unique `id`,
+we can use the `for` attribute to associate the label to a form control. Using
+fieldsets and legends to group related form controls together, as in the
+following example, is also helpful.
+
+```html
+<form>
+  <fieldset>
+    <legend>Contact Information</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+    <button type="submit">Submit</button>
+  </fieldset>
+</form>
+```
+
+By following these best practices, we can make the web more accessible to people
+with disabilities. This is important because the web should be accessible to
+everyone, regardless of their abilities. It's our responsibility as developers
+to ensure that the web is accessible to everyone. A nice acronym for remembering
+to use semantically correct HTML is
+[POSH](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML), which
+stands for Plain Old Semantic HTML.
+
+### Enhancing HTML with Web APIs
+
+HTML comes with a lot of elements that can be used to structure content, but
+with the continouos release of new web APIs
+[Application Programming Interfaces](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction),
+we can enhance our HTML and create impressive interfaces without having to reach
+for JavaScript.
+
+#### Popover API
+
+One such API is the
+[Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
+which is a new web API that allows developers to create popovers. It's currently
+supported in all modern browsers. It can be controlled either via HTML
+attributes or JavaScript. When opting for the declarative option and HTML
+attributes, we can create a popover using the following code:
+
+```html
+<button popovertarget="my-popover">Toggle the popover</button>
+<div id="my-popover" popover>
+  <p>This is an awesome popover!</p>
+</div>
+```
+
+In the example above, we have a button that toggles the popover when clicked. We
+don't need to write any JavaScript to make this work. The Popover API takes care
+of everything for us.
+
+#### `<dialog>` Element and Dialog API
+
+Another example of a web API that enhances HTML is the Dialog API. The dialog
+HTML element works since 2022 works in all browser. It's a
+[built-in modal or non-modal dialog box](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog),
+and it be controlled either via HTML attributes or JavaScript. With the `open`
+attribute, the dialog is displayed when the page loads. We can use HTML `<form>`
+elements to close the dialog by setting the `method` attribute to `dialog`. The
+following code shows how to create a dialog using HTML attributes:
+
+```html
+<dialog open>
+  <p>Modals are easy with the Dialog API!</p>
+  <form method="dialog">
+    <button>X</button>
+  </form>
+</dialog>
+```
+
+Some other features that come with the `<dialog>` element are the ability to
+trap focus so the user can navigate through the dialog using the `Tab` key
+without accidentally closing it, the ability to close the dialog by hitting the
+`Esc` key, and the ability to close the dialog by clicking outside of it.
+
+#### `<details>` and `<summary>` Elements
+
+The
+[`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+HTML element is used to create a disclosure widget which can be toggled open or
+closed. The information is visible only when the widget is toggled open. The
+contents within the `<summary>` element are used as the label of the widget. The
+following code shows how to create a disclosure widget using the `<details>` and
+`<summary>` elements:
+
+```html
+<details open>
+  <summary>HTML</summary>
+  <p>HTML stands for HyperText Markup Language.</p>
+</details>
+```
+
+#### `<input>` Enhancements
+
+The `<input>` element has been enhanced with new attributes without needing
+JavaScript, and they are the following:
+
+- `type="date"` which provides a date picker.
+- `type="color"` which provides a color picker.
+- `type="range"` which provides slider control.
+- `pattern` helps us to validate the input field using a regular expression.
+- `required` makes the input field required within a form.
+- `min` and `max` define the minimum and maximum values for numerical inputs.
+
+<br />
+
+#### HTML Fragments with the `<template>` Element
+
+The
+[`<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
+HTML element is used to declare fragments of HTML that can be instantiated
+later. This allows for reusable HTML snippets which can be used later with
+JavaScript or it can be generated immediately into the (shadow
+DOM)[https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM].
+
+#### `<datalist> Element`
+
+Sometimes we need to provide a list of options to the user, and the
+[`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
+element is perfect for this use case. It provides a list of predefined options
+that can autocomplete the input field. By typing into the bound `<input>`
+element, you can easily filter out options that match your wanted input. The
+connection is established via the `id` attribute on the `<datalist>` element and
+the `list` attribute on the `<input>` element which have to be of same value.
+The following code shows how to create a list of options using the `<datalist>`
+element:
+
+```html
+<label for="pizza-topping-choice">Choose a topping:</label>
+<input
+  list="pizza-toppings"
+  id="pizza-topping-choice"
+  name="pizza-topping-choice"
+/>
+
+<datalist id="pizza-toppings">
+  <option value="Pepperoni"></option>
+  <option value="Mushrooms"></option>
+  <option value="Onions"></option>
+  <option value="Sausage"></option>
+  <option value="Bacon"></option>
+  <option value="Extra cheese"></option>
+  <option value="Black olives"></option>
+  <option value="Green peppers"></option>
+  <option value="Pineapple"></option>
+  <option value="Spinach"></option>
+</datalist>
+```
+
+It's important to note that the `<datalist>` element is not a form control, but
+a list of predefined options. It also doesn't have full support in all browsers;
+for example, Firefox has yet to implement it.
+
+#### `<meter>` and `<progress>` Elements
+
+The [`<meter>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
+and[`<progress>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
+elements are used to display progress bars. While they are almost identical,
+there's a semantic difference in their use. The `<meter>` element is used to
+display a scalar measurement within a known range and functions more like a
+gauge. With `<meter>` we can denote low, high, and optimum values. On the other
+hand, `<progress>` is used to display, as the name implies, progress of a
+specific task at hand. It utilizes the `max` and `value` attributes to denote
+the progress.
+
+<figure>
+  <figcaption style={{fontWeight: 'bold', marginBottom: '-20px'}}>`<meter>`</figcaption>
+  ```html
+  <label for="fuel">Fundraising Progress:</label>
+  <meter id="fuel" min="0" max="10000" low="2000" high="8000" optimum="10000" value="6000">
+    $6,000 raised out of $10,000
+  </meter>
+````
+</figure>
+
+<figure>
+  <figcaption style={{fontWeight: 'bold', marginBottom: '-20px'}}>`<progress>`</figcaption>
+  ```html
+  <label for="form-progress">Form Completion:</label>
+  <progress id="form-progress" max="5" value="1">1 out of 5 steps completed</progress>
+  ```
+</figure>
+
+### Conclusion
+
+HTML is the backbone of web development, providing the solid foundation
+necessary for building modern web applications. By writing semantic HTML, we
+keep up with web standards, make our code easier to read and understand, and
+create a better web experience for everyone. Reflect on how you use HTML in your
+projects—are there areas where you could improve semantics or accessibility?
+
+In the next blog post of the series, we will be exploring CSS, the language used
+for styling the web.
+
+### Resources
+
+- [HTML: HyperText Markup Language](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+- [Would You Like Another Bowl of Div Soup? by Shaan Nicol](https://www.chillybin.co/would-you-like-another-bowl-of-div-soup/#:~:text=What%20is%20soup%20you,it%20can%20feel%20that%20way.)
+- [Semantic HTML: Not a Ranking But Still Important](https://www.searchenginejournal.com/semantic-html-not-a-ranking-factor-but-still-important/490436/)
+- [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [Learn HTML](https://web.dev/learn/html)

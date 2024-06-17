@@ -10,7 +10,7 @@
   font-family: var(--font-family-mono);
 }
 .wrapper code > div {
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding: 0px !important;
 }
 
