@@ -26,7 +26,7 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
   const linkHoverColor = useColorModeValue("brand.700", "brand.200");
 
   return (
-    <SectionContainer>
+    <SectionContainer maxWidth="none">
       <Heading fontSize="1.5rem" lineHeight="1.4" margin="1rem 0">
         Blog posts
       </Heading>
@@ -38,6 +38,7 @@ export function BlogSection({ allPostsData }: IAllPostsData) {
         gridTemplateColumns={{
           base: "1fr",
           md: "repeat(2, 1fr)",
+          xl: "repeat(3, 1fr)",
         }}
         gridAutoRows={{ base: "", md: "1fr" }}
         gap={5}
