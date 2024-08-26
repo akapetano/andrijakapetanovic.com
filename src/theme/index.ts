@@ -4,6 +4,7 @@ import {
   ThemeConfig,
   defineStyleConfig,
   CSSWithMultiValues,
+  withDefaultColorScheme,
 } from "@chakra-ui/react";
 import { StyleFunctionProps } from "@chakra-ui/styled-system";
 import { mode } from "@/utils/mode";
@@ -351,13 +352,16 @@ const components = {
   },
 } as const;
 
-const theme = extendTheme({
-  styles,
-  colors,
-  fonts,
-  components,
-  breakpoints,
-  boxShadow,
-});
+const theme = extendTheme(
+  {
+    styles,
+    colors,
+    fonts,
+    components,
+    breakpoints,
+    boxShadow,
+  },
+  withDefaultColorScheme({ colorScheme: "brand" })
+);
 
 export default theme;
