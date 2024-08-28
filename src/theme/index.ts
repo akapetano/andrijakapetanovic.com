@@ -72,6 +72,7 @@ const fonts = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     "html, body": {
+      scrollBehavior: "smooth",
       color: mode(props, "gray.200", "gray.700"),
       padding: "0",
       margin: "0",
