@@ -50,7 +50,7 @@ export function BlogPostWrapper({
       {tableOfContents ? (
         <Box
           position="fixed"
-          top={"14rem"}
+          top={"calc(50% - 9rem)"}
           right={{ base: "1.2rem", "2xl": "2rem" }}
           zIndex={9999}
         >
@@ -60,7 +60,7 @@ export function BlogPostWrapper({
             </PopoverTrigger>
             <PopoverContent
               position="fixed"
-              top={"14rem"}
+              top={"calc(50% - 18rem)"}
               right={{ base: "3.2rem", "2xl": "4rem" }}
               boxShadow="lg"
               isolation="isolate"
