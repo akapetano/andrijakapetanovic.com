@@ -48,39 +48,39 @@ export function BlogPostWrapper({
         <ReadTimeBadge text={content} ml="0.5rem" />
       </Flex>
       {tableOfContents ? (
-        <Popover trigger="hover">
-          <PopoverTrigger>
-            <Tablets
-              headings={headings}
-              mb="1rem"
+        <Box
+          position="fixed"
+          top={"14rem"}
+          right={{ base: "1.2rem", "2xl": "2rem" }}
+          zIndex={9999}
+        >
+          <Popover trigger="hover">
+            <PopoverTrigger>
+              <Tablets headings={headings} />
+            </PopoverTrigger>
+            <PopoverContent
               position="fixed"
               top={"14rem"}
-              right={{ base: "1.2rem", "2xl": "2rem" }}
+              right={{ base: "3.2rem", "2xl": "4rem" }}
+              boxShadow="lg"
               isolation="isolate"
-            />
-          </PopoverTrigger>
-          <PopoverContent
-            position="fixed"
-            top={"14rem"}
-            right={{ base: "3.2rem", "2xl": "4rem" }}
-            isolation="isolate"
-            boxShadow="md"
-          >
-            <PopoverHeader
-              pt="3"
-              fontWeight="semibold"
-              sx={{
-                _dark: { color: "gray.300" },
-                _light: { color: "gray.600" },
-              }}
             >
-              Table of Contents
-            </PopoverHeader>
-            <PopoverBody>
-              <TableOfContents display="block" headings={headings} />
-            </PopoverBody>
-          </PopoverContent>
-        </Popover>
+              <PopoverHeader
+                pt="3"
+                fontWeight="semibold"
+                sx={{
+                  _dark: { color: "gray.300" },
+                  _light: { color: "gray.600" },
+                }}
+              >
+                Table of Contents
+              </PopoverHeader>
+              <PopoverBody>
+                <TableOfContents display="block" headings={headings} />
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </Box>
       ) : null}
       <Box color={textColor} fontSize="md" sx={{ p: { mb: "1rem" } }}>
         {children}

@@ -55,7 +55,7 @@ export default function BoxModel() {
           </Text>
           <Flex
             w="100%"
-            bgColor="blue.100"
+            bgColor="blue.300"
             justifyContent="center"
             alignItems="center"
             position="relative"
@@ -64,7 +64,9 @@ export default function BoxModel() {
               fontWeight="bold"
               mt="20px"
               fontSize={{ base: "medium", md: "large" }}
-              sx={{ _dark: { color: "gray.700" } }}
+              sx={{
+                _dark: { color: "gray.700" },
+              }}
             >
               Content
             </Text>
