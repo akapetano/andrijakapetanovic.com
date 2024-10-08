@@ -10,14 +10,12 @@ import {
 import Link from "next/link";
 import { CodeSnippet } from "../components/core/CodeSnippet/CodeSnippet";
 import HouseDemo from "../components/features/blog/HouseDemo/HouseDemo";
-import CascadeDemo from "../components/features/blog/CascadeDemo/CascadeDemo";
 import BoxModelDemo from "../components/features/blog/BoxModelDemo/BoxModelDemo";
 import { escapeText } from "@/lib/file";
 
 //@ts-ignore
 interface ComponentsMap extends MDXComponents {
   HouseDemo: typeof HouseDemo;
-  CascadeDemo: typeof CascadeDemo;
   BoxModelDemo: typeof BoxModelDemo;
 }
 
@@ -26,7 +24,9 @@ const MdxHeading = (props: HeadingProps) => {
   const id = children?.toString().replace(/ /g, "-").toLowerCase() ?? "";
   const escapedId = escapeText(id);
 
-  return <Heading id={escapedId} {...props} />;
+  return (
+    <Heading id={escapedId} paddingTop="90px" marginTop="-90px" {...props} />
+  );
 };
 
 export const COMPONENT_MAP = {
@@ -46,6 +46,5 @@ export const COMPONENT_MAP = {
   ol: (props) => <OrderedList ml="2rem" mt="-0.5rem" mb="0.5rem" {...props} />,
   li: (props) => <ListItem {...props} />,
   HouseDemo,
-  CascadeDemo,
   BoxModelDemo,
 } as ComponentsMap;

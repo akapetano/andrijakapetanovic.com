@@ -31,7 +31,7 @@ export default async function Post({ params }: IParams) {
   const slug = params.slug;
   const { frontmatter, content } = await loadBlogPost(slug);
   const headings = await extractHeadings(content);
-  const { title, publishedOn } = frontmatter;
+  const { title, publishedOn, tableOfContents } = frontmatter;
 
   return (
     <BlogPost
@@ -40,6 +40,7 @@ export default async function Post({ params }: IParams) {
       publishedOn={publishedOn}
       content={content}
       headings={headings}
+      tableOfContents={tableOfContents}
     />
   );
 }

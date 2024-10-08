@@ -46,6 +46,7 @@ export default function MobileHamMenu() {
           onClick={onToggle}
           display="flex"
           zIndex="9000"
+          mr="-0.5rem"
         />
         {isOpen ? (
           <VStack

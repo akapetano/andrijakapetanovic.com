@@ -110,6 +110,7 @@ const Card = defineStyleConfig({
 
 const components = {
   Button: {
+    baseStyle: { lineHeight: 0 },
     variants: {
       primary: (props: StyleFunctionProps) => ({
         color: mode(props, "gray.800", "white"),
@@ -294,6 +295,12 @@ const components = {
         border: "2px solid",
         color: mode(props, "gray.400", "gray.500"),
         borderColor: mode(props, "brand.300", "brand.400"),
+        transition: "color 0.5s ease, background-color 0.5s ease",
+        _hover: {
+          bgColor: mode(props, "brand.300", "brand.400"),
+          color: mode(props, "gray.50", "gray.50"),
+          transition: "color 0.25s ease, background-color 0.25s ease",
+        },
       }),
     },
   },

@@ -8,6 +8,7 @@ export interface IBlogPost {
   publishedOn: string;
   category?: BlogPostCategory;
   headings?: Heading[];
+  tableOfContents?: boolean;
 }
 
 export type BlogPostSlug =
