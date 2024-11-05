@@ -80,7 +80,6 @@ const styles = {
       lineHeight: 1.6,
       minHeight: "fit-content",
     },
-
     ul: {
       marginLeft: "2rem",
     },
@@ -199,6 +198,7 @@ const components = {
   Link: {
     baseStyle: (props: StyleFunctionProps) => ({
       color: mode(props, "brand.300", "brand.600"),
+      cursor: "pointer",
     }),
     variants: {
       noUnderline: (props: StyleFunctionProps) => ({

@@ -8,10 +8,9 @@ export interface Config {
   threshold: number;
 }
 
-// instead oi
 export function useActiveHeading(
   headings: Heading[] | undefined,
-  config: Config = { debounceTime: 50, threshold: 0.21 }
+  config: Config = { debounceTime: 0, threshold: 0.21 }
 ) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const { debounceTime, threshold } = config;

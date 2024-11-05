@@ -28,7 +28,7 @@ export default function Footer() {
       justifyContent="center"
       textAlign="center"
       flexDir="column"
-      pos="fixed"
+      pos="absolute"
       bottom="0"
       left="0"
       width="100%"

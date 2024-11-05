@@ -11,12 +11,14 @@ import Link from "next/link";
 import { CodeSnippet } from "../components/core/CodeSnippet/CodeSnippet";
 import HouseDemo from "../components/features/blog/HouseDemo/HouseDemo";
 import BoxModelDemo from "../components/features/blog/BoxModelDemo/BoxModelDemo";
+import ColorsDemo from "../components/features/blog/ColorsDemo/ColorsDemo";
 import { escapeText } from "@/lib/file";
 
 //@ts-ignore
 interface ComponentsMap extends MDXComponents {
   HouseDemo: typeof HouseDemo;
   BoxModelDemo: typeof BoxModelDemo;
+  ColorsDemo: typeof ColorsDemo;
 }
 
 const MdxHeading = (props: HeadingProps) => {
@@ -47,4 +49,5 @@ export const COMPONENT_MAP = {
   li: (props) => <ListItem {...props} />,
   HouseDemo,
   BoxModelDemo,
+  ColorsDemo,
 } as ComponentsMap;
