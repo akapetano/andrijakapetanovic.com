@@ -20,13 +20,13 @@ export default function NavLink({
   ...props
 }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === to;
+  const isActive = pathname === to || pathname.startsWith(`${to}/`);
   const linkColor = useColorModeValue("brand.700", "brand.200");
   if (isActive) {
     return (
       <Link
         fontFamily="heading"
-        variant={"activeNavLink"}
+        variant="activeNavLink"
         as={NextLink}
         position="relative"
         href={to}

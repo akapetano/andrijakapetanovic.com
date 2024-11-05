@@ -5,6 +5,7 @@ import { ReadTimeBadge } from "../../ReadTimeBadge/ReadTimeBadge";
 import Date from "../Date/Date";
 import { IBlogPost } from "@/types/blog";
 import { ReactNode } from "react";
+import { TableOfContents } from "../TableOfContents/TableOfContents";
 
 interface IBlogPostWrapperProps extends IBlogPost {
   children: ReactNode;
@@ -15,6 +16,8 @@ export function BlogPostWrapper({
   publishedOn,
   content,
   children,
+  headings,
+  tableOfContents,
 }: IBlogPostWrapperProps) {
   const dateColor = useColorModeValue("gray.500", "gray.400");
   const textColor = useColorModeValue("gray.600", "gray.300");
@@ -33,8 +36,9 @@ export function BlogPostWrapper({
       </Heading>
       <Flex align="center" fontSize="md" color={dateColor} mb="1rem">
         <Date dateString={publishedOn} />
-        <ReadTimeBadge text={content} ml="1rem" />
+        <ReadTimeBadge text={content} ml="0.5rem" />
       </Flex>
+      {tableOfContents ? <TableOfContents headings={headings} /> : null}
       <Box color={textColor} fontSize="md" sx={{ p: { mb: "1rem" } }}>
         {children}
       </Box>

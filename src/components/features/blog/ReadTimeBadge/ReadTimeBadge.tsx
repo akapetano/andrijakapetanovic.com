@@ -18,6 +18,7 @@ export function ReadTimeBadge({ text, ...restProps }: IReadTimeBadgeProps) {
       rounded="full"
       fontSize="small"
       variant="primary"
+      pt="0.5"
       {...restProps}
     >
       {`${readTime} minute read`}
