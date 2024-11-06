@@ -22,13 +22,13 @@ out elements in a certain way, and make them come to life with animations. Of
 course, I was very far from being able to do that. There was a huge
 [skills gap](https://elearningindustry.com/addressing-skills-gap-how-workforce-development-programs-are-bridging-the-divide),
 a gap between where I wanted to be and where my current skills allowed me to be.
-It takes a lot of practice to be able to close the gap, and actually be able to
-build the things you envision.
+It takes a lot of practice to be able to close it, and actually be able to build
+the things you envision.
 
-If this article closes that gap at least a bit for you, dear reader, I'll
-consider it an accomplishment. Before we dive into it, I'd like to emphasize the
-fact that every one of these chapters and subchapters that follow can be a blog
-post on its own, so my goal is to give you an overview of what I believe to be
+If this article closes that gap at least a bit for you, I'll consider it an
+accomplishment. Before we dive into it, I'd like to emphasize the fact that
+every one of these chapters and subchapters that follow can be a blog post on
+its own, so my goal is to give you an overview of what I believe to be
 fundamentals for building a good mental model of CSS. And now let us begin.
 
 ### What is CSS?
@@ -36,13 +36,72 @@ fundamentals for building a good mental model of CSS. And now let us begin.
 CSS stands for Cascading Style Sheets, meaning that it's a style sheet language
 used for styling of a document written in markup language, and it's one of the
 core technologies of the Web. As the name implies, there is an order of
-precedence in CSS, which is called the cascade. The cascade is a set of rules
-that determine how browsers resolve conflicts between different CSS rules that
-target the same element. In other words, the "cascading" refers to the way CSS
-applies styles based on specificity and the order of rules.
+precedence in CSS, which is called the cascade.
+
+The cascade is a set of rules that determine how browsers resolve conflicts
+between different CSS rules that target the same element. In other words, the
+"cascading" refers to the way CSS applies styles based on specificity and the
+order of rules.
 [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) is
 the algorithm by which browsers decide which CSS declaration has precedence over
 others. The idea is that more specific rules will override more general ones.
+The algorithm can be represented as a three-column value of three categories:
+
+- id column, includes only
+  [ID selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors),
+  e.g. _#my-id_, which adds 1-0-0 to the specificity value.
+- class column, includes
+  [class selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors),
+  e.g. _.my-class_, attribute selectors _[type="submit"]_ and pseudo-classes,
+  such as _:hover_ _:nth-child()_, etc. Each of these adds 0-1-0 to the value.
+- type column, includes
+  [type selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors),
+  e.g. _div_, _a_, _p_, and pseudo-elements such as _::after_, _::placeholder_,
+  and _::backdrop_. Each of these adds 0-0-1 to the value.
+
+We will discuss the basic syntax of CSS below, but just to illustrate the point
+of the specificity weight value, let's take a look at the following example:
+
+```html
+<button class="form-btn" id="form-btn" type="submit">Submit</button>
+
+<style>
+  button {
+    background-color: aquamarine;
+    color: white;
+  }
+
+  .form-btn {
+    background-color: blueviolet;
+    color: white;
+  }
+
+  [type="submit"] {
+    background-color: lightcoral;
+    color: navy;
+  }
+
+  #form-btn {
+    background-color: navy;
+    color: white;
+  }
+</style>
+```
+
+The color schema that "wins" in this case is _#form-btn_ because it has the
+specificity of 1-0-0. Let's break it down. The _button_ selector has a weight of
+0-0-1, the _.form-btn_ selector has a weight of 0-1-0, the _[type="submit"]_
+selector has a weight of 0-1-0, and the _#form-btn_ selector has a weight of
+1-0-0. The _#form-btn_ selector has the highest specificity, so it will override
+the other selectors.
+
+Notice that the order of the rules in the CSS file doesn't matter in this case,
+but let's say we don't have the _#form-btn_ selector in the CSS file, then the
+order of the rules would matter. Let's not forget the C in CSS, the cascade. The
+_.form-btn_ selector, and the _[type="submit"]_ selector have the same weight so
+the last rule that is defined in the CSS file would be the one that is applied.
+This is why it's important to have a consistent order of rules in your CSS file,
+and to have a consistent naming convention for your classes and IDs.
 
 ### The History of CSS
 
@@ -79,10 +138,11 @@ Internet Explorer were incomplete and often buggy, leading to significant
 challenges for developers trying to use CSS. These inconsistencies led to the
 creation of the Web Standards Project (WaSP) in 1998, which pushed for better
 support of web standards, including CSS, across all browsers. One notable effort
-during this period was the creation of the CSS "Acid Tests", which were designed
-to test how well browsers complied with CSS standards. These tests helped to
-drive improvements in browser support for CSS, leading to more consistent
-rendering across different platforms.
+during this period was the creation of the CSS
+[Acid Tests](https://www.acidtests.org/), which were designed to test how well
+browsers complied with CSS standards. These tests helped to drive improvements
+in browser support for CSS, leading to more consistent rendering across
+different platforms.
 
 In the 2010s, CSS continued to evolve with the introduction of advanced layout
 modules like Flexbox (introduced in 2009) and CSS Grid (introduced in 2017).
@@ -310,8 +370,14 @@ properties used within at-rules.
 @import url("styles.css");
 
 @media (min-width: 768px) {
-  p {
-    font-size: 18px;
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@container (min-width: 768px) {
+  .description {
+    font-size: 1.5rem;
   }
 }
 
@@ -1060,7 +1126,7 @@ comprehensive recap of the latest CSS features, and what's on the horizon, be
 sure to check out
 [Una Kravets' Google I/O '24 talk](https://www.youtube.com/watch?v=_-6LgEjEyzE).
 
-### More Resources
+### Resources
 
 - [CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [A brief history of CSS until 2016](https://www.w3.org/Style/CSS20/history.html)
