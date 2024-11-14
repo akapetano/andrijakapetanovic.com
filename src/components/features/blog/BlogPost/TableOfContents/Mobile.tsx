@@ -45,7 +45,7 @@ export function Mobile({ headings }: IDesktopProps) {
         finalFocusRef={triggerRef}
       >
         <DrawerOverlay />
-        <DrawerContent roundedTop="xl">
+        <DrawerContent roundedTop="xl" maxHeight="75%">
           <DrawerCloseButton color={closeBtnColor} marginRight="-0.25rem" />
 
           <DrawerHeader borderBottomWidth="1px" p="1rem" fontSize="lg">
