@@ -37,7 +37,6 @@ export function BlogPostCard({
           fontSize="lg"
           display="flex"
           alignItems="center"
-          gap="0.2rem"
           as={Link}
           href={articlePath}
           variant="noUnderline"
@@ -46,7 +45,7 @@ export function BlogPostCard({
             as={"h3"}
             fontWeight="semibold"
             fontSize="lg"
-            mb={"1rem"}
+            mb="0.5rem"
             color={textColor}
             sx={{
               ".blog-post-list-item: hover &": {
@@ -58,11 +57,11 @@ export function BlogPostCard({
           </Heading>
         </ChakraLink>
         {abstract && (
-          <Text fontSize="md" color={textColor} flex={1}>
+          <Text fontSize="md" color={textColor} flex={1} mb="0">
             {abstract}
           </Text>
         )}
-        <VStack alignItems="flex-start" mt="1rem" gap="0.25rem">
+        <VStack alignItems="flex-start" mt="1rem" gap="0.15rem">
           {publishedOn && (
             <Text fontSize="sm" color={dateColor}>
               <Date dateString={publishedOn} />
