@@ -46,6 +46,8 @@ export default function MobileHamMenu() {
           onClick={onToggle}
           display="flex"
           zIndex="9000"
+          mr="-0.5rem"
+          cursor="pointer"
         />
         {isOpen ? (
           <VStack
@@ -66,6 +68,7 @@ export default function MobileHamMenu() {
             display="flex"
             zIndex="8999"
             transition="all .3s ease-in-out"
+            isolation="isolate"
           >
             <NavLinks fontSize="lg" />
             <MobileColorModeButton />

@@ -1,0 +1,1177 @@
+---
+title: "Getting the Fundamentals Right: CSS"
+abstract:
+  "In the third installment of the 'Getting the Fundamentals Right' series,
+  we're tackling CSS, the styling portion of web development. Building on the
+  foundation laid in the introduction, we explore the most important building
+  blocks of CSS, and underlying mental models which allow us to style our HTML,
+  and build out awesome user interfaces."
+publishedOn: "2024-11-14"
+category: "css"
+tableOfContents: true
+---
+
+When I started learning web development, I had a specific learning order in mind
+which was HTML, CSS, and JavaScript. I did spend some time learning HTML, but
+things didn't click right away, and I didn't see the importance of writing good
+HTML from the start, because I haven't experienced any of the problems yet.
+
+But with CSS, web development for me started to get very interesting. It was
+almost magical to see all the things that you can do with CSS, style pages, lay
+out elements in a certain way, and make them come to life with animations. Of
+course, I was very far from being able to do that. There was a huge
+[skills gap](https://elearningindustry.com/addressing-skills-gap-how-workforce-development-programs-are-bridging-the-divide),
+a gap between where I wanted to be and where my current skills allowed me to be.
+It takes a lot of practice to be able to close it, and actually be able to build
+the things you envision.
+
+If this article closes that gap at least a bit for you, I'll consider it an
+accomplishment. Before we dive into it, I'd like to emphasize the fact that
+every one of these chapters and subchapters that follow can be a blog post on
+its own, so my goal is to give you an overview of what I believe to be
+fundamentals for building a good mental model of CSS. And now let us begin.
+
+### What is CSS?
+
+CSS stands for Cascading Style Sheets, meaning that it's a style sheet language
+used for styling of a document written in markup language, and it's one of the
+core technologies of the Web. As the name implies, there is an order of
+precedence in CSS, which is called the cascade.
+
+The cascade is a set of rules that determine how browsers resolve conflicts
+between different CSS rules that target the same element. In other words, the
+"cascading" refers to the way CSS applies styles based on specificity and the
+order of rules.
+[Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) is
+the algorithm by which browsers decide which CSS declaration has precedence over
+others. The idea is that more specific rules will override more general ones.
+The algorithm can be represented as a three-column value of three categories:
+
+- id column, includes only
+  [ID selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors),
+  e.g. _#my-id_, which adds 1-0-0 to the specificity value.
+- class column, includes
+  [class selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors),
+  e.g. _.my-class_, attribute selectors _[type="submit"]_ and pseudo-classes,
+  such as _:hover_ _:nth-child()_, etc. Each of these adds 0-1-0 to the value.
+- type column, includes
+  [type selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors),
+  e.g. _div_, _a_, _p_, and pseudo-elements such as _::after_, _::placeholder_,
+  and _::backdrop_. Each of these adds 0-0-1 to the value.
+
+We will discuss the basic syntax of CSS below, but just to illustrate the point
+of the specificity weight value, let's take a look at the following example:
+
+```html
+<button class="form-btn" id="form-btn" type="submit">Submit</button>
+
+<style>
+  button {
+    background-color: aquamarine;
+    color: white;
+  }
+
+  .form-btn {
+    background-color: blueviolet;
+    color: white;
+  }
+
+  [type="submit"] {
+    background-color: lightcoral;
+    color: navy;
+  }
+
+  #form-btn {
+    background-color: navy;
+    color: white;
+  }
+</style>
+```
+
+The color schema that "wins" in this case is _#form-btn_ because it has the
+specificity of 1-0-0. Let's break it down. The _button_ selector has a weight of
+0-0-1, the _.form-btn_ selector has a weight of 0-1-0, the _[type="submit"]_
+selector has a weight of 0-1-0, and the _#form-btn_ selector has a weight of
+1-0-0. The _#form-btn_ selector has the highest specificity, so it will override
+the other selectors.
+
+Notice that the order of the rules in the CSS file doesn't matter in this case,
+but let's say we don't have the _#form-btn_ selector in the CSS file, then the
+order of the rules would matter. Let's not forget the C in CSS, the cascade. The
+_.form-btn_ selector, and the _[type="submit"]_ selector have the same weight so
+the last rule that is defined in the CSS file would be the one that is applied.
+This is why it's important to have a consistent order of rules in your CSS file,
+and to have a consistent naming convention for your classes and IDs.
+
+### The History of CSS
+
+CSS has a fascinating history that has evolved alongside the web itself. It was
+developed to address the need for a clear separation between content (structured
+using HTML) and presentation (styles and layout). The work on CSS began in 1994
+by Håkon Wium Lie while he was at CERN, and the first official CSS
+specification, known as CSS1, was released by the World Wide Web Consortium
+(W3C) in 1996. CSS1 introduced the basic styling propertires such as fonts,
+colors, text alignment, and simple box model rules. However, its capabilities
+were relatively limited and mainly focused on basic presentation aspects of web
+pages.
+
+In 1998, CSS2 was released, marking a significant step forward in the web design
+capabilities. CSS2 introduced advanced features like positioning (absolute,
+relative, fixed), z-index for stacking order, and new media types for print and
+screen. It also allowed for more sophisticated selectors, which provided greater
+control over the styling of web elements. This version laid the groundwork for
+more complex, multi-column layouts that began to emerge at the time.
+
+CSS3 represented a major shift in how CSS was developed and implemented. The
+work on it began already in 1998, and CSS3 was designed as a modular
+specification, breaking down the monolithic structure of previous versions into
+smaller, independent modules. This modular approach allowed for faster adoption
+and innovation. CSS3 introduced features like rounded corners, shadows,
+gradients, transitions, and animations which significantly enhanced the visual
+capabilites of web design. It also brought in media queries, which became
+crucial for responsive web design, allowing styles to adapt to different screen
+sizes and devices.
+
+The adoption of CSS was initially slow and fraught with inconsistencies across
+different browsers. Early implementation in browsers like Netscape Navigator and
+Internet Explorer were incomplete and often buggy, leading to significant
+challenges for developers trying to use CSS. These inconsistencies led to the
+creation of the Web Standards Project (WaSP) in 1998, which pushed for better
+support of web standards, including CSS, across all browsers. One notable effort
+during this period was the creation of the CSS
+[Acid Tests](https://www.acidtests.org/), which were designed to test how well
+browsers complied with CSS standards. These tests helped to drive improvements
+in browser support for CSS, leading to more consistent rendering across
+different platforms.
+
+In the 2010s, CSS continued to evolve with the introduction of advanced layout
+modules like Flexbox (introduced in 2009) and CSS Grid (introduced in 2017).
+These tools provided developers with powerful new ways to create flexible,
+responsive layouts without relying on hacks or complex workarounds.
+
+The versioning of CSS has stopped at 3, so people use the term "CSS3" to
+encompass all the new modern features that have come out. And this is getting a
+bit out of hand when trying to group all these features that have been released
+in the previous 25 years.
+
+However, the CSS Next Community Group is working on CSS Levels which aims to
+improve adoption and ease of teaching of CSS. So according to CSS Next Community
+Group's [discussion](https://github.com/CSS-Next/css-next/discussions/92), the
+proposal is to add new categories like CSS4 (properties and features introduced
+in a spec around 2013-2018), CSS5 (properties and features introduced in a spec
+around 2019 - 2024), and Future/Next, a placeholder category for properties and
+features currently in development or proposed for future versions beyond CSS.
+
+### Behind the Scenes
+
+To get a better understanding of how CSS works, we need to look behind the
+scenes of the browser rendering process. When a browser receives an HTML
+document, it goes through a series of steps to render the page as we went
+through in the
+[Getting the Fundamentals Right: HTML](/blog/posts/getting-the-fundamentals-right-html).
+
+The browser first parses the HTML document, converts HTML code into tokens, to
+create nodes and build the Document Object Model (DOM) tree, which represents
+the structure of the document. The browser then constructs a render tree, which
+is a visual representation of the DOM tree with style information applied. The
+render tree is used to determine the layout of the page and render the content
+on the screen. At the same time, the browser fetches and parses the CSS files
+linked to the HTML document. It also processes any inline styles and `<style>`
+elements within the HTML. Similar to HTML, the CSS is tokenized into individual
+components (selectors, properties, values). These tokens are used to construct
+the
+[CSS Object Model (CSSOM)](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model),
+a tree-like structure that represents the CSS rules and their relationships. We
+can also define the model as a set of APIs that allow the manipulation of CSS
+via JavaScript. The browser matches CSS rules to the DOM nodes; it calculates
+the final styles for each node based on the CSS cascade, inheritance, and
+specificity rules. In other words, the browser combines the DOM tree and the
+CSSOM to create the Render Tree. The Render Tree contains only the nodes
+required to render the page. Using the Render Three the browser calculates the
+layout of each element. This process involves determining the size and position
+of the elements on the screen. This step is often referred to as "reflow".
+
+Once the layout is calculated, the browser paints the pixels to the screen. This
+step involves filling in the colors, borders, shadows, and text. It's the
+process of converting the render tree into actual pixels on the screen.
+
+In the final step, the browser may need to composite different layers together,
+especially for complex elements like those with opacity, transforms, or
+animations. This ensures that the rendered output is correct and optimized for
+performance.
+
+All of this is a lot of work, and there's a lot of variables to be considered,
+so browsers use several techniques to optimize the rendering process, such as:
+
+- lazy loading, i.e., delaying the loading and rendering of elements that are
+  not immediately visible.
+- CSS preprocessing, compiling and minifying CSS files to reduce file size and
+  improve load times.
+- hardware acceleration, using the GPU for rendering complex visual effects and
+  animations.
+- caching, storing CSS files and images to avoid repeated downloads on
+  subsequent visits.
+
+### Basic Syntax
+
+Now that we have some basic understanding of what CSS is and how it's processed,
+let's dive into the syntax of CSS. According to
+[MDN](https://developer.mozilla.org/en-US/curriculum/core/css-fundamentals/),
+key CSS syntax includes:
+
+- rules
+- selectors
+- declarations
+- properties (including custom properties)
+- values (including shorthand values)
+- at-rules and descriptors
+
+#### Rules
+
+CSS rules are used to apply styles to HTML elements. A CSS rule consists of a
+selector and a declaration block.
+
+```css
+p {
+  color: dodgerblue;
+  font-size: 16px;
+}
+```
+
+In our example, _p_ is the selector, selecting every paragraph of the document
+to which our styles are attached to, and the declaration block contains two CSS
+rules, setting the _color_ property to `dodgerblue` and the _font-size_ property
+to `16px`.
+
+#### Selectors
+
+Selectors are used to target HTML elements to apply styles to them. There are
+different types of selectors, including element selectors, class selectors, ID
+selectors, and pseudo-selectors.
+
+```css
+p {
+}
+
+.my-class {
+}
+
+#my-id {
+}
+
+input[type="text"] {
+}
+
+a:hover {
+}
+
+p::first-line {
+}
+```
+
+In our example, we have an element selector, a class selector, an ID selector,
+an attribute selector, a pseudo-class selector, and a pseudo-element selector in
+that order.
+
+#### Declarations
+
+Declarations are used to set the style properties of the selected elements. A
+declaration consists of a property and a value, separated by a colon and ending
+with a semicolon. Declarations are contained within a declaration block.
+
+```css
+p {
+  color: fuchsia;
+  font-size: 1.2rem;
+}
+```
+
+Following that logic, here we are declaring two properties to a paragraph
+element, property _color_ with the value _fuchsia_, and the property _font-size_
+with the value _1.2rem_.
+
+#### Properties (including custom properties)
+
+Properties define what aspect of the element's style you are changing.
+
+```css
+p {
+  color: dodgerblue;
+  font-size: 16px;
+}
+
+:root {
+  --brand-color: #45aaf2;
+}
+
+p {
+  color: var(--brand-color);
+}
+```
+
+In the example above, we have two properties, _color_ and _font-size_, and a
+custom property _--brand-color_ defined on the
+[:root](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) pseudo-class.
+Custom properties are a powerful feature of CSS that allow you to define a value
+once and use it in multiple places.
+
+#### Values (including shorthand values)
+
+Values are assigned to properties and can be specific values, keywords, or
+functions. Shorthand values allow you to set multiple related properties at
+once.
+
+```css
+p {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  margin-left: 35px;
+}
+
+p {
+  margin: 10px 20px 15px 35px;
+}
+
+p {
+  margin: 10px 20px;
+}
+
+p {
+  margin: 10px 20px 0;
+}
+
+p {
+  margin-inline: 10px;
+  margin-block: 20px;
+}
+```
+
+In the first declaration, we are explicity listing properties, and assigning
+values to each property while in the second declaration, we are using a
+shorthand value to set the margin of a paragraph element. The order with four
+values is top, right, bottom, and left. A great analogy to remember this order
+is the clock, starting from the top and going clockwise.
+
+In the third declaration, we are using a shorthand value to set the margin of a
+paragraph element, but this time we are only providing two values, which will
+set the top and bottom margins to 10px, and the right and left margins to 20px.
+
+In the fourth declaration we are using a shorthand value on the margin property,
+but this time we are only providing three values, which will set the top margin
+to 10px, the right and left margins to 20px, and the bottom margin to 0.
+
+The last declaration allows us to explicitly define margin to the inline and
+block directions. We will go more into detail on inline and block direction
+concepts later on, but for now let's imagine our element being on an axis;
+x-axis is the inline direction, and y-axis is the block direction.
+
+#### At-rules and descriptors
+
+At-rules are special CSS statements that begin with an _@_ symbol and are used
+to apply styles conditionally or to import other stylesheets. Descriptors are
+properties used within at-rules.
+
+```css
+@import url("styles.css");
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@container (min-width: 768px) {
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("mycustomfont.woff") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cta {
+  animation: slidein 3s;
+}
+```
+
+There's a lot of interesting CSS at-rules, and you can check out a list of all
+of them on [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule).
+
+### The Box Model
+
+After understanding the basic syntax of CSS, we can dive a bit deeper into some
+of the models that are used in CSS. One of the most important models in CSS is
+the
+[box model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model).
+The box model is a fundamental concept in CSS that describes how elements are
+rendered on the web. According to the box model, every element on a web page is
+a rectangular box, and each box has four areas:
+
+1. **content** - the innermost part of the box where the actual content of the
+   element (text,images, etc.) is displayed.
+2. **padding** - the space between the content and the border of the box.
+   Padding adds extra space inside the element, around the content area.
+3. **border** - the border wraps around the padding and the content. It can be
+   styled with different widths, colors, and styles.
+4. **margin** - the outermost layer that surrounds the border. The margin
+   creates space between the element and its neighboring elements.
+
+<BoxModelDemo />
+
+#### The Gift Box
+
+Let's build up a mental model which will help us understand the box model.
+Imagine you are wrapping a gift.
+
+1. **content**: the gift itself, represents the actual content of the box. This
+   is what you care about the most, and it's the core of the element.
+2. **padding**: the bubble wrap or tissue paper you use to protect the gift.
+   This extra space ensures that the gift (content) doesn't get damaged a has
+   bit of a cushion.
+3. **border**: the gift box that holds everything together. The box can have
+   different styles, colors, and thicknesses, just like the border of an
+   element.
+4. **margin**: the space you leave around the gift box when you place it on the
+   table or under a Christmas tree to separate it from other presents. This
+   space ensures that the box doesn't touch or overlap with other objects or
+   boxes nearby.
+
+Understanding the box model is a core mental model for understanding the way the
+digital space is distributed on a web page. It helps you control the layout and
+spacing of elements of your web page, and allows you to realize visually
+appealing designs, and resolve some inevitable layout issues.
+
+#### The Box-Sizing Property
+
+While we're on the topic of box model, I'd also like you discuss the
+[_box-sizing_](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+property, which is used to control how the width and height of an element are
+calculated.
+
+By default, the _box-sizing_ property is set to _content-box_, which means that
+the width and height of an element are calculated based on the content area
+only. This can sometimes lead to unexpected layout behavior, especially when
+padding and border are added to the element. To avoid potential issues, you can
+set the _box-sizing_ property to _border-box_, which includes padding and border
+in the calculation of the width and height of the element.
+
+That's why in most modern front-end frameworks, this property is set to
+_border-box_, establishing a new default. In regular framework-less JavaScript
+projects, a common tool to 'normalize' your CSS, and avoid such issues is to use
+[normalize.css](https://nicolasgallagher.com/about-normalize-css/), a small CSS
+reset library which you import into your global CSS file, and it makes sure that
+useful default browser styles are preserved, while the unwanted ones are
+removed.
+
+To let this concept sink in, let's go back to the analogy of the gift box. Let's
+imagine that we have two ways to measure its size. With the default,
+_content-box_, you measure only the space inside the box where the gift fits. If
+you then add padding (e.g., tissue paper) and a border (e.g., the box walls),
+the total outer size of the box increases which is strange, when you think about
+it. Imagine having a magic box which expands due to tissue paper we added in the
+box.
+
+With _border-box_, you measure the outer size of the box including the walls and
+any padding inside. If you add more padding or a thicker border, the inner space
+for the gift gets smaller, but the outer dimensions stay the same. This is more
+aligned with our intuition how the physical world works. In CSS, either
+consciously or subconsciously, we project our understanding of the physical
+world to the digital sphere.
+
+### Flow Layout
+
+Let's say you're creating a fresh new web page, and you want to add some text to
+it and you start with the _`<p>`_ tag, add the content, and close it with
+_`</p>`_. Before applying any changes to the layout, this element will be
+displayed in _Normal Flow_ or
+[Flow Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout).
+It is the default layout behavior for HTML documents.
+
+Elements are layed out in a block and inline direction. The block elements stack
+on top of each other depending on the
+[Writing Mode](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_writing_modes)
+of the HTML document. The most typical writing mode among many international
+writing modes, is left-to-right (Latin and Indic scripts). There's also
+right-to-left (Hebrew or Arabic scripts), bidirectional (mixture of
+left-to-right and right-to-left scripts), and vertical (Asian scripts). If we
+imagine a graph with two axes, the inline elements are laid out on the x-axis in
+the left-to-right writing mode, while the block direction is laid out on the
+y-axis.
+
+Block-level elements take up the full width of the container and start on a new
+line. Examples include _`<div>`_, _`<p>`_, _`<h1>`_, _`<section>`_,
+_`<article>`_, etc. Inline elements, on the other hand, only take up as much
+width as necessary and do not start on a new line. Examples include _`<span>`_,
+_`<a>`_, _`<strong>`_, _`<em>`_, etc.
+
+Now, in reference to our box model, it's important to note that margins,
+paddings, and borders affect the spacing and the size of elements within the
+flow layout. Margins can cause elements to be spaced apart, while padding and
+borders add to the size of the element's box without affecting the flow.
+
+Margins have an additional quirky behavior, which sometimes leaves developers
+puzzled. When two vertical margins touch, they collapse into a single margin.
+It's called
+[margin collapsing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing).
+To make this a bit more technical, vertical margins between adjacent block-level
+elements may collapse into a single margin whose size is the larges of the
+margins involved. This behavior can affect the spacing between elements.
+
+Flow layout is simple and predictable, making it easy to understand and use for
+basic page structures. Because it's based on the order of elements in the HTML,
+it naturally adapts to different screen sizes and orientations, contributing to
+responsive design. While flow layout is the foundation, it can be limiting when
+you need more complex structures, so modern CSS provides more advanced layout
+techniques like Flexbox and grid that can be combined with normal flow to create
+complex and responsive designs.
+
+### Positioned Layout
+
+Sometimes you might want to override the flow layout and position elements in a
+specific way. This is where the
+[_position_ property](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+comes in. The _position_ property is used to specify the type of positioning
+method used for an element. The _position_ property can take the following
+values: _static_, _relative_, _absolute_, _fixed_, and _sticky_.
+
+1. **Static** position is the default position for all elements. Elements are
+   displayed according to the normal flow of the document. If we try to override
+   the position with values _top_, _right_, _bottom_, and _left_, they will have
+   no effect.
+2. **Relative** position allows you to position an element relative to its
+   normal position. It remains in the document flow, and its original space is
+   preserved. You can use the _top_, _right_, _bottom_, and _left_ properties to
+   adjust the element's position from its normal position.
+3. **Absolute** position removes the element from the normal flow and positions
+   it relative to its nearest positioned ancestor (an ancestor with a _position_
+   value other than _static_). If no such ancestor exists, it is positioned
+   relative to the initial containing block (usually the viewport).
+4. **Fixed** position also removes the element from the normal flow and
+   positions it relative to the viewport and does not move when page is
+   scrolled.
+5. **Sticky** position is a hybrid of relative and fixed positioning. The
+   element toggles between the _relative_ and _fixed_ positioning depending on
+   the user's scroll position. The element is treated as _relative_ until it
+   crosses a specified threshold, then it becomes _fixed_.
+
+Each value of the _position_ property except for the _static_ value, which is
+the default, uses positioned layout on the element. Understanding CSS
+positioning is essential for creating complex layouts, controlling exact
+placement of elements on a page, and understanding why elements are displayed in
+a certain way. It will help you come into a code base, and identify why certain
+elements are positioned in a certain way, and how you can adjust them to achieve
+the desired layout.
+
+### Float Layout
+
+There's also a property called _float_ which allows elements to be taken out of
+the normal flow and aligned to left or right of their container, with subsequent
+content flowing around them.
+
+The _float_ property can take the values _left_, or _right_. A common footgun
+with _float_ is that it can cause layout issues, because if needs to be cleared.
+Often developers forget to clear the float, which can cause elements to overlap
+or not be displayed correctly. To avoid these issues, you can use the _clear_
+property to clear the float and ensure that elements are displayed correctly.
+What this essentially does is that it controls the behavior of elements
+following floated elements, ensuring they are properly aligned within the flow.
+
+If our element contains only floated elements, its height collapses to 0, and if
+we want it to always be able to resize, we can use the _display_ property to
+[_flow-root_](https://developer.mozilla.org/en-US/docs/Web/CSS/clear). It's
+important to note that floating elements are less commonly used in modern
+layouts, now that we have more advanced layout techniques like Flexbox and Grid.
+
+### Layers
+
+After going through different ways of overriding the flow layout, it's important
+to introduce the notion of layers in CSS. Layers refer to the different levels
+at which elements can be stacked and rendered on the web page. These layers
+determine the visual stacking order of elements and can be influenced by various
+CSS properties that we mentioned, like _position_, _z-index_, _float_, and
+stacking contexts.
+
+A stacking context is an element that contains a set of layers, and elements
+within the same stacking context are ordered based on their _z-index_ values,
+while different stacking contexts can be nested within each other. A new
+stacking context is formed by elements with certain properties, such as:
+
+- _position_ values other than _static_ with a _z-index_ value.
+- elements with _opacity_ less than 1.
+- elements with _transform_, _filter_, _perspective_, _clip-path_ or _mask_
+  properties.
+- elements with _mix-blend-mode_, _isolation_, _will-change_, _contain_, or
+  _contain-intrinsic-size_ properties.
+
+#### Z-index and Stacking order
+
+Another way to override a flow layout is to use the _z-index_ property, which
+controls the stacking order of positioned elements, elements with a _position_
+value other than _static_. In other words, the _z-index_ property specifies the
+stack level of an element within a stacking context. Higher _z-index_ values are
+placed on top of elements with lower _z-index_ values. The _z-index_ property
+can take any integer value, positive or negative. The default stacking order,
+without any _z-index_ applied, is:
+
+- background and borders of the element
+- descendant elements in the normal flow, positioned or unpositioned
+- floating elements - positioned elements with _z-index_ set to _auto_
+- positioned elements with _z-index_ set to a specific value
+
+When elements overlap, the stacking order determines which element is displayed
+above the other. I've had many situations where _z-index_ wasn't working as I
+expected, the elements would not stack on top of another despite the increase in
+_z-index_ value. The reason for this is that _z-index_ depends on the layout
+mode. The flow layout never implemented the _z-index_ property. This means that
+if we don't change the layout mode of one of the children elements or the parent
+element, the z-index will not have any effect like in the example below.
+
+```html
+<style>
+  h1 {
+    z-index: 10;
+  }
+
+  img {
+    z-index: 9;
+    width: 200px;
+    margin-top: -20px;
+    margin-left: 20px;
+  }
+</style>
+
+<section>
+  <h1>Heading</h1>
+  <img src="image.jpg" alt="Example image" />
+</section>
+```
+
+Other layouts like positioned layout, flexbox layout, and grid layout
+implemented the _z-index_, so the stacking order will work as expected.
+
+#### Top Layer
+
+With the advent of new browser APIs such as dialog and popover, the concept of
+[top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer) has
+emerged, the king among layers. The top layer is a special conceptual layer that
+spans the entire viewport and is always displayed on top of other elements on
+the page. It is often used for modals, dialogs, popovers, and other elements
+that need to be displayed above the rest of the content.
+
+The top layer is created using the _position_ property with a value of _fixed_
+or _absolute_ and a high _z-index_ value. Elements in the Top Layer are rendered
+above all other content, including elements with the highest _z-index_ values.
+They typically create an overlay effect, often a semi-transparent background to
+obscure the content underneath. In terms of accessibility, Top Layer manages
+focus and interaction, preventing interaction with elements outside of it until
+the Top Layer element is dismissed or closed.
+
+The top layer is a powerful tool for creating interactive and engaging user
+interfaces, and it allows you to create elements that are always visible and
+accessible to the user.
+
+### Flexbox
+
+Flexbox, also known as CSS flexible box layout, is a layout module designed to
+provide a more efficient way to distribute space and align items within a
+container, especially when dealing with complex or responsive layouts. Flexbox
+is closely related to the flow layout, which we discussed earlier, but it gives
+more flexibility and control over how elements are placed and aligned within a
+container.
+
+In the default flow layout, block-level elements stack vertically from top to
+bottom, filling the available width of their container. Inline-level elements,
+on the other hand, flow horizontally from left to right, wrapping to the next
+line when there's not enough horizontal space. The flow layout is
+straightforward and predictable, but it has limitations when it comes to complex
+layouts, such as centering elements vertically, aligning items along a
+cross-axis, or creating equal-height columns.
+
+Flexbox solves these problems by introducing a new layout model which is
+composed of a flex container and flex items. The flex container is the parent
+element that contains the flex items, and it uses the _display: flex_ or
+_display: inline-flex_ property to enable flexbox layout. The flex items are the
+children of the flex container, and they are laid out along the flex line, which
+can be either horizontal (the default on the web) or vertical (the default in
+React Native - mobile development), depending on the container's
+_flex-direction_. It's important to note that with flexbox, only the items
+within the flex container are being put into this flexible layout mode, while
+the container itself is still in flow layout mode, or whatever layout mode it
+was in (we can also nest flexbox containers within flexbox containers, or within
+grid containers).
+
+So, in other words, the flex items in a flex container are laid out either on
+the main axis or on the cross axis, which is perpendicular to the main axis. The
+cross axis is vertical by default but changes if the main axis is set to
+vertical.
+
+For aligning items along the main axis, we can use the _justify-content_
+property, and for aligning items along the cross axis, we can use the
+_align-items_ property. We can also use the _align-self_ property on individual
+flex items to override the _align-items_ property on the container.
+
+There are many excellent resources for explaining flexbox in great detail, and
+some of my favorites are the
+[CSS Flexbox Layout Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+by Chris Coyier and
+[An Interactive Guide to Flexbox](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
+by Josh Comeau.
+
+### Grid Layout
+
+The CSS Grid Layout, commonly known as CSS Grid, is a two-dimensional layout
+system that allows you to create grid-based layouts with rows and columns.
+Unlike Flexbox which thrives in the one-dimensional layout system, either
+row-based or column-based, CSS Grid handles both rows and columns
+simultaneously, making it ideal for creating complex layouts.
+
+As with flexbox, we have the concept of a grid container and grid items. Besides
+these two, we also have grid lines, grid tracks, and grid areas. Grid lines are
+the dividing lines between grid cells, they can be referenced by number,
+allowing precise placement of items. Grid tracks are the rows and columns
+created by the grid lines. Each row and column is a grid track. A grid area is a
+rectangular area made up of one or more grid cells. You can name grid areas for
+easier placement of items. This creates a nice visual representation of the
+layout of a component or a page as we can see in the example below.
+
+```css
+.wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr 200px;
+  grid-template-rows: 5rem 1fr 6rem;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+}
+```
+
+CSS Grid reduces the need for complex and often nested structures, making the
+HTML markup cleaner and easier to manage. We can define grid areas directly
+within CSS, significantly simplifying the process of aligning elements on a
+page.
+
+It's inherently responsive, and by using functions like _minmax()_, _auto-fill_,
+and _auto-fit_, we can create layouts that adapt seamlessly to different screen
+sizes. Media queries can be used in combination with grid properties to create
+breakpoints and adapt layouts at various resolutions. Grid makes it easy to
+align items within cells, rows and columns, and to control the spacing between
+them with the _gap_ property. As opposed to some other layout algorithms,
+vertical and horizontal alignments are straightforward, eliminating the need for
+complex hacks and workarounds.
+
+Again, like with Flexbox, there are many excellent resources for learning CSS
+Grid, and again, some of my favorites come from the same source as Flexbox.
+These are
+[CSS Grid Layout Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+by Chris House and
+[An Interactive Guide to Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+by Josh Comeau.
+
+### Color
+
+It's time to talk about color. Let's get one thing clear right off the bat:
+color science is difficult. Color is an essential aspect of web design and
+styling, allowing developers to define and manipulate the colors of text,
+backgrounds, borders and other elements. Besides the aesthetic aspect, proper
+color usage can also improve readability, accessibility, and user experience.
+
+I'm not sure if I ever started a project without spending a lot of time on
+choosing the right color scheme. And when we add different modes into the mix,
+such as dark mode, things get complicated real fast. It has a significant impact
+on the overall look and feel of a website, and it influences the user's
+perception and experience.
+
+In CSS, colors can be defined using a variety of methods and formats, and to
+begin with, it supports a set of basic color keywords, such as _red_, _blue_,
+_green_, _black_, _white_, and more. In fact, MDN provides a list of
+[named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color),
+and for an even more extended list check out the
+[CSS Color Module Level 3 W3 spec](https://www.w3.org/TR/css-color-3/#css-system).
+
+We can also use the _currentColor_ keyword which refers to the current value of
+the _color_ property, and can be used for borders, background, etc. This allows
+us to use the inherited color value on child elements.
+
+```html
+<div style="color: red;">
+  <p style="border: 1px solid currentColor;">
+    This text will have a red border.
+  </p>
+</div>
+```
+
+RGB stands for Red, Green, Blue, and the `rgba` function allows you to specify
+colors with an alpha channel for opacity of a color.
+
+```css
+color: rgb(255, 0, 0); /* Red */
+background-color: rgba(0, 255, 0, 0.5); /* Green with 50% opacity */
+```
+
+Hexadecimal colors are another common way to define colors in CSS. They are
+six-digit codes representing the combination of red, green, and blue values.
+
+```css
+color: #ff0000; /* Red */
+background-color: #00ff00; /* Green */
+border-color: #0000ff; /* Blue */
+```
+
+HSL stands for Hue, Saturation, Lightness, and the _hsl_ and _hsla_ functions
+allow you to specify colors using these values. The last value of the latter
+function is the alpha channel for transparency. This syntax is handy for
+creating color schemes, because the user can better grasp what's being changed
+on each value without having to know the hexadecimal system, but be wary, with
+HSL you might not always get the color you expect as well discuss below.
+
+```css
+color: hsl(0, 100%, 50%); /* Red */
+background-color: hsla(120, 100%, 50%, 0.5); /* Green with 50% opacity */
+```
+
+Hue is changed with the first value, and is represented in degrees (deg), as a
+degree on the color wheel. Even though the color wheel has 360 degrees we can go
+beyond that value, since after making a full circle, we're just continuing on a
+new circle on the color wheel, e.g. 390 degrees is equal to 30 degrees.
+
+On our color wheel, the distance from the axis corresponds to saturation, which
+refers to the intensity or purity of a color. It controls how vivid or muted a
+color appears. In simpler terms, it defines whether the color is closer to a
+primary color or more grayish.
+
+Lightness determined how light or dark a color appears. It's essentially the
+brightness of the color, controlled independently from hue and saturation.
+Unfortunately, in HSL,
+[lightness is meaningless](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/).
+With RGB and HSL colors are not perceptually uniform.
+
+<ColorsDemo
+  colors={[
+    {
+      id: 1,
+      backgroundColor: "HSL(250, 100%, 50%)",
+      textColor: "HSL(0, 100%, 100%)",
+    },
+    {
+      id: 2,
+      backgroundColor: "HSL(60, 100%, 50%)",
+      textColor: "HSL(0, 0%, 0%)",
+    },
+  ]}
+  mb="5"
+/>
+
+In this example, you can see that lightness is only meaningful for a single
+color, and if we try to compare the lightness of these two colors, they are not
+perceptually equal.
+
+Unfortunately, HSL's saturation has that same issue. According to HSL, the hue
+difference between these two pairs is the same.
+
+<ColorsDemo
+  colors={[
+    {
+      id: 1,
+      backgroundColor: "HSL(30, 100%, 50%)",
+      textColor: "HSL(0, 0%, 0%)",
+    },
+    {
+      id: 2,
+      backgroundColor: "HSL(50, 100%, 50%)",
+      textColor: "HSL(0, 0%, 0%)",
+    },
+  ]}
+  mb="5"
+/>
+
+<ColorsDemo
+  colors={[
+    {
+      id: 1,
+      backgroundColor: "HSL(230, 100%, 50%)",
+      textColor: "HSL(0, 100%, 100%)",
+    },
+    {
+      id: 2,
+      backgroundColor: "HSL(250, 100%, 50%)",
+      textColor: "HSL(0, 100%, 100%)",
+    },
+  ]}
+  mb="5"
+/>
+
+However, there's a solution for this; a new syntax under the relatively new
+[CIE Lab color space](https://developer.mozilla.org/en-US/docs/Glossary/Color_space).
+Until the introduction of LCH, every CSS color was defined to be in the
+[standard RGB (sRGB)](https://en.wikipedia.org/wiki/SRGB) color space. It allows
+us to
+[get access to 50% more colors than with sRGB](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/).
+
+The goal of the CIE color space is to allow for perceptually consistent color.
+Lab is a human perception motivated color syntax, which means that it's oriented
+towards how human perceive lightness. It's syntax is not straightforward as with
+the _hsl_ function; it expresses color as three values: _L_ for perceptual
+lightness and _a_ and _b_ for the four unique colors of human vision: red,
+green, blue and yellow.
+
+```css
+color: lab(29.2345% 39.3825 20.0664);
+```
+
+A more friendly syntax within the CIE color space is LCH which stands for
+Lightness, Chroma, Hue, and the _lch_ function allows you to specify colors
+using these values, and we can categorize it as a hybrid between _hsl_ and
+_lab_. Besides the lightness, which this new color space tries to fix, you get
+to specify the hue and chroma, which is easier to understand than the _a_ and
+_b_ values.
+
+```css
+color: lch(50% 100 120); /* Red */
+```
+
+If you want to play around with LCH, there's a great
+[LCH Color Picker](https://css.land/lch/) built by Lea Verou. With the
+development of more advanced hardware, it's exciting to see that CSS is evolving
+to keep up with the new possibilities. The new color spaces are a great example
+of that.
+
+### Typography
+
+When we browse the web, the majority of the content that we consume is text.
+It's one of the core building blocks of the web. Typography is the art and
+technique of arranging type and text to make it readable, clear, and visually
+appealing to the reader. In essence, typography is the visual component of the
+written word, and it gives a certain 'feel' to a web site.
+
+It's quite difficult to choose an appropriate font, or to combine fonts in a way
+that is visually appealing, and that's why typography is and should be
+considered an art form. I've often spent hours searching for the perfect font,
+or combination of fonts for my projects, finally finding it filled with glee,
+only to show it to someone and hear them say that something just feels 'off'.
+
+Besides the importance of a certain 'feel' to a font, I believe it's necessary
+to have an understanding of how it's even displayed on the screen. The process
+of rendering the text on to the screen is a complex one, but to simplify it, we
+can break it down to two distinct processes which are called kerning and
+rasterization.
+
+Kerning refers to the process of adjusting the space between individual
+characters to ensure that the spacing looks visually appealing and balanced. In
+typography, proper kerning improves the readability of text and enhances its
+overall visual presentation, making sure that certain letter combinations (like
+"AV" or "Wa") don't appear too spaced apart or too close together. This process
+helps to create smooth, proportional text.
+
+In CSS, we have a property called _font-kerning_ which controls whether kerning
+information, which is built into the font, should be used when rendering text.
+
+```css
+p {
+  font-kerning: normal;
+}
+```
+
+The _font-kerning_ property can take the following values:
+
+- _auto_ (default) - the browser will use kerning information from the font if
+  available.
+- _normal_ - forces the browser to use kerning information, if available.
+- _none_ - disables kerning information, even if the font includes kerning data.
+
+For fonts that include kerning pairs, kerning can enhance the readability of
+headers or large blocks of text. However, it's important to note that not all
+fonts have kerning data, and the effect may not be noticeable unless you're
+working with display fonts or larger text sizes.
+
+Rasterization refers to the process of converting vector-based text and images
+(scalable and defined by mathematical coordinates) into a pixel-based (bitmap)
+format. This is important for screen rendering because screens display content
+as a grid of pixels. When typography is rendered on a screen, the letters (which
+may be vector shapes in the font file) are rasterized into a bitmap so they can
+be displayed. This process affects how smooth or jagged the text appears on the
+screen, particularly at smaller sizes or lower resolutions.
+
+During rasterization, a technique called anti-aliasing is often used to smooth
+the edges of text, preventing jagged lines and making the text look more
+refined. This can also improve legibility at small sizes. In CSS, we have a
+property called _font-smoothing_ which controls the smoothing of text on the
+screen.
+
+```css
+p {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+
+As we can see in the example above, the property has vendor prefixes for WebKit
+(Safari and Chrome) and Mozilla (Firefox) browsers. This feature is
+[non-standard](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth) at
+the time of writing, and it's not recommended for use in production, however,
+it's good to be aware of what it does.
+
+Modern browsers and operating systems use subpixel rendering during
+rasterization to improve the sharpness of text. This process leverages the fact
+that each pixel on an LCD screen is made up of three subpixels (red, green and
+blue), and by adjusting the colors of these subpixels, the text can appear
+sharper than if each pixel was rendered in black and white. While you cannot
+directly control the rasterization process with CSS, some properties can
+influence how text is rendered on the screen, such as _text-rendering_ and
+_font-smoothing_.
+
+The _text-rendering_ property provides hints to the browser about how to
+optimize the rendering of text.
+
+```css
+body {
+  text-rendering: optimizeLegibility;
+}
+```
+
+- _auto_ - the browser will determine the best rendering method based on the
+  text and font properties.
+- _optimizeSpeed_ - the browser will prioritize rendering speed over quality.
+- _optimizeLegibility_ - the browser will prioritize text legibility and enable
+  font features like kerning.
+- _geometricPrecision_ - the browser will provide the most precise rendering but
+  with a cost to performance.
+
+The _font-smoothing_ property (vendor-prefixed) allows control over
+anti-aliasing ( a technique for minimizing the distortion artifacts when
+representing a high-resolution image at a lower resolution).
+
+```css
+p {
+  -webkit-font-smoothing: antialiased;
+}
+```
+
+- _auto_ - default smoothing based on the browser or operating system.
+- _none_ - disables anti-aliasing.
+- _antialiased_ - smooths the edges of text by turning off subpixel rendering
+  and using grayscale smoothing instead.
+
+Kerning and rasterization are essential for ensuring that text looks good and is
+easy to read. Kerning is important when you're working with text on a higher,
+more conceptual level - you're concerned about how letters fit together and the
+readibility of the text. Rasterization is more concerned with the pixel-level
+rendering of that text on the screen, and affects how sharp, smooth, or legible
+the text look, particularly at different resolutions of font sizes.
+
+Now, choosing the right font for your project is a crucial step in accomplishing
+the right look and feel. There are two main types of fonts: serif and
+sans-serif. Serif fonts have small lines or strokes attached to the ends of
+letters, while sans-serif fonts do not have these lines. Serif fonts are often
+associated with traditional, formal, or classic designs, while sans-serif fonts
+are considered more modern, clean, and easy to read. When choosing a font,
+consider the tone and style of your project, as well as the readability and
+legibility of the text. It's also important to consider the font size, line
+height, and spacing to ensure that the text is easy to read and visually
+appealing.
+
+We can also pair fonts to create contrast and visual interest. When pairing
+fonts, we can use fonts that have similar characteristics or that complement
+each other. For example, pairing a serif font with a sans-serif font can create
+a nice contrast and balance in the design. We can also use different weights,
+styles, and sizes to create hierarchy and emphasis in the text. When pairing
+fonts, it's important to consider the overall design and the message you want to
+convey. You can experiment with different combinations to find the right balance
+and style for your project. Some excellent font pairing resources are
+[fontjoy](https://fontjoy.com/), and [fontpair](https://www.fontpair.co/) which
+can help you find your perfect pair.
+
+### CSS Variables
+
+Projects always have a set of recurring values, be that color, font-size,
+spacing, etc. A great tool to avoid repetition and difficulties in maintaining
+our styles are
+[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties),
+also known as CSS Custom Properties.
+
+They are a powerful feature in CSS that allows us to define reusable values that
+can be applied across stylesheets. These variables enable a more efficient and
+maintainable approach to writing CSS, particularly when building design systems
+that require consistency across various elements (such as colors, typography,
+spacing, etc.). So, for example, when new developers comes into a project, they
+can easily understand the color scheme, typography, and spacing by looking at
+the variables defined at the top of the CSS file.
+
+To define a CSS variable, we use the _--_ prefix followed by the variable name.
+They are similar to variables in programming languages, allowing to store values
+and reuse them throughout a project. Generally, we define CSS variables at the
+top of the CSS file within the _html_ selector, however, we can use the
+[_:root_](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) pseudo-class
+which essentially represents the `<html>` element, it's identical to the _html_
+selector, but its specificity is higher.
+
+```css
+:root {
+  --brand-color: #3498db;
+  --font-size-base: 16px;
+  --spacing-unit: 1rem;
+}
+
+.primary-button {
+  background-color: var(--brand-color);
+  font-size: var(--font-size-base);
+  padding: var(--spacing-unit);
+}
+```
+
+In this example, we define three CSS variables: _--brand-color_,
+_--font-size-base_, and _--spacing-unit_. We then use these variables to set the
+background color, font size, and padding of the _primary-button_ class. We use
+the _var()_ function to access and apply the value of a custom property. By
+using CSS variables, we can easily update the values of these properties across
+the entire project by changing the variable values in one place. With the
+centralization of key values (e.g. brand colors, font sizes), we can update the
+design by changing the variable values in single place. This avoids the need to
+search and replace values throughout different stylesheets or files.
+
+CSS variables also make it easy to switch between different themes and modes
+(e.g. light and dark mode) by simply updating the variables. We can define
+different sets of variables for each theme and apply them based on user
+preferences or other conditions. Unlike preprocessed variables in Sass or Less
+which are static and compiled at build time, CSS variables can be changed
+dynamically at runtime using JavaScript. This allows for more interactive and
+responsive designs. They also support inheritance and cascading, making it a
+powerful tool in complex systems.
+
+### Final Thoughts
+
+CSS is becoming a more powerful and flexible language with each innovative
+feature. We can now create complex layouts and animations which were only
+possible with JavaScript. Understanding the fundamentals will help ease the
+overwhelm caused by the fast-paced of web development. After all, every new
+feature is built on that foundational knowledge.
+
+2024 has been a big year for CSS, and UI development in general. For a
+comprehensive recap of the latest CSS features, and what's on the horizon, be
+sure to check out
+[Una Kravets' Google I/O '24 talk](https://www.youtube.com/watch?v=_-6LgEjEyzE).
+Exciting times are ahead, and I can't wait to see what the future holds for CSS.
+
+### Resources
+
+- [CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [A brief history of CSS until 2016](https://www.w3.org/Style/CSS20/history.html)
+- [Syntax Podcast - CSS 4, 5, and 6! With Google\'s Una and Adam](https://syntax.fm/show/812/css-4-5-and-6-with-google-s-una-and-adam)
+- [Learn CSS](https://web.dev/learn/css) -
+  [LCH colors in CSS: what, why and how? by Lea Verou](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/)
+- [The Secret Mechanisms of CSS - Talk by Josh Comeau in Web à Québec 2024](https://www.youtube.com/watch?v=kj7WGnUDaI4)
+- [CSS for JS by Josh Comeau](https://css-for-js.dev/)

@@ -1,6 +1,6 @@
 import { SITE_TITLE } from "@/constants";
 import { BlogPost } from "../../../../components/features/blog/BlogPost/BlogPost";
-import { loadBlogPost } from "@/lib/file";
+import { extractHeadings, loadBlogPost } from "@/lib/file";
 
 interface IParams {
   params: { slug: string };
@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: IParams) {
 export default async function Post({ params }: IParams) {
   const slug = params.slug;
   const { frontmatter, content } = await loadBlogPost(slug);
-  const { title, publishedOn } = frontmatter;
+  const headings = await extractHeadings(content);
+  const { title, publishedOn, tableOfContents } = frontmatter;
 
   return (
     <BlogPost
@@ -38,6 +39,8 @@ export default async function Post({ params }: IParams) {
       title={title}
       publishedOn={publishedOn}
       content={content}
+      headings={headings}
+      tableOfContents={tableOfContents}
     />
   );
 }

@@ -4,6 +4,7 @@ import {
   ThemeConfig,
   defineStyleConfig,
   CSSWithMultiValues,
+  withDefaultColorScheme,
 } from "@chakra-ui/react";
 import { StyleFunctionProps } from "@chakra-ui/styled-system";
 import { mode } from "@/utils/mode";
@@ -71,6 +72,7 @@ const fonts = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     "html, body": {
+      scrollBehavior: "smooth",
       color: mode(props, "gray.200", "gray.700"),
       padding: "0",
       margin: "0",
@@ -78,7 +80,6 @@ const styles = {
       lineHeight: 1.6,
       minHeight: "fit-content",
     },
-
     ul: {
       marginLeft: "2rem",
     },
@@ -108,6 +109,7 @@ const Card = defineStyleConfig({
 
 const components = {
   Button: {
+    baseStyle: { lineHeight: 0 },
     variants: {
       primary: (props: StyleFunctionProps) => ({
         color: mode(props, "gray.800", "white"),
@@ -196,6 +198,7 @@ const components = {
   Link: {
     baseStyle: (props: StyleFunctionProps) => ({
       color: mode(props, "brand.300", "brand.600"),
+      cursor: "pointer",
     }),
     variants: {
       noUnderline: (props: StyleFunctionProps) => ({
@@ -292,6 +295,12 @@ const components = {
         border: "2px solid",
         color: mode(props, "gray.400", "gray.500"),
         borderColor: mode(props, "brand.300", "brand.400"),
+        transition: "color 0.5s ease, background-color 0.5s ease",
+        _hover: {
+          bgColor: mode(props, "brand.300", "brand.400"),
+          color: mode(props, "gray.50", "gray.50"),
+          transition: "color 0.25s ease, background-color 0.25s ease",
+        },
       }),
     },
   },
@@ -351,13 +360,16 @@ const components = {
   },
 } as const;
 
-const theme = extendTheme({
-  styles,
-  colors,
-  fonts,
-  components,
-  breakpoints,
-  boxShadow,
-});
+const theme = extendTheme(
+  {
+    styles,
+    colors,
+    fonts,
+    components,
+    breakpoints,
+    boxShadow,
+  },
+  withDefaultColorScheme({ colorScheme: "brand" })
+);
 
 export default theme;
